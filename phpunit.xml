@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<phpunit
+        bootstrap="tests/bootstrap.php"
+        backupGlobals="false"
+        colors="true"
+        convertErrorsToExceptions="true"
+        convertNoticesToExceptions="true"
+        convertWarningsToExceptions="true"
+        defaultTestSuite="unit"
+>
+    <testsuites>
+        <testsuite name="unit">
+            <directory suffix="Test.php">./tests</directory>
+        </testsuite>
+    </testsuites>
+    <coverage>
+        <include>
+            <directory suffix=".php">includes</directory>
+            <file>licensing.php</file>
+        </include>
+        <exclude>
+            <file>includes/Providers/AssetsProvider.php</file>
+        </exclude>
+        <report>
+            <html outputDirectory="build/coverage" highLowerBound="100"/>
+        </report>
+    </coverage>
+</phpunit>

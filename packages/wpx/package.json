@@ -5,7 +5,7 @@
   "main": "index.ts",
   "scripts": {
     "build": "wp-scripts build",
-    "start": "wp-scripts start",
+    "start": "wp-scripts start --output-path=../../dist/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -16,7 +16,7 @@
     "@wordpress/block-editor": "^12.15.0",
     "@wordpress/components": "^25.11.0",
     "@wordpress/data": "^9.16.0",
-    "@wordpress/scripts": "^26.16.0",
+    "@wordpress/scripts": "^26.18.0",
     "change-case": "^5.2.0",
     "classnames": "^2.3.2",
     "css-loader": "^6.8.1",
