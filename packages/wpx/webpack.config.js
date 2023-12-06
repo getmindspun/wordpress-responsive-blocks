@@ -8,6 +8,7 @@ const plugins = defaultConfig.plugins.filter((plugin) => {
 
 module.exports = {
     ...defaultConfig,
+    target: 'web',
     entry: {
         'wpx': './index.ts',
     },

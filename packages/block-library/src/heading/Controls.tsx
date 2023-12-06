@@ -1,17 +1,25 @@
 import {Props} from './types';
 import {InspectorControls} from '@wordpress/block-editor';
 
-import {FontSizeControl} from 'wpx';
+import {BaseControls, HeadingTagControl} from '@mindspun/wpx';
 
 const Controls = (props: Props) => {
     return (
         <InspectorControls>
-            <FontSizeControl
-                value={props.attributes.fontSize}
-                onChange={(fontSize: string | number | undefined) => {
-                    props.setAttributes({fontSize});
+            <BaseControls
+                attributes={props.attributes.style ? props.attributes.style : {}}
+                setAttributes={style => {
+                    props.setAttributes({style: {...props.attributes.style, ...style}});
                 }}
-            />
+                options={{
+                    color: {responsive: true}
+                }}
+            >
+                <HeadingTagControl
+                    tag={props.attributes.tagName}
+                    onChange={tagName => props.setAttributes({tagName})}
+                />
+            </BaseControls>
         </InspectorControls>
     );
 }

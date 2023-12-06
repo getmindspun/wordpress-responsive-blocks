@@ -44,7 +44,7 @@ module.exports = {
 			outputFilename: null,
 			useDefaults: true,
 			requestToExternal(request) {
-				if (request === 'wpx') {
+				if (request === '@mindspun/wpx') {
 					return 'wpx';
 				}
 			},
