@@ -1,5 +1,11 @@
 const defaultConfig = require('@wordpress/scripts/config/webpack.config');
 
+const plugins = defaultConfig.plugins.filter((plugin) => {
+    return (
+        plugin.constructor.name !== 'CleanWebpackPlugin'
+    );
+});
+
 module.exports = {
     ...defaultConfig,
     entry: {
@@ -34,5 +40,6 @@ module.exports = {
     },
     resolve: {
         extensions: [ '.ts', '.tsx', ...(defaultConfig.resolve ? defaultConfig.resolve.extensions || ['.js', '.jsx'] : [])]
-    }
+    },
+    plugins: plugins
 };

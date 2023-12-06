@@ -37,6 +37,9 @@ export * from './MarginControl/MarginControl';
 export {default as MediaControl} from './MediaControl/MediaControl';
 export * from './MediaControl/MediaControl';
 
+export {default as PaddingControl} from './PaddingControl/PaddingControl';
+export * from './PaddingControl/PaddingControl';
+
 export {default as TextAlignControl} from './TextAlignControl/TextAlignControl';
 export * from './TextAlignControl/TextAlignControl';
 

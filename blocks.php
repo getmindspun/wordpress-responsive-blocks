@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Mindspun Responsive Blocks for Gutenberg
  * Description:       Fully-responsive, easy-to-use Gutenberg blocks for your site.
- * Requires at least: 6.0
+ * Requires at least: 6.2
  * Requires PHP:      7.4
  * Version:           0.0.0
  * Author: Mindspun
@@ -93,4 +93,29 @@ add_action(
         $script_path = plugins_url( '/dist/wpx.js', __FILE__ );
         wp_register_script( 'wpx', $script_path, $args['dependencies'], $args['version'] );
     }
+);
+
+/* Custom Block Editor category for our blocks. */
+add_filter(
+	'block_categories_all',
+	function ( $categories ) {
+		$category = array(
+			'slug'  => 'mindspun-responsive-blocks',
+			'title' => 'Mindspun Responsive Blocks',
+		);
+
+		return array($category) + $categories;
+	}
+);
+
+/* Register our blocks. */
+add_action(
+	'init',
+	function () {
+		foreach ( scandir( __DIR__ . '/dist' ) as $name ) {
+			if ( ! in_array( $name, array( '..', '.' ) ) ) {
+				register_block_type( __DIR__ . '/dist/' . $name );
+			}
+		}
+	}
 );

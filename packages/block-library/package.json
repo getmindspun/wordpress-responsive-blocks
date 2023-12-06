@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start --output-path=../../dist/"
+  }
+}
