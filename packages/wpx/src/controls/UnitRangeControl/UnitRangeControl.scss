@@ -1,0 +1,13 @@
+.wpx--unit-range-control {
+    display: flex;
+    & > * {
+        width: 50%;
+    }
+    .components-unit-control {
+        margin-bottom: 0;
+    }
+    .components-range-control {
+        margin-left: 16px;
+        margin-bottom: 0;
+    }
+}

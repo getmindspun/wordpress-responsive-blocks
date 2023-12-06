@@ -1,0 +1,4 @@
+/.idea
+/.webpack
+/node_modules
+*.zip

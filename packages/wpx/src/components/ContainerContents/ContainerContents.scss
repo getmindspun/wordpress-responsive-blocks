@@ -1,0 +1,15 @@
+@import "../../scss/variables";
+
+.wpx--container-contents {
+    display: grid;
+    padding: 1em;
+
+    & > *, & > .components-base-control {
+        margin-bottom: 1em;
+    }
+}
+
+.wpx--divider {
+    background-color: $light-gray;
+    height: 1em;
+}

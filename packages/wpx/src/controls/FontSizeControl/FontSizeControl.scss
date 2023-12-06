@@ -1,0 +1,17 @@
+@import "../../scss/mixins";
+
+.wpx--font-size-control {
+    input, .components-input-control {
+        margin-bottom: 0 !important;
+    }
+
+    .components-input-control__suffix {
+        select {
+            width: 30px !important;
+        }
+    }
+
+    .components-button.is-small.has-icon:not(.has-text) {
+        @extend .wpx--control-header-button;
+    }
+}

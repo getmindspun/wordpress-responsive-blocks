@@ -1,0 +1,39 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.wpx--control-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+
+    label {
+        line-height: 24px;
+        display: flex;
+        flex-grow: 1;
+        font-size: 11px;
+        font-weight: 500;
+        text-transform: uppercase;
+        gap: calc(4px);
+    }
+
+    span {
+        color: #757575;
+    }
+
+    .components-button {
+        &.is-small.has-icon:not(.has-text) {
+            @extend .wpx--control-header-button
+        }
+    }
+
+    .components-button-group {
+        .components-button {
+            &.is-small.has-icon:not(.has-text) {
+                &.is-pressed, &.is-pressed .dashicon {
+                    background-color: transparent;
+                    color: $blue;
+                }
+            }
+        }
+    }
+}

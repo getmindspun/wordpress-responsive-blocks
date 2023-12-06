@@ -1,0 +1,60 @@
+@import "variables";
+
+.wpx--control-header-button {
+    color: $gray;
+    font-size: 18px;
+    height: auto;
+    width: auto;
+    min-width: 0;
+    margin-bottom: 0;
+    padding: 2px 4px;
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+
+    & svg {
+        box-sizing: border-box;
+        width: 1em;
+        height: 1em;
+    }
+
+    .dashicon {
+        color: $gray;
+        font-size: 15px;
+        height: 15px;
+        width: 15px;
+    }
+
+    &.is-pressed, &.is-pressed .dashicon {
+        background-color: $blue;
+    }
+}
+
+.wpx--button-group {
+    width: 100%;
+    display: flex;
+    border: 1px solid $gray;
+
+    .components-button {
+        color: $gray;
+        flex-grow: 1;
+        font-size: 24px;
+        outline: none;
+        box-shadow: none;
+        border-radius: 0;
+
+        &:focus {
+            box-shadow: none;
+            outline: none
+        }
+
+        &.is-pressed {
+            background-color: $blue;
+        }
+
+        & > svg {
+            height: 28px;
+            width: 28px;
+        }
+    }
+}

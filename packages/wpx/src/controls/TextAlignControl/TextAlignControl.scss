@@ -1,0 +1,9 @@
+@import "../../scss/mixins";
+
+.wpx--text-align-control {
+
+    /* Responsive version */
+    & > .components-button-group {
+        @extend .wpx--button-group;
+    }
+}

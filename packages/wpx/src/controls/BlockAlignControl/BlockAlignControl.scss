@@ -1,0 +1,7 @@
+@import "../../scss/mixins";
+
+.wpx--block-align-control {
+    & > .components-button-group {
+        @extend .wpx--button-group;
+    }
+}
