@@ -15,6 +15,8 @@ const PROPERTIES = [
     'borderTopRightRadius',
     'color',
     'fontSize',
+    'fontStyle',
+    'fontWeight',
     'margin',
     'marginBottom',
     'marginLeft',

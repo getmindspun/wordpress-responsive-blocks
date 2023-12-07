@@ -124,13 +124,8 @@ const BaseControls = (props: BaseControlsProps) => {
             }
             {options.fontAppearance &&
                 <FontAppearanceControl
-                    style={{
-                        fontStyle: props.attributes.fontStyle,
-                        fontWeight: props.attributes.fontWeight
-                    }}
-                    onChange={(value: FontAppearance) => {
-                        props.setAttributes({...value});
-                    }}
+                    attributes={props.attributes}
+                    setAttributes={props.setAttributes}
                 />
             }
             {options.letterCase &&

@@ -17,6 +17,8 @@ type Story = StoryObj<typeof LetterCaseControl>;
 export const Default: Story = {
     render: () => {
         const [textTransform, setTextTransform] = useState<TextTransform>(undefined);
-        return <LetterCaseControl textTransform={ textTransform } onChange={ setTextTransform }/>;
+        return (
+            <LetterCaseControl textTransform={ textTransform } onChange={ setTextTransform }/>
+        );
     }
 };

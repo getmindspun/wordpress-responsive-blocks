@@ -14,7 +14,12 @@ const Controls = (props: Props) => {
                     }}
                     options={{
                         color: {responsive: true},
-                        fontSize: {responsive: true}
+                        textAlign: {responsive: true},
+                        fontSize: {responsive: true},
+                        letterCase: true,
+                        fontAppearance: true,
+                        margin: {responsive: true},
+                        padding: {responsive: true}
                     }}
                 >
                     <HeadingTagControl

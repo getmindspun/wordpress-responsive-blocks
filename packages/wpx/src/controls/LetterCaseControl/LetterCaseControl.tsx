@@ -12,35 +12,33 @@ export interface LetterCaseControlProps {
 }
 
 const LetterCaseControl = (props: LetterCaseControlProps) => {
-    /* Internal state is required so that users can uncheck values */
-    function onChange(value: TextTransform) {
-        props.onChange(value);
-    }
 
     return (
         <div className="wpx--letter-case-control">
-            <ControlHeader title="Letter Case"/>
+            <ControlHeader
+                title="Letter Case"
+            />
             <div>
                 <Button
                     icon={ reset }
                     describedBy="None"
                     isPressed={ props.textTransform === 'none' }
-                    onClick={ () => onChange('none') }/>
+                    onClick={ () => props.onChange(props.textTransform !== 'none' ? 'none' : undefined) }/>
                 <Button
                     icon={ formatUppercase }
                     describedBy="Uppercase"
                     isPressed={ props.textTransform === 'uppercase' }
-                    onClick={ () => onChange('uppercase') }/>
+                    onClick={ () => props.onChange(props.textTransform !== 'uppercase' ? 'uppercase' : undefined) }/>
                 <Button
                     icon={ formatLowercase }
                     describedBy="Lowercase"
                     isPressed={ props.textTransform === 'lowercase' }
-                    onClick={ () => onChange('lowercase') }/>
+                    onClick={ () => props.onChange(props.textTransform !== 'lowercase' ? 'lowercase' : undefined) }/>
                 <Button
                     icon={ formatCapitalize }
                     describedBy="Capitalize"
                     isPressed={ props.textTransform === 'capitalize' }
-                    onClick={ () => onChange('capitalize') }/>
+                    onClick={ () => props.onChange(props.textTransform !== 'capitalize' ? 'capitalize' : undefined) }/>
             </div>
         </div>
     );

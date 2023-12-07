@@ -18,6 +18,8 @@ const PROPERTIES = array(
     'borderTopRightRadius',
     'color',
     'fontSize',
+    'fontStyle',
+    'fontWeight',
     'margin',
     'marginBottom',
     'marginLeft',

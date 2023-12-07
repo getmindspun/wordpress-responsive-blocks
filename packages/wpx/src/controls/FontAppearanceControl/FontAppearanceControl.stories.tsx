@@ -3,8 +3,9 @@
 import React from 'react';
 import type {Meta, StoryObj} from '@storybook/react';
 
-import FontAppearanceControl, {FontAppearance} from './FontAppearanceControl';
+import FontAppearanceControl, {FontAppearanceControlProps} from './FontAppearanceControl';
 import {useState} from '@wordpress/element';
+import Display from '../../.storybook/Display';
 
 
 const meta: Meta<typeof FontAppearanceControl> = {
@@ -17,7 +18,14 @@ type Story = StoryObj<typeof FontAppearanceControl>;
 
 export const Default: Story = {
     render: () => {
-        const [value, setValue] = useState<FontAppearance>({});
-        return <FontAppearanceControl onChange={ setValue } style={ value }/>;
+        const [attributes, setAttributes] = useState<FontAppearanceControlProps['attributes']>({} as FontAppearanceControlProps['attributes']);
+        return (
+            <Display attributes={attributes}>
+                <FontAppearanceControl
+                    attributes={attributes}
+                    setAttributes={setAttributes}
+                />
+            </Display>
+        );
     }
 };

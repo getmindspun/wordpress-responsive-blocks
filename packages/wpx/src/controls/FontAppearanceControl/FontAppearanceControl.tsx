@@ -1,11 +1,14 @@
 import {CSSProperties} from 'react';
 
 import {CustomSelectControl} from '@wordpress/components';
-import {useState} from '@wordpress/element';
 
-type FontAppearanceControlProps = {
-    style: FontAppearance;
-    onChange: (style: FontAppearance) => void;
+import './FontAppearanceControl.scss';
+import ControlHeader from '../../components/ControlHeader/ControlHeader';
+import {BlockCSSProperties} from '../../types';
+
+export type FontAppearanceControlProps = {
+    attributes: Pick<BlockCSSProperties, 'fontStyle' | 'fontWeight'>;
+    setAttributes: (attributes: Partial<FontAppearanceControlProps['attributes']>) => void;
 }
 
 export type FontAppearance = Pick<CSSProperties, 'fontWeight' | 'fontStyle'>;
@@ -65,22 +68,31 @@ function find(fontWeight: number | undefined, fontStyle: 'normal' | 'italic' | u
 }
 
 const FontAppearanceControl = (props: FontAppearanceControlProps) => {
-    const [fontWeight, setFontWeight] = useState(props.style.fontWeight);
-    const [fontStyle, setFontStyle] = useState(props.style.fontStyle);
-
     function onChange(option: Option) {
-        setFontWeight(option.style.fontWeight);
-        setFontStyle(option.style.fontStyle);
-        props.onChange(option.style);
+        props.setAttributes({
+            fontStyle: option.style.fontStyle,
+            fontWeight: option.style.fontWeight
+        })
+    }
+
+    function onClear() {
+        props.setAttributes({
+            fontStyle: undefined,
+            fontWeight: undefined
+        });
     }
 
     return (
         <div className="wpx--font-appearance-control">
+            <ControlHeader
+                title="Appearance"
+                onClear={(props.attributes.fontWeight !== undefined || props.attributes.fontStyle !== undefined) ? onClear : undefined}
+            />
             <CustomSelectControl
-                label="Appearance"
+                label={undefined}
                 options={ asOptions() }
                 onChange={ ({selectedItem}: { selectedItem: Option }) => onChange(selectedItem) }
-                value={ find(fontWeight as number | undefined, fontStyle as 'normal' | 'italic' | undefined) }
+                value={ find(props.attributes.fontWeight as number | undefined, props.attributes.fontStyle as 'normal' | 'italic' | undefined) }
                 __nextUnconstrainedWidth
             />
         </div>
