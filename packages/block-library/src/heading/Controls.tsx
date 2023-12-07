@@ -13,7 +13,8 @@ const Controls = (props: Props) => {
                         props.setAttributes({style: {...props.attributes.style, ...style}});
                     }}
                     options={{
-                        color: {responsive: true}
+                        color: {responsive: true},
+                        fontSize: {responsive: true}
                     }}
                 >
                     <HeadingTagControl

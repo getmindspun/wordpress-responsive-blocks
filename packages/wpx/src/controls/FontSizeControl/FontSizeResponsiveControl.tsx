@@ -1,56 +1,46 @@
-import {FontSizePicker} from '@wordpress/components';
-
-import {BlockCSSProperties} from '../../types';
-
 import './FontSizeControl.scss';
-import FontSizes from './FontSizes';
 import {useGetPreviewDeviceType} from '../../hooks';
+import {FontSizeControlProps} from './FontSizeControl';
+import FontSizeBaseControl from './FontSizeBaseControl';
 
-export interface FontSizeResponsiveControlProps {
-    attributes: Pick<BlockCSSProperties, 'fontSize' | 'mobileFontSize' | 'tabletFontSize'>,
-    setAttributes: (values: Partial<FontSizeResponsiveControlProps['attributes']>) => void;
-}
-
-const FontSizeControl = (props: FontSizeResponsiveControlProps) => {
+const FontSizeResponsiveControl = (props: {
+    attributes: FontSizeControlProps['attributes'],
+    setAttributes: FontSizeControlProps['setAttributes'],
+    isAdvanced?: boolean
+}) => {
     const deviceType = useGetPreviewDeviceType();
 
     return (
         <div className="wpx--font-size-control">
             {deviceType === 'Desktop' &&
-                <FontSizePicker
-                    __nextHasNoMarginBottom
-                    fontSizes={FontSizes}
-
-                    value={props.attributes.fontSize}
+                <FontSizeBaseControl
+                    fontSize={props.attributes.fontSize}
                     onChange={(fontSize) => {
                         props.setAttributes({fontSize});
                     }}
+                    isAdvanced={props.isAdvanced}
                 />
             }
             {deviceType === 'Tablet' &&
-                <FontSizePicker
-                    __nextHasNoMarginBottom
-                    fontSizes={FontSizes}
-
-                    value={props.attributes.tabletFontSize}
+                <FontSizeBaseControl
+                    fontSize={props.attributes.tabletFontSize}
                     onChange={(tabletFontSize) => {
                         props.setAttributes({tabletFontSize});
                     }}
+                    isAdvanced={props.isAdvanced}
                 />
             }
             {deviceType === 'Mobile' &&
-                <FontSizePicker
-                    __nextHasNoMarginBottom
-                    fontSizes={FontSizes}
-
-                    value={props.attributes.mobileFontSize}
+                <FontSizeBaseControl
+                    fontSize={props.attributes.mobileFontSize}
                     onChange={(mobileFontSize) => {
                         props.setAttributes({mobileFontSize});
                     }}
+                    isAdvanced={props.isAdvanced}
                 />
             }
         </div>
     );
 };
 
-export default FontSizeControl;
+export default FontSizeResponsiveControl;

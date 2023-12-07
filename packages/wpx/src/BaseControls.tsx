@@ -6,8 +6,7 @@ import {
     BorderControl,
     ColorControl,
     FontAppearance,
-    FontAppearanceControl,
-    FontSizeControl,
+    FontAppearanceControl, FontSizeControl,
     LetterCaseControl,
     MarginControl,
     PaddingControl,
@@ -17,6 +16,7 @@ import {
 
 import {BlockCSSProperties} from './types';
 import {ColorsGroup} from './components';
+import {FontSizePicker} from '@wordpress/components';
 
 type Option = {
     responsive?: boolean;
@@ -26,7 +26,7 @@ type Option = {
 type CreateControlGroupOptions = {
     color?: boolean | Option,
     backgroundColor?: boolean | Option,
-    fontSize?: boolean,
+    fontSize?: boolean | Option,
     textAlign?: boolean | Option
     fontAppearance?: boolean,
     letterCase?: boolean,
@@ -107,14 +107,6 @@ const BaseControls = (props: BaseControlsProps) => {
         <div className={"wpx--base-controls"}>
             {props.children}
             {createColorGroup(props.attributes, props.setAttributes, options)}
-            {options.fontSize &&
-                <FontSizeControl
-                    value={props.attributes.fontSize}
-                    onChange={(fontSize: string | number | undefined) => {
-                        props.setAttributes({fontSize});
-                    }}
-                />
-            }
             {options.textAlign && (
                 <TextAlignControl
                     label={label(options.textAlign, 'Text Align')}
@@ -123,6 +115,13 @@ const BaseControls = (props: BaseControlsProps) => {
                     isResponsive={isResponsive(options.textAlign)}
                 />
             )}
+            {options.fontSize &&
+                <FontSizeControl
+                    attributes={props.attributes}
+                    setAttributes={props.setAttributes}
+                    isResponsive={isResponsive(options.fontSize)}
+                />
+            }
             {options.fontAppearance &&
                 <FontAppearanceControl
                     style={{

@@ -51,11 +51,11 @@ const PaddingControl = (props: PaddingControlProps) => {
         <div className="wpx--padding-control">
             <ControlHeader
                 title={props.label}
-                hint={ isLinked ? headerHint(props.attributes, !!props.isResponsive, deviceType) : ''}
+                hint={ isLinked ? headerHint(props.attributes, deviceType) : ''}
                 isLinked={ isLinked } onLinkedChange={ setIsLinked }
                 isAdvanced={ isAdvanced } onAdvancedChange={ setIsAdvanced }
                 isResponsive={props.isResponsive}
-                onClear={showClear(props.attributes, !!props.isResponsive, deviceType) ? onClear : undefined}
+                onClear={showClear(props.attributes, deviceType) ? onClear : undefined}
             />
             {props.isResponsive ?
                 <PaddingResponsiveControl

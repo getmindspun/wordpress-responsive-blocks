@@ -57,6 +57,7 @@ export const Responsive: Story = {
                         color: {responsive: true},
                         backgroundColor: {responsive: true},
                         textAlign: {responsive: true},
+                        fontSize: {responsive: true},
                         blockAlign: {responsive: true},
                         margin: {responsive: true},
                         padding: {responsive: true},
