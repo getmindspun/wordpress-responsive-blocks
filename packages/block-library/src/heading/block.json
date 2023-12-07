@@ -5,7 +5,6 @@
 	"version": "0.1.0",
 	"title": "Heading",
 	"category": "mindspun-responsive-blocks",
-	"icon": "heading",
 	"description": "Fully-responsive headings.",
 	"example": {},
 	"attributes": {
