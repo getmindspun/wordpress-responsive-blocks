@@ -1,5 +1,5 @@
 <?php
-declare( strict_types=1 );
+declare(strict_types=1);
 
 namespace WPX;
 
@@ -16,7 +16,6 @@ const PROPERTIES = array(
     'borderTop',
     'borderTopLeftRadius',
     'borderTopRightRadius',
-    'blockAlign',
     'color',
     'fontSize',
     'margin',
@@ -37,6 +36,7 @@ const PROPERTIES = array(
  * Creates minimized CSS rulesets
  */
 class CSSBuilder {
+
 
     /**
      * List of declarations indexed by media type.
@@ -96,101 +96,71 @@ class CSSBuilder {
     }
 
     /**
-     * Create a ruleset for the parent div of block align elements.
-     *
-     * @param string $id
-     * @param string $selector
-     * @param string $block_align
-     *
-     * @return string
-     */
-    public function block_align_ruleset( string $id, string $selector, string $block_align ): string {
-        $array = array(
-            'display:flex',
-            'flex-direction:row',
-            'width:100%',
-        );
-        if ( ! in_array( $block_align, array( 'full', 'wide' ) ) ) {
-            $array[] = "justify-content:$block_align";
-        }
-        return "#$id div:has(>$selector){" . join( ';', $array ) . '}';
-    }
-
-    /**
      * Creates a ruleset for the selector from the given style.
      *
-     * @param string $id
-     * @param string $selector
-     * @param array  $style
+     * @param string      $id
+     * @param array       $style
+     * @param string|null $selector
+     * @param bool        $hover
      * @return string
      */
-    private function ruleset( string $id, string $selector, array $style ): string {
+    private function ruleset( string $id, array $style, string $selector = null, bool $hover = false ): string {
         $array = array();
 
         foreach ( $style as $name => $value ) {
             $property = self::kebab_case( $name );
-            if ( 'blockAlign' === $name ) {
-                if ( in_array( $value, array( 'full', 'wide' ) ) ) {
-                    $array[] = 'flex-grow:1';
-                }
-                if ( 'full' === $value ) {
-                    $array[] = 'flex-basis:auto';
-                }
-            } else {
-                $array[] = "$property:$value";
-            }
+            $array[] = "$property:$value";
         }
 
-        return count( $array ) > 0 ? "#$id $selector" . '{' . join( ';', $array ) . '}' : '';
+        $prefix = "#$id";
+        if ( $selector ) {
+            $prefix .= " $selector";
+        }
+        if ( $hover ) {
+            $prefix .= ':hover';
+        }
+
+        return ( count( $array ) > 0 ) ? "$prefix{" . join( ';', $array ) . '}' : '';
     }
 
     /**
      * Generate the CSS using the given selector.
      *
      * @param string $id
-     * @param string $selector
+     * @param string|null $selector
      * @return string
      */
-    public function to_css( string $id, string $selector ): string {
+    public function to_css( string $id, string $selector = null ): string {
         $rulesets = array();
 
         if ( ! empty( $this->state['desktop'] ) ) {
-            if ( $this->state['desktop']['blockAlign'] ?? '' ) {
-                $rulesets[] = $this->block_align_ruleset( $id, $selector, $this->state['desktop']['blockAlign'] );
-            }
-            $ruleset = $this->ruleset( $id, $selector, $this->state['desktop'] );
+            $ruleset = $this->ruleset( $id, $this->state['desktop'], $selector );
             if ( $ruleset ) {
                 $rulesets[] = $ruleset;
             }
         }
         if ( ! empty( $this->state['desktopHover'] ) ) {
-            $rulesets[] = $this->ruleset( $id, $selector . ':hover', $this->state['desktopHover'] );
+            $rulesets[] = $this->ruleset( $id, $this->state['desktopHover'], $selector, true );
         }
 
         if ( ! empty( $this->state['tablet'] ) ) {
-            if ( $this->state['tablet']['blockAlign'] ?? '' ) {
-                $rulesets[] = '@media (max-width:780px){' . $this->block_align_ruleset( $id, $selector, $this->state['tablet']['blockAlign'] ) . '}';
-            }
-            $ruleset = $this->ruleset( $id, $selector, $this->state['tablet'] );
+            $ruleset = $this->ruleset( $id, $this->state['tablet'], $selector );
             if ( $ruleset ) {
                 $rulesets[] = '@media (max-width:780px){' . $ruleset . '}';
             }
         }
         if ( ! empty( $this->state['tabletHover'] ) ) {
-            $rulesets[] = '@media (max-width:780px){' . $this->ruleset( $id, $selector . ':hover', $this->state['tabletHover'] ) . '}';
+            $rulesets[] = '@media (max-width:780px){' . $this->ruleset( $id, $this->state['tabletHover'], $selector, true ) . '}';
         }
 
         if ( ! empty( $this->state['mobile'] ) ) {
-            if ( $this->state['mobile']['blockAlign'] ?? '' ) {
-                $rulesets[] = '@media (max-width:480px){' . $this->block_align_ruleset( $id, $selector, $this->state['mobile']['blockAlign'] ) . '}';
-            }
-            $ruleset = $this->ruleset( $id, $selector, $this->state['mobile'] );
+            $ruleset = $this->ruleset( $id, $this->state['mobile'], $selector );
             if ( $ruleset ) {
                 $rulesets[] = '@media (max-width:480px){' . $ruleset . '}';
             }
         }
         if ( ! empty( $this->state['mobileHover'] ) ) {
-            $rulesets[] = '@media (max-width:480px){' . $this->ruleset( $id, $selector . ':hover', $this->state['mobileHover'] ) . '}';
+            $rulesets[] = '@media (max-width:480px){' . $this->ruleset( $id, $this->state['mobileHover'], $selector, true ) . '}';
         }
 
         return join( "\n", $rulesets );

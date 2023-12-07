@@ -43,45 +43,4 @@ class CSSBuilderTest extends TestCase
         $builder->add_attributes(array('mobileMarginTopHover' => '1em') );
         $this->assertEquals('@media (max-width:480px){#123 .block:hover{margin-top:1em}}', $builder->to_css('123', '.block'));
     }
-
-	public function test_block_align() {
-		$builder = new CSSBuilder();
-		$builder->add_attributes(array('blockAlign' => 'center') );
-		$this->assertEquals('#123 div:has(>.block){display:flex;flex-direction:row;width:100%;justify-content:center}', $builder->to_css('123', '.block'));
-	}
-
-	public function test_block_align_tablet() {
-		$builder = new CSSBuilder();
-		$builder->add_attributes(array('tabletBlockAlign' => 'center') );
-		$this->assertEquals('@media (max-width:780px){#123 div:has(>.block){display:flex;flex-direction:row;width:100%;justify-content:center}}', $builder->to_css('123', '.block'));
-	}
-
-	public function test_block_align_mobile() {
-		$builder = new CSSBuilder();
-		$builder->add_attributes(array('mobileBlockAlign' => 'center') );
-		$this->assertEquals('@media (max-width:480px){#123 div:has(>.block){display:flex;flex-direction:row;width:100%;justify-content:center}}', $builder->to_css('123', '.block'));
-	}
-
-	public function test_block_align_wide() {
-		$builder = new CSSBuilder();
-		$builder->add_attributes(array('blockAlign' => 'wide') );
-
-		$expected = array(
-			'#123 div:has(>.block){display:flex;flex-direction:row;width:100%}',
-			'#123 .block{flex-grow:1}'
-		);
-
-		$this->assertEquals(join("\n", $expected), $builder->to_css('123', '.block'));
-	}
-
-	public function test_block_align_full() {
-		$builder = new CSSBuilder();
-		$builder->add_attributes(array('blockAlign' => 'full') );
-
-		$expected = array(
-			'#123 div:has(>.block){display:flex;flex-direction:row;width:100%}',
-			'#123 .block{flex-grow:1;flex-basis:auto}'
-		);
-		$this->assertEquals(join("\n", $expected), $builder->to_css('123', '.block'));
-	}
 }

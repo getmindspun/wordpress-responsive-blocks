@@ -28,5 +28,9 @@
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.1",
     "url-loader": "^4.1.1"
+  },
+  "dependencies": {
+    "@dr.pogodin/babel-preset-svgr": "^1.8.0",
+    "new-url-loader": "^0.1.1"
   }
 }
