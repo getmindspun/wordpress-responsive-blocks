@@ -1,0 +1,28 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+$displays: block, flex, inline, inline-block, inline-flex, none;
+
+@each $display in $displays {
+    .wpx-d-#{$display} {
+        display: $display;
+    }
+
+    @media (max-width: 1024px) {
+        .wpx-d-tablet-#{$display} {
+            display: $display;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .wpx-d-mobile-#{$display} {
+            display: $display;
+        }
+    }
+}
+
+.wp-block-mindspun-container {
+}

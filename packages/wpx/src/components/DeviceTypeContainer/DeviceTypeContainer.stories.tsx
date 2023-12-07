@@ -4,7 +4,6 @@ import React from 'react';
 import type {Meta, StoryObj} from '@storybook/react';
 
 import DeviceTypeContainer from './DeviceTypeContainer';
-import {useState} from '@wordpress/element';
 import ControlHeader from '../ControlHeader/ControlHeader';
 
 const meta: Meta<typeof DeviceTypeContainer> = {

@@ -1,0 +1,1 @@
+../wpx/globals.d.ts

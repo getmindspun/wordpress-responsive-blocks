@@ -144,11 +144,11 @@ export class CSSBuilder {
         if (!CSSBuilder.isEmpty(this.state.tablet)) {
             const ruleset = this.ruleset(id, this.state.tablet, selector);
             if (ruleset) {
-                rulesets.push(`@media (max-width:780px){${ruleset}}`);
+                rulesets.push(`@media (max-width:1024px){${ruleset}}`);
             }
         }
         if (!CSSBuilder.isEmpty(this.state.tabletHover)) {
-            rulesets.push('@media (max-width:780px){' + this.ruleset(id,this.state.tabletHover, selector, true) + '}');
+            rulesets.push('@media (max-width:1024px){' + this.ruleset(id,this.state.tabletHover, selector, true) + '}');
         }
 
         if (!CSSBuilder.isEmpty(this.state.mobile)) {

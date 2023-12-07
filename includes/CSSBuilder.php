@@ -148,11 +148,11 @@ class CSSBuilder {
         if ( ! empty( $this->state['tablet'] ) ) {
             $ruleset = $this->ruleset( $id, $this->state['tablet'], $selector );
             if ( $ruleset ) {
-                $rulesets[] = '@media (max-width:780px){' . $ruleset . '}';
+                $rulesets[] = '@media (max-width:1024px){' . $ruleset . '}';
             }
         }
         if ( ! empty( $this->state['tabletHover'] ) ) {
-            $rulesets[] = '@media (max-width:780px){' . $this->ruleset( $id, $this->state['tabletHover'], $selector, true ) . '}';
+            $rulesets[] = '@media (max-width:1024px){' . $this->ruleset( $id, $this->state['tabletHover'], $selector, true ) . '}';
         }
 
         if ( ! empty( $this->state['mobile'] ) ) {

@@ -5,10 +5,10 @@ export type VerticalAlign = 'top' | 'middle' | 'bottom' | 'stretch';
 
 export interface BlockCSSProperties extends CSSProperties {
     blockAlign?: BlockAlign;
-    verticalAlign?: CSSProperties['verticalAlign'] | 'stretch';
+    verticalAlign?: CSSProperties['verticalAlign'] | 'stretch',
 
-    colorHover?: CSSProperties['color'];
-    backgroundColorHover?: CSSProperties['backgroundColor'];
+    colorHover?: CSSProperties['color'],
+    backgroundColorHover?: CSSProperties['backgroundColor'],
 
     tabletBlockAlign?: BlockAlign,
     tabletColorHover?: CSSProperties['color'];
