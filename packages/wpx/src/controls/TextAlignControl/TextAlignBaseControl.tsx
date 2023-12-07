@@ -4,14 +4,12 @@ import {Button, ButtonGroup} from '@wordpress/components';
 import {__} from '@wordpress/i18n';
 
 import './TextAlignControl.scss';
-import {ControlHeader} from '../../components';
 
 const TextAlignBaseControl = (props: {
     label?: string,
     textAlign: CSSProperties['textAlign'],
     onChange: (textAlign: CSSProperties['textAlign']) => void;
 }) => {
-    const label = props.label !== undefined ? props.label : 'Text Alignment'
     return (
         <ButtonGroup>
             <Button

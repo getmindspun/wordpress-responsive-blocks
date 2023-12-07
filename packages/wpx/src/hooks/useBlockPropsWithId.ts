@@ -9,10 +9,8 @@ export default function useBlockPropsWithId(props: {
     setAttributes: (attributes: {blockId?: string}) => void;
 }, config?: Parameters<UseBlockProps>[0]) {
     const blockId = useBlockId(props.attributes.blockId, props.clientId)
-    const blockProps = useBlockProps({
-        ...config,
-        'data-id': `wpx-${blockId}`
-    });
+    const blockProps = useBlockProps(config);
+    blockProps.id = `wpx-${blockId}`;
 
     useEffect(() => {
         if (blockId !== props.attributes.blockId) {
@@ -26,8 +24,7 @@ export default function useBlockPropsWithId(props: {
 useBlockPropsWithId.save = function (props: {
     attributes: { blockId: string },
 }, config?: Parameters<UseBlockProps>[0]) {
-    return useBlockProps.save({
-        ...config,
-        'data-id': `wpx-${props.attributes.blockId}`
-    });
+    const blockProps = useBlockProps.save(config);
+    blockProps.id = `wpx-${props.attributes.blockId}`;
+    return blockProps;
 }

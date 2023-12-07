@@ -2,12 +2,11 @@
 
 import React from 'react';
 import type {Meta, StoryObj} from '@storybook/react';
+import {close} from '@wordpress/icons';
 
 import TabbedControl from './TabbedControl';
 import TabbedContainer from '../../components/TabbedContainer/TabbedContainer';
 import ContainerContents from '../../components/ContainerContents/ContainerContents';
-
-import {ReactComponent as Icon} from '../../icons/Clear.svg';
 
 const meta: Meta<typeof TabbedControl> = {
     component: TabbedControl,
@@ -65,7 +64,7 @@ export const Icons: Story = {
                         Hello World
                     </ContainerContents>
                 </TabbedContainer>
-                <TabbedContainer icon={Icon} key={'Goodbye'}>
+                <TabbedContainer icon={close} key={'Goodbye'}>
                     <ContainerContents>
                         Goodnight Moon
                     </ContainerContents>

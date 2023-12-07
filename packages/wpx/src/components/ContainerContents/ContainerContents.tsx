@@ -4,6 +4,7 @@ import './ContainerContents.scss';
 
 export interface ContainerContentsProps {
     children: React.ReactNode;
+    showDivider?: boolean
 }
 
 const ContainerContents = (props: ContainerContentsProps) => {
@@ -12,7 +13,7 @@ const ContainerContents = (props: ContainerContentsProps) => {
             <div className="wpx--container-contents">
                 {props.children}
             </div>
-            <div className={"wpx--divider"} />
+            {props.showDivider && <div className={"wpx--divider"} /> }
         </>
     );
 };

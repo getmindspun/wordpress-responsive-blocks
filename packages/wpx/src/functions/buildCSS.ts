@@ -13,7 +13,6 @@ const PROPERTIES = [
     'borderTop',
     'borderTopLeftRadius',
     'borderTopRightRadius',
-    'blockAlign',
     'color',
     'fontSize',
     'margin',
@@ -102,87 +101,69 @@ export class CSSBuilder {
         }
     }
 
-    private blockAlignRuleset(id: string, selector: string, blockAlign: BlockAlign) {
-        const array: string[] = [
-            'display:flex',
-            'flex-direction:row',
-            'width:100%',
-        ];
-        if (!['full', 'wide'].includes(blockAlign)) {
-            array.push(`justify-content:${blockAlign}`);
-        }
-        return `#${id} div:has(>${selector}) {${array.join(';')}}`;
-    }
-
-    private ruleset(id: string, selector: string, style: CSSPropertiesWithBlockAlign) {
+    private ruleset(id: string, style: CSSPropertiesWithBlockAlign, selector: string|null = null, hover: boolean = false) {
         const array: string[] = [];
         for (const [name, value] of Object.entries(style)) {
             const propertyName = kebabCase(name);
-            if (name === 'blockAlign') {
-                if (['full', 'wide'].includes(value)) {
-                    array.push('flex-grow:1');
-                }
-                if (value === 'full') {
-                    array.push('flex-basis:auto');
-                }
-            } else {
-                array.push(`${propertyName}:${value}`);
-            }
+            array.push(`${propertyName}:${value}`);
         }
-        return array.length > 0 ? `#${id} ${selector} {${array.join(';')}}` : '';
+        if (array.length === 0) {
+            return '';
+        }
+
+        let $prefix = `#${id}`;
+        if (selector) {
+            $prefix += ` ${selector}`
+        }
+        if (hover) {
+            $prefix += ':hover';
+        }
+
+        return (array.length > 0) ? `${$prefix}{${array.join(';')}}` : '';
     }
 
     private static isEmpty(state: CSSProperties) {
         return Object.keys(state).length === 0
     }
 
-    toCSS(id: string, selector: string) {
+    toCSS(id: string, selector: string | null = null) {
         const rulesets: string[] = [];
 
         if (!CSSBuilder.isEmpty(this.state.desktop)) {
-            if (this.state.desktop.blockAlign) {
-                rulesets.push(this.blockAlignRuleset(id, selector, this.state.desktop.blockAlign))
-            }
-            const ruleset = this.ruleset(id, selector, this.state.desktop);
+            const ruleset = this.ruleset(id, this.state.desktop, selector );
             if (ruleset) {
                 rulesets.push(ruleset);
             }
         }
         if (!CSSBuilder.isEmpty(this.state.desktopHover)) {
-            rulesets.push(this.ruleset(id, selector + ':hover', this.state.desktopHover));
+            rulesets.push(this.ruleset(id, this.state.desktopHover, selector, true));
         }
 
         if (!CSSBuilder.isEmpty(this.state.tablet)) {
-            if (this.state.tablet.blockAlign) {
-                rulesets.push('@media (max-width:780px){' + this.blockAlignRuleset(id, selector, this.state.tablet.blockAlign) + '}');
-            }
-            const ruleset = this.ruleset(id, selector, this.state.tablet);
+            const ruleset = this.ruleset(id, this.state.tablet, selector);
             if (ruleset) {
                 rulesets.push(`@media (max-width:780px){${ruleset}}`);
             }
         }
         if (!CSSBuilder.isEmpty(this.state.tabletHover)) {
-            rulesets.push('@media (max-width:780px){' + this.ruleset(id,selector + ':hover', this.state.tabletHover) + '}');
+            rulesets.push('@media (max-width:780px){' + this.ruleset(id,this.state.tabletHover, selector, true) + '}');
         }
 
         if (!CSSBuilder.isEmpty(this.state.mobile)) {
-            if (this.state.mobile.blockAlign) {
-                rulesets.push('@media (max-width:480px){' + this.blockAlignRuleset(id, selector, this.state.mobile.blockAlign) + '}');
-            }
-            const ruleset = this.ruleset(id, selector, this.state.mobile);
+            const ruleset = this.ruleset(id, this.state.mobile, selector);
             if (ruleset) {
                 rulesets.push(`@media (max-width:480px){${ruleset}}`);
             }
         }
         if (!CSSBuilder.isEmpty(this.state.mobileHover)) {
-            rulesets.push('@media (max-width:480px){' + this.ruleset(id, selector + ':hover', this.state.mobileHover) + '}');
+            rulesets.push('@media (max-width:480px){' + this.ruleset(id, this.state.mobileHover, selector, true) + '}');
         }
 
         return rulesets.join("\n");
     }
 }
 
-export default function buildCSS(id: string, selector: string, attributes: BlockCSSProperties): string {
+export default function buildCSS(id: string, attributes: BlockCSSProperties, selector: string|null = null): string {
     const builder = new CSSBuilder();
     builder.addAttributes(attributes);
     return builder.toCSS(id, selector);

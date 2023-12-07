@@ -9,14 +9,18 @@ import Portal from '../Portal/Portal';
 
 const StylePortal = (props: {
 	blockId: string,
-	selector: string,
+	selector?: string,
 	attributes: BlockCSSProperties
 	idPrefix?: string,
 }) => {
+	if (!props.blockId || !props.attributes)  {
+		return null;
+	}
+
 	const deviceType = useGetPreviewDeviceType();
 	const iframe = document.querySelector('iframe[name="editor-canvas"]');
 	
-	const css = buildCSS(`${props.idPrefix ? props.idPrefix : 'wpx'}-${props.blockId}`, props.selector, props.attributes)
+	const css = buildCSS(`${props.idPrefix ? props.idPrefix : 'wpx'}-${props.blockId}`, props.attributes, props.selector)
 
 	useEffect(() => {
 		if (iframe) {

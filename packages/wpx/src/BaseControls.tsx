@@ -3,7 +3,6 @@ import {ReactNode} from 'react';
 import './BaseControls.scss';
 
 import {
-    BlockAlignControl,
     BorderControl,
     ColorControl,
     FontAppearance,
@@ -28,7 +27,6 @@ type CreateControlGroupOptions = {
     color?: boolean | Option,
     backgroundColor?: boolean | Option,
     fontSize?: boolean,
-    blockAlign?: boolean | Option
     textAlign?: boolean | Option
     fontAppearance?: boolean,
     letterCase?: boolean,
@@ -117,14 +115,6 @@ const BaseControls = (props: BaseControlsProps) => {
                     }}
                 />
             }
-            {options.blockAlign && (
-                <BlockAlignControl
-                    label={label(options.blockAlign, 'Block Alignment')}
-                    attributes={props.attributes}
-                    setAttributes={props.setAttributes}
-                    isResponsive={isResponsive(options.blockAlign)}
-                />
-            )}
             {options.textAlign && (
                 <TextAlignControl
                     label={label(options.textAlign, 'Text Align')}

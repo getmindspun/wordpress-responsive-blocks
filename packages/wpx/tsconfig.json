@@ -4,6 +4,7 @@
         "sourceMap": true,
         "noImplicitAny": true,
         "module": "es6",
+        "moduleResolution": "node",
         "target": "es5",
         "jsx": "react-jsx",
         "allowJs": true,

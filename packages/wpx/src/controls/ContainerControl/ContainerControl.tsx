@@ -1,11 +1,10 @@
 import React from 'react';
+import {chevronUp, chevronDown} from '@wordpress/icons';
 
 import {Button} from '@wordpress/components';
 import {useState} from '@wordpress/element';
 
 import './ContainerControl.scss';
-import {ReactComponent as UpIcon} from '../../icons/Up.svg';
-import {ReactComponent as DownIcon} from '../../icons/Down.svg';
 
 export interface ContainerControlProps {
     title: string;
@@ -24,7 +23,7 @@ const ContainerControl = (props: ContainerControlProps) => {
         <div onMouseEnter={props.onMouseEnter} onMouseLeave={props.onMouseLeave}>
             <div className="wpx--container-control" onClick={ () => setIsOpen(!isOpen) }>
                 <HeadingTag>
-                    <Button icon={ isOpen ? (<UpIcon />) : <DownIcon /> }>{ props.title }</Button>
+                    <Button icon={ isOpen ? chevronUp : chevronDown }>{ props.title }</Button>
                 </HeadingTag>
             </div>
             { isOpen && props.children }

@@ -3,10 +3,11 @@ import {__} from '@wordpress/i18n';
 
 import './VerticalAlignControl.scss';
 
-import {ReactComponent as TopIcon} from '../../icons/Top.svg';
-import {ReactComponent as MiddleIcon} from '../../icons/Middle.svg';
-import {ReactComponent as BottomIcon} from '../../icons/Bottom.svg';
-import {ReactComponent as StretchIcon} from '../../icons/Stretch.svg';
+import alignTop from '../../icons/alignTop';
+import alignBottom from '../../icons/alignBottom';
+import middle from '../../icons/middle';
+import stretch from '../../icons/stretch';
+
 import {VerticalAlign} from '../../types';
 import {CSSProperties} from 'react';
 
@@ -22,7 +23,7 @@ const VerticalAlignBaseControl = (props: {
             {props.options.includes('top') &&
                 <Button
                     key="top"
-                    icon={TopIcon}
+                    icon={alignTop}
                     label={__('Align top')}
                     showTooltip={true}
                     isPressed={props.verticalAlign === 'top'}
@@ -35,7 +36,7 @@ const VerticalAlignBaseControl = (props: {
             {props.options.includes('middle') &&
                 <Button
                     key="middle"
-                    icon={MiddleIcon}
+                    icon={middle}
                     label={__('Align middle')}
                     showTooltip={true}
                     isPressed={props.verticalAlign === 'middle'}
@@ -48,7 +49,7 @@ const VerticalAlignBaseControl = (props: {
             {props.options.includes('bottom') &&
                 <Button
                     key="bottom"
-                    icon={BottomIcon}
+                    icon={alignBottom}
                     label={__('Align bottom')}
                     showTooltip={true}
                     isPressed={props.verticalAlign === 'bottom'}
@@ -61,7 +62,7 @@ const VerticalAlignBaseControl = (props: {
             {props.options.includes('stretch') &&
                 <Button
                     key="stretch"
-                    icon={StretchIcon}
+                    icon={stretch}
                     label={__('Stretch to fill')}
                     showTooltip={true}
                     isPressed={props.verticalAlign === 'stretch'}

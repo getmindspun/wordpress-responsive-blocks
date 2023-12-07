@@ -1,3 +1,5 @@
+import React from 'react';
+
 import {BlockCSSProperties} from '../types';
 import {buildCSS} from '../functions';
 
@@ -21,7 +23,7 @@ const Display = (props: { attributes: BlockCSSProperties, children: React.ReactN
             <div style={{marginTop: '2em'}}>
                 &lt;style&gt;
                 <pre>
-                        {buildCSS('123', '.block', props.attributes)}
+                        {buildCSS('123', props.attributes)}
                     </pre>
                 &lt;/style&gt;
             </div>

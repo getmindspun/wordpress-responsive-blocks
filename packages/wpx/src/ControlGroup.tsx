@@ -3,7 +3,7 @@ import {
 } from './controls';
 
 import BaseControls, {BaseControlsProps} from './BaseControls';
-import {ContainerContents} from './components';
+import {ContainerContents} from './components/index';
 
 type ControlGroupProps = BaseControlsProps & {
     title: string,
@@ -18,14 +18,14 @@ const ControlGroup = (props: ControlGroupProps) => {
             onMouseLeave={props.onMouseLeave}
             initialOpen={props.initialOpen}
         >
-            <ContainerContents>
-            <BaseControls
-                attributes={props.attributes}
-                setAttributes={props.setAttributes}
-                options={props.options}
-            >
-                {props.children}
-            </BaseControls>
+            <ContainerContents showDivider={true}>
+                <BaseControls
+                    attributes={props.attributes}
+                    setAttributes={props.setAttributes}
+                    options={props.options}
+                >
+                    {props.children}
+                </BaseControls>
             </ContainerContents>
         </ContainerControl>
     );

@@ -1,9 +1,6 @@
 import {Button} from '@wordpress/components';
+import {formatUppercase, reset, formatLowercase, formatCapitalize} from '@wordpress/icons'
 
-import {ReactComponent as DashIcon} from './icons/Dash.svg';
-import {ReactComponent as LowercaseIcon} from './icons/Lowercase.svg';
-import {ReactComponent as UppercaseIcon} from './icons/Uppercase.svg';
-import {ReactComponent as CapitalizeIcon} from './icons/Capitalize.svg';
 import ControlHeader from '../../components/ControlHeader/ControlHeader';
 
 
@@ -25,22 +22,22 @@ const LetterCaseControl = (props: LetterCaseControlProps) => {
             <ControlHeader title="Letter Case"/>
             <div>
                 <Button
-                    icon={ DashIcon }
+                    icon={ reset }
                     describedBy="None"
                     isPressed={ props.textTransform === 'none' }
                     onClick={ () => onChange('none') }/>
                 <Button
-                    icon={ UppercaseIcon }
+                    icon={ formatUppercase }
                     describedBy="Uppercase"
                     isPressed={ props.textTransform === 'uppercase' }
                     onClick={ () => onChange('uppercase') }/>
                 <Button
-                    icon={ LowercaseIcon }
+                    icon={ formatLowercase }
                     describedBy="Lowercase"
                     isPressed={ props.textTransform === 'lowercase' }
                     onClick={ () => onChange('lowercase') }/>
                 <Button
-                    icon={ CapitalizeIcon }
+                    icon={ formatCapitalize }
                     describedBy="Capitalize"
                     isPressed={ props.textTransform === 'capitalize' }
                     onClick={ () => onChange('capitalize') }/>

@@ -1,12 +1,12 @@
 import React from 'react';
 import {Button, ButtonGroup} from '@wordpress/components';
+import {close} from '@wordpress/icons';
+
+import {useGetPreviewDeviceType, useSetPreviewDeviceType} from '../../hooks';
+import sliders from '../../icons/sliders';
 
 import './ControlHeader.scss';
-
-import {ReactComponent as SliderIcon} from '../../icons/Sliders.svg';
-import {ReactComponent as ClearIcon} from '../../icons/Clear.svg';
 import LinkButton from './LinkButton';
-import {useGetPreviewDeviceType, useSetPreviewDeviceType} from '../../hooks';
 
 type ControlHeaderProps = {
     title?: string;
@@ -63,7 +63,7 @@ const ControlHeader = (props: ControlHeaderProps) => {
             { (props.isAdvanced !== undefined && props.onAdvancedChange) &&
                 <Button
                     key="slider"
-                    icon={ SliderIcon }
+                    icon={ sliders }
                     isSmall={ true }
                     isPressed={ props.isAdvanced }
                     onClick={ () => props.onAdvancedChange!(!props.isAdvanced) }
@@ -78,9 +78,10 @@ const ControlHeader = (props: ControlHeaderProps) => {
                 />
             }
             { !!props.onClear &&
+
                 <Button
                     key="clear"
-                    icon={ ClearIcon }
+                    icon={ close }
                     isSmall={ true }
                     onClick={ props.onClear }
                     label={ 'Reset' }
