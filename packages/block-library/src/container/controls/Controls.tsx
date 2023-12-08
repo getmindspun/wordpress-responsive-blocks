@@ -5,6 +5,8 @@ import {styles, layout} from '@wordpress/icons';
 import {BaseControls, ContainerContents, TabbedContainer, TabbedControl} from '@mindspun/wpx';
 import DisplayControl from './DisplayControl';
 import FlexDirectionControl from './FlexDirectionControl';
+import JustifyContentControl from './JustifyContentControl';
+import AlignItemsControl from './AlignItemsControl';
 
 const Controls = (props: Props & {
     onMouseEnter?: () => void;
@@ -27,6 +29,18 @@ const Controls = (props: Props & {
                                     props.setAttributes({style});
                                 }}/>
                             <FlexDirectionControl
+                                attributes={props.attributes.style}
+                                setAttributes={newStyle => {
+                                    const style = {...props.attributes.style, ...newStyle};
+                                    props.setAttributes({style});
+                                }}/>
+                            <JustifyContentControl
+                                attributes={props.attributes.style}
+                                setAttributes={newStyle => {
+                                    const style = {...props.attributes.style, ...newStyle};
+                                    props.setAttributes({style});
+                                }}/>
+                            <AlignItemsControl
                                 attributes={props.attributes.style}
                                 setAttributes={newStyle => {
                                     const style = {...props.attributes.style, ...newStyle};

@@ -5,14 +5,15 @@
 	"version": "0.1.0",
 	"title": "Container",
 	"category": "mindspun-responsive-blocks",
-	"description": "Fully-responsive containers designed for flex layouts.",
+	"description": "Advanced, powerfully containers designed for responsive flex layouts.",
 	"example": {},
 	"attributes": {
 		"blockId": {
 			"type": "string"
 		},
 		"style": {
-			"type": "object"
+			"type": "object",
+			"default": {}
 		}
 	},
 	"textdomain": "wpx",

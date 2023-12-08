@@ -19,8 +19,8 @@ export default function Edit(props: Props & {clientId: string}) {
 		<>
 			<Controls
 				{...props}
-				onMouseEnter={() => {setFocused(true); console.log('focused');}}
-				onMouseLeave={() => {setFocused(false); console.log('blur');}}
+				onMouseEnter={() => setFocused(true)}
+				onMouseLeave={() => setFocused(false)}
 			/>
 			<StylePortal
 				blockId={props.attributes.blockId}

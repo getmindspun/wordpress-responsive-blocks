@@ -7,26 +7,30 @@ export interface BlockCSSProperties extends CSSProperties {
     blockAlign?: BlockAlign;
     verticalAlign?: CSSProperties['verticalAlign'] | 'stretch',
 
-    colorHover?: CSSProperties['color'],
-    backgroundColorHover?: CSSProperties['backgroundColor'],
+    colorHover?: CSSProperties['color'];
+    backgroundColorHover?: CSSProperties['backgroundColor'];
 
-    tabletBlockAlign?: BlockAlign,
+    tabletBlockAlign?: BlockAlign;
+    tabletAlignItems?: CSSProperties['alignItems'];
     tabletColorHover?: CSSProperties['color'];
+    tabletDisplay?: CSSProperties['display'];
+    tabletFlexDirection?: CSSProperties['flexDirection'];
     tabletBackgroundColorHover?: CSSProperties['backgroundColor'];
-    tabletFontSize?: CSSProperties['fontSize'],
-    tabletTextAlign?: CSSProperties['textAlign'],
-    tabletBackgroundImage?: CSSProperties['backgroundImage'],
-    tabletVerticalAlign?: CSSProperties['verticalAlign'] | 'stretch',
-    tabletBorderTop?: CSSProperties['borderTop'],
-    tabletBorderRight?: CSSProperties['borderRight'],
-    tabletBorderBottom?: CSSProperties['borderBottom'],
-    tabletBorderLeft?: CSSProperties['borderLeft'],
+    tabletFontSize?: CSSProperties['fontSize'];
+    tabletTextAlign?: CSSProperties['textAlign'];
+    tabletBackgroundImage?: CSSProperties['backgroundImage'];
+    tabletVerticalAlign?: CSSProperties['verticalAlign'] | 'stretch';
+    tabletBorderTop?: CSSProperties['borderTop'];
+    tabletBorderRight?: CSSProperties['borderRight'];
+    tabletBorderBottom?: CSSProperties['borderBottom'];
+    tabletBorderLeft?: CSSProperties['borderLeft'];
     tabletBorderTopLeftRadius?: CSSProperties['borderTopLeftRadius'];
     tabletBorderTopRightRadius?: CSSProperties['borderTopRightRadius'];
     tabletBorderBottomRightRadius?: CSSProperties['borderBottomRightRadius'];
     tabletBorderBottomLeftRadius?: CSSProperties['borderBottomLeftRadius'];
     tabletColor?: CSSProperties['color'];
     tabletBackgroundColor?: CSSProperties['backgroundColor'];
+    tabletJustifyContent?: CSSProperties['justifyContent'];
     tabletMarginTop?: CSSProperties['marginTop'];
     tabletMarginRight?: CSSProperties['marginRight'];
     tabletMarginBottom?: CSSProperties['marginBottom'];
@@ -36,23 +40,27 @@ export interface BlockCSSProperties extends CSSProperties {
     tabletPaddingBottom?: CSSProperties['paddingBottom'];
     tabletPaddingLeft?: CSSProperties['paddingLeft'];
 
-    mobileBlockAlign?: BlockAlign,
+    mobileBlockAlign?: BlockAlign;
+    mobileAlignItems?: CSSProperties['alignItems'];
     mobileColorHover?: CSSProperties['color'];
+    mobileDisplay?: CSSProperties['display'];
+    mobileFlexDirection?: CSSProperties['flexDirection'];
     mobileBackgroundColorHover?: CSSProperties['backgroundColor'];
-    mobileFontSize?: CSSProperties['fontSize'],
-    mobileTextAlign?: CSSProperties['textAlign'],
-    mobileBackgroundImage?: CSSProperties['backgroundImage'],
-    mobileVerticalAlign?: CSSProperties['verticalAlign'] | 'stretch',
-    mobileBorderTop?: CSSProperties['borderTop'],
-    mobileBorderRight?: CSSProperties['borderRight'],
-    mobileBorderBottom?: CSSProperties['borderBottom'],
-    mobileBorderLeft?: CSSProperties['borderLeft'],
+    mobileFontSize?: CSSProperties['fontSize'];
+    mobileTextAlign?: CSSProperties['textAlign'];
+    mobileBackgroundImage?: CSSProperties['backgroundImage'];
+    mobileVerticalAlign?: CSSProperties['verticalAlign'] | 'stretch';
+    mobileBorderTop?: CSSProperties['borderTop'];
+    mobileBorderRight?: CSSProperties['borderRight'];
+    mobileBorderBottom?: CSSProperties['borderBottom'];
+    mobileBorderLeft?: CSSProperties['borderLeft'];
     mobileBorderTopLeftRadius?: CSSProperties['borderTopLeftRadius'];
     mobileBorderTopRightRadius?: CSSProperties['borderTopRightRadius'];
     mobileBorderBottomRightRadius?: CSSProperties['borderBottomRightRadius'];
     mobileBorderBottomLeftRadius?: CSSProperties['borderBottomLeftRadius'];
     mobileColor?: CSSProperties['color'];
     mobileBackgroundColor?: CSSProperties['backgroundColor'];
+    mobileJustifyContent?: CSSProperties['justifyContent'];
     mobileMarginTop?: CSSProperties['marginTop'];
     mobileMarginRight?: CSSProperties['marginRight'];
     mobileMarginBottom?: CSSProperties['marginBottom'];

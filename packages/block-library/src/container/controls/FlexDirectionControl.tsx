@@ -2,9 +2,9 @@ import {__} from '@wordpress/i18n';
 
 import {SelectControl} from '@wordpress/components';
 
-import {ControlHeader, DeviceTypeContainer, useGetPreviewDeviceType} from '@mindspun/wpx';
+import {BlockCSSProperties, ControlHeader, DeviceTypeContainer, useGetPreviewDeviceType} from '@mindspun/wpx';
 
-import {FlexDirectionProperties} from '../types';
+type FlexDirectionProperties = Pick<BlockCSSProperties, 'flexDirection'|'tabletFlexDirection'|'mobileFlexDirection'>
 
 const OPTIONS = [
     { label: 'Default', value: 'default' },

@@ -2,9 +2,10 @@ import {__} from '@wordpress/i18n';
 
 import {SelectControl} from '@wordpress/components';
 
-import {ControlHeader, DeviceTypeContainer, useGetPreviewDeviceType} from '@mindspun/wpx';
-import {DisplayProperties} from '../types';
+import {BlockCSSProperties, ControlHeader, DeviceTypeContainer, useGetPreviewDeviceType} from '@mindspun/wpx';
 import {CSSProperties} from 'react';
+
+type DisplayProperties = Pick<BlockCSSProperties, 'display'|'tabletDisplay'|'mobileDisplay'>;
 
 const OPTIONS = [
     { label: 'Default', value: 'default' },

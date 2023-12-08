@@ -3,6 +3,7 @@ import {kebabCase} from 'change-case';
 import {BlockAlign, BlockCSSProperties} from '../types';
 
 const PROPERTIES = [
+    'alignItems',
     'backgroundColor',
     'backgroundImage',
     'borderBottom',
@@ -14,9 +15,12 @@ const PROPERTIES = [
     'borderTopLeftRadius',
     'borderTopRightRadius',
     'color',
+    'display',
+    'flexDirection',
     'fontSize',
     'fontStyle',
     'fontWeight',
+    'justifyContent',
     'margin',
     'marginBottom',
     'marginLeft',
