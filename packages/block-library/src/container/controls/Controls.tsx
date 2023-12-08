@@ -4,15 +4,29 @@ import {styles, layout} from '@wordpress/icons';
 
 import {BaseControls, ContainerContents, TabbedContainer, TabbedControl} from '@mindspun/wpx';
 import DisplayControl from './DisplayControl';
+import FlexDirectionControl from './FlexDirectionControl';
 
-const Controls = (props: Props) => {
+const Controls = (props: Props & {
+    onMouseEnter?: () => void;
+    onMouseLeave?: () => void;
+}) => {
     return (
         <InspectorControls>
-            <div className={'wp-block-mindspun-container--controls'}>
+            <div
+                className={'wp-block-mindspun-container--controls'}
+                onMouseEnter={props.onMouseEnter}
+                onMouseLeave={props.onMouseLeave}
+            >
                 <TabbedControl>
                     <TabbedContainer key={'Layout'} icon={layout}>
                         <ContainerContents>
                             <DisplayControl
+                                attributes={props.attributes.style}
+                                setAttributes={newStyle => {
+                                    const style = {...props.attributes.style, ...newStyle};
+                                    props.setAttributes({style});
+                                }}/>
+                            <FlexDirectionControl
                                 attributes={props.attributes.style}
                                 setAttributes={newStyle => {
                                     const style = {...props.attributes.style, ...newStyle};

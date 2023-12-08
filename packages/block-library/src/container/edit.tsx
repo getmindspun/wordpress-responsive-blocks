@@ -1,4 +1,5 @@
 import {useInnerBlocksProps} from '@wordpress/block-editor';
+import {useState} from '@wordpress/element';
 
 import {useBlockPropsWithId, StylePortal} from '@mindspun/wpx';
 
@@ -8,21 +9,24 @@ import Controls from './controls/Controls';
 import {getClassName} from './utils';
 
 export default function Edit(props: Props & {clientId: string}) {
+	const [focused, setFocused] = useState(false);
 	const blockProps = useBlockPropsWithId(props, {
-		className: getClassName(props.attributes)
+		className: getClassName(props.attributes, focused)
 	});
-	const innerBlocksProps = useInnerBlocksProps();
+	const innerBlocksProps = useInnerBlocksProps(blockProps);
 
 	return (
 		<>
-			<Controls {...props} />
+			<Controls
+				{...props}
+				onMouseEnter={() => {setFocused(true); console.log('focused');}}
+				onMouseLeave={() => {setFocused(false); console.log('blur');}}
+			/>
 			<StylePortal
 				blockId={props.attributes.blockId}
 				attributes={props.attributes.style}
 			/>
-			<div {...blockProps}>
-				<div {...innerBlocksProps} />
-			</div>
+			<div {...innerBlocksProps} />
 		</>
 	);
 }

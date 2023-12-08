@@ -20,7 +20,7 @@ export const Default: Story = {
     render: () => {
         return (
             <TabbedControl>
-                <TabbedContainer active={true}>
+                <TabbedContainer>
                     <ContainerContents>
                         Hello World
                     </ContainerContents>
@@ -39,7 +39,7 @@ export const Labels: Story = {
     render: () => {
         return (
             <TabbedControl>
-                <TabbedContainer active={true} key={'Hello'}>
+                <TabbedContainer key={'Hello'}>
                     <ContainerContents>
                         Hello World
                     </ContainerContents>
@@ -59,7 +59,7 @@ export const Icons: Story = {
     render: () => {
         return (
             <TabbedControl>
-                <TabbedContainer active={true} icon={'smiley'}>
+                <TabbedContainer icon={'smiley'}>
                     <ContainerContents>
                         Hello World
                     </ContainerContents>

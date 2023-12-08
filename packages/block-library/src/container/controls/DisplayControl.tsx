@@ -3,9 +3,11 @@ import {__} from '@wordpress/i18n';
 import {SelectControl} from '@wordpress/components';
 
 import {ControlHeader, DeviceTypeContainer, useGetPreviewDeviceType} from '@mindspun/wpx';
-import {DisplayControlAttributes} from '../types';
+import {DisplayProperties} from '../types';
+import {CSSProperties} from 'react';
 
 const OPTIONS = [
+    { label: 'Default', value: 'default' },
     { label: 'Block', value: 'block' },
     { label: 'Flex', value: 'flex' },
     { label: 'Inline', value: 'inline' },
@@ -14,7 +16,7 @@ const OPTIONS = [
     { label: 'None', value: 'none' },
 ];
 
-export function showClear(style: DisplayControlAttributes, deviceType: string) {
+export function showClear(style: DisplayProperties, deviceType: string) {
     switch (deviceType) {
         case 'Tablet':
             return style.tabletDisplay !== undefined;
@@ -24,9 +26,13 @@ export function showClear(style: DisplayControlAttributes, deviceType: string) {
     return style.display !== undefined;
 }
 
+function displayValue(display: string): CSSProperties['display'] {
+    return display !== 'default' ? display : undefined;
+}
+
 const DisplayControl = (props: {
-    attributes: DisplayControlAttributes;
-    setAttributes: (attributes: Partial<DisplayControlAttributes>) => void;
+    attributes: DisplayProperties;
+    setAttributes: (attributes: Partial<DisplayProperties>) => void;
 }) => {
     const deviceType = useGetPreviewDeviceType();
 
@@ -45,7 +51,7 @@ const DisplayControl = (props: {
     }
 
     return (
-        <div className={'wpx--device-type-control'}>
+        <div className={'wpx--display-control'}>
             <ControlHeader
                 title={__('Display')}
                 isResponsive={true}
@@ -53,25 +59,25 @@ const DisplayControl = (props: {
             />
             <DeviceTypeContainer deviceType={'Desktop'}>
                 <SelectControl
-                    value={ props.attributes.display ? props.attributes.display : 'block' }
+                    value={ props.attributes.display ? props.attributes.display : 'default' }
                     options={ OPTIONS }
-                    onChange={ ( display ) => props.setAttributes({display})}
+                    onChange={ ( display ) => props.setAttributes({display: displayValue(display)})}
                     __nextHasNoMarginBottom
                 />
             </DeviceTypeContainer>
             <DeviceTypeContainer deviceType={'Tablet'}>
                 <SelectControl
-                    value={ props.attributes.tabletDisplay ? props.attributes.tabletDisplay : 'block' }
+                    value={ props.attributes.tabletDisplay ? props.attributes.tabletDisplay : 'default' }
                     options={ OPTIONS }
-                    onChange={ ( tabletDisplay ) => props.setAttributes({tabletDisplay})}
+                    onChange={ ( tabletDisplay ) => props.setAttributes({tabletDisplay: displayValue(tabletDisplay)})}
                     __nextHasNoMarginBottom
                 />
             </DeviceTypeContainer>
             <DeviceTypeContainer deviceType={'Mobile'}>
                 <SelectControl
-                    value={ props.attributes.mobileDisplay ? props.attributes.mobileDisplay : 'block' }
+                    value={ props.attributes.mobileDisplay ? props.attributes.mobileDisplay : 'default' }
                     options={ OPTIONS }
-                    onChange={ ( mobileDisplay ) => props.setAttributes({mobileDisplay})}
+                    onChange={ ( mobileDisplay ) => props.setAttributes({mobileDisplay: displayValue(mobileDisplay)})}
                     __nextHasNoMarginBottom
                 />
             </DeviceTypeContainer>
