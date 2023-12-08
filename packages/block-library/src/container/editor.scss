@@ -6,3 +6,11 @@
 
 .wp-block-mindspun-container {
 }
+
+.wp-block-mindspun-container--controls {
+    .wpx--tabbed-control .wpx--tabbed-header .wpx--tab button {
+        height: 72px;
+        display: flex;
+        flex-direction: column;
+    }
+}

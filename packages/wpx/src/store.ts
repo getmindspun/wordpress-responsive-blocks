@@ -1,11 +1,14 @@
+import React from 'react';
 import {register, createReduxStore} from '@wordpress/data';
 import {State} from '@wordpress/data/build-types/redux-store/metadata/selectors';
 
 if (!window.wpxStore) {
     const DEFAULT_STATE = {
-        blockIds: {}
+        blockIds: {},
+        controlStates: {}
     } as {
         blockIds: Record<string, string>
+        controlStates: Record<string|number, React.Key>
     }
 
     const store = createReduxStore('wpx/block-data', {
@@ -16,6 +19,11 @@ if (!window.wpxStore) {
                         ...state,
                         blockIds: {...state.blockIds, [action.blockId]: action.clientId}
                     };
+                case 'SET_CONTROL_STATE':
+                    return {
+                        ...state,
+                        controlStates: {...state.controlStates, [action.key]: action.value}
+                    }
                 default:
                     return state;
             }
@@ -28,6 +36,13 @@ if (!window.wpxStore) {
                     clientId
                 };
             },
+            setControlState(key: string|number, value: React.Key) {
+                return {
+                    type: 'SET_CONTROL_STATE',
+                    key,
+                    value
+                };
+            },
         },
         selectors: {
             checkBlockId(state: State, blockId: string, clientId: string) {
@@ -36,6 +51,9 @@ if (!window.wpxStore) {
                 }
                 return true;
             },
+            getControlState(state: State, key: string|number): React.Key|undefined {
+                return state.controlStates[key];
+            }
         }
     });
 

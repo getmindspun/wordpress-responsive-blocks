@@ -1,6 +1,8 @@
 /** @type { import('@storybook/react').Preview } */
 import '@wordpress/components/build-style/style.css';
+
 import './store';
+import '../packages/wpx/src/store';
 
 const preview = {
     parameters: {

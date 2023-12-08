@@ -2,7 +2,6 @@ import React from 'react';
 import {IconType} from '@wordpress/components';
 
 const TabbedContainer = (props: {
-    active?: boolean,
     icon?: IconType | null,
     children: React.ReactNode
 }) => {

@@ -1,12 +1,13 @@
 import React from 'react';
-import {useState} from '@wordpress/element';
 
 import './TabbedControl.scss';
 import {Button, IconType} from '@wordpress/components';
+import {useControlState} from '../../hooks';
 
-function findActive(children: React.ReactElement<TabContainerProps>[]) {
+function findActiveIndex(key: React.Key, children: React.ReactElement<TabContainerProps>[]) {
     for (let i=0; i < children.length; i++) {
-        if (children[i].props.active) {
+        const childKey = children[i].key ? children[i].key : i;
+        if (childKey === key) {
             return i;
         }
     }
@@ -19,12 +20,15 @@ export interface TabContainerProps {
 }
 
 const TabbedControl = (props: {
+    name?: string|number,
     onSelect?: (value: React.Key) => void,
     children: React.ReactElement<TabContainerProps> | React.ReactElement<TabContainerProps>[]
 }) => {
+    const name = props.name ? props.name : 'tab';
     const children = Array.isArray(props.children) ? props.children : [props.children];
-    const [active, setActive] = useState(findActive(children));
+    const [controlState, setControlState] = useControlState(name);
 
+    const activeIndex = findActiveIndex(controlState, children);
     return (
         <div className={'wpx--tabbed-control'}>
             <div className={'wpx--tabbed-header'}>
@@ -33,10 +37,10 @@ const TabbedControl = (props: {
                     return (
                         <div
                             key={key}
-                            className={'wpx--tab' + (index === active ? ' wpx--tab-active' : '')}
+                            className={'wpx--tab' + (index === activeIndex ? ' wpx--tab-active' : '')}
                         >
                             <Button icon={child.props.icon} onClick={() => {
-                                setActive(index);
+                                setControlState(key);
                                 props.onSelect && props.onSelect(key);
                             }}>
                                 {child.props.icon ? child.key : key}
@@ -45,7 +49,7 @@ const TabbedControl = (props: {
                     );
                 }) }
             </div>
-            {children[active]}
+            {children[activeIndex]}
         </div>
     );
 }
