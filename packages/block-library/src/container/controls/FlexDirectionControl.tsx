@@ -57,7 +57,7 @@ const FlexDirectionControl = (props: {
             />
             <DeviceTypeContainer deviceType={'Desktop'}>
                 <SelectControl
-                    value={ props.attributes.flexDirection ? props.attributes.flexDirection : 'block' }
+                    value={ props.attributes.flexDirection ? props.attributes.flexDirection : 'default' }
                     options={ OPTIONS }
                     onChange={ ( flexDirection ) => props.setAttributes({flexDirection: flexDirectionValue(flexDirection)})}
                     __nextHasNoMarginBottom
@@ -65,7 +65,7 @@ const FlexDirectionControl = (props: {
             </DeviceTypeContainer>
             <DeviceTypeContainer deviceType={'Tablet'}>
                 <SelectControl
-                    value={ props.attributes.tabletFlexDirection ? props.attributes.tabletFlexDirection : 'block' }
+                    value={ props.attributes.tabletFlexDirection ? props.attributes.tabletFlexDirection : 'default' }
                     options={ OPTIONS }
                     onChange={ ( tabletFlexDirection ) => props.setAttributes({tabletFlexDirection: flexDirectionValue(tabletFlexDirection)})}
                     __nextHasNoMarginBottom
@@ -73,7 +73,7 @@ const FlexDirectionControl = (props: {
             </DeviceTypeContainer>
             <DeviceTypeContainer deviceType={'Mobile'}>
                 <SelectControl
-                    value={ props.attributes.mobileFlexDirection ? props.attributes.mobileFlexDirection : 'block' }
+                    value={ props.attributes.mobileFlexDirection ? props.attributes.mobileFlexDirection : 'default' }
                     options={ OPTIONS }
                     onChange={ ( mobileFlexDirection ) => props.setAttributes({mobileFlexDirection: flexDirectionValue(mobileFlexDirection)})}
                     __nextHasNoMarginBottom

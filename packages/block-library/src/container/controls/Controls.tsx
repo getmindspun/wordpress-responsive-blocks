@@ -7,6 +7,7 @@ import DisplayControl from './DisplayControl';
 import FlexDirectionControl from './FlexDirectionControl';
 import JustifyContentControl from './JustifyContentControl';
 import AlignItemsControl from './AlignItemsControl';
+import SizingControl from './sizing/SizingControl';
 
 const Controls = (props: Props & {
     onMouseEnter?: () => void;
@@ -41,6 +42,12 @@ const Controls = (props: Props & {
                                     props.setAttributes({style});
                                 }}/>
                             <AlignItemsControl
+                                attributes={props.attributes.style}
+                                setAttributes={newStyle => {
+                                    const style = {...props.attributes.style, ...newStyle};
+                                    props.setAttributes({style});
+                                }}/>
+                            <SizingControl
                                 attributes={props.attributes.style}
                                 setAttributes={newStyle => {
                                     const style = {...props.attributes.style, ...newStyle};

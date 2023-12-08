@@ -59,7 +59,7 @@ const JustifyContentControl = (props: {
             />
             <DeviceTypeContainer deviceType={'Desktop'}>
                 <SelectControl
-                    value={ props.attributes.justifyContent ? props.attributes.justifyContent : 'block' }
+                    value={ props.attributes.justifyContent ? props.attributes.justifyContent : 'default' }
                     options={ OPTIONS }
                     onChange={ ( justifyContent ) => props.setAttributes({justifyContent: justifyContentValue(justifyContent)})}
                     __nextHasNoMarginBottom
@@ -67,7 +67,7 @@ const JustifyContentControl = (props: {
             </DeviceTypeContainer>
             <DeviceTypeContainer deviceType={'Tablet'}>
                 <SelectControl
-                    value={ props.attributes.tabletJustifyContent ? props.attributes.tabletJustifyContent : 'block' }
+                    value={ props.attributes.tabletJustifyContent ? props.attributes.tabletJustifyContent : 'default' }
                     options={ OPTIONS }
                     onChange={ ( tabletJustifyContent ) => props.setAttributes({tabletJustifyContent: justifyContentValue(tabletJustifyContent)})}
                     __nextHasNoMarginBottom
@@ -75,7 +75,7 @@ const JustifyContentControl = (props: {
             </DeviceTypeContainer>
             <DeviceTypeContainer deviceType={'Mobile'}>
                 <SelectControl
-                    value={ props.attributes.mobileJustifyContent ? props.attributes.mobileJustifyContent : 'block' }
+                    value={ props.attributes.mobileJustifyContent ? props.attributes.mobileJustifyContent : 'default' }
                     options={ OPTIONS }
                     onChange={ ( mobileJustifyContent ) => props.setAttributes({mobileJustifyContent: justifyContentValue(mobileJustifyContent)})}
                     __nextHasNoMarginBottom

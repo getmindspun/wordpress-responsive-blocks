@@ -14,7 +14,10 @@ export interface BlockCSSProperties extends CSSProperties {
     tabletAlignItems?: CSSProperties['alignItems'];
     tabletColorHover?: CSSProperties['color'];
     tabletDisplay?: CSSProperties['display'];
+    tabletFlexBasis?: CSSProperties['flexBasis'];
     tabletFlexDirection?: CSSProperties['flexDirection'];
+    tabletFlexGrow?: CSSProperties['flexGrow'];
+    tabletFlexShrink?: CSSProperties['flexShrink'];
     tabletBackgroundColorHover?: CSSProperties['backgroundColor'];
     tabletFontSize?: CSSProperties['fontSize'];
     tabletTextAlign?: CSSProperties['textAlign'];
@@ -44,7 +47,10 @@ export interface BlockCSSProperties extends CSSProperties {
     mobileAlignItems?: CSSProperties['alignItems'];
     mobileColorHover?: CSSProperties['color'];
     mobileDisplay?: CSSProperties['display'];
+    mobileFlexBasis?: CSSProperties['flexBasis'];
     mobileFlexDirection?: CSSProperties['flexDirection'];
+    mobileFlexGrow?: CSSProperties['flexGrow'];
+    mobileFlexShrink?: CSSProperties['flexShrink'];
     mobileBackgroundColorHover?: CSSProperties['backgroundColor'];
     mobileFontSize?: CSSProperties['fontSize'];
     mobileTextAlign?: CSSProperties['textAlign'];

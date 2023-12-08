@@ -58,7 +58,7 @@ const AlignItemsControl = (props: {
             />
             <DeviceTypeContainer deviceType={'Desktop'}>
                 <SelectControl
-                    value={ props.attributes.alignItems ? props.attributes.alignItems : 'block' }
+                    value={ props.attributes.alignItems ? props.attributes.alignItems : 'default' }
                     options={ OPTIONS }
                     onChange={ ( alignItems ) => props.setAttributes({alignItems: alignItemsValue(alignItems)})}
                     __nextHasNoMarginBottom
@@ -66,7 +66,7 @@ const AlignItemsControl = (props: {
             </DeviceTypeContainer>
             <DeviceTypeContainer deviceType={'Tablet'}>
                 <SelectControl
-                    value={ props.attributes.tabletAlignItems ? props.attributes.tabletAlignItems : 'block' }
+                    value={ props.attributes.tabletAlignItems ? props.attributes.tabletAlignItems : 'default' }
                     options={ OPTIONS }
                     onChange={ ( tabletAlignItems ) => props.setAttributes({tabletAlignItems: alignItemsValue(tabletAlignItems)})}
                     __nextHasNoMarginBottom
@@ -74,7 +74,7 @@ const AlignItemsControl = (props: {
             </DeviceTypeContainer>
             <DeviceTypeContainer deviceType={'Mobile'}>
                 <SelectControl
-                    value={ props.attributes.mobileAlignItems ? props.attributes.mobileAlignItems : 'block' }
+                    value={ props.attributes.mobileAlignItems ? props.attributes.mobileAlignItems : 'default' }
                     options={ OPTIONS }
                     onChange={ ( mobileAlignItems ) => props.setAttributes({mobileAlignItems: alignItemsValue(mobileAlignItems)})}
                     __nextHasNoMarginBottom
