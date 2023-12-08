@@ -42,6 +42,12 @@ export interface BlockCSSProperties extends CSSProperties {
     tabletPaddingRight?: CSSProperties['paddingRight'];
     tabletPaddingBottom?: CSSProperties['paddingBottom'];
     tabletPaddingLeft?: CSSProperties['paddingLeft'];
+    tabletWidth?: CSSProperties['width'];
+    tabletHeight?: CSSProperties['height'];
+    tabletMinWidth?: CSSProperties['minWidth'];
+    tabletMinHeight?: CSSProperties['minHeight'];
+    tabletMaxWidth?: CSSProperties['maxWidth'];
+    tabletMaxHeight?: CSSProperties['maxHeight'];
 
     mobileBlockAlign?: BlockAlign;
     mobileAlignItems?: CSSProperties['alignItems'];
@@ -75,6 +81,12 @@ export interface BlockCSSProperties extends CSSProperties {
     mobilePaddingRight?: CSSProperties['paddingRight'];
     mobilePaddingBottom?: CSSProperties['paddingBottom'];
     mobilePaddingLeft?: CSSProperties['paddingLeft'];
+    mobileWidth?: CSSProperties['width'];
+    mobileHeight?: CSSProperties['height'];
+    mobileMinWidth?: CSSProperties['minWidth'];
+    mobileMinHeight?: CSSProperties['minHeight'];
+    mobileMaxWidth?: CSSProperties['maxWidth'];
+    mobileMaxHeight?: CSSProperties['maxHeight'];
 }
 
 export type LengthUnit = 'px' | '%' | 'em' | 'rem';

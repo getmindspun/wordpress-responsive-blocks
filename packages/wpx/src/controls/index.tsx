@@ -49,3 +49,6 @@ export {default as VerticalAlignControl} from './VerticalAlignControl/VerticalAl
 export * from './VerticalAlignControl/VerticalAlignControl';
 
 export {default as TabbedControl} from './TabbedControl/TabbedControl';
+
+export {default as WidthHeightControl} from './WidthHeightControl/WidthHeightControl';
+export * from './WidthHeightControl/WidthHeightControl';

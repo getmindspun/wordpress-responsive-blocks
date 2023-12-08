@@ -26,12 +26,17 @@ const PROPERTIES = array(
     'fontSize',
     'fontStyle',
     'fontWeight',
+    'height',
     'justifyContent',
     'margin',
     'marginBottom',
     'marginLeft',
     'marginRight',
     'marginTop',
+    'maxHeight',
+    'maxWidth',
+    'minHeight',
+    'minWidth',
     'padding',
     'paddingBottom',
     'paddingLeft',
@@ -39,6 +44,7 @@ const PROPERTIES = array(
     'paddingTop',
     'textAlign',
     'textTransform',
+    'width',
 );
 
 /**

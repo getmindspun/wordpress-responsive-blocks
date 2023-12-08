@@ -13,31 +13,34 @@ type UnitRangeControlProps = {
     ranges?: Record<string, Range>;
 }
 
-function returnedValue(value: number, unit: LengthUnit): string | number {
-    if (value === 0) {
-        return 0;
+function returnedValue(value: number|undefined, unit: LengthUnit): string | number | undefined {
+    if (value === undefined || value === 0) {
+        return value;
     }
     return `${value}${unit}`;
 }
 
 const UnitRangeControl = (props: UnitRangeControlProps) => {
-    const [value, unit] = parseUnitValue(props.value);
+    const [value, defaultUnit] = parseUnitValue(props.value);
+    const [unit, setUnit] = useState(defaultUnit);
     const [range, setRange] = useState(
         props.ranges![unit ? unit : 'px'] || props.ranges!['px']
     );
 
     function onNumberChange(value?: number) {
-        props.onChange(value !== undefined ? returnedValue(value, unit) : undefined);
+        props.onChange(returnedValue(value, unit));
     }
 
     function onChange(value?: string) {
-        return onNumberChange(value ? parseInt(value) : undefined);
+        const [newValue, newUnit] = parseUnitValue(value);
+        props.onChange(returnedValue(newValue, newUnit));
     }
 
     function onUnitChange(unit?: string) {
         unit = unit ? unit : 'px';
         const newRange = props.ranges![unit] || props.ranges!['px'];
         setRange(newRange);
+        setUnit(unit as LengthUnit);
 
         props.onChange(value !== undefined ? returnedValue(value > newRange.max ? newRange.max : value, unit as LengthUnit) : undefined);
     }

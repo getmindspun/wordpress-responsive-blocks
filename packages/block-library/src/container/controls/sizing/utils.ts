@@ -1,14 +1,8 @@
 import {FlexSizingProperties} from './SizingControl';
+import {propertyName} from '@mindspun/wpx';
 
 function prop(name: string, deviceType: string) {
-    deviceType = deviceType.toLowerCase();
-
-    switch (deviceType) {
-        case 'tablet':
-        case 'mobile':
-            return deviceType + name.substring(1) as keyof FlexSizingProperties;
-    }
-    return name as keyof FlexSizingProperties;
+    return propertyName(name, deviceType) as keyof FlexSizingProperties;
 }
 
 export function toValue(style: FlexSizingProperties, deviceType: string) {

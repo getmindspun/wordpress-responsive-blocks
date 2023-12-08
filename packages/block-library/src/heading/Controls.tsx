@@ -1,14 +1,14 @@
 import {Props} from './types';
 import {InspectorControls} from '@wordpress/block-editor';
 
-import {BaseControls, ContainerContents, HeadingTagControl} from '@mindspun/wpx';
+import {BaseControls, BlockCSSProperties, ContainerContents, HeadingTagControl} from '@mindspun/wpx';
 
 const Controls = (props: Props) => {
     return (
         <InspectorControls>
             <ContainerContents>
                 <BaseControls
-                    attributes={props.attributes.style ? props.attributes.style : {}}
+                    attributes={props.attributes.style ? props.attributes.style : {} as BlockCSSProperties}
                     setAttributes={style => {
                         props.setAttributes({style: {...props.attributes.style, ...style}});
                     }}

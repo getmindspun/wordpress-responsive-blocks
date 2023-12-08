@@ -23,19 +23,25 @@ const PROPERTIES = [
     'fontSize',
     'fontStyle',
     'fontWeight',
+    'height',
     'justifyContent',
     'margin',
     'marginBottom',
     'marginLeft',
     'marginRight',
     'marginTop',
+    'maxHeight',
+    'maxWidth',
+    'minHeight',
+    'minWidth',
     'padding',
     'paddingBottom',
     'paddingLeft',
     'paddingRight',
     'paddingTop',
     'textAlign',
-    'textTransform'
+    'textTransform',
+    'width',
 ] as (keyof CSSProperties)[];
 
 class Property {
