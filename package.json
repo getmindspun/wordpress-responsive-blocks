@@ -8,7 +8,6 @@
     "@babel/runtime": "^7.23.5",
     "@storybook/addon-styling-webpack": "^0.0.5",
     "@storybook/react-webpack5": "^7.6.3",
-    "@svgr/webpack": "^8.1.0",
     "@types/lodash.uniqueid": "^4.0.9",
     "@types/wordpress__block-editor": "^11.5.8",
     "@wordpress/block-editor": "^12.15.0",
@@ -23,14 +22,10 @@
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.69.5",
     "sass-loader": "^13.3.2",
-    "storybook": "^7.6.3",
+    "storybook": "^7.6.4",
     "style-loader": "^3.3.3",
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.1",
     "url-loader": "^4.1.1"
-  },
-  "dependencies": {
-    "@dr.pogodin/babel-preset-svgr": "^1.8.0",
-    "new-url-loader": "^0.1.1"
   }
 }
