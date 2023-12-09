@@ -51,8 +51,8 @@ const BorderBaseControl = (props: BorderBaseControlProps) => {
 
     return (
         <BorderBoxControl
-                onChange={onChange}
-                value={value}
+            onChange={onChange}
+            value={value}
         />
     );
 };

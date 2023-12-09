@@ -2,8 +2,8 @@ import {RangeControl} from '@wordpress/components';
 
 import UnitRangeControl from '../UnitRangeControl/UnitRangeControl';
 import ControlHeader from '../../components/ControlHeader/ControlHeader';
-import {headerHint, parseUnit} from './utils';
-import {isNumeric, parseValue} from '../../utils';
+import {headerHint} from './utils';
+import {isNumeric, parseUnitValue} from '../../utils';
 
 const UNITS = [
     { value: 'px', label: 'px', default: 0 },
@@ -21,8 +21,7 @@ type BorderRadiusValueControlProps = {
 }
 
 const BorderRadiusValueControl = (props: BorderRadiusValueControlProps) => {
-    const unit = parseUnit(props.value);
-    const value = parseValue(props.value);
+    const [value, unit] = parseUnitValue(props.value);
 
     return (
         <>

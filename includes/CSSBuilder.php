@@ -17,6 +17,7 @@ const PROPERTIES = array(
     'borderTop',
     'borderTopLeftRadius',
     'borderTopRightRadius',
+    'boxShadow',
     'color',
     'display',
     'flexBasis',

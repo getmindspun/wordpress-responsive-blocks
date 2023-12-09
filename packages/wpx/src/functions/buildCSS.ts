@@ -14,6 +14,7 @@ const PROPERTIES = [
     'borderTop',
     'borderTopLeftRadius',
     'borderTopRightRadius',
+    'boxShadow',
     'color',
     'display',
     'flexBasis',

@@ -1,4 +1,5 @@
 import {LengthUnit} from '../../types';
+import {isNumeric} from '../../utils';
 
 export function parseUnit(value?: string | number | undefined): 'px' | '%' | 'em' {
     value = value ? value.toString().trim() : '';
@@ -57,4 +58,11 @@ export function onRangeChangeValue(value: number|undefined) {
             return '3em';
     }
     return undefined;
+}
+
+export function onChangeValue(value: string|number|undefined, unit: LengthUnit) {
+    if (value === 0 || value === undefined) {
+        return value;
+    }
+    return isNumeric(value) ? `${value}${unit}` : value
 }

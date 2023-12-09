@@ -1,10 +1,9 @@
 import {Props} from '../types';
 import {
     BackgroundImageControl,
-    BaseControls, BorderControl,
+    BaseControls, BorderControl, BoxShadowControl,
     ContainerContents,
     ContainerControl,
-    TabbedContainer,
     WidthHeightControl
 } from '@mindspun/wpx';
 
@@ -24,12 +23,14 @@ const StyleControls = (props: Props) => {
                         padding: {responsive: true}
                     }}
                 />
+                <hr />
                 <BackgroundImageControl
                     attributes={props.attributes.style}
                     setAttributes={style => {
                         props.setAttributes({style: {...props.attributes.style, ...style}});
                     }}
                 />
+                <hr />
                 <BorderControl
                     attributes={props.attributes.style}
                     setAttributes={style => {
@@ -91,6 +92,17 @@ const StyleControls = (props: Props) => {
                     <WidthHeightControl
                         label={'Max Height'}
                         propertyName={'maxHeight'}
+                        attributes={props.attributes.style}
+                        setAttributes={style => {
+                            props.setAttributes({style: {...props.attributes.style, ...style}});
+                        }}
+                        isResponsive={true}
+                    />
+                </ContainerContents>
+            </ContainerControl>
+            <ContainerControl title={'Box Shadow'}>
+                <ContainerContents>
+                    <BoxShadowControl
                         attributes={props.attributes.style}
                         setAttributes={style => {
                             props.setAttributes({style: {...props.attributes.style, ...style}});

@@ -2,9 +2,9 @@ import React from 'react';
 import {RangeControl} from '@wordpress/components';
 
 import UnitRangeControl from '../UnitRangeControl/UnitRangeControl';
-import {isNumeric, parseUnitValue} from '../../utils';
+import {parseUnitValue} from '../../utils';
 import ControlHeader from '../../components/ControlHeader/ControlHeader';
-import {headerHint, onRangeChangeValue, rangeControlValue} from './utils';
+import {headerHint, onChangeValue, onRangeChangeValue, rangeControlValue} from './utils';
 
 const UNITS = [
     { value: 'px', label: 'px', default: 0 },
@@ -42,9 +42,7 @@ const LengthControl = (props: LengthControlProps) => {
             />}
             { props.isAdvanced ?
                 <UnitRangeControl
-                    onChange={ value => {
-                        props.onChange(isNumeric(value) ? `${value}${unit}` : value);
-                    } }
+                    onChange={ value => props.onChange(onChangeValue(value, unit)) }
                     value={ props.value }
                     units={ UNITS }
                 /> :

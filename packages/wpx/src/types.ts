@@ -12,6 +12,7 @@ export interface BlockCSSProperties extends CSSProperties {
 
     tabletBlockAlign?: BlockAlign;
     tabletAlignItems?: CSSProperties['alignItems'];
+    tabletBoxShadow?: CSSProperties['boxShadow'];
     tabletColorHover?: CSSProperties['color'];
     tabletDisplay?: CSSProperties['display'];
     tabletFlexBasis?: CSSProperties['flexBasis'];
@@ -51,6 +52,7 @@ export interface BlockCSSProperties extends CSSProperties {
 
     mobileBlockAlign?: BlockAlign;
     mobileAlignItems?: CSSProperties['alignItems'];
+    mobileBoxShadow?: CSSProperties['boxShadow'];
     mobileColorHover?: CSSProperties['color'];
     mobileDisplay?: CSSProperties['display'];
     mobileFlexBasis?: CSSProperties['flexBasis'];

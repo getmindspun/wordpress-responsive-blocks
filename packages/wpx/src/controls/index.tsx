@@ -11,6 +11,9 @@ export * from './BorderControl/BorderControl';
 export {default as BorderRadiusControl} from './BorderControl/BorderRadiusControl';
 export * from './BorderControl/BorderRadiusControl';
 
+export {default as BoxShadowControl} from './BoxShadowControl/BoxShadowControl';
+export * from './BoxShadowControl/BoxShadowControl';
+
 export {default as ColorControl} from './ColorControl/ColorControl';
 export {default as ContainerControl} from './ContainerControl/ContainerControl';
 
