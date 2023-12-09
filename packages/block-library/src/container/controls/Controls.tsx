@@ -1,20 +1,18 @@
 import {Props} from '../types';
 import {InspectorControls} from '@wordpress/block-editor';
-import {styles, layout} from '@wordpress/icons';
+import {layout, styles} from '@wordpress/icons';
 
 import {
-    BaseControls,
-    BlockCSSProperties,
-    ContainerContents, ContainerControl,
+    ContainerContents,
     TabbedContainer,
     TabbedControl,
-    WidthHeightControl
 } from '@mindspun/wpx';
 import DisplayControl from './DisplayControl';
 import FlexDirectionControl from './FlexDirectionControl';
 import JustifyContentControl from './JustifyContentControl';
 import AlignItemsControl from './AlignItemsControl';
 import SizingControl from './sizing/SizingControl';
+import StyleControls from './StyleControls';
 
 const Controls = (props: Props & {
     onMouseEnter?: () => void;
@@ -63,80 +61,10 @@ const Controls = (props: Props & {
                         </ContainerContents>
                     </TabbedContainer>
                     <TabbedContainer key={'Style'} icon={styles}>
-                        <ContainerContents>
-                            <BaseControls
-                                attributes={props.attributes.style ? props.attributes.style : {} as BlockCSSProperties}
-                                setAttributes={style => {
-                                    props.setAttributes({style: {...props.attributes.style, ...style}});
-                                }}
-                                options={{
-                                    margin: {responsive: true},
-                                    padding: {responsive: true}
-                                }}
-                            />
-                        </ContainerContents>
-                        <ContainerControl title={'Width'}>
-                            <ContainerContents>
-                                <WidthHeightControl
-                                    label={'Width'}
-                                    propertyName={'width'}
-                                    attributes={props.attributes.style ? props.attributes.style : {} as BlockCSSProperties}
-                                    setAttributes={style => {
-                                        props.setAttributes({style: {...props.attributes.style, ...style}});
-                                    }}
-                                    isResponsive={true}
-                                />
-                                <WidthHeightControl
-                                    label={'Min Width'}
-                                    propertyName={'minWidth'}
-                                    attributes={props.attributes.style ? props.attributes.style : {} as BlockCSSProperties}
-                                    setAttributes={style => {
-                                        props.setAttributes({style: {...props.attributes.style, ...style}});
-                                    }}
-                                    isResponsive={true}
-                                />
-                                <WidthHeightControl
-                                    label={'Max Width'}
-                                    propertyName={'maxWidth'}
-                                    attributes={props.attributes.style ? props.attributes.style : {} as BlockCSSProperties}
-                                    setAttributes={style => {
-                                        props.setAttributes({style: {...props.attributes.style, ...style}});
-                                    }}
-                                    isResponsive={true}
-                                />
-                            </ContainerContents>
-                        </ContainerControl>
-                        <ContainerControl title={'Height'}>
-                            <ContainerContents>
-                                <WidthHeightControl
-                                    label={'Height'}
-                                    propertyName={'height'}
-                                    attributes={props.attributes.style ? props.attributes.style : {} as BlockCSSProperties}
-                                    setAttributes={style => {
-                                        props.setAttributes({style: {...props.attributes.style, ...style}});
-                                    }}
-                                    isResponsive={true}
-                                />
-                                <WidthHeightControl
-                                    label={'Min Height'}
-                                    propertyName={'minHeight'}
-                                    attributes={props.attributes.style ? props.attributes.style : {} as BlockCSSProperties}
-                                    setAttributes={style => {
-                                        props.setAttributes({style: {...props.attributes.style, ...style}});
-                                    }}
-                                    isResponsive={true}
-                                />
-                                <WidthHeightControl
-                                    label={'Max Height'}
-                                    propertyName={'maxHeight'}
-                                    attributes={props.attributes.style ? props.attributes.style : {} as BlockCSSProperties}
-                                    setAttributes={style => {
-                                        props.setAttributes({style: {...props.attributes.style, ...style}});
-                                    }}
-                                    isResponsive={true}
-                                />
-                            </ContainerContents>
-                        </ContainerControl>
+                        <StyleControls
+                            attributes={props.attributes}
+                            setAttributes={props.setAttributes}
+                        />
                     </TabbedContainer>
                 </TabbedControl>
             </div>
