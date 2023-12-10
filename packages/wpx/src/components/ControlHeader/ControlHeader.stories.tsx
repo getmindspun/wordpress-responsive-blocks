@@ -42,6 +42,17 @@ export const Linked: Story = {
     },
 };
 
+export const Expand: Story = {
+    name: 'with Expand',
+    render: () => {
+        return <ControlHeader
+            title="Title"
+            hint="Hint"
+            onExpand={() => {}}
+        />;
+    },
+};
+
 export const Advanced: Story = {
     name: 'with Advanced',
     render: () => {
@@ -89,6 +100,8 @@ export const Both: Story = {
                     isAdvanced={isAdvanced}
                     onAdvancedChange={setIsAdvanced}
                     onClear={() => {
+                    }}
+                    onExpand={() => {
                     }}
                     isResponsive={true}
                 />

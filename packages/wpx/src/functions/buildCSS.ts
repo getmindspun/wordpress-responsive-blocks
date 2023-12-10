@@ -1,6 +1,6 @@
 import {CSSProperties} from 'react';
 import {kebabCase} from 'change-case';
-import {BlockAlign, BlockCSSProperties} from '../types';
+import {BlockCSSProperties} from '../types';
 
 const PROPERTIES = [
     'alignItems',
@@ -16,6 +16,7 @@ const PROPERTIES = [
     'borderTopRightRadius',
     'boxShadow',
     'color',
+    'customCSS', // ***
     'display',
     'flexBasis',
     'flexDirection',
@@ -77,18 +78,18 @@ class Property {
     }
 }
 
-type CSSPropertiesWithBlockAlign = CSSProperties & {
-    blockAlign: BlockAlign;
+type CSSPropertiesWithCustomCSS = CSSProperties & {
+    customCSS?: string,
 }
 
 export class CSSBuilder {
     state = {
-        desktop: {} as CSSPropertiesWithBlockAlign,
-        desktopHover: {} as CSSPropertiesWithBlockAlign,
-        tablet: {} as CSSPropertiesWithBlockAlign,
-        tabletHover: {} as CSSPropertiesWithBlockAlign,
-        mobile: {} as CSSPropertiesWithBlockAlign,
-        mobileHover: {} as CSSPropertiesWithBlockAlign,
+        desktop: {} as CSSPropertiesWithCustomCSS,
+        desktopHover: {} as CSSPropertiesWithCustomCSS,
+        tablet: {} as CSSPropertiesWithCustomCSS,
+        tabletHover: {} as CSSPropertiesWithCustomCSS,
+        mobile: {} as CSSPropertiesWithCustomCSS,
+        mobileHover: {} as CSSPropertiesWithCustomCSS,
     }
 
     private stateName(property: Property) {
@@ -117,11 +118,13 @@ export class CSSBuilder {
         }
     }
 
-    private ruleset(id: string, style: CSSPropertiesWithBlockAlign, selector: string|null = null, hover: boolean = false) {
+    private ruleset(id: string, style: CSSPropertiesWithCustomCSS, selector: string|null = null, hover: boolean = false) {
         const array: string[] = [];
         for (const [name, value] of Object.entries(style)) {
-            const propertyName = kebabCase(name);
-            array.push(`${propertyName}:${value}`);
+            if (name !== 'customCSS') {
+                const propertyName = kebabCase(name);
+                array.push(`${propertyName}:${value}`);
+            }
         }
         if (array.length === 0) {
             return '';
@@ -150,6 +153,9 @@ export class CSSBuilder {
             if (ruleset) {
                 rulesets.push(ruleset);
             }
+            if (this.state.desktop.customCSS) {
+                rulesets.push(this.state.desktop.customCSS);
+            }
         }
         if (!CSSBuilder.isEmpty(this.state.desktopHover)) {
             rulesets.push(this.ruleset(id, this.state.desktopHover, selector, true));
@@ -160,6 +166,9 @@ export class CSSBuilder {
             if (ruleset) {
                 rulesets.push(`@media (max-width:1024px){${ruleset}}`);
             }
+            if (this.state.tablet.customCSS) {
+                rulesets.push(`@media (max-width:1024px){${this.state.tablet.customCSS}}`);
+            }
         }
         if (!CSSBuilder.isEmpty(this.state.tabletHover)) {
             rulesets.push('@media (max-width:1024px){' + this.ruleset(id,this.state.tabletHover, selector, true) + '}');
@@ -169,6 +178,9 @@ export class CSSBuilder {
             const ruleset = this.ruleset(id, this.state.mobile, selector);
             if (ruleset) {
                 rulesets.push(`@media (max-width:480px){${ruleset}}`);
+            }
+            if (this.state.mobile.customCSS) {
+                rulesets.push(`@media (max-width:480px){${this.state.mobile.customCSS}}`);
             }
         }
         if (!CSSBuilder.isEmpty(this.state.mobileHover)) {

@@ -19,6 +19,7 @@ const PROPERTIES = array(
     'borderTopRightRadius',
     'boxShadow',
     'color',
+    'customCSS', // ***
     'display',
     'flexBasis',
     'flexDirection',
@@ -154,6 +155,9 @@ class CSSBuilder {
             if ( $ruleset ) {
                 $rulesets[] = $ruleset;
             }
+            if ($this->state['desktop']['customCSS'] ?? '') {
+                $rulesets[] = $this->state['desktop']['customCSS'];
+            }
         }
         if ( ! empty( $this->state['desktopHover'] ) ) {
             $rulesets[] = $this->ruleset( $id, $this->state['desktopHover'], $selector, true );
@@ -164,6 +168,9 @@ class CSSBuilder {
             if ( $ruleset ) {
                 $rulesets[] = '@media (max-width:1024px){' . $ruleset . '}';
             }
+            if ($this->state['tablet']['customCSS'] ?? '') {
+                $rulesets[] = '@media (max-width:1024px){' . $this->state['tablet']['customCSS']  . '}';
+            }
         }
         if ( ! empty( $this->state['tabletHover'] ) ) {
             $rulesets[] = '@media (max-width:1024px){' . $this->ruleset( $id, $this->state['tabletHover'], $selector, true ) . '}';
@@ -173,6 +180,9 @@ class CSSBuilder {
             $ruleset = $this->ruleset( $id, $this->state['mobile'], $selector );
             if ( $ruleset ) {
                 $rulesets[] = '@media (max-width:480px){' . $ruleset . '}';
+            }
+            if ($this->state['tablet']['customCSS'] ?? '') {
+                $rulesets[] = '@media (max-width:480px){' . $this->state['mobile']['customCSS']  . '}';
             }
         }
         if ( ! empty( $this->state['mobileHover'] ) ) {

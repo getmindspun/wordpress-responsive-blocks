@@ -17,6 +17,9 @@ export * from './BoxShadowControl/BoxShadowControl';
 export {default as ColorControl} from './ColorControl/ColorControl';
 export {default as ContainerControl} from './ContainerControl/ContainerControl';
 
+export {default as CustomCSSControl} from './CustomCSSControl/CustomCSSControl';
+export * from './CustomCSSControl/CustomCSSControl';
+
 export {default as FontAppearanceControl} from './FontAppearanceControl/FontAppearanceControl';
 export * from './FontAppearanceControl/FontAppearanceControl';
 

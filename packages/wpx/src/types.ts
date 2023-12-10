@@ -6,11 +6,13 @@ export type VerticalAlign = 'top' | 'middle' | 'bottom' | 'stretch';
 export interface BlockCSSProperties extends CSSProperties {
     blockAlign?: BlockAlign;
     verticalAlign?: CSSProperties['verticalAlign'] | 'stretch',
+    customCSS?: string;
 
     colorHover?: CSSProperties['color'];
     backgroundColorHover?: CSSProperties['backgroundColor'];
 
     tabletBlockAlign?: BlockAlign;
+    tabletCustomCSS?: string;
     tabletAlignItems?: CSSProperties['alignItems'];
     tabletBoxShadow?: CSSProperties['boxShadow'];
     tabletColorHover?: CSSProperties['color'];
@@ -51,6 +53,7 @@ export interface BlockCSSProperties extends CSSProperties {
     tabletMaxHeight?: CSSProperties['maxHeight'];
 
     mobileBlockAlign?: BlockAlign;
+    mobileCustomCSS?: string;
     mobileAlignItems?: CSSProperties['alignItems'];
     mobileBoxShadow?: CSSProperties['boxShadow'];
     mobileColorHover?: CSSProperties['color'];

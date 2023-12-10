@@ -3,11 +3,12 @@ import {
     BackgroundImageControl,
     BaseControls, BorderControl, BoxShadowControl,
     ContainerContents,
-    ContainerControl,
+    ContainerControl, CustomCSSControl,
     WidthHeightControl
 } from '@mindspun/wpx';
 
 const StyleControls = (props: Props) => {
+    console.log(props)
     return (
         <>
             <ContainerContents>
@@ -103,6 +104,18 @@ const StyleControls = (props: Props) => {
             <ContainerControl title={'Box Shadow'}>
                 <ContainerContents>
                     <BoxShadowControl
+                        attributes={props.attributes.style}
+                        setAttributes={style => {
+                            props.setAttributes({style: {...props.attributes.style, ...style}});
+                        }}
+                        isResponsive={true}
+                    />
+                </ContainerContents>
+            </ContainerControl>
+            <ContainerControl title={'Custom CSS'}>
+                <ContainerContents>
+                    <CustomCSSControl
+                        blockId={props.attributes.blockId}
                         attributes={props.attributes.style}
                         setAttributes={style => {
                             props.setAttributes({style: {...props.attributes.style, ...style}});

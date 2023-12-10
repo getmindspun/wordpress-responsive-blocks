@@ -7,6 +7,7 @@ import sliders from '../../icons/sliders';
 
 import './ControlHeader.scss';
 import LinkButton from './LinkButton';
+import {__} from '@wordpress/i18n';
 
 type ControlHeaderProps = {
     title?: string;
@@ -15,6 +16,7 @@ type ControlHeaderProps = {
     onAdvancedChange?: (isAdvanced: boolean) => void;
     isLinked?: boolean,
     onLinkedChange?: (isLinked: boolean) => void;
+    onExpand?: () => void;
     onClear?: () => void;
     isResponsive?: boolean
 }
@@ -29,13 +31,23 @@ const ControlHeader = (props: ControlHeaderProps) => {
                 { props.title }
                 { props.hint && <span>{ props.hint }</span> }
             </label>
+            { !!props.onExpand  &&
+                <Button
+                    key="expand"
+                    icon={ 'fullscreen-alt' }
+                    isSmall={ true }
+                    onClick={ props.onExpand ? props.onExpand : undefined }
+                    label={ __('Expand') }
+                    showTooltip={true}
+                />
+            }
             { !!props.isResponsive &&
                 <ButtonGroup>
                     <Button
                         key="desktop"
                         icon={ 'desktop' }
                         isSmall={ true }
-                        label={ 'Desktop' }
+                        label={ __('Desktop') }
                         showTooltip={true}
                         isPressed={ deviceType === 'Desktop' }
                         onClick={ () => setDeviceType('Desktop') }
@@ -44,7 +56,7 @@ const ControlHeader = (props: ControlHeaderProps) => {
                         key="tablet"
                         icon={ 'tablet' }
                         isSmall={ true }
-                        label={ 'Tablet' }
+                        label={ __('Tablet') }
                         showTooltip={true}
                         isPressed={ deviceType === 'Tablet' }
                         onClick={ () => setDeviceType('Tablet') }
@@ -53,7 +65,7 @@ const ControlHeader = (props: ControlHeaderProps) => {
                         key="mobile"
                         icon={ 'smartphone' }
                         isSmall={ true }
-                        label={ 'Mobile' }
+                        label={ __('Mobile') }
                         showTooltip={true}
                         isPressed={ deviceType === 'Mobile' }
                         onClick={ () => setDeviceType('Mobile') }
@@ -67,7 +79,7 @@ const ControlHeader = (props: ControlHeaderProps) => {
                     isSmall={ true }
                     isPressed={ props.isAdvanced }
                     onClick={ () => props.onAdvancedChange!(!props.isAdvanced) }
-                    label={ props.isAdvanced ? 'Use size preset' : 'Set custom size' }
+                    label={ props.isAdvanced ? __('Use size preset') : __('Set custom size') }
                     showTooltip={true}
                 />
             }
@@ -84,7 +96,7 @@ const ControlHeader = (props: ControlHeaderProps) => {
                     icon={ close }
                     isSmall={ true }
                     onClick={ props.onClear }
-                    label={ 'Reset' }
+                    label={ __('Reset') }
                     showTooltip={true}
                 />
             }
