@@ -1,15 +1,21 @@
 import React from 'react';
 import {MediaPlaceholder} from '@wordpress/block-editor';
+import {ToggleControl} from '@wordpress/components';
 
 import './MediaControl.scss';
 import {ControlHeader} from '../../components';
+import {showClear, prop, basename, showOnValue} from './utils';
+import {useGetPreviewDeviceType} from '../../hooks';
 
-function basename(str: string, sep: string = '/') {
-    str = str.substring(str.lastIndexOf(sep) + 1);
-    if (str.endsWith(')')) {
-        str = str.substring(0, str.length - 1);
-    }
-    return str;
+type MediaPlaceholderProps = {
+    id: number
+} & { [p: string]: any }
+
+export type MediaSize = {
+    width: number,
+    height: number,
+    url: string,
+    orientation: string
 }
 
 export type Media = {
@@ -18,6 +24,30 @@ export type Media = {
     alt?: string,
     width?: number,
     height?: number,
+    sizes?: {
+        [key: string]: MediaSize
+    }
+    showOnDesktop?: boolean,
+
+    tabletUrl?: string,
+    tabletId?: string,
+    tabletAlt?: string,
+    tabletWidth?: number,
+    tabletHeight?: number,
+    tabletSizes?: {
+        [key: string]: MediaSize
+    }
+    showOnTablet?: boolean,
+
+    mobileUrl?: string,
+    mobileId?: string,
+    mobileAlt?: string,
+    mobileWidth?: number,
+    mobileHeight?: number,
+    mobileSizes?: {
+        [key: string]: MediaSize
+    }
+    showOnMobile?: boolean,
 }
 
 export interface MediaControlProps {
@@ -25,22 +55,35 @@ export interface MediaControlProps {
     help?: string,
     attributes: Media,
     setAttributes: (attributes: Partial<Media>) => void,
-    children?: React.ReactNode;
+    isResponsive?: boolean,
 }
 
 
 const MediaControl = (props: MediaControlProps) => {
+    const deviceType = useGetPreviewDeviceType();
 
-    const onSelect = (media: Media | null) => {
+    const onSelect = (media: MediaPlaceholderProps | null) => {
+        console.log(media)
+
         if (!media || !media.url) {
             props.setAttributes({
-                url: undefined,
-                id: undefined,
-                alt: undefined
+                [prop('url', deviceType)]: undefined,
+                [prop('id', deviceType)]: undefined,
+                [prop('alt', deviceType)]: undefined,
+                [prop('width', deviceType)]: undefined,
+                [prop('height', deviceType)]: undefined,
+                [prop('sizes', deviceType)]: undefined,
             });
             return;
         }
-        props.setAttributes(media);
+        props.setAttributes({
+            [prop('url', deviceType)]: media.url,
+            [prop('id', deviceType)]: media.id,
+            [prop('alt', deviceType)]: media.alt,
+            [prop('width', deviceType)]: media.width,
+            [prop('height', deviceType)]: media.height,
+            [prop('sizes', deviceType)]: media.sizes,
+        });
     };
 
     const onClear = () => {
@@ -51,31 +94,38 @@ const MediaControl = (props: MediaControlProps) => {
         <div
             className={'wpx--media-control'}
         >
-            {!!props.title &&
-                <ControlHeader
-                    title={props.title}
-                    onClear={props.attributes.url ? onClear : undefined}
-                />
-            }
-            {!props.attributes.url ?
+            <ControlHeader
+                title={props.title}
+                onClear={showClear(props.attributes, deviceType) ? onClear : undefined}
+                isResponsive={props.isResponsive}
+            />
+            {!props.attributes[prop('url', deviceType)] ?
                 <>
                     <MediaPlaceholder
                         labels={{title: ''}}
                         accept="image/*"
                         allowedTypes={['image']}
-                        onSelect={media => onSelect(media as unknown as Media)}
+                        onSelect={media => onSelect(media)}
                         multiple={false}
                         onHTMLDrop={() => {
                         }}
                     />
                     {!!props.help && <small>{props.help}</small>}
                 </> :
-                <div className="wpx--filename">{basename(props.attributes.url || '')}</div>
+                <div
+                    className="wpx--filename">{basename(props.attributes[prop('url', deviceType)] as string || '')}</div>
             }
-            {!!props.children && props.children}
+            <ToggleControl
+                label={`Show on ${deviceType}`}
+                checked={showOnValue(props.attributes, deviceType)}
+                onChange={isChecked => {
+                    props.setAttributes({
+                        [prop('showOn', deviceType)]: isChecked
+                    });
+                }}
+            />
         </div>
-    )
-        ;
+    );
 }
 
 export default MediaControl;

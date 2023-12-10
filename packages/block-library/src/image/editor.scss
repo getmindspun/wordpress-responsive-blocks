@@ -1,0 +1,16 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-mindspun-image {
+    width: fit-content;
+    height: fit-content;
+
+    svg {
+        fill: #ccc;
+        width: 250px;
+        height: 250px;
+    }
+}

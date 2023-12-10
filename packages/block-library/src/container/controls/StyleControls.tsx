@@ -6,6 +6,7 @@ import {
     ContainerControl, CustomCSSControl,
     WidthHeightControl
 } from '@mindspun/wpx';
+import OverflowControl from './OverflowControl';
 
 const StyleControls = (props: Props) => {
     console.log(props)
@@ -98,6 +99,16 @@ const StyleControls = (props: Props) => {
                             props.setAttributes({style: {...props.attributes.style, ...style}});
                         }}
                         isResponsive={true}
+                    />
+                </ContainerContents>
+            </ContainerControl>
+            <ContainerControl title={'Overflow'}>
+                <ContainerContents>
+                    <OverflowControl
+                        attributes={props.attributes.style}
+                        setAttributes={style => {
+                            props.setAttributes({style: {...props.attributes.style, ...style}});
+                        }}
                     />
                 </ContainerContents>
             </ContainerControl>

@@ -43,3 +43,23 @@ export const WithValue: Story = {
         )
     }
 };
+
+export const Responsive: Story = {
+    render: () => {
+        const [attributes, setAttributes] = useState<MediaControlProps['attributes']>({
+            'url': '/foo/imageBig.jpg',
+            'tabletUrl': '/foo/imageMedium.jpg',
+            'mobileUrl': '/foo/imageSmall.jpg'
+        } as MediaControlProps['attributes']);
+        return (
+            <MediaControl
+                title={'Title'}
+                attributes={attributes}
+                setAttributes={newAttributes => {
+                    setAttributes({...attributes, ...newAttributes});
+                }}
+                isResponsive
+            />
+        )
+    }
+};

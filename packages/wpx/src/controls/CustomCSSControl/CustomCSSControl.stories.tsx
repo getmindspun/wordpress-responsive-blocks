@@ -51,7 +51,6 @@ export const Default: Story = {
             <Display attributes={attributes}>
                 <CustomCSSControl
                     blockId={'123'}
-                    label={'Box Shadow'}
                     attributes={attributes}
                     setAttributes={newAttributes => {
                         setAttributes({...attributes, ...newAttributes});

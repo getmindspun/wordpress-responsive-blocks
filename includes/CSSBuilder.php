@@ -45,6 +45,8 @@ const PROPERTIES = array(
     'paddingLeft',
     'paddingRight',
     'paddingTop',
+    'overflowX',
+    'overflowY',
     'textAlign',
     'textTransform',
     'width',

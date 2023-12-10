@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "mindspun/image",
+	"version": "0.1.0",
+	"title": "Image",
+	"category": "mindspun-responsive-blocks",
+	"description": "Fully-responsive images.",
+	"example": {},
+	"attributes": {
+		"blockId": {
+			"type": "string"
+		},
+		"media": {
+			"type": "object",
+			"default": {}
+		},
+		"style": {
+			"type": "object",
+			"default": {}
+		}
+	},
+	"textdomain": "wpx",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./editor.css",
+	"style": "file:./style.css"
+}

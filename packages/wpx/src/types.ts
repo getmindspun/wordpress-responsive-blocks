@@ -51,6 +51,8 @@ export interface BlockCSSProperties extends CSSProperties {
     tabletMinHeight?: CSSProperties['minHeight'];
     tabletMaxWidth?: CSSProperties['maxWidth'];
     tabletMaxHeight?: CSSProperties['maxHeight'];
+    tabletOverflowX?: CSSProperties['overflowX'];
+    tabletOverflowY?: CSSProperties['overflowY'];
 
     mobileBlockAlign?: BlockAlign;
     mobileCustomCSS?: string;
@@ -92,6 +94,8 @@ export interface BlockCSSProperties extends CSSProperties {
     mobileMinHeight?: CSSProperties['minHeight'];
     mobileMaxWidth?: CSSProperties['maxWidth'];
     mobileMaxHeight?: CSSProperties['maxHeight'];
+    mobileOverflowX?: CSSProperties['overflowX'];
+    mobileOverflowY?: CSSProperties['overflowY'];
 }
 
 export type LengthUnit = 'px' | '%' | 'em' | 'rem';

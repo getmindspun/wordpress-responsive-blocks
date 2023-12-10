@@ -57,10 +57,12 @@ const CustomCSSControl = (props: CustomCSSControlProps) => {
                 onExpand={() => setShowModal(true)}
                 isResponsive={props.isResponsive}
             />
-            <CustomCSSEditor
-                {...props}
-                deviceType={deviceType}
-            />
+            <div style={{maxWidth: '250px'}}>
+                <CustomCSSEditor
+                    {...props}
+                    deviceType={deviceType}
+                />
+            </div>
         </div>
     );
 }

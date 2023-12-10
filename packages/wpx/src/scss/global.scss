@@ -5,3 +5,28 @@
 .wpx--focused {
     outline: $blue dotted 1px;
 }
+
+.wpx--d-block {
+    display: block;
+}
+.wpx--d-none {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .wpx--d-tablet-block {
+        display: block;
+    }
+    .wpx--d-tablet-none {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .wpx--d-mobile-block {
+        display: block;
+    }
+    .wpx--d-mobile-none {
+        display: none;
+    }
+}
