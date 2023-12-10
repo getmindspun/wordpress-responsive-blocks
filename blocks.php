@@ -24,8 +24,8 @@ require_once __DIR__ . '/vendor/autoload.php';
 /**
  * Helper function to build CSS from the block attributes using the given selector.
  *
- * @param string $id
- * @param array $attributes
+ * @param string      $id
+ * @param array       $attributes
  * @param string|null $selector
  * @return string
  * @noinspection PhpUnused

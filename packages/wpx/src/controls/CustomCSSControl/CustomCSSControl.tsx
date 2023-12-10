@@ -15,7 +15,6 @@ export type CustomCSSProperties = {
 }
 
 export type CustomCSSControlProps = {
-    label: string,
     blockId?: string,
     attributes: CustomCSSProperties,
     setAttributes: (attributes: CustomCSSControlProps['attributes']) => void

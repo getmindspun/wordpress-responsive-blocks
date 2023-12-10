@@ -19,8 +19,9 @@ const PROPERTIES = array(
     'borderTopRightRadius',
     'boxShadow',
     'color',
-    'customCSS', // ***
-    'display',
+    'customCSS',
+    // ***
+        'display',
     'flexBasis',
     'flexDirection',
     'flexGrow',
@@ -125,8 +126,10 @@ class CSSBuilder {
         $array = array();
 
         foreach ( $style as $name => $value ) {
-            $property = self::kebab_case( $name );
-            $array[] = "$property:$value";
+            if ( 'customCSS' !== $name ) {
+                $property = self::kebab_case( $name );
+                $array[] = "$property:$value";
+            }
         }
 
         $prefix = "#$id";
@@ -143,7 +146,7 @@ class CSSBuilder {
     /**
      * Generate the CSS using the given selector.
      *
-     * @param string $id
+     * @param string      $id
      * @param string|null $selector
      * @return string
      */
@@ -155,7 +158,7 @@ class CSSBuilder {
             if ( $ruleset ) {
                 $rulesets[] = $ruleset;
             }
-            if ($this->state['desktop']['customCSS'] ?? '') {
+            if ( $this->state['desktop']['customCSS'] ?? '' ) {
                 $rulesets[] = $this->state['desktop']['customCSS'];
             }
         }
@@ -168,8 +171,8 @@ class CSSBuilder {
             if ( $ruleset ) {
                 $rulesets[] = '@media (max-width:1024px){' . $ruleset . '}';
             }
-            if ($this->state['tablet']['customCSS'] ?? '') {
-                $rulesets[] = '@media (max-width:1024px){' . $this->state['tablet']['customCSS']  . '}';
+            if ( $this->state['tablet']['customCSS'] ?? '' ) {
+                $rulesets[] = '@media (max-width:1024px){' . $this->state['tablet']['customCSS'] . '}';
             }
         }
         if ( ! empty( $this->state['tabletHover'] ) ) {
@@ -181,8 +184,8 @@ class CSSBuilder {
             if ( $ruleset ) {
                 $rulesets[] = '@media (max-width:480px){' . $ruleset . '}';
             }
-            if ($this->state['tablet']['customCSS'] ?? '') {
-                $rulesets[] = '@media (max-width:480px){' . $this->state['mobile']['customCSS']  . '}';
+            if ( $this->state['mobile']['customCSS'] ?? '' ) {
+                $rulesets[] = '@media (max-width:480px){' . $this->state['mobile']['customCSS'] . '}';
             }
         }
         if ( ! empty( $this->state['mobileHover'] ) ) {

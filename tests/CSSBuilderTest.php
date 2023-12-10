@@ -20,6 +20,12 @@ class CSSBuilderTest extends TestCase
         $this->assertEquals('#123 .block:hover{margin-top:1em}', $builder->to_css('123', '.block'));
     }
 
+    public function test_custom_css() {
+        $builder = new CSSBuilder();
+        $builder->add_attributes(array('customCSS' => '.foo{bar:baz}') );
+        $this->assertEquals('.foo{bar:baz}', $builder->to_css('123', '.block'));
+    }
+
     public function test_tablet() {
         $builder = new CSSBuilder();
         $builder->add_attributes(array('tabletMarginTop' => '1em') );
@@ -32,6 +38,12 @@ class CSSBuilderTest extends TestCase
         $this->assertEquals('@media (max-width:1024px){#123 .block:hover{margin-top:1em}}', $builder->to_css('123', '.block'));
     }
 
+    public function test_tablet_custom_css() {
+        $builder = new CSSBuilder();
+        $builder->add_attributes(array('tabletCustomCSS' => '.foo{bar:baz}') );
+        $this->assertEquals('@media (max-width:1024px){.foo{bar:baz}}', $builder->to_css('123', '.block'));
+    }
+
     public function test_mobile() {
         $builder = new CSSBuilder();
         $builder->add_attributes(array('mobileMarginTop' => '1em') );
@@ -42,5 +54,11 @@ class CSSBuilderTest extends TestCase
         $builder = new CSSBuilder();
         $builder->add_attributes(array('mobileMarginTopHover' => '1em') );
         $this->assertEquals('@media (max-width:480px){#123 .block:hover{margin-top:1em}}', $builder->to_css('123', '.block'));
+    }
+
+    public function test_mobile_custom_css() {
+        $builder = new CSSBuilder();
+        $builder->add_attributes(array('mobileCustomCSS' => '.foo{bar:baz}') );
+        $this->assertEquals('@media (max-width:480px){.foo{bar:baz}}', $builder->to_css('123', '.block'));
     }
 }
