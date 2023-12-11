@@ -20,7 +20,7 @@ export default function Edit(props: Props & {clientId: string}) {
 				{...blockProps}
 				tagName={'p'}
 				onChange={ text => {
-					props.setAttributes!( {text})
+					props.setAttributes( {text})
 				}}
 				value={ props.attributes.text }
 				allowedFormats={ [ 'core/bold', 'core/italic' ] }

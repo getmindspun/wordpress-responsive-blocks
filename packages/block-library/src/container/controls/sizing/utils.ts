@@ -6,7 +6,7 @@ function prop(name: string, deviceType: string) {
 }
 
 export function toValue(style: FlexSizingProperties, deviceType: string) {
-    if (style[prop('flexBasis', deviceType)] === 'auto' && style[prop('flexGrow', deviceType)] === 1 && style[prop('flexShrink', deviceType)] === 1) {
+    if (style[prop('flexBasis', deviceType)] === 0 && style[prop('flexGrow', deviceType)] === 1 && style[prop('flexShrink', deviceType)] === 1) {
         return 'fill';
     }
     if (style[prop('flexGrow', deviceType)] === 1) {
@@ -24,7 +24,7 @@ export function fromValue(value: string, deviceType: string) {
             return {
                 [prop('flexGrow', deviceType)]: 1,
                 [prop('flexShrink', deviceType)]: 1,
-                [prop('flexBasis', deviceType)]: 'auto'
+                [prop('flexBasis', deviceType)]: 0
             }
         case 'grow':
             return {

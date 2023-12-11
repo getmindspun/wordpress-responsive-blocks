@@ -62,6 +62,10 @@ function wpx_style_block( array $block ): void {
             }
         }
     }
+
+    foreach ($block['innerBlocks'] ?? array() as $innerBlock) {
+        wpx_style_block($innerBlock);
+    }
 }
 
 if ( ! is_admin() ) {
@@ -80,7 +84,7 @@ if ( ! is_admin() ) {
 }
 
 add_action(
-    'admin_enqueue_scripts',
+    'enqueue_block_editor_assets',
     function () {
         $handle = '@mindspun/wpx';
         $asset_path = __DIR__ . '/dist/wpx.asset.php';

@@ -8,7 +8,7 @@
 
         .wpx--tab {
             display: flex;
-            flex-grow: 1;
+            flex: 1 1 0;
             justify-content: center;
             align-items: center;
             background-color: $light-gray;

@@ -3,6 +3,7 @@ import React from 'react';
 import './TabbedControl.scss';
 import {Button, IconType} from '@wordpress/components';
 import {useControlState} from '../../hooks';
+import classNames from 'classnames';
 
 function findActiveIndex(key: React.Key, children: React.ReactElement<TabContainerProps>[]) {
     for (let i=0; i < children.length; i++) {
@@ -15,7 +16,6 @@ function findActiveIndex(key: React.Key, children: React.ReactElement<TabContain
 }
 
 export interface TabContainerProps {
-    active?: boolean,
     icon?: IconType | null,
 }
 
@@ -34,10 +34,13 @@ const TabbedControl = (props: {
             <div className={'wpx--tabbed-header'}>
                 { children.map((child, index) => {
                     const key = child.key ? child.key : index;
+                    const className = classNames('wpx--tab', {
+                        'wpx--tab-active': index === activeIndex
+                    })
                     return (
                         <div
                             key={key}
-                            className={'wpx--tab' + (index === activeIndex ? ' wpx--tab-active' : '')}
+                            className={className}
                         >
                             <Button icon={child.props.icon} onClick={() => {
                                 setControlState(key);
