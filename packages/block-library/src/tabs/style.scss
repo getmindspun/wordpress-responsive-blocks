@@ -33,6 +33,21 @@ $border: 1px solid #ccc;
             &:not(:last-of-type) {
                 border-right: $border;
             }
+
+            button {
+                color: inherit;
+                background: none;
+                border: none;
+                font-size: inherit;
+                cursor: inherit;
+                text-align: inherit;
+            }
+
+            @media (max-width: 480px) {
+                &.stack-on-mobile {
+                    flex-direction: column;
+                }
+            }
         }
 
         .wpx--tab--active {
@@ -43,15 +58,6 @@ $border: 1px solid #ccc;
         .wpx--tab:not(.wpx--tab--active) {
             cursor: pointer;
         }
-    }
-
-    .wpx--tab button {
-        color: inherit;
-        background: none;
-        border: none;
-        font-size: inherit;
-        cursor: inherit;
-        text-align: inherit;
     }
 
     .wp-block-mindspun-tab {

@@ -126,6 +126,10 @@ add_action(
 );
 
 function wpx_enqueue_style() {
+    if( !function_exists('get_plugin_data') ){
+        require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+    }
+
     $plugin_data = get_plugin_data( __FILE__);
     wp_register_style(
         'style-wpx',

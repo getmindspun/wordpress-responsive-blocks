@@ -6,4 +6,7 @@
  */
 
 .wp-block-mindspun-tab {
+    &.wpx--tab--active {
+        display: block !important;
+    }
 }

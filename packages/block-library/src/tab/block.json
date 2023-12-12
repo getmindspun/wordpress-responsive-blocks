@@ -19,6 +19,12 @@
         "label": {
             "type": "string",
             "default": "Tab"
+        },
+        "isDefault": {
+            "type": "boolean"
         }
-    }
+    },
+    "usesContext": [
+        "mindspun/tabs"
+    ]
 }

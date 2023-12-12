@@ -13,6 +13,14 @@
         "blockId": {
             "type": "string"
         },
+        "labels": {
+            "type": "object",
+            "default": {}
+        },
+        "stackOnMobile": {
+            "type": "boolean",
+            "default": true
+        },
         "header": {
             "type": "object",
             "default": {},
@@ -26,7 +34,7 @@
         "activeTab": {
             "type": "object",
             "default": {},
-            "selector": ".wpx--active-tab"
+            "selector": ".wpx--tab--active"
         },
         "content": {
             "type": "object",
@@ -34,5 +42,8 @@
             "selector": ".wp-block-mindspun-tab"
         }
     },
-    "viewScript": "file:./view.js"
+    "viewScript": "file:./view.js",
+    "providesContext": {
+        "mindspun/tabs": "labels"
+    }
 }

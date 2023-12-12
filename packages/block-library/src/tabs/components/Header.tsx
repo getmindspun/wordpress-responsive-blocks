@@ -1,14 +1,10 @@
 import React from 'react';
-import {Attributes} from '../types';
+import {ComponentProps} from '../types';
 import {StylePortal} from '@mindspun/wpx';
 import classNames from 'classnames';
 
-type Props = {
-    attributes: Attributes;
-    children: React.ReactNode;
-}
 
-const Header = (props: Props) => {
+const Header = (props: ComponentProps) => {
 
     const className = classNames('wpx--tabs', {
         [`wpx--block-align-${props.attributes.header.blockAlign}`]: props.attributes.header.blockAlign !== undefined,
@@ -18,13 +14,15 @@ const Header = (props: Props) => {
 
     return (
         <>
-            <StylePortal
-                blockId={props.attributes.blockId}
-                attributes={props.attributes.header}
-                selector={'.wpx--tabs'}
-            />
+            {props.setAttributes &&
+                <StylePortal
+                    blockId={props.attributes.blockId}
+                    attributes={props.attributes.header}
+                    selector={'.wpx--tabs'}
+                />
+            }
             <ul className={className}>
-                { props.children }
+                {props.children}
             </ul>
         </>
     );
