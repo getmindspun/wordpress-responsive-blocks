@@ -4,58 +4,58 @@ $aligns: left, center, right;
 
 @each $align in $aligns {
     .wpx--block-align-#{$align} {
-        display: flex;
-        flex-direction: row;
-        justify-content: #{$align};
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: #{$align} !important;
 
         & > * {
-            flex: 0 1 auto;
+            flex: 0 1 auto !important;
         }
     }
 }
 
 .wpx--block-align-full {
-    display: flex;
+    display: flex !important;
 
     & > * {
-        flex: 1 1 0;
+        flex: 1 1 0 !important;
     }
 }
 
 .wpx--block-align-wide {
-    display: flex;
+    display: flex !important;
 
     & > * {
-        flex: 1 1 auto;
+        flex: 1 1 auto !important;
     }
 }
 
 @media (max-width: 1024px) {
     @each $align in $aligns {
         .wpx--tablet-block-align-#{$align} {
-            display: flex;
-            flex-direction: row;
-            justify-content: #{$align};
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: #{$align} !important;
 
             & > * {
-                flex: 0 1 auto;
+                flex: 0 1 auto !important;
             }
         }
     }
 
     .wpx--tablet-block-align-full {
-        display: flex;
+        display: flex !important;
 
         & > * {
-            flex: 1 1 0;
+            flex: 1 1 0 !important;
         }
     }
 
     .wpx--tablet-block-align-wide {
-        display: flex;
+        display: flex !important;
 
         & > * {
-            flex: 1 1 auto;
+            flex: 1 1 auto !important;
         }
     }
 }
@@ -63,29 +63,29 @@ $aligns: left, center, right;
 @media (max-width: 480px) {
     @each $align in $aligns {
         .wpx--mobile-block-align-#{$align} {
-            display: flex;
-            flex-direction: row;
-            justify-content: #{$align};
+            display: flex !important;
+            flex-direction: row !important;
+            justify-content: #{$align} !important;
 
             & > * {
-                flex: 0 1 auto;
+                flex: 0 1 auto !important;
             }
         }
     }
 
     .wpx--mobile-block-align-full {
-        display: flex;
+        display: flex !important;
 
         & > * {
-            flex: 1 1 0;
+            flex: 1 1 0 !important;
         }
     }
 
     .wpx--mobile-block-align-wide {
-        display: flex;
+        display: flex !important;
 
         & > * {
-            flex: 1 1 auto;
+            flex: 1 1 auto !important;
         }
     }
 }

@@ -19,5 +19,5 @@
 	"textdomain": "wpx",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./editor.css",
-	"style": "file:./style.css"
+	"style": ["style-wpx", "file:./style.css"]
 }

@@ -1,0 +1,24 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "mindspun/tab",
+    "title": "Tab",
+    "category": "mindspun-responsive-blocks",
+    "description": "A single tab in a tabbed container.",
+    "textdomain": "wpx",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./editor.css",
+    "style": "file:./style.css",
+    "parent": [
+        "mindspun/tabs"
+    ],
+    "attributes": {
+        "blockId": {
+            "type": "string"
+        },
+        "label": {
+            "type": "string",
+            "default": "Tab"
+        }
+    }
+}

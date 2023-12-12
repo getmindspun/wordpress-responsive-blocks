@@ -1,4 +1,5 @@
 // noinspection JSUnusedGlobalSymbols
+import './src/scss/style.scss';
 import './src/store';
 
 export * from './src/components';

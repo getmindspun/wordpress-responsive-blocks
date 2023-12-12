@@ -2,7 +2,7 @@ import React from 'react';
 
 import './TabbedControl.scss';
 import {Button, IconType} from '@wordpress/components';
-import {useControlState} from '../../hooks';
+import {useBlockState} from '../../hooks';
 import classNames from 'classnames';
 
 function findActiveIndex(key: React.Key, children: React.ReactElement<TabContainerProps>[]) {
@@ -26,9 +26,9 @@ const TabbedControl = (props: {
 }) => {
     const name = props.name ? props.name : 'tab';
     const children = Array.isArray(props.children) ? props.children : [props.children];
-    const [controlState, setControlState] = useControlState(name);
+        const [blockState, setBlockState] = useBlockState(name);
 
-    const activeIndex = findActiveIndex(controlState, children);
+    const activeIndex = findActiveIndex(blockState, children);
     return (
         <div className={'wpx--tabbed-control'}>
             <div className={'wpx--tabbed-header'}>
@@ -43,7 +43,7 @@ const TabbedControl = (props: {
                             className={className}
                         >
                             <Button icon={child.props.icon} onClick={() => {
-                                setControlState(key);
+                                setBlockState(key);
                                 props.onSelect && props.onSelect(key);
                             }}>
                                 {child.props.icon ? child.key : key}

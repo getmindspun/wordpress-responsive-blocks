@@ -1,0 +1,20 @@
+/**
+ * The following styles get applied inside the editor only.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-mindspun-tab {
+}
+
+.wp-block-mindspun-tab--controls {
+    .wpx--tab-controls {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+
+        input[type="text"] {
+            width: 100%;
+        }
+    }
+}

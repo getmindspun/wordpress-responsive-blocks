@@ -124,3 +124,17 @@ add_action(
         }
     }
 );
+
+function wpx_enqueue_style() {
+    $plugin_data = get_plugin_data( __FILE__);
+    wp_register_style(
+        'style-wpx',
+        plugins_url( 'dist/style-wpx.css', __FILE__ ),
+        array(),
+        $plugin_data['Version']
+    );
+}
+
+/* Global stylesheet for blocks that need it. This style is used in both the front-end and the editor. */
+add_action('wp_enqueue_scripts', 'wpx_enqueue_style');
+add_action('admin_enqueue_scripts', 'wpx_enqueue_style');

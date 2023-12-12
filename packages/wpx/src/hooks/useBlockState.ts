@@ -2,10 +2,10 @@ import {useDispatch, useSelect} from '@wordpress/data';
 import React from 'react';
 import {useCallback} from '@wordpress/element';
 
-export default function useControlState(key: string|number) {
+export default function useBlockState(key: string|number) {
     const dispatch = useDispatch('wpx/block-data') as {
         setControlState: (key: string|number, value: React.Key) => void;
-    } ;
+    };
 
     const { controlState } = useSelect(
         ( select ) => {

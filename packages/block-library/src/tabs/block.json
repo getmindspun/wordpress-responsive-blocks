@@ -1,0 +1,38 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "mindspun/tabs",
+    "title": "Tabs",
+    "category": "mindspun-responsive-blocks",
+    "description": "Tabbed container.",
+    "textdomain": "wpx",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./editor.css",
+    "style": ["style-wpx" ,"file:./style.css"],
+    "attributes": {
+        "blockId": {
+            "type": "string"
+        },
+        "header": {
+            "type": "object",
+            "default": {},
+            "selector": ".wpx--tabs"
+        },
+        "tab": {
+            "type": "object",
+            "default": {},
+            "selector": ".wpx--tab"
+        },
+        "activeTab": {
+            "type": "object",
+            "default": {},
+            "selector": ".wpx--active-tab"
+        },
+        "content": {
+            "type": "object",
+            "default": {},
+            "selector": ".wp-block-mindspun-tab"
+        }
+    },
+    "viewScript": "file:./view.js"
+}

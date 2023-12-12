@@ -6,4 +6,4 @@ export * from './useGetPreviewDeviceType';
 export * from './useSetPreviewDeviceType';
 export {default as useBlockId} from './useBlockId';
 export {default as useBlockPropsWithId} from './useBlockPropsWithId';
-export {default as useControlState} from './useControlState';
+export {default as useBlockState} from './useBlockState';
