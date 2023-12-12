@@ -10,6 +10,7 @@ const Header = (props: ComponentProps) => {
         [`wpx--block-align-${props.attributes.header.blockAlign}`]: props.attributes.header.blockAlign !== undefined,
         [`wpx--tablet-block-align-${props.attributes.header.tabletBlockAlign}`]: props.attributes.header.tabletBlockAlign !== undefined,
         [`wpx--block-align-${props.attributes.header.mobileBlockAlign}`]: props.attributes.header.mobileBlockAlign !== undefined,
+        'stack-on-mobile': props.attributes.stackOnMobile
     });
 
     return (

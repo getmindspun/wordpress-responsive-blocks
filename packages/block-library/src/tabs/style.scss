@@ -19,6 +19,17 @@ $border: 1px solid #ccc;
         border-radius: 0;
         z-index: 1;  // Keep above content
 
+        @media (max-width: 480px) {
+            &.stack-on-mobile {
+                flex-direction: column;
+                border: $border;
+
+                .wpx--tab:not(:last-of-type) {
+                    border-bottom: $border;
+                }
+            }
+        }
+
         .wpx--tab {
             list-style: none;
             display: flex;
@@ -41,12 +52,6 @@ $border: 1px solid #ccc;
                 font-size: inherit;
                 cursor: inherit;
                 text-align: inherit;
-            }
-
-            @media (max-width: 480px) {
-                &.stack-on-mobile {
-                    flex-direction: column;
-                }
             }
         }
 

@@ -51,7 +51,6 @@ domReady(function () {
         // Each block watches for a hash change event.
         addEventListener('hashchange', () => {
             for (const tab of tabs) {
-                console.log(window.location.hash);
                 if (window.location.hash) {
                     const button = tab.querySelector('button');
                     if (button) {

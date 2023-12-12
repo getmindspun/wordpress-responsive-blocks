@@ -16,7 +16,8 @@ export type Attributes = {
     tab: BlockCSSProperties,
     activeTab: BlockCSSProperties,
     content: BlockCSSProperties,
-    labels: Record<string, string>
+    labels: Record<string, string>,
+    stackOnMobile: boolean|undefined,
 }
 
 export type Props = {

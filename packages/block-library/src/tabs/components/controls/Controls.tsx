@@ -3,6 +3,7 @@ import {BlockAlignControl, ControlGroup} from '@mindspun/wpx';
 import {Props} from '../../types';
 import TabControls from './TabControls';
 import {InspectorControls} from '@wordpress/block-editor';
+import {ToggleControl} from '@wordpress/components';
 
 const Controls = (props: Props) => {
     return (
@@ -28,6 +29,13 @@ const Controls = (props: Props) => {
                     attributes={props.attributes.header}
                     setAttributes={header => {
                         props.setAttributes({header: {...props.attributes.header, ...header}});
+                    }}
+                />
+                <ToggleControl
+                    label="Stack Vertically on Mobile"
+                    checked={ props.attributes.stackOnMobile }
+                    onChange={ isChecked => {
+                        props.setAttributes({stackOnMobile: isChecked})
                     }}
                 />
             </ControlGroup>
