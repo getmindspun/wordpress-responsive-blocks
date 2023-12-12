@@ -19,8 +19,9 @@ const Tab = (props: Props) => {
             className={ className }
             onClick={ props.onClick }
             data-block-id={props.blockId}
+            role="presentation"
         >
-            { props.label }
+            <button role="tab">{props.label}</button>
         </li>);
 };
 

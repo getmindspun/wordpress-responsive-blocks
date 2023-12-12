@@ -7,7 +7,9 @@ import React from 'react';
 
 export default function save(props: { attributes: Props['attributes'] }) {
     const blockProps = useBlockPropsWithId.save(props);
-    const innerBlocksProps = useInnerBlocksProps.save(blockProps);
+    const innerBlocksProps = useInnerBlocksProps.save({
+        className: 'wpx--tab-contents'
+    });
 
     return (
         <div {...blockProps}>

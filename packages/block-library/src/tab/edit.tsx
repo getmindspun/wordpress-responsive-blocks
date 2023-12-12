@@ -27,7 +27,7 @@ export default function Edit(props: Props & { clientId: string }) {
     return (
         <>
             <Controls {...props} />
-            <div {...innerBlocksProps} role="tabpanel" />
+            <div {...innerBlocksProps} role="tabpanel" tabIndex={0}/>
         </>
     );
 }
