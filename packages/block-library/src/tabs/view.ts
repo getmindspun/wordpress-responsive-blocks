@@ -19,9 +19,9 @@ function selectTab(blockId: string, tabs: NodeListOf<Element>, panels: NodeListO
     for (const panel of panels) {
         const id = `wpx-${blockId}`;
         if (panel.getAttribute('id') === id) {
-            panel.classList.add('wpx--tab--active');
+            panel.classList.add('wpx--tab-panel--active');
         } else {
-            panel.classList.remove('wpx--tab--active');
+            panel.classList.remove('wpx--tab-panel--active');
         }
     }
 }

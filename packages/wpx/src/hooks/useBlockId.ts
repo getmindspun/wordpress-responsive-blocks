@@ -35,9 +35,13 @@ export default function useBlockId(blockId: string, clientId: string) {
     const setBlockId = useDispatch('wpx/block-data').setBlockId;
 
     const postId = useSelect(select => {
-        return (select('core/editor') as {
-            getCurrentPostId: () => number
-        }).getCurrentPostId().toString();
+        const currentPostId = (select('core/editor') as {
+            getCurrentPostId: () => number|null
+        }).getCurrentPostId();
+
+        // In FSE, getCurrentPostId() returns null.
+        return currentPostId !== null ? currentPostId.toString() : '0';
+
     }, []);
 
     const prefix = `${postId}_${clientId.substring( 2, 9 )}`;

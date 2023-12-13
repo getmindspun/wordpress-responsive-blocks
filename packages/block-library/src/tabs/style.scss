@@ -73,5 +73,9 @@ $border: 1px solid #ccc;
         display: none;
         padding: 1em;
     }
+
+    .wpx--tab-panel--active {
+        display: block !important;
+    }
 }
 
