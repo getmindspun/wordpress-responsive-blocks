@@ -93,7 +93,7 @@ add_action(
         $args = require_once $asset_path;
 
         $style_path = plugins_url( '/dist/wpx.css', __FILE__ );
-        wp_enqueue_style( $handle, $style_path, array('wp-codemirror'), $args['version'] );
+        wp_enqueue_style( $handle, $style_path, array( 'wp-codemirror' ), $args['version'] );
 
         $script_path = plugins_url( '/dist/wpx.js', __FILE__ );
         if ( ! wp_register_script( $handle, $script_path, $args['dependencies'], $args['version'] ) ) {
@@ -121,7 +121,7 @@ add_action(
     function () {
         foreach ( scandir( __DIR__ . '/dist' ) as $name ) {
             if ( ! str_contains( $name, '.' ) ) {
-                error_log('***' . $name);
+                error_log( '***' . $name );
                 register_block_type( __DIR__ . '/dist/' . $name );
             }
         }

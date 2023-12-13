@@ -1,6 +1,6 @@
 import {Props} from '../types';
 import {InspectorAdvancedControls, InspectorControls} from '@wordpress/block-editor';
-import {TextControl} from '@wordpress/components';
+import {TextControl, ToggleControl} from '@wordpress/components';
 import {layout, styles} from '@wordpress/icons';
 
 import {
@@ -78,6 +78,15 @@ const Controls = (props: Props & {
                     value={props.attributes.link ? props.attributes.link : ''}
                     onChange={link => props.setAttributes({link: link ? link : undefined})}
                     help={__('Opens this page when the container is clicked.')}
+                />
+                <ToggleControl
+                    label={__('Open in new tab.')}
+                    checked={props.attributes.target === '_blank'}
+                    onChange={isChecked => {
+                        props.setAttributes({
+                            target: isChecked ? '_blank' : undefined
+                        });
+                    }}
                 />
             </InspectorAdvancedControls>
         </>

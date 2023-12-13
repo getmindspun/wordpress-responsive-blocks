@@ -8,7 +8,7 @@ export type Props = {
 		variant: string,
 		text: string,
 		href?: string,
-		target?: '_self'|'_blank',
+		target?: '_self'|'_blank'|undefined,
 		style: BlockCSSProperties
 	};
 	setAttributes: (attributes: Partial<Props['attributes']>) => void
