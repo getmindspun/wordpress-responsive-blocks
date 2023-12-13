@@ -22,6 +22,9 @@
 		"href": {
 			"type": "string"
 		},
+		"target": {
+			"type": "string"
+		},
 		"style": {
 			"type": "object",
 			"default": {},

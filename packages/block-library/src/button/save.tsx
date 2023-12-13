@@ -10,6 +10,8 @@ export default function save(props: { attributes: Props['attributes'] }) {
     return (
         <div {...blockProps}>
             <a
+                href={props.attributes.href}
+                target={props.attributes.target}
                 className={props.attributes.variant !== 'link' ? 'wp-element-button' : undefined}
             >
                 {props.attributes.text}
