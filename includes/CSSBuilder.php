@@ -20,8 +20,7 @@ const PROPERTIES = array(
     'boxShadow',
     'color',
     'customCSS',
-    // ***
-        'display',
+    'display',
     'flexBasis',
     'flexDirection',
     'flexGrow',

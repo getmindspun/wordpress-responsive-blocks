@@ -63,8 +63,8 @@ function wpx_style_block( array $block ): void {
         }
     }
 
-    foreach ($block['innerBlocks'] ?? array() as $innerBlock) {
-        wpx_style_block($innerBlock);
+    foreach ( $block['innerBlocks'] ?? array() as $inner_block ) {
+        wpx_style_block( $inner_block );
     }
 }
 
@@ -125,12 +125,17 @@ add_action(
     }
 );
 
+/**
+ * Registers our front-end style.
+ *
+ * @return void
+ */
 function wpx_enqueue_style() {
-    if( !function_exists('get_plugin_data') ){
-        require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+    if ( ! function_exists( 'get_plugin_data' ) ) {
+        require_once ABSPATH . 'wp-admin/includes/plugin.php';
     }
 
-    $plugin_data = get_plugin_data( __FILE__);
+    $plugin_data = get_plugin_data( __FILE__ );
     wp_register_style(
         'style-wpx',
         plugins_url( 'dist/style-wpx.css', __FILE__ ),
@@ -140,5 +145,5 @@ function wpx_enqueue_style() {
 }
 
 /* Global stylesheet for blocks that need it. This style is used in both the front-end and the editor. */
-add_action('wp_enqueue_scripts', 'wpx_enqueue_style');
-add_action('admin_enqueue_scripts', 'wpx_enqueue_style');
+add_action( 'wp_enqueue_scripts', 'wpx_enqueue_style' );
+add_action( 'admin_enqueue_scripts', 'wpx_enqueue_style' );
