@@ -1,6 +1,12 @@
 import {Media, MediaSize, propertyName} from '@mindspun/wpx';
-import {prop} from '@mindspun/wpx/src/controls/MediaControl/utils';
 import classNames from 'classnames';
+
+export function prop(name: string, deviceType: string) {
+    if (name === 'showOn') {
+        return `showOn${deviceType}` as keyof Media;
+    }
+    return propertyName(name, deviceType) as keyof Media;
+}
 
 export function showOnValue(value: boolean|undefined) {
     return (value !== undefined) ? value : true;

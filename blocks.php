@@ -12,6 +12,7 @@
  * Text Domain:       wpx
  */
 
+use WPX\Vendor\Mindspun\Framework\Autoloader;
 use WPX\CSSBuilder;
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -19,7 +20,8 @@ if ( ! defined( 'ABSPATH' ) ) {
     // Exit if accessed directly.
 }
 
-require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/vendor-prefixed/autoload.php';
+Autoloader::autoload( 'WPX', __DIR__ . '/includes' );
 
 /**
  * Helper function to build CSS from the block attributes using the given selector.
@@ -91,7 +93,7 @@ add_action(
         $args = require_once $asset_path;
 
         $style_path = plugins_url( '/dist/wpx.css', __FILE__ );
-        wp_enqueue_style( $handle, $style_path, array(), $args['version'] );
+        wp_enqueue_style( $handle, $style_path, array('wp-codemirror'), $args['version'] );
 
         $script_path = plugins_url( '/dist/wpx.js', __FILE__ );
         if ( ! wp_register_script( $handle, $script_path, $args['dependencies'], $args['version'] ) ) {
@@ -118,7 +120,8 @@ add_action(
     'init',
     function () {
         foreach ( scandir( __DIR__ . '/dist' ) as $name ) {
-            if ( ! in_array( $name, array( '..', '.' ) ) ) {
+            if ( ! str_contains( $name, '.' ) ) {
+                error_log('***' . $name);
                 register_block_type( __DIR__ . '/dist/' . $name );
             }
         }

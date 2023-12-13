@@ -1,12 +1,9 @@
-import {useCallback, useState} from '@wordpress/element';
 import {__} from '@wordpress/i18n';
-
-import CodeMirror from '@uiw/react-codemirror';
-import {css} from '@codemirror/lang-css';
 
 import {prop} from './utils';
 import {CustomCSSControlProps} from './CustomCSSControl';
 import {DeviceTypeContainer} from '../../components';
+import CSSEditor from './CSSEditor';
 
 const CustomCSSEditor = (props: CustomCSSControlProps & {
     deviceType: string;
@@ -22,10 +19,8 @@ const CustomCSSEditor = (props: CustomCSSControlProps & {
 
     return (
         <div>
-            <CodeMirror
+            <CSSEditor
                 value={value}
-                height="200px"
-                extensions={[css()]}
                 onChange={onChange}
             />
             <DeviceTypeContainer deviceType={'Desktop'}>

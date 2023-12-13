@@ -7,6 +7,7 @@
 build
 /*.zip
 /storybook-static
+/vendor-prefixed
 
 # Runtime data
 pids

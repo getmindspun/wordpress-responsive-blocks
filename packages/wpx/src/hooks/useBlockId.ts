@@ -1,5 +1,14 @@
-import { uniqueId } from 'lodash';
 import {useDispatch, useSelect} from '@wordpress/data';
+
+const state = {} as Record<string, number>;
+
+function uniqueId(prefix: string) {
+    if (!state[prefix]) {
+        state[prefix] = 0;
+    }
+    const id = ++state[prefix];
+    return `${prefix}${id}`;
+}
 
 function getPostIdPrefix( blockId: string | null) {
     if (blockId) {

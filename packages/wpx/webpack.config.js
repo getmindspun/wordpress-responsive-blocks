@@ -1,6 +1,8 @@
+const DependencyExtractionWebpackPlugin = require('@wordpress/dependency-extraction-webpack-plugin');
+
 const defaultConfig = require('@wordpress/scripts/config/webpack.config');
 
-const plugins = defaultConfig.plugins.filter((plugin) => {
+const plugins = defaultConfig.plugins.filter(plugin => {
     return (
         plugin.constructor.name !== 'CleanWebpackPlugin'
     );
@@ -30,15 +32,32 @@ module.exports = {
                             configFile: 'tsconfig.json',
                             transpileOnly: true,
                         }
-                    }
-                ]
-            }
-        ]
+                    }]
+            }]
     },
     resolve: {
-        extensions: [ '.ts', '.tsx', ...(defaultConfig.resolve ? defaultConfig.resolve.extensions || ['.js', '.jsx'] : [])]
+        extensions: ['.ts', '.tsx', ...(defaultConfig.resolve ? defaultConfig.resolve.extensions || ['.js', '.jsx'] : [])]
     },
     plugins: [
-        ...plugins
+        ...plugins,
+        new DependencyExtractionWebpackPlugin({
+            combineAssets: false,
+            combinedOutputFile: null,
+            externalizedReport: false,
+            injectPolyfill: false,
+            outputFormat: 'php',
+            outputFilename: null,
+            useDefaults: true,
+            requestToExternal(request) {
+                if (request === 'codemirror') {
+                    return ['wp', 'CodeMirror'];
+                }
+            },
+            requestToHandle(request) {
+                if (request === 'codemirror') {
+                    return 'wp-codemirror';
+                }
+            },
+        })
     ],
 };

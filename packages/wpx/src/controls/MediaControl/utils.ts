@@ -1,5 +1,5 @@
 import {propertyName} from '../../functions';
-import {Media, MediaSize} from './MediaControl';
+import {Media} from './MediaControl';
 
 export function prop(name: string, deviceType: string) {
     if (name === 'showOn') {

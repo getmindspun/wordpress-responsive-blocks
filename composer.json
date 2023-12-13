@@ -9,11 +9,31 @@
         "phpcompatibility/phpcompatibility-wp": "^2.1",
         "wp-coding-standards/wpcs": "^3.0.0",
         "phpunit/phpunit": "^9.6",
-        "yoast/phpunit-polyfills": "^2.0"
+        "yoast/phpunit-polyfills": "^2.0",
+        "brianhenryie/strauss": "^0.15.0"
     },
     "config": {
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true
         }
+    },
+    "scripts": {
+        "prefix-namespaces": [
+            "strauss"
+        ],
+        "post-install-cmd": [
+            "@prefix-namespaces"
+        ],
+        "post-update-cmd": [
+            "@prefix-namespaces"
+        ]
+    },
+    "extra": {
+        "strauss": {
+            "namespace_prefix": "WPX\\Vendor\\"
+        }
+    },
+    "require": {
+        "mindspun/wordpress-plugin-framework": "^1.0"
     }
 }
