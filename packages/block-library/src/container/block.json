@@ -11,6 +11,9 @@
 		"blockId": {
 			"type": "string"
 		},
+		"link": {
+			"type": "string"
+		},
 		"style": {
 			"type": "object",
 			"default": {}
