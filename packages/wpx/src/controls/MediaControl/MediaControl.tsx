@@ -63,8 +63,6 @@ const MediaControl = (props: MediaControlProps) => {
     const deviceType = useGetPreviewDeviceType();
 
     const onSelect = (media: MediaPlaceholderProps | null) => {
-        console.log(media)
-
         if (!media || !media.url) {
             props.setAttributes({
                 [prop('url', deviceType)]: undefined,

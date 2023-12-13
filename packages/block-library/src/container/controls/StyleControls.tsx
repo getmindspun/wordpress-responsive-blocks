@@ -9,7 +9,6 @@ import {
 import OverflowControl from './OverflowControl';
 
 const StyleControls = (props: Props) => {
-    console.log(props)
     return (
         <>
             <ContainerContents>

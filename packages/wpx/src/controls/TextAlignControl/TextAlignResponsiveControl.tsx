@@ -20,7 +20,6 @@ const TextAlignControl = (props: TextAlignControlProps) => {
                 <TextAlignBaseControl
                     textAlign={props.attributes.tabletTextAlign}
                     onChange={tabletTextAlign => {
-                        console.log(tabletTextAlign);
                         props.setAttributes({tabletTextAlign});
                     }} />
             }

@@ -121,7 +121,6 @@ add_action(
     function () {
         foreach ( scandir( __DIR__ . '/dist' ) as $name ) {
             if ( ! str_contains( $name, '.' ) ) {
-                error_log( '***' . $name );
                 register_block_type( __DIR__ . '/dist/' . $name );
             }
         }
