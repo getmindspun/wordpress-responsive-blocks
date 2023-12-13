@@ -4,6 +4,7 @@ import UnitRangeControl from '../UnitRangeControl/UnitRangeControl';
 import ControlHeader from '../../components/ControlHeader/ControlHeader';
 import {headerHint} from './utils';
 import {isNumeric, parseUnitValue} from '../../utils';
+import {LengthUnit} from '../../types';
 
 const UNITS = [
     { value: 'px', label: 'px', default: 0 },
@@ -20,8 +21,26 @@ type BorderRadiusValueControlProps = {
     onClear?: () => void;
 }
 
+export function onChangeValue(value: string|number|undefined, unit: LengthUnit) {
+    if (value === 0 || value === undefined) {
+        return value;
+    }
+    return isNumeric(value) ? `${value}${unit}` : value
+}
+
+export function onRangeChangeValue(value: number|undefined, unit: LengthUnit) {
+    if (value === 0 || value === undefined) {
+        return value;
+    }
+    return `${value}${unit}` ;
+}
+
 const BorderRadiusValueControl = (props: BorderRadiusValueControlProps) => {
     const [value, unit] = parseUnitValue(props.value);
+
+    function onRangeChange(value?: number) {
+        props.onChange(onRangeChangeValue(value, unit));
+    }
 
     return (
         <>
@@ -34,9 +53,7 @@ const BorderRadiusValueControl = (props: BorderRadiusValueControlProps) => {
             />}
             { props.isAdvanced ?
                 <UnitRangeControl
-                    onChange={ value => {
-                        props.onChange(isNumeric(value) ? `${value}${unit}` : value);
-                    } }
+                    onChange={ value => props.onChange(onChangeValue(value, unit)) }
                     value={ props.value }
                     units={ UNITS }
                 /> :
@@ -45,9 +62,7 @@ const BorderRadiusValueControl = (props: BorderRadiusValueControlProps) => {
                     min={ 0 }
                     onBlur={ function noRefCheck() {
                     } }
-                    onChange={ value => {
-                        props.onChange(`${value}${unit}`);
-                    } }
+                    onChange={ value => onRangeChange(value) }
                     onFocus={ function noRefCheck() {
                     } }
                     onMouseLeave={ function noRefCheck() {

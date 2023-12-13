@@ -10,6 +10,7 @@
     "@storybook/react-webpack5": "^7.6.3",
     "@types/lodash.uniqueid": "^4.0.9",
     "@types/wordpress__block-editor": "^11.5.8",
+    "@uiw/react-codemirror": "^4.21.21",
     "@wordpress/block-editor": "^12.15.0",
     "@wordpress/components": "^25.13.0",
     "@wordpress/data": "^9.17.0",

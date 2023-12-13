@@ -4,19 +4,24 @@ import {
 } from '@wordpress/components';
 
 import './HeadingTagControl.scss';
+import {__} from '@wordpress/i18n';
 
 export type HeadingTag = 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 type HeadingTagControlProps = {
-    tag: HeadingTag,
+    label?: string,
+    tagName?: HeadingTag,
     onChange: (tag: HeadingTag) => void;
 }
 
 const HeadingTagControl = (props: HeadingTagControlProps) => {
     return (
         <div className="wpx--heading-tag-control">
-            <ToggleGroupControl label="Tag" value={ props.tag || 'h2' } isBlock
-                                onChange={ value => props.onChange(value as HeadingTag) }>
+            <ToggleGroupControl
+                label={props.label!}
+                value={ props.tagName || 'h2' } isBlock
+                onChange={ value => props.onChange(value as HeadingTag) }
+            >
                 <ToggleGroupControlOption value="h2" label="H2"/>
                 <ToggleGroupControlOption value="h3" label="H3"/>
                 <ToggleGroupControlOption value="h4" label="H4"/>
@@ -25,6 +30,11 @@ const HeadingTagControl = (props: HeadingTagControlProps) => {
             </ToggleGroupControl>
         </div>
     );
+};
+
+HeadingTagControl.defaultProps = {
+    label: __('Tag'),
+    tagName: 'h2' as HeadingTag
 };
 
 export default HeadingTagControl;

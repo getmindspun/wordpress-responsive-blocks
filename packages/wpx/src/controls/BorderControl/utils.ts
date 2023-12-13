@@ -1,5 +1,7 @@
 import type {Border} from '@wordpress/components/build-types/border-control/types';
 import {CSSProperties} from 'react';
+import {LengthUnit} from '../../types';
+import {isNumeric} from '../../utils';
 
 const STYLES = [
     'none', 'hidden', 'dotted', 'dashed', 'solid',
@@ -78,9 +80,4 @@ export function areAllBorderRadiiEqual(attributes: CSSProperties) {
     return (attributes.borderTopRightRadius === attributes.borderBottomRightRadius) &&
         (attributes.borderTopRightRadius === attributes.borderBottomLeftRadius) &&
         (attributes.borderTopRightRadius === attributes.borderTopLeftRadius);
-}
-
-export function parseUnit(value?: string | number | undefined): 'px' | '%' {
-    value = value ? value.toString().trim() : '';
-    return value.endsWith('%') ? '%' : 'px'
 }

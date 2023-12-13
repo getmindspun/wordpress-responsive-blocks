@@ -1,50 +1,53 @@
 import * as path from 'path';
 
-/** @type { import('@storybook/react-webpack5').StorybookConfig } */
+/** @type {{webpackFinal: (function(*): any), stories: string[], framework: {name: string, options: {}}, docs: {autodocs: string}, addons: [string,{name: string, options: {rules: [{test: RegExp, use: [string,{loader: string, options: {}}], sideEffects: boolean},{test: RegExp, use: [string,{loader: string, options: {importLoaders: number}},string,{loader: string, options: {sassOptions: {}, sourceMap: boolean, implementation: string}}], sideEffects: boolean}]}}]}} */
 const config = {
-    stories: ['../packages/wpx/src/**/*.mdx', '../packages/wpx/src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+    stories: ['../packages/wpx/src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
     addons: [
         '@storybook/addon-styling-webpack',
-        ({
-            name: "@storybook/addon-styling-webpack",
+        {
+            name: '@storybook/addon-styling-webpack',
 
             options: {
-              rules: [{
-            test: /\.css$/,
-            sideEffects: true,
-            use: [
-                require.resolve("style-loader"),
-                {
-                    loader: require.resolve("css-loader"),
-                    options: {},
-                },
-            ],
-          },{
-            test: /\.s[ac]ss$/,
-            sideEffects: true,
-            use: [
-                require.resolve("style-loader"),
-                {
-                    loader: require.resolve("css-loader"),
-                    options: {
-                        
-                        importLoaders: 2,
+                rules: [
+                    {
+                        test: /\.css$/,
+                        sideEffects: true,
+                        use: [
+                            require.resolve('style-loader'),
+                            {
+                                loader: require.resolve('css-loader'),
+                                options: {},
+                            },
+                        ],
                     },
-                },
-                require.resolve("resolve-url-loader"),
-                {
-                    loader: require.resolve("sass-loader"),
-                    options: {
-                        // Want to add more Sass options? Read more here: https://webpack.js.org/loaders/sass-loader/#options
-                        implementation: require.resolve("sass"),
-                        sourceMap: true,
-                        sassOptions: {},
+                    {
+                        test: /\.s[ac]ss$/,
+                        sideEffects: true,
+                        use: [
+                            require.resolve('style-loader'),
+                            {
+                                loader: require.resolve('css-loader'),
+                                options: {
+
+                                    importLoaders: 2,
+                                },
+                            },
+                            require.resolve('resolve-url-loader'),
+                            {
+                                loader: require.resolve('sass-loader'),
+                                options: {
+                                    // Want to add more Sass options? Read more here: https://webpack.js.org/loaders/sass-loader/#options
+                                    implementation: require.resolve('sass'),
+                                    sourceMap: true,
+                                    sassOptions: {},
+                                },
+                            },
+                        ],
                     },
-                },
-            ],
-          },],
+                ],
             }
-        })
+        }
     ],
     framework: {
         name: '@storybook/react-webpack5',
@@ -66,16 +69,16 @@ const config = {
             test: /\.(ts|tsx)$/,
             use: [
                 {
-                    loader: require.resolve("ts-loader"),
+                    loader: require.resolve('ts-loader'),
                     options: {
                         transpileOnly: true
                     }
                 },
             ],
-            exclude: [ path.join(__dirname, 'packages/wpx/node_modules') ]
+            exclude: [path.join(__dirname, 'packages/wpx/node_modules')]
         });
 
-        config.resolve.extensions.push(".ts", ".tsx");
+        config.resolve.extensions.push('.ts', '.tsx');
 
         return config;
     }

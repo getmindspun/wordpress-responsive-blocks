@@ -18,6 +18,6 @@ type Story = StoryObj<typeof HeadingTagControl>;
 export const Default: Story = {
     render: () => {
         const [value, setValue] = useState<HeadingTag>('h3');
-        return <HeadingTagControl onChange={ setValue } tag={ value }/>;
+        return <HeadingTagControl onChange={ setValue } tagName={ value }/>;
     }
 };

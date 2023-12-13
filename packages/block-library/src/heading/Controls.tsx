@@ -23,7 +23,7 @@ const Controls = (props: Props) => {
                     }}
                 >
                     <HeadingTagControl
-                        tag={props.attributes.tagName}
+                        tagName={props.attributes.tagName}
                         onChange={tagName => props.setAttributes({tagName})}
                     />
                 </BaseControls>
