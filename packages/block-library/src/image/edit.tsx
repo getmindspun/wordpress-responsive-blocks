@@ -6,6 +6,10 @@ import Controls from './Controls';
 import PictureContents from './PictureContents';
 import {getClassName} from './utils';
 
+function isEmpty(props: Props) {
+    return (!props.attributes.media.url && !props.attributes.media.tabletUrl && !props.attributes.media.mobileUrl);
+}
+
 export default function Edit(props: Props & { clientId: string }) {
     const blockProps = useBlockPropsWithId(props, {
         className: getClassName(props.attributes.media)
@@ -20,7 +24,15 @@ export default function Edit(props: Props & { clientId: string }) {
                 attributes={props.attributes.style}
             />
             <picture {...blockProps}>
-                <PictureContents media={props.attributes.media} />
+                {
+                    ! isEmpty(props) ?
+                        <PictureContents media={props.attributes.media} /> :
+                        <img
+                            alt={'No image'}
+                            src={'https://getmindspun.github.io/public/blocks/no-image-256x256.png'}
+                            width={256} height={256}
+                        />
+                }
             </picture>
         </>
     );
