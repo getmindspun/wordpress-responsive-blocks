@@ -22,10 +22,11 @@ function returnedValue(value: number|undefined, unit: LengthUnit): string | numb
 
 const UnitRangeControl = (props: UnitRangeControlProps) => {
     const [value, defaultUnit] = parseUnitValue(props.value);
+
+    /* Unit state must be kept in case the user switches the unit when value is undefined. */
     const [unit, setUnit] = useState(defaultUnit);
-    const [range, setRange] = useState(
-        props.ranges![unit ? unit : 'px'] || props.ranges!['px']
-    );
+
+    const range = props.ranges![unit ? unit : 'px'] || props.ranges!['px'];
 
     function onNumberChange(value?: number) {
         props.onChange(returnedValue(value, unit));
@@ -39,7 +40,6 @@ const UnitRangeControl = (props: UnitRangeControlProps) => {
     function onUnitChange(unit?: string) {
         unit = unit ? unit : 'px';
         const newRange = props.ranges![unit] || props.ranges!['px'];
-        setRange(newRange);
         setUnit(unit as LengthUnit);
 
         props.onChange(value !== undefined ? returnedValue(value > newRange.max ? newRange.max : value, unit as LengthUnit) : undefined);
@@ -52,7 +52,7 @@ const UnitRangeControl = (props: UnitRangeControlProps) => {
                 onChange={ onChange }
                 onUnitChange={ onUnitChange }
                 isUnitSelectTabbable
-                value={ value }
+                value={ props.value }
             />
             <RangeControl
                 max={ range.max }
