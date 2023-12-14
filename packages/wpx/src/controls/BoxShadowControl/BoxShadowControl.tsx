@@ -34,12 +34,12 @@ export type BoxShadow = {
 const BoxShadowControl = (props: BoxShadowControlProps) => {
     const deviceType = useGetPreviewDeviceType();
     const [isAdvanced, setIsAdvanced] = useState(false);
-    const value = props.attributes[prop(deviceType)];
+    const value = props.attributes[prop(props.isResponsive, deviceType)];
     const boxShadow = parseBoxShadow(value);
 
     function onClear() {
         props.setAttributes({
-            [prop(deviceType)]: undefined
+            [prop(props.isResponsive, deviceType)]: undefined
         })
     }
 
@@ -55,26 +55,26 @@ const BoxShadowControl = (props: BoxShadowControlProps) => {
                 label={__('Enable Box Shadow')}
                 checked={value !== undefined}
                 onChange={isChecked => {
-                    props.setAttributes({[prop(deviceType)]: isChecked ? DEFAULT : undefined})
+                    props.setAttributes({[prop(props.isResponsive, deviceType)]: isChecked ? DEFAULT : undefined})
                 }}
             />}
             {(props.attributes.boxShadow !== undefined) &&
                 <>
                     {(deviceType !== 'Desktop') && <ToggleControl
                         label={__(`Show on ${deviceType}`)}
-                        checked={props.attributes[prop(deviceType)] !== 'none'}
+                        checked={props.attributes[prop(props.isResponsive, deviceType)] !== 'none'}
                         onChange={isChecked => {
-                            props.setAttributes({[prop(deviceType)]: isChecked ? undefined : 'none'})
+                            props.setAttributes({[prop(props.isResponsive, deviceType)]: isChecked ? undefined : 'none'})
                         }}
                     />}
-                    {props.attributes[prop(deviceType)] !== 'none' &&
+                    {props.attributes[prop(props.isResponsive, deviceType)] !== 'none' &&
                         <>
                             <ToggleControl
                                 label={__('Enable Inset')}
                                 checked={boxShadow.inset}
                                 onChange={isChecked => {
                                     boxShadow.inset = isChecked;
-                                    props.setAttributes({[prop(deviceType)]: toValue(boxShadow)})
+                                    props.setAttributes({[prop(props.isResponsive, deviceType)]: toValue(boxShadow)})
                                 }}
                             />
                             <ColorControl
@@ -85,7 +85,7 @@ const BoxShadowControl = (props: BoxShadowControlProps) => {
                                 setAttributes={newAttributes => {
                                     boxShadow.color = newAttributes.color;
                                     props.setAttributes({
-                                        [prop(deviceType)]: toValue(boxShadow)
+                                        [prop(props.isResponsive, deviceType)]: toValue(boxShadow)
                                     })
                                 }}
                             />
@@ -95,7 +95,7 @@ const BoxShadowControl = (props: BoxShadowControlProps) => {
                                 onChange={value => {
                                     boxShadow.offsetX = value as BoxShadow['offsetX'];
                                     props.setAttributes({
-                                        [prop(deviceType)]: toValue(boxShadow)
+                                        [prop(props.isResponsive, deviceType)]: toValue(boxShadow)
                                     })
                                 }}
                                 isAdvanced={isAdvanced}
@@ -106,7 +106,7 @@ const BoxShadowControl = (props: BoxShadowControlProps) => {
                                 onChange={value => {
                                     boxShadow.offsetY = value as BoxShadow['offsetY'];
                                     props.setAttributes({
-                                        [prop(deviceType)]: toValue(boxShadow)
+                                        [prop(props.isResponsive, deviceType)]: toValue(boxShadow)
                                     })
                                 }}
                                 isAdvanced={isAdvanced}
@@ -117,7 +117,7 @@ const BoxShadowControl = (props: BoxShadowControlProps) => {
                                 onChange={value => {
                                     boxShadow.blurRadius = value as BoxShadow['blurRadius'];
                                     props.setAttributes({
-                                        [prop(deviceType)]: toValue(boxShadow)
+                                        [prop(props.isResponsive, deviceType)]: toValue(boxShadow)
                                     })
                                 }}
                                 isAdvanced={isAdvanced}
@@ -131,7 +131,7 @@ const BoxShadowControl = (props: BoxShadowControlProps) => {
                                         boxShadow.blurRadius = 0;
                                     }
                                     props.setAttributes({
-                                        [prop(deviceType)]: toValue(boxShadow)
+                                        [prop(props.isResponsive, deviceType)]: toValue(boxShadow)
                                     })
                                 }}
                                 isAdvanced={isAdvanced}

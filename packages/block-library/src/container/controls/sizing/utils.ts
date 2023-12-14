@@ -2,7 +2,7 @@ import {FlexSizingProperties} from './SizingControl';
 import {propertyName} from '@mindspun/wpx';
 
 function prop(name: string, deviceType: string) {
-    return propertyName(name, deviceType) as keyof FlexSizingProperties;
+    return propertyName(name, true, deviceType) as keyof FlexSizingProperties;
 }
 
 export function toValue(style: FlexSizingProperties, deviceType: string) {
@@ -22,7 +22,7 @@ export function fromValue(value: string, deviceType: string) {
     switch(value) {
         case 'fill':
             return {
-                [prop('flexGrow', deviceType)]: 1,
+                [prop('flexGrow',deviceType)]: 1,
                 [prop('flexShrink', deviceType)]: 1,
                 [prop('flexBasis', deviceType)]: 0
             }

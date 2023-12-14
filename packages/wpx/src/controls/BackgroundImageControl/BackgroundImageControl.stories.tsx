@@ -33,6 +33,25 @@ export const WithValue: Story = {
     render: () => {
         const [attributes, setAttributes] = useState<BackgroundImageControlProps['attributes']>({
             backgroundImage: 'url(/foo/background-large.jpg)',
+        } as BackgroundImageControlProps['attributes']);
+        return (
+            <>
+                <BackgroundImageControl
+                    attributes={attributes}
+                    setAttributes={setAttributes}
+                />
+                <pre>{JSON.stringify(attributes, null, 4)}</pre>
+            </>
+        )
+    }
+};
+
+
+export const ResponsiveWithValue: Story = {
+    name: 'Responsive with Media',
+    render: () => {
+        const [attributes, setAttributes] = useState<BackgroundImageControlProps['attributes']>({
+            backgroundImage: 'url(/foo/background-large.jpg)',
             tabletBackgroundImage: 'url(/foo/background-medium.jpg)',
             mobileBackgroundImage: 'url(/foo/background-small.jpg)',
         } as BackgroundImageControlProps['attributes']);
@@ -40,7 +59,10 @@ export const WithValue: Story = {
             <>
                 <BackgroundImageControl
                     attributes={attributes}
-                    setAttributes={setAttributes}
+                    setAttributes={newAttributes => {
+                        setAttributes({...attributes, ...newAttributes});
+                    }}
+                    isResponsive={true}
                 />
                 <pre>{JSON.stringify(attributes, null, 4)}</pre>
             </>

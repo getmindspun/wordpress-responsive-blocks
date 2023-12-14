@@ -1,8 +1,8 @@
 import {BoxShadow, BoxShadowProperties} from './BoxShadowControl';
 import {propertyName} from '../../functions';
 
-export function prop(deviceType: string) {
-    return propertyName('boxShadow', deviceType) as keyof BoxShadowProperties;
+export function prop(isResponsive: boolean|undefined, deviceType: string) {
+    return propertyName('boxShadow', isResponsive, deviceType) as keyof BoxShadowProperties;
 }
 
 function isLength(value: string) {

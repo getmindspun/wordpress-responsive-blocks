@@ -2,10 +2,7 @@ import {Media, MediaSize, propertyName} from '@mindspun/wpx';
 import classNames from 'classnames';
 
 export function prop(name: string, deviceType: string) {
-    if (name === 'showOn') {
-        return `showOn${deviceType}` as keyof Media;
-    }
-    return propertyName(name, deviceType) as keyof Media;
+    return propertyName(name, true, deviceType) as keyof Media;
 }
 
 export function showOnValue(value: boolean|undefined) {
@@ -18,11 +15,11 @@ export function defaultMedia(media: Media) {
         return null;
     }
     return {
-        id: media[propertyName('id', deviceType) as keyof Media],
-        alt: media[propertyName('alt', deviceType) as keyof Media],
-        url: media[propertyName('url', deviceType) as keyof Media],
-        width: media[propertyName('width', deviceType) as keyof Media],
-        height: media[propertyName('height', deviceType) as keyof Media]
+        id: media[prop('id', deviceType) as keyof Media],
+        alt: media[prop('alt', deviceType) as keyof Media],
+        url: media[prop('url', deviceType) as keyof Media],
+        width: media[prop('width', deviceType) as keyof Media],
+        height: media[prop('height', deviceType) as keyof Media]
     } as Media;
 }
 
@@ -72,8 +69,8 @@ export function getMediaSizes(media: Media, deviceType: string): MediaSize[] {
 
 export function getClassName(media: Media) {
     return classNames(
-        [showOnValue(media.showOnDesktop) ? 'wpx--d-block' : 'wpx--d-none'],
-        [showOnValue(media.showOnTablet) ? 'wpx--d-tablet-block' : 'wpx--d-tablet-none'],
-        [showOnValue(media.showOnMobile) ? 'wpx--d-mobile-block' : 'wpx--d-mobile-none'],
+        [showOnValue(media.showOn) ? 'wpx--d-block' : 'wpx--d-none'],
+        [showOnValue(media.tabletShowOn) ? 'wpx--d-tablet-block' : 'wpx--d-tablet-none'],
+        [showOnValue(media.mobileShowOn) ? 'wpx--d-mobile-block' : 'wpx--d-mobile-none'],
     );
 }

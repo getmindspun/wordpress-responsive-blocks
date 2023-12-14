@@ -6,6 +6,7 @@ const PROPERTIES = [
     'alignItems',
     'backgroundColor',
     'backgroundImage',
+    'backgroundSize',
     'borderBottom',
     'borderBottomLeftRadius',
     'borderBottomRightRadius',

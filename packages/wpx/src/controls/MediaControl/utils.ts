@@ -1,15 +1,12 @@
 import {propertyName} from '../../functions';
 import {Media} from './MediaControl';
 
-export function prop(name: string, deviceType: string) {
-    if (name === 'showOn') {
-        return `showOn${deviceType}` as keyof Media;
-    }
-    return propertyName(name, deviceType) as keyof Media;
+export function prop(name: string, isResponsive: boolean | undefined, deviceType: string) {
+    return propertyName(name, isResponsive, deviceType) as keyof Media;
 }
 
-export function showClear(media: Media, deviceType: string) {
-    return media[prop('url', deviceType)] !== undefined;
+export function showClear(media: Media, isResponsive: boolean | undefined, deviceType: string) {
+    return media[prop('url', isResponsive, deviceType)] !== undefined;
 }
 
 export function basename(str: string, sep: string = '/') {
@@ -20,7 +17,20 @@ export function basename(str: string, sep: string = '/') {
     return str;
 }
 
-export function showOnValue(media: Media, deviceType: string) {
-    const value = media[prop('showOn', deviceType)];
+export function showOnValue(media: Media, isResponsive: boolean | undefined, deviceType: string) {
+    const value = media[prop('showOn', isResponsive, deviceType)];
     return (value === undefined) ? true : !!value;
+}
+
+export function showDeviceToggle(media: Media, isResponsive: boolean | undefined, deviceType: string) {
+    if (!isResponsive) {
+        return false;
+    }
+    switch (deviceType) {
+        case 'Mobile':
+            return !!(media.url || media.tabletUrl || media.mobileUrl);
+        case 'Tablet':
+            return !!(media.url || media.tabletUrl);
+    }
+    return !!media.url;
 }

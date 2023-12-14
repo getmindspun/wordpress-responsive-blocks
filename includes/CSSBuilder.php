@@ -9,6 +9,7 @@ const PROPERTIES = array(
     'alignItems',
     'backgroundColor',
     'backgroundImage',
+    'backgroundSize',
     'borderBottom',
     'borderBottomLeftRadius',
     'borderBottomRightRadius',

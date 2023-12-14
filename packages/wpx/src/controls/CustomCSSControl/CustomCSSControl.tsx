@@ -29,7 +29,7 @@ const CustomCSSControl = (props: CustomCSSControlProps) => {
 
     function onClear() {
         props.setAttributes({
-            [prop(deviceType)]: undefined
+            [prop(props.isResponsive, deviceType)]: undefined
         });
     }
 
@@ -53,7 +53,7 @@ const CustomCSSControl = (props: CustomCSSControlProps) => {
                 </Modal>
             }
             <ControlHeader
-                onClear={showClear(props.attributes, deviceType) ? onClear : undefined}
+                onClear={showClear(props.attributes, props.isResponsive, deviceType) ? onClear : undefined}
                 onExpand={() => setShowModal(true)}
                 isResponsive={props.isResponsive}
             />

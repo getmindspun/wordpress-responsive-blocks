@@ -65,7 +65,7 @@ const FlexSizingControl = (props: {
             />
             <DeviceTypeContainer deviceType={'Desktop'}>
                 <SelectControl
-                    value={ toValue(props.attributes, 'Desktop') }
+                    value={ toValue(props.attributes,'Desktop') }
                     options={ OPTIONS }
                     onChange={ ( value ) => props.setAttributes(fromValue(value, 'Desktop'))}
                     __nextHasNoMarginBottom

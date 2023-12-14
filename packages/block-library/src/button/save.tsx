@@ -13,6 +13,7 @@ export default function save(props: { attributes: Props['attributes'] }) {
                 href={props.attributes.href}
                 target={props.attributes.target}
                 className={props.attributes.variant !== 'link' ? 'wp-element-button' : undefined}
+                rel="noopener"
             >
                 {props.attributes.text}
             </a>

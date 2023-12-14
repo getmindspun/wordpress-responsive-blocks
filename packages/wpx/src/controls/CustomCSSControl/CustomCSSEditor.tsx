@@ -8,10 +8,10 @@ import CSSEditor from './CSSEditor';
 const CustomCSSEditor = (props: CustomCSSControlProps & {
     deviceType: string;
 }) => {
-    const value = props.attributes[prop(props.deviceType)];
+    const value = props.attributes[prop(props.isResponsive, props.deviceType)];
 
     function onChange(val: string){
-        const key = prop(props.deviceType);
+        const key = prop(props.isResponsive, props.deviceType);
         props.setAttributes({
             [key]: val
         });

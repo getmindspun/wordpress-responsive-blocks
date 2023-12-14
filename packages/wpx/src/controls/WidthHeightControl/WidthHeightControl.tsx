@@ -38,11 +38,11 @@ const WidthHeightControl = (props: {
     isResponsive?: boolean,
 }) => {
     const deviceType = useGetPreviewDeviceType();
-    const [value, unit] = parseUnitValue(toValue(props.attributes, props.propertyName, deviceType), '%');
+    const [value, unit] = parseUnitValue(toValue(props.attributes, props.propertyName, props.isResponsive, deviceType), '%');
     const [isAdvanced, setIsAdvanced] = useState(false);
 
     function onRangeChange(value?: number) {
-        props.setAttributes(fromValue(value ? `${value}%` : value, props.propertyName, deviceType));
+        props.setAttributes(fromValue(value ? `${value}%` : value, props.propertyName, props.isResponsive, deviceType));
     }
 
     function onClear() {
@@ -53,18 +53,18 @@ const WidthHeightControl = (props: {
         <div className={'wpx--width-height-control'}>
             <ControlHeader
                 title={props.label}
-                hint={ headerHint(props.attributes, props.propertyName, deviceType, isAdvanced)}
+                hint={ headerHint(props.attributes, props.propertyName, props.isResponsive, deviceType, isAdvanced)}
                 isAdvanced={ isAdvanced } onAdvancedChange={ setIsAdvanced }
                 isResponsive={props.isResponsive}
-                onClear={showClear(props.attributes, props.propertyName, deviceType) ? onClear : undefined}
+                onClear={showClear(props.attributes, props.propertyName, props.isResponsive, deviceType) ? onClear : undefined}
             />
             { isAdvanced ?
                 <UnitRangeControl
                     onChange={ value => {
                         value = isNumeric(value) ? `${value}${unit}` : value;
-                        props.setAttributes(fromValue(value, props.propertyName, deviceType));
+                        props.setAttributes(fromValue(value, props.propertyName, props.isResponsive, deviceType));
                     } }
-                    value={ toValue(props.attributes, props.propertyName, deviceType) }
+                    value={ toValue(props.attributes, props.propertyName, props.isResponsive, deviceType) }
                     units={ UNITS }
                 /> :
                 <RangeControl

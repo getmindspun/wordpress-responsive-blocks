@@ -21,6 +21,7 @@ export default meta;
 type Story = StoryObj<typeof BoxShadowControl>;
 
 const Display = (props: {
+    isResponsive?: boolean
     attributes: BlockCSSProperties,
     children: React.ReactNode
 }) => {
@@ -36,7 +37,7 @@ const Display = (props: {
                 <div style={{
                     width: '300px', height: '100px', border: '3px solid black', margin: '2em auto',
                     display: 'flex', justifyContent: 'center', alignItems: 'center',
-                    boxShadow: props.attributes[prop(deviceType)]
+                    boxShadow: props.attributes[prop(props.isResponsive, deviceType)]
                 }}>
                     This is a box with a box-shadow around it.
                 </div>
@@ -68,7 +69,7 @@ export const Responsive: Story = {
         const [attributes, setAttributes] = useState<BlockCSSProperties>({} as BlockCSSProperties);
 
         return (
-            <Display attributes={attributes}>
+            <Display attributes={attributes} isResponsive={true}>
                 <BoxShadowControl
                     attributes={attributes}
                     setAttributes={newAttributes => {

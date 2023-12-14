@@ -25,6 +25,7 @@ export interface BlockCSSProperties extends CSSProperties {
     tabletFontSize?: CSSProperties['fontSize'];
     tabletTextAlign?: CSSProperties['textAlign'];
     tabletBackgroundImage?: CSSProperties['backgroundImage'];
+    tabletBackgroundSize?: CSSProperties['backgroundSize'];
     tabletVerticalAlign?: CSSProperties['verticalAlign'] | 'stretch';
     tabletBorderTop?: CSSProperties['borderTop'];
     tabletBorderRight?: CSSProperties['borderRight'];
@@ -68,6 +69,7 @@ export interface BlockCSSProperties extends CSSProperties {
     mobileFontSize?: CSSProperties['fontSize'];
     mobileTextAlign?: CSSProperties['textAlign'];
     mobileBackgroundImage?: CSSProperties['backgroundImage'];
+    mobileBackgroundSize?: CSSProperties['backgroundSize'];
     mobileVerticalAlign?: CSSProperties['verticalAlign'] | 'stretch';
     mobileBorderTop?: CSSProperties['borderTop'];
     mobileBorderRight?: CSSProperties['borderRight'];
