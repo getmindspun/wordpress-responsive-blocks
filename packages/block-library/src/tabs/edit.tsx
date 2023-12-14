@@ -81,14 +81,14 @@ export default function Edit(props: Props) {
                         selector={'.wp-block-mindspun-tab'}
                     />
                     {
-                        Object.keys(props.attributes.labels || []).map((label, index) => {
-                            const blockId = props.attributes.labels[label];
+                        tabs.map((tab, index) => {
+                            const blockId = tab.attributes.blockId;
                             const isActive = (blockId === activeTab || (!activeTab && index === 0))
 
                             return (
                                 <Tab
                                     blockId={blockId}
-                                    label={label}
+                                    label={tab.attributes.label}
                                     isActive={isActive}
                                     onClick={() => setActiveTab(blockId)}
                                 />

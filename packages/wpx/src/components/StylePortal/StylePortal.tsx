@@ -35,7 +35,7 @@ const StylePortal = (props: {
 				}
 			}
 		}
-	}, [deviceType, iframe, props.attributes])
+	}, [deviceType, iframe, props.blockId, props.attributes])
 
 	return (
 		<Portal selector={'head'} tagName={'style'} >{css}</Portal>
