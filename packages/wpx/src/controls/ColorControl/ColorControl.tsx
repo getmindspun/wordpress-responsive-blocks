@@ -22,12 +22,14 @@ export interface ColorControlProps {
 }
 
 const ColorControl = (props: ColorControlProps) => {
-
     return (
         <div className="wpx--color-control">
             {props.isResponsive && !props.hideHeader && <ControlHeader isResponsive={true} /> }
             {props.isResponsive ?
-                <ColorResponsiveControl {...props}/> :
+                <ColorResponsiveControl
+                    {...props}
+                    label={props.label!}
+                /> :
                 <ColorBaseControl
                     label={props.label ? props.label : ColorControl.defaultProps.label}
                     value={props.attributes.color}

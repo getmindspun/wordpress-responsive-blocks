@@ -130,8 +130,8 @@ const BaseControls = (props: BaseControlsProps) => {
             }
             {options.letterCase &&
                 <LetterCaseControl
-                    textTransform={props.attributes.textTransform as TextTransform}
-                    onChange={(textTransform: TextTransform) => {
+                    textTransform={props.attributes.textTransform}
+                    onChange={textTransform => {
                         props.setAttributes({textTransform});
                     }}
                 />

@@ -3,7 +3,7 @@ import {ColorControlProps} from './ColorControl';
 import ColorBaseControl from './ColorBaseControl';
 
 
-const ColorResponsiveControl = (props: ColorControlProps) => {
+const ColorResponsiveControl = (props: ColorControlProps & {label: string}) => {
     const deviceType = useGetPreviewDeviceType();
 
     return (
