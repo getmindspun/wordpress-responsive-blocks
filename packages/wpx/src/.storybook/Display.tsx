@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {BlockCSSProperties} from '../types';
-import {buildCSS} from '../functions';
+import StyleDisplay from './StyleDisplay';
 
 const Display = (props: { attributes: BlockCSSProperties, children: React.ReactNode }) => {
     return (
@@ -20,13 +20,7 @@ const Display = (props: { attributes: BlockCSSProperties, children: React.ReactN
                             }}>{JSON.stringify(props.attributes, null, 4)}</pre>
                 </div>
             </div>
-            <div style={{marginTop: '2em'}}>
-                &lt;style&gt;
-                <pre>
-                        {buildCSS('123', props.attributes)}
-                    </pre>
-                &lt;/style&gt;
-            </div>
+            <StyleDisplay attributes={props.attributes} />
         </>
     )
 }

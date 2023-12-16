@@ -2,13 +2,14 @@ import {Button} from '@wordpress/components';
 import {formatUppercase, reset, formatLowercase, formatCapitalize} from '@wordpress/icons'
 
 import ControlHeader from '../../components/ControlHeader/ControlHeader';
+import {BlockCSSProperties} from '../../types';
 
 
 export type TextTransform = 'uppercase' | 'lowercase' | 'capitalize' | 'none' | undefined;
 
 export interface LetterCaseControlProps {
-    textTransform?: TextTransform;
-    onChange: (textTransform?: TextTransform) => void;
+    textTransform?: BlockCSSProperties['textTransform'];
+    onChange: (textTransform?: BlockCSSProperties['textTransform']) => void;
 }
 
 const LetterCaseControl = (props: LetterCaseControlProps) => {

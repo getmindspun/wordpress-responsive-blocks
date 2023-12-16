@@ -1,5 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
+export {default as BackgroundColorControl} from './BackgroundColorControl/BackgroundColorControl';
 export {default as BackgroundImageControl} from './BackgroundImageControl/BackgroundImageControl';
 export * from './BackgroundImageControl/BackgroundImageControl';
 
@@ -15,6 +16,7 @@ export {default as BoxShadowControl} from './BoxShadowControl/BoxShadowControl';
 export * from './BoxShadowControl/BoxShadowControl';
 
 export {default as ColorControl} from './ColorControl/ColorControl';
+
 export {default as ContainerControl} from './ContainerControl/ContainerControl';
 
 export {default as CustomCSSControl} from './CustomCSSControl/CustomCSSControl';

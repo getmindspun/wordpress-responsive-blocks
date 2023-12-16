@@ -1,4 +1,5 @@
 import {useState} from '@wordpress/element';
+import {__} from '@wordpress/i18n';
 
 import './MarginControl.scss';
 
@@ -75,7 +76,7 @@ const MarginControl = (props: MarginControlProps) => {
 };
 
 MarginControl.defaultProps = {
-    label: 'Margin'
+    label: __('Margin')
 }
 
 export default MarginControl;

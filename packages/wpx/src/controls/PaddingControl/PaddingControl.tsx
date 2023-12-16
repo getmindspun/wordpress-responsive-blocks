@@ -1,4 +1,5 @@
 import {useState} from '@wordpress/element';
+import {__} from '@wordpress/i18n';
 
 import './PaddingControl.scss';
 
@@ -75,7 +76,7 @@ const PaddingControl = (props: PaddingControlProps) => {
 };
 
 PaddingControl.defaultProps = {
-    label: 'Padding'
+    label: __('Padding')
 }
 
 export default PaddingControl;

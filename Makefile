@@ -2,12 +2,12 @@ all: lint coverage
 
 wpx:
 	mkdir -p dist
-	cd packages/wpx && npm run build
+	npm run build -w packages/wpx
 .PHONY: wpx
 
 block-library:
 	mkdir -p dist
-	cd packages/block-library && npm run build
+	npm run build -w packages/block-library
 .PHONY: wpx
 
 packages: wpx block-library

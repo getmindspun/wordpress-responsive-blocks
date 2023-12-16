@@ -24,5 +24,13 @@
     "style-loader": "^3.3.3",
     "ts-loader": "^9.5.0",
     "typescript": "^5.2.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/getmindspun/wordpress-responsive-blocks.git"
+  },
+  "bugs": {
+    "url": "https://github.com/getmindspun/wordpress-responsive-blocks/issues"
+  },
+  "homepage": "https://github.com/getmindspun/wordpress-responsive-blocks#readme"
 }

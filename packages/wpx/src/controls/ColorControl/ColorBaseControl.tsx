@@ -6,7 +6,7 @@ import {useMobile} from '../../hooks';
 import useColors from '../../hooks/useColors';
 import {PopoverPlacement} from './ColorControl';
 
-const ColorControl = (props: {
+const ColorBaseControl = (props: {
     label: string;
     value: string | undefined;
     onChange: (colorValue?: string) => void;
@@ -25,7 +25,11 @@ const ColorControl = (props: {
 
     return (
         <>
-            <ColorDisplay colorValue={ props.value } title={ props.label } onClick={ () => setVisible(!visible) }/>
+            <ColorDisplay
+                colorValue={ props.value }
+                title={ props.label }
+                onClick={ () => setVisible(!visible) }
+            />
             { visible && (
                 <Popover onClose={ onClose } placement={ props.placement ? props.placement : placement }
                          offset={ offset }>
@@ -38,4 +42,4 @@ const ColorControl = (props: {
     );
 };
 
-export default ColorControl;
+export default ColorBaseControl;

@@ -14,6 +14,7 @@ export type BorderRadiusControlProps = {
     attributes: BlockCSSProperties;
     setAttributes: (attributes: Partial<BorderRadiusControlProps['attributes']>) => void;
     isResponsive?: boolean;
+    isLinkable?: boolean
 }
 
 function calculateIsMixed(attributes: BlockCSSProperties, isResponsive: boolean, deviceType: string) {
@@ -91,7 +92,7 @@ const BorderRadiusControl = (props: BorderRadiusControlProps) => {
                 title={ props.label }
                 hint={ isLinked ? headerHint(isMixed, props.attributes.borderTopRightRadius) : ''}
                 isAdvanced={ isAdvanced } onAdvancedChange={ setIsAdvanced }
-                isLinked={ isLinked } onLinkedChange={ setIsLinked }
+                isLinked={ isLinked } onLinkedChange={ props.isLinkable ? setIsLinked : undefined }
                 onClear={ showClear(props.attributes, !!props.isResponsive, deviceType) ? onClear : undefined }
                 isResponsive={props.isResponsive}
             />
@@ -115,7 +116,7 @@ const BorderRadiusControl = (props: BorderRadiusControlProps) => {
 
 BorderRadiusControl.defaultProps = {
     label: __('Border Radius'),
-    disableUnlink: false,
+    isLinkable: true,
 };
 
 export default BorderRadiusControl;

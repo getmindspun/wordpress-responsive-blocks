@@ -1,4 +1,7 @@
 {
+  "name": "blocks",
+  "version": "0.2.0",
+  "private": true,
   "scripts": {
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
@@ -29,5 +32,9 @@
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.1",
     "url-loader": "^4.1.1"
-  }
+  },
+  "workspaces": [
+    "packages/wpx",
+    "packages/block-library"
+  ]
 }

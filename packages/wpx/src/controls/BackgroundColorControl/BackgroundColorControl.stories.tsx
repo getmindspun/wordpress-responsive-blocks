@@ -3,25 +3,25 @@
 import React from 'react';
 import type {Meta, StoryObj} from '@storybook/react';
 
-import ColorControl, {ColorControlProps} from './ColorControl';
+import BackgroundColorControl, {BackgroundColorControlProps} from './BackgroundColorControl';
 import {useState} from '@wordpress/element';
+import {buildCSS} from '../../functions';
 import StyleDisplay from '../../.storybook/StyleDisplay';
 
 
-const meta: Meta<typeof ColorControl> = {
-    component: ColorControl,
+const meta: Meta<typeof BackgroundColorControl> = {
+    component: BackgroundColorControl,
 };
 
 export default meta;
 
-type Story = StoryObj<typeof ColorControl>;
+type Story = StoryObj<typeof BackgroundColorControl>;
 
 export const Default: Story = {
     render: () => {
-        const [attributes, setAttributes] = useState<ColorControlProps['attributes']>({} as ColorControlProps['attributes']);
+        const [attributes, setAttributes] = useState<BackgroundColorControlProps['attributes']>({} as BackgroundColorControlProps['attributes']);
         return (
-            <ColorControl
-                label={'Color'}
+            <BackgroundColorControl
                 attributes={attributes}
                 setAttributes={newAttributes => {
                     setAttributes({...attributes, ...newAttributes});
@@ -34,11 +34,10 @@ export const Default: Story = {
 
 export const Responsive: Story = {
     render: () => {
-        const [attributes, setAttributes] = useState<ColorControlProps['attributes']>({} as ColorControlProps['attributes']);
+        const [attributes, setAttributes] = useState<BackgroundColorControlProps['attributes']>({} as BackgroundColorControlProps['attributes']);
         return (
             <>
-                <ColorControl
-                    label={'Color'}
+                <BackgroundColorControl
                     attributes={attributes}
                     setAttributes={newAttributes => {
                         setAttributes({...attributes, ...newAttributes});
@@ -46,7 +45,7 @@ export const Responsive: Story = {
                     placement="bottom-start"
                     isResponsive={true}
                 />
-                <StyleDisplay attributes={attributes}/>
+                <StyleDisplay attributes={attributes} />
             </>
         );
     }
