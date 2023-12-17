@@ -1,7 +1,7 @@
 import {Props} from './types';
 import {InspectorControls} from '@wordpress/block-editor';
 
-import {BaseControls, BlockCSSProperties, ContainerContents} from '@mindspun/wpx';
+import {BaseControls, BlockCSSProperties, ContainerContents, ContainerControl, CustomCSSControl} from '@mindspun/wpx';
 
 const Controls = (props: Props) => {
     return (
@@ -23,6 +23,18 @@ const Controls = (props: Props) => {
                     }}
                 />
             </ContainerContents>
+            <ContainerControl title={'Custom CSS'}>
+                <ContainerContents>
+                    <CustomCSSControl
+                        blockId={props.attributes.blockId}
+                        attributes={props.attributes.style}
+                        setAttributes={style => {
+                            props.setAttributes({style: {...props.attributes.style, ...style}});
+                        }}
+                        isResponsive={true}
+                    />
+                </ContainerContents>
+            </ContainerControl>
         </InspectorControls>
     );
 }

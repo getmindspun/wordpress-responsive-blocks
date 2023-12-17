@@ -1,6 +1,6 @@
 import CodeMirror from 'codemirror';
 
-import {useCallback, useState} from '@wordpress/element';
+import {useCallback, useEffect, useState} from '@wordpress/element';
 
 const CSSEditor = (props: {
     value: string | undefined,
@@ -13,12 +13,13 @@ const CSSEditor = (props: {
             let editor = codemirror;
             if (!editor) {
                 editor = CodeMirror(node, {
-                    value: props.value || "",
+                    value: props.value || '',
                     mode: "css",
                     lineNumbers: true,
                     viewportMargin: Infinity,
                 });
                 setCodeMirror(editor);
+                editor.focus();
             }
 
             /* Change function can update. */
@@ -27,6 +28,13 @@ const CSSEditor = (props: {
             });
         }
     }, [props.onChange]);
+
+    useEffect(() => {
+        const doc = codemirror?.getDoc();
+        if (doc && doc.getValue() !== props.value) {
+            doc.setValue(props.value || '');
+        }
+    }, [props.value])
 
     return (
         <div ref={createEditor}/>

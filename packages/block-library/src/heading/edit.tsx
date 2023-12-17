@@ -25,7 +25,7 @@ export default function Edit(props: Props & {clientId: string}) {
 				}}
 				value={ props.attributes.text }
 				allowedFormats={ [ 'core/bold', 'core/italic' ] }
-				placeholder={'Heading'}
+				placeholder={'Heading...'}
 			/>
 		</>
 	);
