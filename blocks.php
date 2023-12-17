@@ -110,9 +110,7 @@ add_filter(
             'slug' => 'mindspun-responsive-blocks',
             'title' => 'Mindspun Responsive Blocks',
         );
-        error_log(print_r(array( $category ) + $categories, true));
-
-        return array_merge(array( $category ), $categories);
+        return array_merge( array( $category ), $categories );
     }
 );
 
