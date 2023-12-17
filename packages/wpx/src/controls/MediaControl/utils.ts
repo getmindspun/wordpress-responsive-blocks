@@ -26,11 +26,5 @@ export function showDeviceToggle(media: Media, isResponsive: boolean | undefined
     if (!isResponsive) {
         return false;
     }
-    switch (deviceType) {
-        case 'Mobile':
-            return !!(media.url || media.tabletUrl || media.mobileUrl);
-        case 'Tablet':
-            return !!(media.url || media.tabletUrl);
-    }
-    return !!media.url;
+    return !!(media.url || media.tabletUrl || media.mobileUrl);
 }
