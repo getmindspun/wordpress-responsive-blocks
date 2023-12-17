@@ -17,6 +17,13 @@ const UNITS = [
     { value: 'rem', label: 'rem', default: 0 },
 ];
 
+const RANGES = {
+    'px': {min: 16, max: 512, step: 1},
+    '%': {min: 0, max: 100, step: 1},
+    'em': {min: 0, max: 10, step: .01},
+    'rem': {min: 0, max: 10, step: .01}
+}
+
 export type WidthHeightProperties = Pick<BlockCSSProperties,
     'width'|'height'|'minWidth'|'minHeight'|'maxWidth'|'maxHeight'|
     'tabletWidth'|'tabletHeight'|'tabletMinWidth'|'tabletMinHeight'|'tabletMaxWidth'|'tabletMaxHeight'|
@@ -66,10 +73,11 @@ const WidthHeightControl = (props: {
                     } }
                     value={ toValue(props.attributes, props.propertyName, props.isResponsive, deviceType) }
                     units={ UNITS }
+                    ranges={ RANGES }
                 /> :
                 <RangeControl
-                    max={ 100 }
-                    min={ 0 }
+                    max={ RANGES[unit].max }
+                    min={ RANGES[unit].min }
                     step={ 1 }
                     onBlur={ function noRefCheck() {
                     } }
