@@ -28,6 +28,7 @@ const PROPERTIES = [
     'fontWeight',
     'height',
     'justifyContent',
+    'listStyleType',
     'margin',
     'marginBottom',
     'marginLeft',

@@ -8,8 +8,6 @@ import {
     TabbedContainer,
     TabbedControl
 } from '@mindspun/wpx';
-import {layout, styles} from '@wordpress/icons';
-import ButtonVariantControl from './ButtonVariantControl';
 
 const Controls = (props: Props) => {
     return (

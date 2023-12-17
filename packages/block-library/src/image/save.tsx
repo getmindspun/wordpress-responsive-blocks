@@ -1,5 +1,5 @@
-import {RichText} from '@wordpress/block-editor';
 import {useBlockPropsWithId} from '@mindspun/wpx';
+
 import {Props} from './types';
 import PictureContents from './PictureContents';
 import {getClassName} from './utils';

@@ -31,6 +31,7 @@ const PROPERTIES = array(
     'fontWeight',
     'height',
     'justifyContent',
+    'listStyleType',
     'margin',
     'marginBottom',
     'marginLeft',

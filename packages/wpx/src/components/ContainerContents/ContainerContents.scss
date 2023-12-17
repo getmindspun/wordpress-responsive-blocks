@@ -9,6 +9,10 @@
     }
 }
 
+.wpx--container-contents + .wpx--container-contents {
+    padding-top: 0;
+}
+
 .wpx--divider {
     background-color: $light-gray;
     height: 1em;
