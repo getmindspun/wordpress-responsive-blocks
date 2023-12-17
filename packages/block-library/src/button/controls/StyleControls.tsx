@@ -34,6 +34,7 @@ const Controls = (props: Props) => {
                                 backgroundColor: {responsive: true},
                                 fontSize: {responsive: true},
                                 fontAppearance: true,
+                                letterCase: true,
                                 margin: {responsive: true},
                                 padding: {responsive: true}
                             }}
