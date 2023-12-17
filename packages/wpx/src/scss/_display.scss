@@ -1,16 +1,21 @@
 $displays: block, flex, inline, inline-block, inline-flex, none;
 
+// Order is important so that media queries override bigger sizes.
 @each $display in $displays {
     .wpx--d-#{$display} {
         display: $display !important;
     }
+}
 
+@each $display in $displays {
     @media (max-width: 1024px) {
         .wpx--d-tablet-#{$display} {
             display: $display !important;
         }
     }
+}
 
+@each $display in $displays {
     @media (max-width: 480px) {
         .wpx--d-mobile-#{$display} {
             display: $display !important;
