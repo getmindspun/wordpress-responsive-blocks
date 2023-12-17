@@ -64,18 +64,19 @@ const OverflowControl = (props: {
     return (
         <div className={'wpx--overflow-control'}>
             <ControlHeader
-                title={__('Overflow')}
                 isResponsive={true}
                 onClear={showClear(props.attributes, deviceType) ? onClear : undefined}
             />
             <DeviceTypeContainer deviceType={'Desktop'}>
                 <SelectControl
+                    label={__('Horizontal (X)')}
                     value={ props.attributes.overflowX ? props.attributes.overflowX : 'default' }
                     options={ OPTIONS }
                     onChange={ ( overflowX ) => props.setAttributes({overflowX: overflowXValue(overflowX)})}
                     __nextHasNoMarginBottom
                 />
                 <SelectControl
+                    label={__('Vertical (Y)')}
                     value={ props.attributes.overflowY ? props.attributes.overflowY : 'default' }
                     options={ OPTIONS }
                     onChange={ ( overflowY ) => props.setAttributes({overflowY: overflowYValue(overflowY)})}
