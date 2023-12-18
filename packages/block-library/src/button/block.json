@@ -1,38 +1,41 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
-	"name": "mindspun/button",
-	"version": "0.1.0",
-	"title": "Button",
-	"category": "mindspun-responsive-blocks",
-	"description": "Fully-responsive buttons.",
-	"example": {},
-	"attributes": {
-		"blockId": {
-			"type": "string"
-		},
-		"variant": {
-			"type": "string",
-			"default": "primary"
-		},
-		"text": {
-			"type": "string",
-			"default": "Button"
-		},
-		"href": {
-			"type": "string"
-		},
-		"target": {
-			"type": "string"
-		},
-		"style": {
-			"type": "object",
-			"default": {},
-			"selector": ".wp-element-button"
-		}
-	},
-	"textdomain": "wpx",
-	"editorScript": "file:./index.js",
-	"editorStyle": "file:./editor.css",
-	"style": ["style-wpx","file:./style.css"]
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "mindspun/button",
+    "version": "0.3.0",
+    "title": "Button",
+    "category": "mindspun-responsive-blocks",
+    "description": "Fully-responsive buttons.",
+    "example": {},
+    "attributes": {
+        "blockId": {
+            "type": "string"
+        },
+        "variant": {
+            "type": "string",
+            "default": "primary"
+        },
+        "text": {
+            "type": "string",
+            "default": "Button"
+        },
+        "href": {
+            "type": "string"
+        },
+        "target": {
+            "type": "string"
+        },
+        "style": {
+            "type": "object",
+            "default": {},
+            "selector": ".wp-element-button"
+        }
+    },
+    "textdomain": "wpx",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./editor.css",
+    "style": [
+        "style-wpx",
+        "file:./style.css"
+    ]
 }

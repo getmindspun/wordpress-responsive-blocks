@@ -4,7 +4,6 @@
     "start": "wp-scripts start --output-path=../../dist/"
   },
   "name": "@mindspun/block-library",
-  "version": "0.0.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/getmindspun/wordpress-responsive-blocks.git"

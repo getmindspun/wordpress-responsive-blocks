@@ -8,7 +8,10 @@
     "textdomain": "wpx",
     "editorScript": "file:./index.js",
     "editorStyle": "file:./editor.css",
-    "style": ["style-wpx" ,"file:./style.css"],
+    "style": [
+        "style-wpx",
+        "file:./style.css"
+    ],
     "attributes": {
         "blockId": {
             "type": "string"
@@ -45,5 +48,6 @@
     "viewScript": "file:./view.js",
     "providesContext": {
         "mindspun/tabs": "labels"
-    }
+    },
+    "version": "0.3.0"
 }

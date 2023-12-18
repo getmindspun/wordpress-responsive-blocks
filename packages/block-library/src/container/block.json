@@ -1,29 +1,32 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
-	"name": "mindspun/container",
-	"version": "0.1.0",
-	"title": "Container",
-	"category": "mindspun-responsive-blocks",
-	"description": "Advanced, powerfully containers designed for responsive flex layouts.",
-	"example": {},
-	"attributes": {
-		"blockId": {
-			"type": "string"
-		},
-		"link": {
-			"type": "string"
-		},
-		"target": {
-			"type": "string"
-		},
-		"style": {
-			"type": "object",
-			"default": {}
-		}
-	},
-	"textdomain": "wpx",
-	"editorScript": "file:./index.js",
-	"editorStyle": "file:./editor.css",
-	"style": ["style-wpx", "file:./style.css"]
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "mindspun/container",
+    "version": "0.3.0",
+    "title": "Container",
+    "category": "mindspun-responsive-blocks",
+    "description": "Advanced, powerfully containers designed for responsive flex layouts.",
+    "example": {},
+    "attributes": {
+        "blockId": {
+            "type": "string"
+        },
+        "link": {
+            "type": "string"
+        },
+        "target": {
+            "type": "string"
+        },
+        "style": {
+            "type": "object",
+            "default": {}
+        }
+    },
+    "textdomain": "wpx",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./editor.css",
+    "style": [
+        "style-wpx",
+        "file:./style.css"
+    ]
 }

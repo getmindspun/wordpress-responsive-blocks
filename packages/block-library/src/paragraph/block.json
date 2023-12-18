@@ -1,26 +1,26 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 3,
-	"name": "mindspun/paragraph",
-	"version": "0.1.0",
-	"title": "Paragraph",
-	"category": "mindspun-responsive-blocks",
-	"description": "Fully-responsive paragraphs.",
-	"example": {},
-	"attributes": {
-		"blockId": {
-			"type": "string"
-		},
-		"text": {
-			"type": "string"
-		},
-		"style": {
-			"type": "object",
-			"default": {}
-		}
-	},
-	"textdomain": "wpx",
-	"editorScript": "file:./index.js",
-	"editorStyle": "file:./editor.css",
-	"style": "file:./style.css"
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "mindspun/paragraph",
+    "version": "0.3.0",
+    "title": "Paragraph",
+    "category": "mindspun-responsive-blocks",
+    "description": "Fully-responsive paragraphs.",
+    "example": {},
+    "attributes": {
+        "blockId": {
+            "type": "string"
+        },
+        "text": {
+            "type": "string"
+        },
+        "style": {
+            "type": "object",
+            "default": {}
+        }
+    },
+    "textdomain": "wpx",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./editor.css",
+    "style": "file:./style.css"
 }
