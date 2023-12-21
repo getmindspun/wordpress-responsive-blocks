@@ -1,6 +1,6 @@
 import {SVG, Path} from '@wordpress/components';
 
-const TabIcon = () => {
+const Icon = () => {
     return (
         <SVG width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <Path fill-rule="evenodd" clip-rule="evenodd"
@@ -12,4 +12,4 @@ const TabIcon = () => {
     )
 }
 
-export default TabIcon;
+export default Icon;

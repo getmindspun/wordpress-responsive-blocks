@@ -2,16 +2,19 @@ import {registerBlockType} from '@wordpress/blocks';
 
 import './style.scss';
 
+import metadata from './block.json';
 import edit from './edit';
 import save from './save';
-import metadata from './block.json';
+import icon from './icon';
 import {DEFAULT_PRIMARY_COLOR} from './constants';
 
-import tabsIcon from './TabsIcon';
+registerBlockType(metadata.name, {
+    edit,
+    save,
+    icon: {
+        foreground: DEFAULT_PRIMARY_COLOR,
+        src: icon
+    }
+} as any);
 
-const icon = {
-    foreground: DEFAULT_PRIMARY_COLOR,
-    src: tabsIcon
-}
-
-registerBlockType(metadata.name, {edit, save, icon} as any);
+import './tab/index';

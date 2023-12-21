@@ -59,7 +59,7 @@ function wpx_style_block( array $block ): void {
                     $selector = $block_type->attributes[ $attr ]['selector'] ?? null;
                     // Use wp_stripe_all_tags instead of an esc_* function to avoid converting
                     // characters like (>) to html entities.
-                    echo '<style>' . wp_strip_all_tags(wpx_build_css("wpx-$block_id", $value, $selector)) . '</style>';  # phpcs:ignore
+                    echo '<style>' . wp_strip_all_tags(wpx_build_css("wpx-$block_id", $value, array('selector' => $selector))) . '</style>';  # phpcs:ignore
                 }
             }
         }
