@@ -26,16 +26,16 @@ Autoloader::autoload( 'WPX', __DIR__ . '/includes' );
 /**
  * Helper function to build CSS from the block attributes using the given selector.
  *
- * @param string      $id
- * @param array       $attributes
- * @param string|null $selector
+ * @param string $id
+ * @param array  $attributes
+ * @param array  $options
  * @return string
  * @noinspection PhpUnused
  */
-function wpx_build_css( string $id, array $attributes, string $selector = null ): string {
+function wpx_build_css( string $id, array $attributes, array $options = array() ): string {
     $builder = new CSSBuilder();
     $builder->add_attributes( $attributes );
-    return $builder->to_css( $id, $selector );
+    return $builder->to_css( $id, $options );
 }
 
 /**

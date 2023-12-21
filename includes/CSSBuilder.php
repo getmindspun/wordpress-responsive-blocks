@@ -149,11 +149,13 @@ class CSSBuilder {
     /**
      * Generate the CSS using the given selector.
      *
-     * @param string      $id
-     * @param string|null $selector
+     * @param string $id
+     * @param array  $options
      * @return string
      */
-    public function to_css( string $id, string $selector = null ): string {
+    public function to_css( string $id, array $options = array() ): string {
+        $selector = $options['selector'] ?? null;
+
         $rulesets = array();
 
         if ( ! empty( $this->state['desktop'] ) ) {

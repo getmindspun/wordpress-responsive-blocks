@@ -20,7 +20,9 @@ const StylePortal = (props: {
 	const deviceType = useGetPreviewDeviceType();
 	const iframe = document.querySelector('iframe[name="editor-canvas"]');
 	
-	const css = buildCSS(`${props.idPrefix ? props.idPrefix : 'wpx'}-${props.blockId}`, props.attributes, props.selector)
+	const css = buildCSS(`${props.idPrefix ? props.idPrefix : 'wpx'}-${props.blockId}`, props.attributes, {
+		selector: props.selector
+	});
 
 	useEffect(() => {
 		if (iframe) {

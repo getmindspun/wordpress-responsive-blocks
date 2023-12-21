@@ -1,4 +1,6 @@
 all: lint coverage
+	cp -a packages/wpx/build/*.php dist/
+.PHONY: all
 
 wpx:
 	mkdir -p dist
