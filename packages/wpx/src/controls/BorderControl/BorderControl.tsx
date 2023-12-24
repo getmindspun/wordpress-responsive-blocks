@@ -11,6 +11,7 @@ export type BorderControlProps = {
     attributes: BlockCSSProperties;
     setAttributes: (attributes: Partial<BorderControlProps['attributes']>) => void;
     isResponsive?: boolean;
+    disableRadiusControl?: boolean;
 }
 
 function anySet(attributes: BlockCSSProperties) {
@@ -45,10 +46,12 @@ const BorderControl = (props: BorderControlProps) => {
                     setAttributes={props.setAttributes}
                 />
             }
-            <BorderRadiusControl
-                attributes={props.attributes}
-                setAttributes={props.setAttributes}
-            />
+            {!props.disableRadiusControl &&
+                <BorderRadiusControl
+                    attributes={props.attributes}
+                    setAttributes={props.setAttributes}
+                />
+            }
         </div>
     );
 };

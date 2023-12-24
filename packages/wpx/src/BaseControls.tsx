@@ -5,22 +5,19 @@ import './BaseControls.scss';
 import {
     BorderControl,
     ColorControl,
-    FontAppearance,
     FontAppearanceControl, FontSizeControl,
     LetterCaseControl,
     MarginControl,
     PaddingControl,
     TextAlignControl,
-    TextTransform
 } from './controls';
 
 import {BlockCSSProperties} from './types';
 import {ColorsGroup} from './components';
-import {FontSizePicker} from '@wordpress/components';
 
 type Option = {
     responsive?: boolean;
-    label?: string
+    label?: string;
 }
 
 type CreateControlGroupOptions = {
@@ -32,7 +29,7 @@ type CreateControlGroupOptions = {
     letterCase?: boolean,
     margin?: boolean | Option,
     padding?: boolean | Option,
-    border?: boolean | Option,
+    border?: boolean | (Option & {disableRadiusControl?: boolean}),
     [key: string]: any
 }
 
@@ -156,6 +153,7 @@ const BaseControls = (props: BaseControlsProps) => {
                     attributes={props.attributes}
                     setAttributes={props.setAttributes}
                     isResponsive={isResponsive(options.border)}
+                    disableRadiusControl={(options.border as {disableRadiusControl: boolean}).disableRadiusControl}
                 />
 
             }
