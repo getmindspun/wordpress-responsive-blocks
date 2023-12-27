@@ -53,13 +53,13 @@ function wpx_style_block( array $block ): void {
     if ( $block_id ) {
         /* @var array $attribute */
         foreach ( $attrs as $attr => $value ) {
-            if ( is_array( $value ) ) {
+            if ( is_array( $value ) && ! empty( $value ) ) {
                 $block_type = $registry->get_registered( $block['blockName'] );
                 if ( $block_type ) {
                     $selector = $block_type->attributes[ $attr ]['selector'] ?? null;
-                    // Use wp_stripe_all_tags instead of an esc_* function to avoid converting
+                    // Use wp_strip_all_tags instead of an esc_* function to avoid converting
                     // characters like (>) to html entities.
-                    echo '<style>' . wp_strip_all_tags(wpx_build_css("wpx-$block_id", $value, array('selector' => $selector))) . '</style>';  # phpcs:ignore
+                    echo "<style id=\"style-wpx-$block_id\">" . wp_strip_all_tags(wpx_build_css("wpx-$block_id", $value, array('selector' => $selector))) . '</style>';  # phpcs:ignore
                 }
             }
         }

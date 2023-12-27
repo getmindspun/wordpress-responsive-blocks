@@ -50,6 +50,7 @@ const PROPERTIES = array(
     'overflowY',
     'textAlign',
     'textTransform',
+    'verticalAlign',
     'width',
 );
 

@@ -10,11 +10,9 @@ export type VerticalAlignControlProps = {
     label?: string;
     options?: VerticalAlign[];
     attributes: BlockCSSProperties;
-    setAttributes: (values: Partial<VerticalAlignControlProps['attributes']>) => void;
+    setAttributes: (attributes: Partial<VerticalAlignControlProps['attributes']>) => void;
     isResponsive?: boolean;
 }
-
-// WARNING: Vertical alignment is not yet handled by buildCSS.
 
 const VerticalAlignControl = (props: VerticalAlignControlProps) => {
     return (

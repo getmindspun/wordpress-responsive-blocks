@@ -47,6 +47,7 @@ const PROPERTIES = [
     'overflowY',
     'textAlign',
     'textTransform',
+    'verticalAlign',
     'width',
 ] as (keyof CSSProperties)[];
 

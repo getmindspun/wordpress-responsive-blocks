@@ -11,7 +11,6 @@ const StylePortal = (props: {
 	blockId: string,
 	selector?: string,
 	attributes: BlockCSSProperties
-	idPrefix?: string,
 }) => {
 	if (!props.blockId || !props.attributes)  {
 		return null;
@@ -19,16 +18,19 @@ const StylePortal = (props: {
 
 	const deviceType = useGetPreviewDeviceType();
 	const iframe = document.querySelector('iframe[name="editor-canvas"]');
-	
-	const css = buildCSS(`${props.idPrefix ? props.idPrefix : 'wpx'}-${props.blockId}`, props.attributes, {
+
+	const id = `wpx-${props.blockId}`;
+	const css = buildCSS(id, props.attributes, {
 		selector: props.selector
 	});
+	const styleId = `style-${id}`;
 
 	useEffect(() => {
-		if (iframe) {
+		if (iframe && css) {
 			const doc = (iframe as HTMLIFrameElement).contentDocument;
 			if (doc) {
 				const el = doc.createElement('style');
+				el.setAttribute('id', styleId)
 				el.innerHTML = css;
 				doc.head.appendChild(el);
 
@@ -39,8 +41,12 @@ const StylePortal = (props: {
 		}
 	}, [deviceType, iframe, props.blockId, props.attributes])
 
+	if (!css) {
+		return null;
+	}
+
 	return (
-		<Portal selector={'head'} tagName={'style'} >{css}</Portal>
+		<Portal selector={'head'} tagName={'style'} id={styleId} >{css}</Portal>
 	);
 }
 
