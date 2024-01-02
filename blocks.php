@@ -57,11 +57,11 @@ function wpx_style_block( array $block ): void {
                 $selector = null;
                 $block_type = $registry->get_registered( $block['blockName'] );
                 if ( $block_type ) {
-                    $selector = $block_type->attributes[$attr]['selector'] ?? null;
+                    $selector = $block_type->attributes[ $attr ]['selector'] ?? null;
                 }
 
                 /* An attribute is a style if it is named 'style' or has a selector */
-                if ($attr === 'style' || $selector) {
+                if ( 'style' === $attr || $selector ) {
                     // Use wp_strip_all_tags instead of an esc_* function to avoid converting
                     // characters like (>) to html entities.
                     echo "<style id=\"style-wpx-$block_id\">" . wp_strip_all_tags(wpx_build_css("wpx-$block_id", $value, array('selector' => $selector))) . '</style>';  # phpcs:ignore
