@@ -48,6 +48,7 @@ const PROPERTIES = [
     'textAlign',
     'textTransform',
     'verticalAlign',
+    'whiteSpace',
     'width',
 ] as (keyof CSSProperties)[];
 

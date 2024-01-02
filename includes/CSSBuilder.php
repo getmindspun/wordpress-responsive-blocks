@@ -51,6 +51,7 @@ const PROPERTIES = array(
     'textAlign',
     'textTransform',
     'verticalAlign',
+    'whitespace',
     'width',
 );
 
