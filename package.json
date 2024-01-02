@@ -1,6 +1,6 @@
 {
     "name": "blocks",
-    "version": "v0.4.0",
+    "version": "0.4.1",
     "private": true,
     "scripts": {
         "storybook": "storybook dev -p 6006",

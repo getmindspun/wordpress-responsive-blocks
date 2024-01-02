@@ -1,6 +1,6 @@
 {
     "name": "@mindspun/wpx",
-    "version": "v0.4.0",
+    "version": "0.4.1",
     "description": "Responsive block controls for Gutenberg.",
     "main": "index.ts",
     "scripts": {
