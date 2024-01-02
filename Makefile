@@ -1,3 +1,5 @@
+VERSION := $(shell node scripts/version)
+
 all: lint coverage
 	cp -a packages/wpx/build/*.php dist/
 .PHONY: all
@@ -33,9 +35,13 @@ bundle-only:
 	cp -a *.php includes vendor-prefixed build/mindspun-responsive-blocks/
 	cp -a packages/wpx/build/* build/mindspun-responsive-blocks/dist/
 	cp -a packages/block-library/build/* build/mindspun-responsive-blocks/dist/
-	cd build && zip -r mindspun-responsive-blocks.zip mindspun-responsive-blocks
+	cd build && zip -r mindspun-responsive-blocks.$(VERSION).zip mindspun-responsive-blocks
 .PHONY: bundle-only
 
 bundle: packages all bundle-only
 .PHONY: bundle
+
+version:
+	@echo $(VERSION)
+.PHONY: version
 
