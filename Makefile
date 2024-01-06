@@ -31,7 +31,7 @@ coverage:
 .PHONY: coverage
 
 bundle-only:
-	rm -rf build/*.zip build/mindspun-responsive-blocks && mkdir -p build/mindspun-responsive-blocks/dist
+	rm -rf build/mindspun-responsive-blocks.$(VERSION).zip build/mindspun-responsive-blocks && mkdir -p build/mindspun-responsive-blocks/dist
 	cp -a *.php includes vendor-prefixed build/mindspun-responsive-blocks/
 	cp -a packages/wpx/build/* build/mindspun-responsive-blocks/dist/
 	cp -a packages/block-library/build/* build/mindspun-responsive-blocks/dist/
