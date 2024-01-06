@@ -2,6 +2,7 @@ import {Props} from '../types';
 import {InspectorAdvancedControls, InspectorControls} from '@wordpress/block-editor';
 import {TextControl, ToggleControl} from '@wordpress/components';
 import {layout, styles} from '@wordpress/icons';
+import {__} from '@wordpress/i18n';
 
 import {
     ContainerContents,
@@ -14,7 +15,6 @@ import JustifyContentControl from './JustifyContentControl';
 import AlignItemsControl from './AlignItemsControl';
 import SizingControl from './sizing/SizingControl';
 import StyleControls from './StyleControls';
-import {__} from '@wordpress/i18n';
 
 const Controls = (props: Props & {
     onMouseEnter?: () => void;

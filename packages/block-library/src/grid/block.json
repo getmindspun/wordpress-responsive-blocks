@@ -1,0 +1,25 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "mindspun/grid",
+    "version": "0.4.1",
+    "title": "Grid",
+    "category": "mindspun-responsive-blocks",
+    "description": "Responsive layout based on a 12-column grid.",
+    "attributes": {
+        "blockId": {
+            "type": "string"
+        },
+        "style": {
+            "type": "object",
+            "default": {}
+        }
+    },
+    "textdomain": "wpx",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./editor.css",
+    "style": [
+        "style-wpx",
+        "file:./style.css"
+    ]
+}

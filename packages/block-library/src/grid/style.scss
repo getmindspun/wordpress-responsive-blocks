@@ -1,0 +1,60 @@
+.wp-block-mindspun-grid {
+    box-sizing: border-box;
+}
+
+.wp-block-mindspun-grid-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@for $i from 1 through 12 {
+    .wpx-col-#{$i} {
+        flex: 0 0 auto;
+        width: percentage(calc($i/12));
+    }
+}
+
+.wpx-col {
+    flex: 1 0 0;
+}
+
+.wpx-col-auto {
+    flex: 0 0 auto;
+    width: auto;
+}
+
+@media (max-width: 1024px) {
+    @for $i from 1 through 12 {
+        .wpx-col-tablet-#{$i} {
+            flex: 0 0 auto;
+            width: percentage(calc($i/12));
+        }
+    }
+
+    .wpx-tablet-col {
+        flex: 1 0 0;
+    }
+
+    .wpx-col-tablet-auto {
+        flex: 0 0 auto;
+        width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    @for $i from 1 through 12 {
+        .wpx-col-mobile-#{$i} {
+            flex: 0 0 auto;
+            width: percentage(calc($i/12));
+        }
+    }
+
+    .wpx-mobile-col {
+        flex: 1 0 0;
+    }
+
+    .wpx-col-mobile-auto {
+        flex: 0 0 auto;
+        width: auto;
+    }
+}

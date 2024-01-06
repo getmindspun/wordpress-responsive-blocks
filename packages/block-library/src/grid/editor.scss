@@ -1,14 +1,23 @@
-.wp-block-mindspun-container {
+.wp-block-mindspun-grid {
+    &.wpx--focused {
+        .wp-block-mindspun-grid-col {
+            box-shadow: 1px 0 0 0 #ccc,
+                0 1px 0 0 #ccc,
+                1px 1px 0 0 #ccc,
+                1px 0 0 0 #ccc inset,
+                0 1px 0 0 #ccc inset;
+        }
+    }
 }
 
-.wp-block-mindspun-container--controls {
+.wp-block-mindspun-grid--controls {
     .wpx--tabbed-control .wpx--tabbed-header .wpx--tab button {
         height: 72px;
         display: flex;
         flex-direction: column;
     }
 
-    .wpx--tabbed-container .wpx--base-controls {
+    .wpx--tabbed-grid .wpx--base-controls {
         margin-top: 1em;
         margin-bottom: 1em;
     }
