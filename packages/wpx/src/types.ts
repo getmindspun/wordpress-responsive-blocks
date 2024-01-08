@@ -1,6 +1,7 @@
 import {CSSProperties} from 'react';
 
 export type BlockAlign = 'left' | 'center' | 'right' | 'wide' | 'full';
+export type JustifyContent = 'left' | 'center' | 'right' | 'space-between' | 'stretch';
 export type VerticalAlign = 'top' | 'middle' | 'bottom' | 'stretch';
 
 export interface BlockCSSProperties extends CSSProperties {

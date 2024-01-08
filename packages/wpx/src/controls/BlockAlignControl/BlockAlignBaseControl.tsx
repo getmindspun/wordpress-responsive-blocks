@@ -9,7 +9,7 @@ const BlockAlignControl = (props: {
     label?: string,
     options: BlockAlign[];
     blockAlign: BlockCSSProperties['blockAlign'],
-    onChange: (textAlign: BlockCSSProperties['blockAlign']) => void;
+    onChange: (blockAlign: BlockCSSProperties['blockAlign']) => void;
 }) => {
     return (
 

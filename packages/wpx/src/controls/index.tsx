@@ -30,6 +30,9 @@ export {default as FontSizeControl} from './FontSizeControl/FontSizeControl';
 export {default as HeadingTagControl} from './HeadingTagControl/HeadingTagControl';
 export * from './HeadingTagControl/HeadingTagControl';
 
+export {default as JustifyContentControl} from './JustifyContentControl/JustifyContentControl';
+export * from './JustifyContentControl/JustifyContentControl';
+
 export {default as LetterCaseControl} from './LetterCaseControl/LetterCaseControl';
 export * from './LetterCaseControl/LetterCaseControl';
 
