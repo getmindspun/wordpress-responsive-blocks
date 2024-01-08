@@ -16,7 +16,7 @@ export type BlockAlignControlProps = {
 
 const BlockAlignControl = (props: BlockAlignControlProps) => {
     return (
-        <div className="wpx--vertical-align-control">
+        <div className="wpx--block-align-control">
             <ControlHeader
                 title={props.label}
                 isResponsive={props.isResponsive}

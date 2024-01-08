@@ -1,5 +1,3 @@
-import './MarginControl.scss';
-
 import {useGetPreviewDeviceType} from '../../hooks';
 import {MarginControlProps} from './MarginControl';
 import MarginBaseControl from './MarginBaseControl';

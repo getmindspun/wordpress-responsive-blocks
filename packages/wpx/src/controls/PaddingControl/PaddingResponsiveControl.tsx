@@ -1,5 +1,3 @@
-import './PaddingControl.scss';
-
 import {useGetPreviewDeviceType} from '../../hooks';
 import {PaddingControlProps} from './PaddingControl';
 import PaddingBaseControl from './PaddingBaseControl';

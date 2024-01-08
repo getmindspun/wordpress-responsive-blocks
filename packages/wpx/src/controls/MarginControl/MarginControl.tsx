@@ -19,7 +19,7 @@ export interface MarginControlProps {
 }
 
 const MarginControl = (props: MarginControlProps) => {
-    const deviceType = useGetPreviewDeviceType();
+    const deviceType = useGetPreviewDeviceType(!!props.isResponsive);
     const [isLinked, setIsLinked] = useState(true);
     const [isAdvanced, setIsAdvanced] = useState(false);
 
@@ -52,9 +52,9 @@ const MarginControl = (props: MarginControlProps) => {
         <div className="wpx--margin-control">
             <ControlHeader
                 title={props.label}
-                hint={ isLinked ? headerHint(props.attributes, deviceType) : ''}
-                isLinked={ isLinked } onLinkedChange={ setIsLinked }
-                isAdvanced={ isAdvanced } onAdvancedChange={ setIsAdvanced }
+                hint={isLinked ? headerHint(props.attributes, deviceType) : ''}
+                isLinked={isLinked} onLinkedChange={setIsLinked}
+                isAdvanced={isAdvanced} onAdvancedChange={setIsAdvanced}
                 isResponsive={props.isResponsive}
                 onClear={showClear(props.attributes, deviceType) ? onClear : undefined}
             />

@@ -39,7 +39,7 @@ const MarginBaseControl = (props: {
     }
 
     return (
-        <div className="wpx--margin-control">
+        <>
             { props.isLinked ?
                 <LengthControl
                     value={ areAllMarginsEqual(props.attributes) ? props.attributes.marginTop : undefined }
@@ -55,7 +55,7 @@ const MarginBaseControl = (props: {
                     isAdvanced={ props.isAdvanced }
                 />
             }
-        </div>
+        </>
     );
 };
 

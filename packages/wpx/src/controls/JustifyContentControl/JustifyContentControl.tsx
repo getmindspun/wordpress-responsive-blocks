@@ -16,7 +16,7 @@ export type JustifyContentControlProps = {
 
 const JustifyContentControl = (props: JustifyContentControlProps) => {
     return (
-        <div className="wpx--vertical-align-control">
+        <div className="wpx--justify-content-control">
             <ControlHeader
                 title={props.label}
                 isResponsive={props.isResponsive}
@@ -37,7 +37,7 @@ const JustifyContentControl = (props: JustifyContentControlProps) => {
 };
 
 JustifyContentControl.defaultProps = {
-    label: __('Block Align'),
+    label: __('Justify Content'),
     options: ['left', 'center', 'right', 'space-between', 'stretch'] as JustifyContent[],
 }
 

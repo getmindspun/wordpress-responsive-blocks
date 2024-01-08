@@ -40,7 +40,7 @@ const PaddingBaseControl = (props: {
     }
 
     return (
-        <div className="wpx--padding-control">
+        <>
             { props.isLinked ?
                 <LengthControl
                     value={ areAllPaddingsEqual(props.attributes) ? props.attributes.paddingTop : undefined }
@@ -56,7 +56,7 @@ const PaddingBaseControl = (props: {
                     isAdvanced={ props.isAdvanced }
                 />
             }
-        </div>
+        </>
     );
 };
 

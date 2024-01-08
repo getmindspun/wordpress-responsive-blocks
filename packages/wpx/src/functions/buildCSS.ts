@@ -26,6 +26,7 @@ const PROPERTIES = [
     'fontSize',
     'fontStyle',
     'fontWeight',
+    'gap',
     'height',
     'justifyContent',
     'listStyleType',
