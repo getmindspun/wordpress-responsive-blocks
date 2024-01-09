@@ -1,16 +1,14 @@
-import {BlockCSSProperties} from '@mindspun/wpx';
+import {BlockCSSProperties, Link} from '@mindspun/wpx';
 
-type ButtonVariant = 'primary'|'secondary'|'tertiary'|'link';
+export type ButtonVariant = 'primary'|'secondary'|'tertiary'|'link';
 
 export type Props = {
 	attributes: {
 		blockId: string,
 		fullWidth: boolean,
-		variant: string,
+		variant: ButtonVariant,
 		text: string,
-		href?: string,
-		target?: '_self'|'_blank'|undefined,
-		rel: string[];
+		link: Link,
 		style: BlockCSSProperties
 	};
 	setAttributes: (attributes: Partial<Props['attributes']>) => void

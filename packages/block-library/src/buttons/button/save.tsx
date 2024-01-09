@@ -11,14 +11,14 @@ export default function save(props: { attributes: Props['attributes'] }) {
         })
     });
 
-    const rel = props.attributes.rel.length > 0 ? props.attributes.rel.join(' ') : undefined;
+    const rel = props.attributes.link.rel && props.attributes.link.rel.length > 0 ? props.attributes.link.rel.join(' ') : undefined;
 
     return (
 
             <a
                 {...blockProps}
-                href={props.attributes.href}
-                target={props.attributes.target}
+                href={props.attributes.link.href}
+                target={props.attributes.link.target}
                 rel={rel}
             >
                 {props.attributes.text}

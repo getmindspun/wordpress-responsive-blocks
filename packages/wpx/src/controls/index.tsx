@@ -39,6 +39,9 @@ export * from './JustifyContentControl/JustifyContentControl';
 export {default as LetterCaseControl} from './LetterCaseControl/LetterCaseControl';
 export * from './LetterCaseControl/LetterCaseControl';
 
+export {default as LinkControl} from './LinkControl/LinkControl';
+export * from './LinkControl/LinkControl';
+
 export {default as ListStyleTypeControl} from './ListStyleTypeControl/ListStyleTypeControl';
 export * from './ListStyleTypeControl/ListStyleTypeControl';
 

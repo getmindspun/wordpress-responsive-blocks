@@ -1,9 +1,10 @@
-import {BlockCSSProperties, Link} from '@mindspun/wpx';
+import {Link} from '@mindspun/wpx';
 
 export type Props = {
+	clientId: string,
+	isSelected: boolean,
 	attributes: {
-		blockId: string,
-		style: BlockCSSProperties,
+		link: Link
 	};
 	setAttributes: (attributes: Partial<Props['attributes']>) => void
 }

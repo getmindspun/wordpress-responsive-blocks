@@ -28,15 +28,9 @@ registerInnerBlock({
         text: {
             type: 'string'
         },
-        href: {
-            type: 'string'
-        },
-        target: {
-            type: 'string'
-        },
-        rel: {
-            type: 'array',
-            default: ['noopener']
+        link: {
+            type: 'object',
+            default: {rel:['noopener']}
         },
         style: {
             type: 'object',

@@ -1,11 +1,9 @@
 import {InspectorControls} from '@wordpress/block-editor';
 import {layout, styles} from '@wordpress/icons';
 import {__} from '@wordpress/i18n';
-import {TextControl, ToggleControl} from '@wordpress/components';
 
 import {
-    BlockCSSProperties,
-    ContainerContents,
+    ContainerContents, LinkControl,
     TabbedContainer,
     TabbedControl, WidthHeightControl
 } from '@mindspun/wpx';
@@ -13,7 +11,6 @@ import {
 import {Props} from '../types';
 import StyleControls from './StyleControls';
 import ButtonVariantControl from './ButtonVariantControl';
-import RelControl from './RelControl';
 
 const Controls = (props: Props) => {
     return (
@@ -37,24 +34,11 @@ const Controls = (props: Props) => {
                                 }}
                             />
                             <hr/>
-                            <TextControl
-                                label={__('Link')}
-                                value={props.attributes.href ? props.attributes.href : ''}
-                                onChange={href => props.setAttributes({href: href ? href : undefined})}
-                                help={__('Opens this page when button is clicked.')}
-                            />
-                            <ToggleControl
-                                label={__('Open in new tab.')}
-                                checked={props.attributes.target === '_blank'}
-                                onChange={isChecked => {
-                                    props.setAttributes({
-                                        target: isChecked ? '_blank' : undefined
-                                    });
+                            <LinkControl
+                                attributes={props.attributes.link}
+                                setAttributes={link => {
+                                    props.setAttributes({link: {...props.attributes.link, ...link}});
                                 }}
-                            />
-                            <RelControl
-                                attributes={props.attributes}
-                                setAttributes={props.setAttributes}
                             />
                         </ContainerContents>
                     </TabbedContainer>
