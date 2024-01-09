@@ -34,6 +34,10 @@ registerInnerBlock({
         target: {
             type: 'string'
         },
+        rel: {
+            type: 'array',
+            default: ['noopener']
+        },
         style: {
             type: 'object',
             default: {}

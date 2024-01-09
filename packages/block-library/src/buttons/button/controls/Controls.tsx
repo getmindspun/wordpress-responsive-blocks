@@ -13,6 +13,7 @@ import {
 import {Props} from '../types';
 import StyleControls from './StyleControls';
 import ButtonVariantControl from './ButtonVariantControl';
+import RelControl from './RelControl';
 
 const Controls = (props: Props) => {
     return (
@@ -27,6 +28,15 @@ const Controls = (props: Props) => {
                                 attributes={props.attributes}
                                 setAttributes={props.setAttributes}
                             />
+                            <WidthHeightControl
+                                label={__('Width')}
+                                propertyName={'width'}
+                                attributes={props.attributes.style}
+                                setAttributes={style => {
+                                    props.setAttributes({style: {...props.attributes.style, ...style}})
+                                }}
+                            />
+                            <hr/>
                             <TextControl
                                 label={__('Link')}
                                 value={props.attributes.href ? props.attributes.href : ''}
@@ -42,14 +52,9 @@ const Controls = (props: Props) => {
                                     });
                                 }}
                             />
-                            <hr/>
-                            <WidthHeightControl
-                                label={__('Width')}
-                                propertyName={'width'}
-                                attributes={props.attributes.style}
-                                setAttributes={style => {
-                                    props.setAttributes({style: {...props.attributes.style, ...style}})
-                                }}
+                            <RelControl
+                                attributes={props.attributes}
+                                setAttributes={props.setAttributes}
                             />
                         </ContainerContents>
                     </TabbedContainer>
