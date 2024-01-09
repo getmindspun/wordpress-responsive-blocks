@@ -20,6 +20,7 @@ const Controls = (props: Props) => {
                     }}
                     options={{
                         color: {responsive: true},
+                        backgroundColor: {responsive: true},
                         textAlign: {responsive: true},
                         fontSize: {responsive: true},
                         letterCase: true,
