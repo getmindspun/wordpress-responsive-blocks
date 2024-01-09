@@ -7,6 +7,10 @@ export type VerticalAlign = 'top' | 'middle' | 'bottom' | 'stretch';
 export interface BlockCSSProperties extends CSSProperties {
     blockAlign?: BlockAlign;
     verticalAlign?: CSSProperties['verticalAlign'] | 'stretch',
+    borderTopHover?: CSSProperties['borderTop'];
+    borderRightHover?: CSSProperties['borderRight'];
+    borderBottomHover?: CSSProperties['borderBottom'];
+    borderLeftHover?: CSSProperties['borderLeft'];
     customCSS?: string;
 
     colorHover?: CSSProperties['color'];
@@ -33,6 +37,10 @@ export interface BlockCSSProperties extends CSSProperties {
     tabletBorderRight?: CSSProperties['borderRight'];
     tabletBorderBottom?: CSSProperties['borderBottom'];
     tabletBorderLeft?: CSSProperties['borderLeft'];
+    tabletBorderTopHover?: CSSProperties['borderTop'];
+    tabletBorderRightHover?: CSSProperties['borderRight'];
+    tabletBorderBottomHover?: CSSProperties['borderBottom'];
+    tabletBorderLeftHover?: CSSProperties['borderLeft'];
     tabletBorderTopLeftRadius?: CSSProperties['borderTopLeftRadius'];
     tabletBorderTopRightRadius?: CSSProperties['borderTopRightRadius'];
     tabletBorderBottomRightRadius?: CSSProperties['borderBottomRightRadius'];
@@ -78,6 +86,10 @@ export interface BlockCSSProperties extends CSSProperties {
     mobileBorderRight?: CSSProperties['borderRight'];
     mobileBorderBottom?: CSSProperties['borderBottom'];
     mobileBorderLeft?: CSSProperties['borderLeft'];
+    mobileBorderTopHover?: CSSProperties['borderTop'];
+    mobileBorderRightHover?: CSSProperties['borderRight'];
+    mobileBorderBottomHover?: CSSProperties['borderBottom'];
+    mobileBorderLeftHover?: CSSProperties['borderLeft'];
     mobileBorderTopLeftRadius?: CSSProperties['borderTopLeftRadius'];
     mobileBorderTopRightRadius?: CSSProperties['borderTopRightRadius'];
     mobileBorderBottomRightRadius?: CSSProperties['borderBottomRightRadius'];

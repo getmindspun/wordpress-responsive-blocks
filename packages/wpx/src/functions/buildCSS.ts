@@ -23,6 +23,7 @@ const PROPERTIES = [
     'flexDirection',
     'flexGrow',
     'flexShrink',
+    'flexWrap',
     'fontSize',
     'fontStyle',
     'fontWeight',

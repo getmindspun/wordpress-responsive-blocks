@@ -1,4 +1,5 @@
-import {BlockInstance} from '@wordpress/blocks';
+import {BlockInstance, BlockConfiguration, registerBlockType} from '@wordpress/blocks';
+
 
 export function tabsToLabels(tabs: BlockInstance[]): Record<string, string> {
     const labels = {} as Record<string, string>;

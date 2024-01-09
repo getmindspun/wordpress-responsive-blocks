@@ -1,13 +1,13 @@
 import {BlockCSSProperties} from '../../types';
 
 export function headerHint(attributes: BlockCSSProperties, deviceType: string) {
-    let value = attributes.paddingTop;
+    let value = attributes.gap;
     switch (deviceType) {
         case 'Tablet':
-            value = attributes.tabletPaddingTop;
+            value = attributes.tabletGap;
             break;
         case 'Mobile':
-            value = attributes.mobilePaddingTop;
+            value = attributes.mobileGap;
             break;
     }
     if (value === '0px') {

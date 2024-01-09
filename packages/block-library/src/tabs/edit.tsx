@@ -14,6 +14,8 @@ import Tab from './components/Tab';
 import Controls from './components/controls/Controls';
 import {labelsEqual, tabsToLabels} from './utils';
 
+import {BLOCK_NAME as TAB_BLOCK} from './tab';
+
 function useInnerBlocks(clientId: string): BlockInstance[] {
     return useSelect(
         (select) => {
@@ -45,7 +47,7 @@ export default function Edit(props: Props) {
 
     const blockProps = useBlockPropsWithId(props);
     const {children, ...innerBlocksProps} = useInnerBlocksProps(blockProps, {
-        allowedBlocks: ['mindspun/tab'],
+        allowedBlocks: [TAB_BLOCK],
         template: [
             ['mindspun/tab', {label: 'Tab 1'}, [
                 ['core/paragraph', {}, []]

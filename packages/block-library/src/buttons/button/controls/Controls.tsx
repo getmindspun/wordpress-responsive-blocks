@@ -4,9 +4,10 @@ import {__} from '@wordpress/i18n';
 import {TextControl, ToggleControl} from '@wordpress/components';
 
 import {
+    BlockCSSProperties,
     ContainerContents,
     TabbedContainer,
-    TabbedControl
+    TabbedControl, WidthHeightControl
 } from '@mindspun/wpx';
 
 import {Props} from '../types';
@@ -39,6 +40,15 @@ const Controls = (props: Props) => {
                                     props.setAttributes({
                                         target: isChecked ? '_blank' : undefined
                                     });
+                                }}
+                            />
+                            <hr/>
+                            <WidthHeightControl
+                                label={__('Width')}
+                                propertyName={'width'}
+                                attributes={props.attributes.style}
+                                setAttributes={style => {
+                                    props.setAttributes({style: {...props.attributes.style, ...style}})
                                 }}
                             />
                         </ContainerContents>

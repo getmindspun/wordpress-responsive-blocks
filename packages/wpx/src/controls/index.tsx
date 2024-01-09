@@ -27,6 +27,9 @@ export * from './FontAppearanceControl/FontAppearanceControl';
 
 export {default as FontSizeControl} from './FontSizeControl/FontSizeControl';
 
+export {default as GapControl} from './GapControl/GapControl';
+export * from './GapControl/GapControl';
+
 export {default as HeadingTagControl} from './HeadingTagControl/HeadingTagControl';
 export * from './HeadingTagControl/HeadingTagControl';
 

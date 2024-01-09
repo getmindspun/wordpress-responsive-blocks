@@ -1,0 +1,14 @@
+.wp-block-mindspun-buttons {
+}
+
+.wp-block-mindspun-button--controls {
+    .wpx--tabbed-control {
+        border-top: 1px solid #ccc;
+
+        .wpx--tabbed-header .wpx--tab button.has-icon {
+            height: 72px;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

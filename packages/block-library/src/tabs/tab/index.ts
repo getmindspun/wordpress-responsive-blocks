@@ -1,17 +1,19 @@
-import { registerBlockType, BlockConfiguration } from '@wordpress/blocks';
+import {BlockConfiguration} from '@wordpress/blocks';
+
 import './style.scss';
+
+import {registerInnerBlock} from '../../../utils';
 
 import edit from './edit';
 import save from './save';
 import icon from './icon';
 
-registerBlockType('mindspun/tab', {
-    $schema: 'https://schemas.wp.org/trunk/block.json',
-    apiVersion: 3,
+export const BLOCK_NAME = 'mindspun/tab';
+
+registerInnerBlock({
+    name: BLOCK_NAME,
     title: 'Tab',
-    category: 'mindspun-responsive-blocks',
     description: 'A single tab in a tabbed container.',
-    textdomain: 'wpx',
     parent: [
         'mindspun/tabs'
     ],
@@ -36,5 +38,4 @@ registerBlockType('mindspun/tab', {
         foreground: '#005ffe',
         src: icon
     },
-
 } as unknown as BlockConfiguration);

@@ -1,34 +1,19 @@
 {
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "apiVersion": 3,
-    "name": "mindspun/button",
+    "name": "mindspun/buttons",
     "version": "0.4.1",
-    "title": "Button",
+    "title": "Buttons",
     "category": "mindspun-responsive-blocks",
-    "description": "Fully-responsive buttons.",
+    "description": "Fully-responsive button group.",
     "example": {},
     "attributes": {
         "blockId": {
             "type": "string"
         },
-        "variant": {
-            "type": "string",
-            "default": "primary"
-        },
-        "text": {
-            "type": "string",
-            "default": "Button"
-        },
-        "href": {
-            "type": "string"
-        },
-        "target": {
-            "type": "string"
-        },
         "style": {
             "type": "object",
-            "default": {},
-            "selector": ".wp-element-button"
+            "default": {}
         }
     },
     "textdomain": "wpx",
