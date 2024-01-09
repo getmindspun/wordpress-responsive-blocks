@@ -1,9 +1,8 @@
-import {Props} from './types';
 import {InspectorControls} from '@wordpress/block-editor';
 
+import {Props} from './types';
+
 import {
-    BackgroundImageControl,
-    BaseControls, BorderControl, BoxShadowControl,
     ContainerContents, ContainerControl, CustomCSSControl,
     WidthHeightControl,
 } from '@mindspun/wpx';

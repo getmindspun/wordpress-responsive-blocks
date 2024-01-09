@@ -43,6 +43,10 @@
             "type": "object",
             "default": {},
             "selector": ".wp-block-mindspun-tab"
+        },
+        "style": {
+            "type": "object",
+            "default": {}
         }
     },
     "viewScript": "file:./view.js",

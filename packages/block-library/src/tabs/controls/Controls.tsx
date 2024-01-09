@@ -1,8 +1,8 @@
-import {BlockAlignControl, ControlGroup} from '@mindspun/wpx';
-
-import {Props} from '../../types';
-import TabControls from './TabControls';
+import {BlockAlignControl, ContainerContents, ContainerControl, ControlGroup, CustomCSSControl} from '@mindspun/wpx';
 import {InspectorControls} from '@wordpress/block-editor';
+
+import {Props} from '../types';
+import TabControls from './TabControls';
 import {ToggleControl} from '@wordpress/components';
 
 const Controls = (props: Props) => {
@@ -53,6 +53,18 @@ const Controls = (props: Props) => {
                     border: true,
                 }}
             />
+            <ContainerControl title={'Custom CSS'}>
+                <ContainerContents>
+                    <CustomCSSControl
+                        blockId={props.attributes.blockId}
+                        attributes={props.attributes.style}
+                        setAttributes={style => {
+                            props.setAttributes({style: {...props.attributes.style, ...style}});
+                        }}
+                        isResponsive={true}
+                    />
+                </ContainerContents>
+            </ContainerControl>
         </InspectorControls>
     );
 };

@@ -2,7 +2,7 @@ import {InspectorControls} from '@wordpress/block-editor';
 
 import {
     BackgroundColorControl, BlockCSSProperties,
-    ColorsGroup, ContainerContents,
+    ColorsGroup, ContainerContents, ContainerControl, CustomCSSControl,
     GapControl, JustifyContentControl, MarginControl,
 } from '@mindspun/wpx';
 
@@ -58,6 +58,18 @@ const Controls = (props: Props) => {
                         isResponsive={true}
                     />
                 </ContainerContents>
+                <ContainerControl title={'Custom CSS'}>
+                    <ContainerContents>
+                        <CustomCSSControl
+                            blockId={props.attributes.blockId}
+                            attributes={props.attributes.style}
+                            setAttributes={style => {
+                                props.setAttributes({style: {...props.attributes.style, ...style}});
+                            }}
+                            isResponsive={true}
+                        />
+                    </ContainerContents>
+                </ContainerControl>
             </div>
         </InspectorControls>
     );

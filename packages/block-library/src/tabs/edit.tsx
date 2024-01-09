@@ -11,7 +11,7 @@ import './editor.scss';
 import {BlockStoreSelectors, Props} from './types';
 import Header from './components/Header';
 import Tab from './components/Tab';
-import Controls from './components/controls/Controls';
+import Controls from './controls/Controls';
 import {labelsEqual, tabsToLabels} from './utils';
 
 import {BLOCK_NAME as TAB_BLOCK} from './tab';
