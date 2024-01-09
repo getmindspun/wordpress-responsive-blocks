@@ -7,19 +7,15 @@ import {useGetPreviewDeviceType} from '../../hooks';
 import {buildCSS} from '../../functions';
 import Portal from '../Portal/Portal';
 
-const StylePortal = (props: {
-	blockId: string,
+const StylePortalClientId = (props: {
+	clientId: string,
 	selector?: string,
 	attributes: BlockCSSProperties
 }) => {
-	if (!props.blockId || !props.attributes)  {
-		return null;
-	}
-
 	const deviceType = useGetPreviewDeviceType();
 	const iframe = document.querySelector('iframe[name="editor-canvas"]');
 
-	const id = `wpx-${props.blockId}`;
+	const id = `block-${props.clientId}`;
 	const css = buildCSS(id, props.attributes, {
 		selector: props.selector
 	});
@@ -39,7 +35,7 @@ const StylePortal = (props: {
 				}
 			}
 		}
-	}, [deviceType, iframe, props.blockId, props.attributes])
+	}, [deviceType, iframe, props.clientId, props.attributes])
 
 	if (!css) {
 		return null;
@@ -50,4 +46,4 @@ const StylePortal = (props: {
 	);
 }
 
-export default StylePortal;
+export default StylePortalClientId;

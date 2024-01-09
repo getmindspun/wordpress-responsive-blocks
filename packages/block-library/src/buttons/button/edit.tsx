@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import {RichText} from '@wordpress/block-editor';
 
-import {useBlockPropsWithId, StylePortal} from '@mindspun/wpx';
+import {StylePortalClientId, useBlockPropsWithId} from '@mindspun/wpx';
 
 import {Props} from './types';
 import Controls from './controls/Controls';
@@ -16,8 +16,8 @@ export default function Edit(props: Props & { clientId: string }) {
     return (
         <>
             <Controls {...props} />
-            <StylePortal
-                blockId={props.attributes.blockId}
+            <StylePortalClientId
+                clientId={props.clientId}
                 attributes={props.attributes.style}
             />
             <RichText

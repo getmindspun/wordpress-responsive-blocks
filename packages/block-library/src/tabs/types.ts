@@ -27,6 +27,7 @@ export type Props = {
 }
 
 export type ComponentProps = {
+    clientId: string;
     attributes: Attributes;
     setAttributes?: Props['setAttributes'];
     children?: React.ReactNode;

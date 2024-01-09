@@ -5,7 +5,7 @@ import {useSelect} from '@wordpress/data';
 import {BlockInstance} from '@wordpress/blocks';
 import {useEffect, useState} from '@wordpress/element';
 
-import {StylePortal, useBlockPropsWithId} from '@mindspun/wpx';
+import {StylePortalClientId, useBlockPropsWithId} from '@mindspun/wpx';
 
 import './editor.scss';
 import {BlockStoreSelectors, Props} from './types';
@@ -24,8 +24,8 @@ function useInnerBlocks(clientId: string): BlockInstance[] {
         }, []);
 }
 
-function buildCSS(activeTab: string|null) {
-    return activeTab ? `#wpx-${activeTab}{display:block}` : '';
+function buildCSS(activeTabBlockId: string|null) {
+    return activeTabBlockId ? `div[data-wpx-id="${activeTabBlockId}"]{display:block !important}` : '';
 }
 
 export default function Edit(props: Props) {
@@ -67,18 +67,18 @@ export default function Edit(props: Props) {
             <style>{buildCSS(activeTab)}</style>
             <div {...innerBlocksProps}>
                 <Header {...props}>
-                    <StylePortal
-                        blockId={props.attributes.blockId}
+                    <StylePortalClientId
+                        clientId={props.clientId}
                         attributes={props.attributes.tab}
                         selector={'.wpx--tab'}
                     />
-                    <StylePortal
-                        blockId={props.attributes.blockId}
+                    <StylePortalClientId
+                        clientId={props.clientId}
                         attributes={props.attributes.activeTab}
                         selector={'.wpx--tab--active'}
                     />
-                    <StylePortal
-                        blockId={props.attributes.blockId}
+                    <StylePortalClientId
+                        clientId={props.clientId}
                         attributes={props.attributes.content}
                         selector={'.wp-block-mindspun-tab'}
                     />

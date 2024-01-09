@@ -10,7 +10,7 @@ export default function useBlockPropsWithId(props: {
 }, config?: Parameters<UseBlockProps>[0]) {
     const blockId = useBlockId(props.attributes.blockId, props.clientId)
     const blockProps = useBlockProps(config);
-    blockProps.id = `wpx-${blockId}`;
+    blockProps['data-wpx-id'] = `${blockId}`;
 
     useEffect(() => {
         if (blockId !== props.attributes.blockId) {

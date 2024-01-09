@@ -1,7 +1,7 @@
 import {useInnerBlocksProps} from '@wordpress/block-editor';
 import {useState} from '@wordpress/element';
 
-import {useBlockPropsWithId, StylePortal} from '@mindspun/wpx';
+import {useBlockPropsWithId, StylePortalClientId} from '@mindspun/wpx';
 
 import './editor.scss';
 import {Props} from './types';
@@ -22,8 +22,8 @@ export default function Edit(props: Props & {clientId: string}) {
 				onMouseEnter={() => setFocused(true)}
 				onMouseLeave={() => setFocused(false)}
 			/>
-			<StylePortal
-				blockId={props.attributes.blockId}
+			<StylePortalClientId
+				clientId={props.clientId}
 				attributes={props.attributes.style}
 			/>
 			<div {...innerBlocksProps} />

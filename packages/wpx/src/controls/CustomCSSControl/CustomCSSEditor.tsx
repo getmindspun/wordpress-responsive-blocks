@@ -17,6 +17,8 @@ const CustomCSSEditor = (props: CustomCSSControlProps & {
         });
     }
 
+    const selector = `#wpx-${props.blockId}, *[data-wpx-id="${props.blockId}"]`;
+
     return (
         <div>
             <CSSEditor
@@ -26,7 +28,7 @@ const CustomCSSEditor = (props: CustomCSSControlProps & {
             <DeviceTypeContainer deviceType={'Desktop'}>
                 <small>
                     {__('CSS added here should be scoped to the block, meaning each selector should begin with  ')}
-                    <em>#wpx-{props.blockId}.</em>
+                    <em>{selector}.</em>
                 </small>
             </DeviceTypeContainer>
             <DeviceTypeContainer deviceType={'Tablet'}>

@@ -1,7 +1,7 @@
 import React from 'react';
-import {ComponentProps} from '../types';
-import {StylePortal} from '@mindspun/wpx';
 import classNames from 'classnames';
+import {StylePortalClientId} from '@mindspun/wpx';
+import {ComponentProps} from '../types';
 
 
 const Header = (props: ComponentProps) => {
@@ -16,8 +16,8 @@ const Header = (props: ComponentProps) => {
     return (
         <>
             {props.setAttributes &&
-                <StylePortal
-                    blockId={props.attributes.blockId}
+                <StylePortalClientId
+                    clientId={props.clientId}
                     attributes={props.attributes.header}
                     selector={'.wpx--tabs'}
                 />
