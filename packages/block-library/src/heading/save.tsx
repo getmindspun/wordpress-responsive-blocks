@@ -9,7 +9,7 @@ export default function save(props: { attributes: Props['attributes'] }) {
         <RichText.Content
             {...useBlockPropsWithId.save(props)}
             tagName={tagName}
-            value={props.attributes.text}
+            value={props.attributes.content}
         />
     );
 }

@@ -5,7 +5,7 @@ export type Props = {
 	isSelected: boolean,
 	attributes: {
 		blockId: string,
-		text: string,
+		content: string,
 		style: BlockCSSProperties
 	};
 	setAttributes: (attributes: Partial<Props['attributes']>) => void

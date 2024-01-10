@@ -20,10 +20,10 @@ export default function Edit(props: Props & {clientId: string}) {
 			<RichText
 				{...blockProps}
 				tagName={tagName}
-				onChange={ text => {
-					props.setAttributes( {text})
+				onChange={ content => {
+					props.setAttributes( {content})
 				}}
-				value={ props.attributes.text }
+				value={ props.attributes.content }
 				allowedFormats={ [ 'core/bold', 'core/italic' ] }
 				placeholder={'Heading...'}
 			/>

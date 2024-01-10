@@ -11,7 +11,7 @@
         "blockId": {
             "type": "string"
         },
-        "text": {
+        "content": {
             "type": "string"
         },
         "style": {

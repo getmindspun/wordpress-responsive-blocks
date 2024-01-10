@@ -1,4 +1,6 @@
 import {InspectorControls} from '@wordpress/block-editor';
+import {ToggleControl} from '@wordpress/components';
+import {__} from '@wordpress/i18n';
 
 import {
     BackgroundColorControl, BlockCSSProperties,
@@ -7,8 +9,6 @@ import {
 } from '@mindspun/wpx';
 
 import {Props} from '../types';
-import {__} from '@wordpress/i18n';
-import {ToggleControl} from '@wordpress/components';
 
 const Controls = (props: Props) => {
     return (

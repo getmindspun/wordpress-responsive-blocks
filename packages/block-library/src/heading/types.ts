@@ -4,7 +4,7 @@ export type Props = {
 	attributes: {
 		blockId: string,
 		tagName: HeadingTag,
-		text: string,
+		content: string,
 		style: BlockCSSProperties
 	};
 	setAttributes: (attributes: Partial<Props['attributes']>) => void

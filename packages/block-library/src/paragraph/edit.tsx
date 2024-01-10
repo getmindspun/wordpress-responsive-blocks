@@ -1,5 +1,4 @@
-import {EditorSelection, RichText} from '@wordpress/block-editor';
-import {BlockInstance} from '@wordpress/blocks';
+import {RichText} from '@wordpress/block-editor';
 
 import {useBlockPropsWithId, StylePortalClientId} from '@mindspun/wpx';
 
@@ -21,10 +20,10 @@ export default function Edit(props: Props) {
 				identifier="content"
 				{...blockProps}
 				tagName={'p'}
-				onChange={ text => {
-					props.setAttributes( {text})
+				onChange={ content => {
+					props.setAttributes( {content})
 				}}
-				value={ props.attributes.text }
+				value={ props.attributes.content }
 				allowedFormats={ [ 'core/bold', 'core/italic' ] }
 				placeholder={'Enter text...'}
 			/>
