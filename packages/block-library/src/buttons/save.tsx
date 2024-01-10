@@ -1,7 +1,6 @@
 import {useInnerBlocksProps} from '@wordpress/block-editor';
 import {useBlockPropsWithId} from '@mindspun/wpx';
 import {Props} from './types';
-import {getClassName} from './utils';
 import React from 'react';
 
 export default function save(props: { attributes: Props['attributes'] }) {
