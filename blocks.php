@@ -39,12 +39,13 @@ function wpx_build_css( string $id, array $attributes, array $options = array() 
 }
 
 /**
- * Generate a style for the given block if needed.
+ * Returns the CSS for one block, not including inner blocks.
  *
  * @param array $block
- * @return void
+ * @return string
  */
-function wpx_style_block( array $block ): void {
+function wpx_block_css( array $block ) {
+    $css = '';
     $registry = WP_Block_Type_Registry::get_instance();
 
     $attrs = $block['attrs'] ?? array();
@@ -62,11 +63,30 @@ function wpx_style_block( array $block ): void {
 
                 /* An attribute is a style if it is named 'style' or has a selector */
                 if ( 'style' === $attr || $selector ) {
-                    // Use wp_strip_all_tags instead of an esc_* function to avoid converting
-                    // characters like (>) to html entities.
-                    echo "<style id=\"style-wpx-$block_id\">" . wp_strip_all_tags(wpx_build_css("wpx-$block_id", $value, array('selector' => $selector))) . '</style>';  # phpcs:ignore
+                    $css .= wpx_build_css("wpx-$block_id", $value, array('selector' => $selector));
                 }
             }
+        }
+    }
+    return $css;
+}
+
+/**
+ * Generate a style for the given block if needed.
+ *
+ * @param array $block
+ * @return void
+ */
+function wpx_style_block( array $block ): void {
+	$attrs = $block['attrs'] ?? array();
+    $block_id = $attrs['blockId'] ?? '';
+
+    if ($block_id) {
+        $css = wpx_block_css($block);
+        if ($css) {
+            // Use wp_strip_all_tags instead of an esc_* function to avoid converting
+            // characters like (>) to html entities.
+            echo "<style id=\"style-wpx-$block_id\">" . wp_strip_all_tags($css) . '</style>';  # phpcs:ignore
         }
     }
 

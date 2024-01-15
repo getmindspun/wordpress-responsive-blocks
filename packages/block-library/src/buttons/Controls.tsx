@@ -8,7 +8,7 @@ import {
     GapControl, JustifyContentControl, MarginControl,
 } from '@mindspun/wpx';
 
-import {Props} from '../types';
+import {Props} from './types';
 
 const Controls = (props: Props) => {
     return (

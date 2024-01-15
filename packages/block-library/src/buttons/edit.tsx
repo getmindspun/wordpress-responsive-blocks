@@ -4,7 +4,7 @@ import {useBlockPropsWithId, StylePortalClientId} from '@mindspun/wpx';
 
 import './editor.scss';
 import {Props} from './types';
-import Controls from './controls/Controls';
+import Controls from './Controls';
 import {BLOCK_NAME as BUTTON_BLOCK} from './button';
 
 export default function Edit(props: Props & {clientId: string}) {
