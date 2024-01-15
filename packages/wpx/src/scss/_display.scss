@@ -7,16 +7,16 @@ $displays: block, flex, inline, inline-block, inline-flex, none;
     }
 }
 
-@each $display in $displays {
-    @media (max-width: 1024px) {
+@media (max-width: 1024px) {
+    @each $display in $displays {
         .wpx--d-tablet-#{$display} {
             display: $display !important;
         }
     }
 }
 
-@each $display in $displays {
-    @media (max-width: 480px) {
+@media (max-width: 480px) {
+    @each $display in $displays {
         .wpx--d-mobile-#{$display} {
             display: $display !important;
         }
