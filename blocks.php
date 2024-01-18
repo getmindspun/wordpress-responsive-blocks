@@ -63,7 +63,7 @@ function wpx_block_css( array $block ) {
 
                 /* An attribute is a style if it is named 'style' or has a selector */
                 if ( 'style' === $attr || $selector ) {
-                    $css .= wpx_build_css("wpx-$block_id", $value, array('selector' => $selector));
+                    $css .= wpx_build_css( "wpx-$block_id", $value, array( 'selector' => $selector ) );
                 }
             }
         }
@@ -78,12 +78,12 @@ function wpx_block_css( array $block ) {
  * @return void
  */
 function wpx_style_block( array $block ): void {
-	$attrs = $block['attrs'] ?? array();
+    $attrs = $block['attrs'] ?? array();
     $block_id = $attrs['blockId'] ?? '';
 
-    if ($block_id) {
-        $css = wpx_block_css($block);
-        if ($css) {
+    if ( $block_id ) {
+        $css = wpx_block_css( $block );
+        if ( $css ) {
             // Use wp_strip_all_tags instead of an esc_* function to avoid converting
             // characters like (>) to html entities.
             echo "<style id=\"style-wpx-$block_id\">" . wp_strip_all_tags($css) . '</style>';  # phpcs:ignore

@@ -9,7 +9,7 @@ export type Link = {
     rel: string[],
 }
 
-type LinkControlProps = {
+export type LinkControlProps = {
     attributes: Link;
     setAttributes: (attributes: Partial<LinkControlProps['attributes']>) => void;
 }
