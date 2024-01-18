@@ -2,7 +2,7 @@
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "apiVersion": 3,
     "name": "mindspun/link-group",
-    "version": "0.4.1",
+    "version": "0.5.0",
     "title": "Link Group",
     "category": "mindspun-responsive-blocks",
     "description": "Turns a group of blocks into one big clickable link.",
@@ -10,7 +10,9 @@
     "attributes": {
         "link": {
             "type": "object",
-            "default": {"rel":[]}
+            "default": {
+                "rel": []
+            }
         }
     },
     "textdomain": "wpx",
