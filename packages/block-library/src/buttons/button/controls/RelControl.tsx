@@ -24,9 +24,11 @@ const RelControl = (props: {
             />
             <SelectControl
                 multiple
-                value={props.attributes.rel}
+                value={props.attributes.link.rel}
                 options={OPTIONS}
-                onChange={(rel) => props.setAttributes({rel})}
+                onChange={(rel) => props.setAttributes({
+                    link: {...props.attributes.link, rel}
+                })}
                 __nextHasNoMarginBottom
             />
         </div>

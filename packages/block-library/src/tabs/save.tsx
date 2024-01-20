@@ -5,7 +5,7 @@ import Header from './components/Header';
 import Tab from './components/Tab';
 import React from 'react';
 
-export default function save(props: { attributes: Props['attributes'] }) {
+export default function save(props: { attributes: Props['attributes'], clientId: string }) {
     const blockProps = useBlockPropsWithId.save(props);
     const innerBlocksProps = useInnerBlocksProps.save({
         className: 'wpx--tab-contents'

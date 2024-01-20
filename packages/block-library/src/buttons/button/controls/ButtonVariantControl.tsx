@@ -3,7 +3,7 @@ import {__} from '@wordpress/i18n';
 import {SelectControl} from '@wordpress/components';
 
 import {ControlHeader, DeviceTypeContainer, useGetPreviewDeviceType} from '@mindspun/wpx';
-import {Props} from '../types';
+import {ButtonVariant, Props} from '../types';
 
 const OPTIONS = [
     {label: 'Primary', value: 'primary'},
@@ -24,7 +24,7 @@ const ButtonVariantControl = (props: {
             <SelectControl
                 value={props.attributes.variant}
                 options={OPTIONS}
-                onChange={(variant) => props.setAttributes({variant})}
+                onChange={(variant) => props.setAttributes({variant: variant as ButtonVariant | undefined})}
                 __nextHasNoMarginBottom
             />
         </div>

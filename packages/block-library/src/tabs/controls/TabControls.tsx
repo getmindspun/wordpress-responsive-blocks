@@ -4,7 +4,7 @@ import {
     ContainerControl, TabbedContainer, TabbedControl,
 } from '@mindspun/wpx';
 
-import {Props} from '../../types';
+import {Props} from '../types';
 
 const TabControls = (props: {
     attributes: Props['attributes'],
@@ -25,7 +25,8 @@ const TabControls = (props: {
                                 backgroundColor: {responsive: true},
                                 margin: {responsive: true},
                                 padding: {responsive: true},
-                                border: {responsive: true}
+                                border: {responsive: true},
+                                fontSize: {responsive: true}
                             }}
                         />
                     </ContainerContents>
@@ -42,7 +43,8 @@ const TabControls = (props: {
                                 backgroundColor: {responsive: true},
                                 margin: {responsive: true},
                                 padding: {responsive: true},
-                                border: {responsive: true}
+                                border: {responsive: true},
+                                fontSize: {responsive: true}
                             }}
                         />
                     </ContainerContents>
