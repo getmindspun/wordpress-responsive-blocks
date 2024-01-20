@@ -4,7 +4,8 @@ const defaultConfig = require('@wordpress/scripts/config/webpack.config');
 
 const plugins = defaultConfig.plugins.filter(plugin => {
     return (
-        plugin.constructor.name !== 'CleanWebpackPlugin'
+        plugin.constructor.name !== 'CleanWebpackPlugin' &&
+            plugin.constructor.name !== 'DependencyExtractionWebpackPlugin'
     );
 });
 
