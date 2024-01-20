@@ -1,7 +1,5 @@
 import {BlockConfiguration} from '@wordpress/blocks';
 
-import './style.scss';
-
 import {registerInnerBlock} from '../../../utils';
 
 import edit from './edit';

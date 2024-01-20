@@ -4,4 +4,14 @@
     }
 }
 
-@import "tab/editor";
+.wp-block-mindspun-tab--controls {
+    .wpx--tab-controls {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+
+        input[type="text"] {
+            width: 100%;
+        }
+    }
+}

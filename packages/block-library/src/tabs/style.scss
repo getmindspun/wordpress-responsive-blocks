@@ -72,6 +72,12 @@ $border: 1px solid #ccc;
         border-right: $border;
         display: none;
         padding: 1em;
+        margin-top: 0;
+        margin-bottom: 0;
+
+        &.wpx--tab--active {
+            display: block !important;
+        }
     }
 
     .wpx--tab-panel--active {

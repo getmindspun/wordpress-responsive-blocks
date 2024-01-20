@@ -114,11 +114,19 @@ add_action(
     'enqueue_block_editor_assets',
     function () {
         $handle = '@mindspun/wpx';
+        wp_enqueue_style( $handle );
+    }
+);
+
+add_action(
+    'admin_enqueue_scripts',
+    function () {
+        $handle = '@mindspun/wpx';
         $asset_path = __DIR__ . '/dist/wpx.asset.php';
         $args = require_once $asset_path;
 
         $style_path = plugins_url( '/dist/wpx.css', __FILE__ );
-        wp_enqueue_style( $handle, $style_path, array( 'wp-codemirror' ), $args['version'] );
+        wp_register_style( $handle, $style_path, array( 'wp-codemirror' ), $args['version'] );
 
         $script_path = plugins_url( '/dist/wpx.js', __FILE__ );
         if ( ! wp_register_script( $handle, $script_path, $args['dependencies'], $args['version'] ) ) {
