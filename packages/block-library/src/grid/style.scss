@@ -5,6 +5,11 @@
 .wp-block-mindspun-grid-row {
     display: flex;
     flex-wrap: wrap;
+    margin: 0;
+}
+
+.wp-block-mindspun-grid-col {
+    margin: 0;
 }
 
 @for $i from 1 through 12 {
