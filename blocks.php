@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Mindspun Responsive Blocks for Gutenberg
+ * Plugin Name:       Mindspun Responsive Blocks
  * Description:       Fully-responsive, easy-to-use Gutenberg blocks for your site.
  * Requires at least: 6.2
  * Requires PHP:      7.4
