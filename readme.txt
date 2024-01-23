@@ -72,3 +72,6 @@ Mindspun provides customer support to address any issues or queries. Users can a
 = 0.7.0 =
 Release Date: January 22nd, 2024
 * Initial submission to wordpress.org.
+
+= 0.7.1 =
+* wordpress.org assets
