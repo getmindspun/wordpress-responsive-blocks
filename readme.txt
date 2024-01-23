@@ -4,7 +4,7 @@ Donate link: https://www.mindspun.com/about
 Tags: tag1, tag2
 Requires at least: 6.2
 Tested up to: 6.4
-Stable tag: 0.7.1
+Stable tag: 0.7.2
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -75,3 +75,6 @@ Release Date: January 22nd, 2024
 
 = 0.7.1 =
 * wordpress.org assets
+
+= 0.7.2 =
+* FIX: bundle readme files
