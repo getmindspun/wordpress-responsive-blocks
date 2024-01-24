@@ -24,7 +24,7 @@ export default function Edit(props: Props) {
 					props.setAttributes( {content})
 				}}
 				value={ props.attributes.content }
-				allowedFormats={ [ 'core/bold', 'core/italic' ] }
+				allowedFormats={ [ 'core/bold', 'core/italic', 'core/link' ] }
 				placeholder={'Enter text...'}
 			/>
 		</>
