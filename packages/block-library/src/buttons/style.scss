@@ -3,30 +3,30 @@
     flex-wrap: wrap;
     align-items: center;
     gap: 1.5rem;
+
+    .wp-block-mindspun-button {
+        display: inline-block;
+        box-sizing: border-box;
+        text-align: center;
+        padding: calc(0.667em + 2px) calc(1.333em + 2px);
+        margin: 0;
+
+        &.variant-primary {
+            color: var(--wp--preset--color--contrast, white);
+            background-color: var(--wp--preset--color--primary, #005ffe);
+        }
+
+        &.variant-outline {
+            color: currentColor;
+            border: 2px solid;
+            background-color: transparent;
+            padding: calc(0.667em) calc(1.333em)
+        }
+
+        &.variant-link {
+            border: 0;
+            border-radius: 0;
+            background-color: transparent;
+        }
+    }
 }
-
-.wp-block-mindspun-button {
-    display: inline-block;
-    box-sizing: border-box;
-    text-align: center;
-    padding: calc(0.667em + 2px) calc(1.333em + 2px);
-
-    &.variant-primary {
-        color: var(--wp--preset--color--contrast, white);
-        background-color: var(--wp--preset--color--primary, #005ffe);
-    }
-
-    &.variant-outline {
-        color: currentColor;
-        border: 2px solid;
-        background-color: transparent;
-        padding: calc(0.667em) calc(1.333em)
-    }
-
-    &.variant-link {
-        border: 0;
-        border-radius: 0;
-        background-color: transparent;
-    }
-}
-

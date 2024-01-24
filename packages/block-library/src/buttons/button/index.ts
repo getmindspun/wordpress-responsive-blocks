@@ -23,7 +23,8 @@ registerInnerBlock({
             default: false
         },
         variant: {
-            type: 'string'
+            type: 'string',
+            default: 'primary'
         },
         text: {
             type: 'string'
