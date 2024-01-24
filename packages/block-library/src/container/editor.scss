@@ -1,4 +1,8 @@
 .wp-block-mindspun-container {
+    /* Clear the margin-auto set by the editor for inner blocks. */
+    & .wp-block {
+        margin: 0;
+    }
 }
 
 .wp-block-mindspun-container--controls {

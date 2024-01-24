@@ -1,8 +1,12 @@
 .wp-block-mindspun-buttons {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
+    justify-content: left;
     align-items: center;
     gap: 1.5rem;
+    margin: 0;
+    width: 100%;
 
     .wp-block-mindspun-button {
         display: inline-block;
