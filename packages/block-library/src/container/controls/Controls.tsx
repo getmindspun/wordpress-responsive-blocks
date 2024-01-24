@@ -13,6 +13,8 @@ import JustifyContentControl from './JustifyContentControl';
 import AlignItemsControl from './AlignItemsControl';
 import SizingControl from './sizing/SizingControl';
 import StyleControls from './StyleControls';
+import {SelectControl} from '@wordpress/components';
+import {__} from '@wordpress/i18n';
 
 const Controls = (props: Props & {
     onMouseEnter?: () => void;
@@ -53,12 +55,23 @@ const Controls = (props: Props & {
                                         const style = {...props.attributes.style, ...newStyle};
                                         props.setAttributes({style});
                                     }}/>
+                                <hr/>
                                 <SizingControl
                                     attributes={props.attributes.style}
                                     setAttributes={newStyle => {
                                         const style = {...props.attributes.style, ...newStyle};
                                         props.setAttributes({style});
                                     }}/>
+                                <SelectControl
+                                    label={__('HTML Tag')}
+                                    value={ props.attributes.tagName ? props.attributes.tagName : 'div' }
+                                    options={ [
+                                        { label: 'div', value: 'div' },
+                                        { label: 'section', value: 'section' },
+                                    ] }
+                                    onChange={ ( tagName ) => props.setAttributes({tagName})}
+                                    __nextHasNoMarginBottom
+                                />
                             </ContainerContents>
                         </TabbedContainer>
                         <TabbedContainer key={'Style'} icon={styles}>

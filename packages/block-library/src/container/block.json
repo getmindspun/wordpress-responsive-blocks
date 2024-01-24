@@ -11,6 +11,10 @@
         "blockId": {
             "type": "string"
         },
+        "tagName": {
+            "type": "string",
+            "default": "div"
+        },
         "style": {
             "type": "object",
             "default": {}

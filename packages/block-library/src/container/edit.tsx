@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import {ElementType} from 'react';
 import {useInnerBlocksProps} from '@wordpress/block-editor';
 import {useState} from '@wordpress/element';
 
@@ -16,6 +17,7 @@ export default function Edit(props: Props & {clientId: string}) {
 		})
 	});
 	const innerBlocksProps = useInnerBlocksProps(blockProps);
+	const HeadingTag = (props.attributes.tagName || 'div') as ElementType;
 
 	return (
 		<>
@@ -28,7 +30,7 @@ export default function Edit(props: Props & {clientId: string}) {
 				clientId={props.clientId}
 				attributes={props.attributes.style}
 			/>
-			<div {...innerBlocksProps} />
+			<HeadingTag {...innerBlocksProps} />
 		</>
 	);
 }
