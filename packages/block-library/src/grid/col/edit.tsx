@@ -1,5 +1,5 @@
 import {useInnerBlocksProps} from '@wordpress/block-editor';
-import {useBlockPropsWithId} from '@mindspun/wpx';
+import {StylePortalClientId, useBlockPropsWithId} from '@mindspun/wpx';
 
 import {Props} from './types';
 import Controls from './controls/Controls';
@@ -15,6 +15,10 @@ export default function Edit(props: Props & { clientId: string }) {
     return (
         <>
             <Controls {...props} />
+            <StylePortalClientId
+                clientId={props.clientId}
+                attributes={props.attributes.style}
+            />
             <div {...innerBlocksProps} />
         </>
     );
