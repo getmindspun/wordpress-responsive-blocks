@@ -1,10 +1,10 @@
 === Mindspun Responsive Blocks ===
 Contributors: mindspun, mattlaue
 Donate link: https://www.mindspun.com/about
-Tags: tag1, tag2
+Tags: gutenberg, blocks, responsive
 Requires at least: 6.2
 Tested up to: 6.4
-Stable tag: 0.7.2
+Stable tag: 0.8.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -78,3 +78,12 @@ Release Date: January 22nd, 2024
 
 = 0.7.2 =
 * FIX: bundle readme files
+
+= 0.8.0 =
+Release Data: January 25th, 2024
+* Fix button default variant attribute and default the margin to 0.
+* Fix border control clear option when responsive.
+* Allow changing the html tag for containers - uses either div or section.
+* All links in paragraph text.
+* Better default styles for container and buttons.
+* Add the padding control to the grid columns block.
