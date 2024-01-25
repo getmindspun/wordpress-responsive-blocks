@@ -1,6 +1,6 @@
 import type {Border} from '@wordpress/components/build-types/border-control/types';
 import {CSSProperties} from 'react';
-import {LengthUnit} from '../../types';
+import {BlockCSSProperties, LengthUnit} from '../../types';
 import {isNumeric} from '../../utils';
 
 const STYLES = [
@@ -80,4 +80,24 @@ export function areAllBorderRadiiEqual(attributes: CSSProperties) {
     return (attributes.borderTopRightRadius === attributes.borderBottomRightRadius) &&
         (attributes.borderTopRightRadius === attributes.borderBottomLeftRadius) &&
         (attributes.borderTopRightRadius === attributes.borderTopLeftRadius);
+}
+
+export function showClear(attributes: BlockCSSProperties, deviceType: string) {
+    switch (deviceType) {
+        case 'Tablet':
+            return (attributes.tabletBorderTop !== undefined ||
+                attributes.tabletBorderRight !== undefined ||
+                attributes.tabletBorderBottom !== undefined ||
+                attributes.tabletBorderLeft !== undefined);
+        case 'Mobile':
+            return (attributes.mobileBorderTop !== undefined ||
+                attributes.mobileBorderRight !== undefined ||
+                attributes.mobileBorderBottom !== undefined ||
+                attributes.mobileBorderLeft !== undefined);
+    }
+
+    return (attributes.borderTop !== undefined ||
+        attributes.borderLeft !== undefined ||
+        attributes.borderBottom !== undefined ||
+        attributes.borderRight !== undefined);
 }

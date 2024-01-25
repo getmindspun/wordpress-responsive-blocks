@@ -5,6 +5,8 @@ import ControlHeader from '../../components/ControlHeader/ControlHeader';
 import BorderBaseControl from './BorderBaseControl';
 import BorderResponsiveControl from './BorderResponsiveControl';
 import BorderRadiusControl from './BorderRadiusControl';
+import {useGetPreviewDeviceType} from '../../hooks';
+import {showClear} from './utils';
 
 export type BorderControlProps = {
     label?: string;
@@ -14,22 +16,32 @@ export type BorderControlProps = {
     disableRadiusControl?: boolean;
 }
 
-function anySet(attributes: BlockCSSProperties) {
-    return attributes.borderTop !== undefined || attributes.borderRight !== undefined || attributes.borderBottom !== undefined || attributes.borderLeft !== undefined ||
-        attributes.tabletBorderTop !== undefined || attributes.tabletBorderRight !== undefined || attributes.tabletBorderBottom !== undefined || attributes.tabletBorderLeft !== undefined ||
-        attributes.mobileBorderTop !== undefined || attributes.mobileBorderRight !== undefined || attributes.mobileBorderBottom !== undefined || attributes.mobileBorderLeft !== undefined;
-
-}
-
 const BorderControl = (props: BorderControlProps) => {
+    const deviceType = useGetPreviewDeviceType(!!props.isResponsive);
+
     function onClear() {
-        props.setAttributes({
-            ...props.attributes,
-            borderTop: undefined,
-            borderRight: undefined,
-            borderBottom: undefined,
-            borderLeft: undefined,
-        })
+        if (deviceType === 'Tablet') {
+            props.setAttributes({
+                tabletBorderTop: undefined,
+                tabletBorderRight: undefined,
+                tabletBorderBottom: undefined,
+                tabletBorderLeft: undefined,
+            });
+        } else if (deviceType === 'Mobile') {
+            props.setAttributes({
+                mobileBorderTop: undefined,
+                mobileBorderRight: undefined,
+                mobileBorderBottom: undefined,
+                mobileBorderLeft: undefined,
+            });
+        } else {
+            props.setAttributes({
+                borderTop: undefined,
+                borderRight: undefined,
+                borderBottom: undefined,
+                borderLeft: undefined,
+            });
+        }
     }
 
     return (
@@ -37,7 +49,7 @@ const BorderControl = (props: BorderControlProps) => {
             <ControlHeader
                 title={props.label}
                 isResponsive={props.isResponsive}
-                onClear={anySet(props.attributes) ? onClear : undefined}
+                onClear={showClear(props.attributes, deviceType) ? onClear : undefined}
             />
             {props.isResponsive ?
                 <BorderResponsiveControl {...props}/> :
