@@ -55,10 +55,13 @@ function wpx_block_css( array $block ) {
         /* @var array $attribute */
         foreach ( $attrs as $attr => $value ) {
             if ( is_array( $value ) && ! empty( $value ) ) {
-                $selector = null;
-                $block_type = $registry->get_registered( $block['blockName'] );
-                if ( $block_type ) {
-                    $selector = $block_type->attributes[ $attr ]['selector'] ?? null;
+                /* The selector can be specified inside the array or as a 'magic' property of the attribute. */
+                $selector = $value['__selector__'] ?? null;
+                if ( ! $selector ) {
+                    $block_type = $registry->get_registered( $block['blockName'] );
+                    if ( $block_type ) {
+                        $selector = $block_type->attributes[ $attr ]['selector'] ?? null;
+                    }
                 }
 
                 /* An attribute is a style if it is named 'style' or has a selector */
