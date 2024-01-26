@@ -26,8 +26,6 @@ const CSSEditor = (props: {
             editor.getDoc().on('change', function (doc, arg) {
                 const newValue = doc.getValue();
                 if (props.value !== newValue && arg.origin !== 'setValue') {
-                    console.log(props.value + '->' + newValue);
-                    console.log(arg);
                     props.onChange(doc.getValue());
                 }
             });
