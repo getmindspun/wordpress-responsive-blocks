@@ -3,7 +3,7 @@ import {button} from '@wordpress/icons';
 
 import edit from './edit';
 import save from './save';
-import {registerInnerBlock} from '../../../utils';
+import {registerInnerBlock} from '../../utils';
 
 export const BLOCK_NAME = 'mindspun/button';
 

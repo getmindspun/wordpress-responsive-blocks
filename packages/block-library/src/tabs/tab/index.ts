@@ -1,6 +1,6 @@
 import {BlockConfiguration} from '@wordpress/blocks';
 
-import {registerInnerBlock} from '../../../utils';
+import {registerInnerBlock} from '../../utils';
 
 import edit from './edit';
 import save from './save';

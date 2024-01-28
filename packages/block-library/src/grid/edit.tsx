@@ -6,33 +6,42 @@ import {useBlockPropsWithId, StylePortalClientId} from '@mindspun/wpx';
 import './editor.scss';
 import {Props} from './types';
 import Controls from './Controls';
-import TEMPLATE from './template';
 import {getClassName} from './utils';
-import {hasSelectedBlock} from './hooks';
+import {getBlock, hasSelectedBlock} from './hooks';
+import {BlockInstance} from '@wordpress/blocks';
+import Placeholder from './Placeholder';
 
-export default function Edit(props: Props & {clientId: string}) {
-	const selected = hasSelectedBlock(props.clientId);
+function hasInnerBlocks(block: BlockInstance | null) {
+    return (block && block.innerBlocks && block.innerBlocks.length > 0);
+}
 
-	const [focused, setFocused] = useState(false);
-	const blockProps = useBlockPropsWithId(props, {
-		className: getClassName(props.attributes, focused || selected)
-	});
-	const innerBlocksProps = useInnerBlocksProps(blockProps, {
-		template: TEMPLATE
-	});
+export default function Edit(props: Props) {
+    const block = getBlock(props.clientId);
+    const selected = hasSelectedBlock(props.clientId);
 
-	return (
-		<>
-			<Controls
-				{...props}
-				onMouseEnter={() => setFocused(true)}
-				onMouseLeave={() => setFocused(false)}
-			/>
-			<StylePortalClientId
-				clientId={props.clientId}
-				attributes={props.attributes.style}
-			/>
-			<div {...innerBlocksProps}></div>
-		</>
-	);
+    const [focused, setFocused] = useState(false);
+    const blockProps = useBlockPropsWithId(props, {
+        className: getClassName(props.attributes, focused || selected)
+    });
+    const innerBlocksProps = useInnerBlocksProps(blockProps);
+
+    return (
+        <>
+            <Controls
+                {...props}
+                onMouseEnter={() => setFocused(true)}
+                onMouseLeave={() => setFocused(false)}
+            />
+            <StylePortalClientId
+                clientId={props.clientId}
+                attributes={props.attributes.style}
+            />
+
+            {
+                hasInnerBlocks(block) ?
+                    <div {...innerBlocksProps}></div> :
+                    <Placeholder {...props} />
+            }
+        </>
+    );
 }

@@ -3,8 +3,7 @@ import {InspectorControls} from '@wordpress/block-editor';
 import {Props} from './types';
 
 import {
-    ContainerContents, ContainerControl, CustomCSSControl,
-    WidthHeightControl,
+    ContainerContents, ContainerControl, CustomCSSControl, WidthHeightControl,
 } from '@mindspun/wpx';
 
 const Controls = (props: Props & {
