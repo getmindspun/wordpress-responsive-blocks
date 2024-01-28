@@ -4,7 +4,7 @@ Donate link: https://www.mindspun.com/about
 Tags: gutenberg, blocks, responsive
 Requires at least: 6.2
 Tested up to: 6.4
-Stable tag: 0.9.0
+Stable tag: 0.10.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -91,3 +91,11 @@ Release Date: January 25th, 2024
 = 0.9.0 =
 Release Date: January 26th, 2024
 * Allow the selector to be specified via a magic property inside the attribute for inner blocks.
+
+= 0.10.0 =
+Release Date: January 28th, 2024
+* Add a variant selector and gap controls to grid.
+* Add the padding control to the buttons block.
+* Make the font size control configurable and add XS as a default option.
+* Set a minimum img size via CSS.
+* Remove debugging output from CSSEditor.

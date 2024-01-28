@@ -2,7 +2,7 @@
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "apiVersion": 3,
     "name": "mindspun/image",
-    "version": "0.9.0",
+    "version": "0.10.0",
     "title": "Image",
     "category": "mindspun-responsive-blocks",
     "description": "Fully-responsive images.",
