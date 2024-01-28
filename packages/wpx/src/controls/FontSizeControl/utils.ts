@@ -1,21 +1,9 @@
 import {CSSProperties} from 'react';
 import {BlockCSSProperties} from '../../types';
+import {FontSize} from './FontSizeControl';
 
-type FontSize = {
-    name: 'S' | 'M' | 'L' | 'XL' | 'XXL',
-    fontSize: CSSProperties['fontSize'],
-}
-
-const SIZES: FontSize[] = [
-    {name: 'S', fontSize: '1rem'},
-    {name: 'M', fontSize: '1.125rem'},
-    {name: 'L', fontSize: '1.75rem'},
-    {name: 'XL', fontSize: '2.25rem'},
-    {name: 'XXL', fontSize: '10rem'}
-];
-
-export function fromRem(fontSize: CSSProperties['fontSize']): 'S' | 'M' | 'L' | 'XL' | 'XXL' | undefined {
-    for (const size of SIZES) {
+export function fromRem(fontSize: CSSProperties['fontSize'], fontSizes: FontSize[]): string | undefined {
+    for (const size of fontSizes) {
         if (fontSize === size.fontSize) {
             return size.name;
         }
@@ -23,8 +11,8 @@ export function fromRem(fontSize: CSSProperties['fontSize']): 'S' | 'M' | 'L' | 
     return undefined;
 }
 
-export function toRem(name: FontSize['name'] | undefined): CSSProperties['fontSize'] {
-    for (const size of SIZES) {
+export function toRem(name: FontSize['name'] | undefined, fontSizes: FontSize[]): CSSProperties['fontSize'] {
+    for (const size of fontSizes) {
         if (name === size.name) {
             return size.fontSize;
         }

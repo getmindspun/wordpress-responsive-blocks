@@ -6,17 +6,16 @@ import './FontSizeControl.scss';
 
 import {fromRem, toRem} from './utils';
 import UnitRangeControl from '../UnitRangeControl/UnitRangeControl';
+import {FontSize} from './FontSizeControl';
 
-export interface FontSizeControlProps {
+const FontSizeBaseControl = (props: {
     label?: string;
     fontSize: CSSProperties['fontSize'];
     onChange: (fontSize: CSSProperties['fontSize']) => void;
-    isResponsive?: boolean;
-    isAdvanced?: boolean
-}
-
-const FontSizeBaseControl = (props: FontSizeControlProps) => {
-    const name = fromRem(props.fontSize);
+    fontSizes: FontSize[];
+    isAdvanced: boolean
+}) => {
+    const name = fromRem(props.fontSize, props.fontSizes);
 
     return (
         <>
@@ -26,58 +25,19 @@ const FontSizeBaseControl = (props: FontSizeControlProps) => {
                     onChange={props.onChange}
                 /> :
                 <ButtonGroup>
-                    <Button
-                        key="small"
-                        label={__('Small')}
-                        showTooltip={true}
-                        isPressed={name === 'S'}
-                        onClick={() => {
-                            const fontSize = name !== 'S' ? toRem('S') : undefined
-                            props.onChange(fontSize);
-                        }}
-                    >S</Button>
-                    <Button
-                        key="medium"
-                        label={__('Medium')}
-                        showTooltip={true}
-                        isPressed={name === 'M'}
-                        onClick={() => {
-                            const fontSize = name !== 'M' ? toRem('M') : undefined
-                            props.onChange(fontSize);
-                        }}
-                    >M</Button>
-                    <Button
-                        key="large"
-                        label={__('Large')}
-                        showTooltip={true}
-                        isPressed={name === 'L'}
-                        onClick={() => {
-                            const fontSize = name !== 'L' ? toRem('L') : undefined
-                            props.onChange(fontSize);
-                        }}
-                    >L</Button>
-                    <Button
-                        key="xl"
-                        label={__('Extra Large')}
-                        showTooltip={true}
-                        isPressed={name === 'XL'}
-                        onClick={() => {
-                            const fontSize = name !== 'XL' ? toRem('XL') : undefined
-                            props.onChange(fontSize);
-                        }}
-                    >XL</Button>
-                    <Button
-                        key="xxl"
-                        label={__('Extra Extra Large')}
-                        showTooltip={true}
-                        isPressed={name === 'XXL'}
-                        onClick={() => {
-                            const fontSize = name !== 'XXL' ? toRem('XXL') : undefined
-                            props.onChange(fontSize);
-                        }}
-                    >
-                        <div>XXL</div>
-                    </Button>
+                    {props.fontSizes.map(option => (
+                            <Button
+                                key={option.name}
+                                label={option.name}
+                                showTooltip={true}
+                                isPressed={name === option.name}
+                                onClick={() => {
+                                    const fontSize = name !== option.name ? toRem(option.name, props.fontSizes) : undefined
+                                    props.onChange(fontSize);
+                                }}
+                            >{option.name}</Button>
+                        ))
+                    }
                 </ButtonGroup>
             }
         </>
