@@ -5,7 +5,7 @@ import {__} from '@wordpress/i18n';
 import {
     BackgroundColorControl, BlockCSSProperties,
     ColorsGroup, ContainerContents, ContainerControl, CustomCSSControl,
-    GapControl, JustifyContentControl, MarginControl,
+    GapControl, JustifyContentControl, MarginControl, PaddingControl,
 } from '@mindspun/wpx';
 
 import {Props} from './types';
@@ -51,6 +51,13 @@ const Controls = (props: Props) => {
                         isResponsive={true}
                     />
                     <MarginControl
+                        attributes={props.attributes.style}
+                        setAttributes={style => {
+                            props.setAttributes({style: {...props.attributes.style, ...style}});
+                        }}
+                        isResponsive={true}
+                    />
+                    <PaddingControl
                         attributes={props.attributes.style}
                         setAttributes={style => {
                             props.setAttributes({style: {...props.attributes.style, ...style}});
