@@ -19,14 +19,13 @@ const StylePortalClientId = (props: {
 	const css = buildCSS(id, props.attributes, {
 		selector: props.selector
 	});
-	const styleId = `style-${id}`;
 
 	useEffect(() => {
 		if (iframe && css) {
 			const doc = (iframe as HTMLIFrameElement).contentDocument;
 			if (doc) {
 				const el = doc.createElement('style');
-				el.setAttribute('id', styleId)
+				el.setAttribute('data-client-id', props.clientId)
 				el.innerHTML = css;
 				doc.head.appendChild(el);
 
@@ -42,7 +41,7 @@ const StylePortalClientId = (props: {
 	}
 
 	return (
-		<Portal selector={'head'} tagName={'style'} id={styleId} >{css}</Portal>
+		<Portal selector={'head'} tagName={'style'} data={{'client-id': props.clientId}}>{css}</Portal>
 	);
 }
 
