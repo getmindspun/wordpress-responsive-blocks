@@ -16,7 +16,7 @@ export function parseUnitValue(value?: string | number | undefined, defaultUnit:
     if (value === 0 || ((value = value.toString().trim()) === '0')) {
         return [0, defaultUnit]
     }
-    const found = value.match(/^(-)?(\d*\.?\d*)(px|%|em|rem)?$/);
+    const found = value.match(/^(-)?(\d*\.?\d*)(px|%|em|rem|vw|vh)?$/);
     if (!found) {
         return [0, defaultUnit]
     }

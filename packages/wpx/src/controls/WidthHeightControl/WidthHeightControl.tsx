@@ -15,13 +15,17 @@ const UNITS = [
     { value: 'px', label: 'px', default: 0 },
     { value: 'em', label: 'em', default: 0 },
     { value: 'rem', label: 'rem', default: 0 },
+    { value: 'vw', label: 'vw', default: 0 },
+    { value: 'vh', label: 'vh', default: 0 },
 ];
 
 const RANGES = {
     'px': {min: 16, max: 512, step: 1},
     '%': {min: 0, max: 100, step: 1},
     'em': {min: 0, max: 10, step: .01},
-    'rem': {min: 0, max: 10, step: .01}
+    'rem': {min: 0, max: 10, step: .01},
+    'vw': {min: 0, max: 100, step: 1},
+    'vh': {min: 0, max: 100, step: 1}
 }
 
 export type WidthHeightProperties = Pick<BlockCSSProperties,
