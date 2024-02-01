@@ -3,7 +3,7 @@
     "version": "0.10.0",
     "private": true,
     "scripts": {
-        "lint": "eslint packages",
+        "lint": "eslint packages --fix",
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build"
     },
