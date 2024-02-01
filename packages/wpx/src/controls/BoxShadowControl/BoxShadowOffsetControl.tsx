@@ -1,6 +1,7 @@
 import { RangeControl } from '@wordpress/components';
 import { parseUnitValue } from '../../utils';
 import ControlHeader from '../../components/ControlHeader/ControlHeader';
+import { hint } from './utils';
 
 const BoxShadowOffsetControl = (props: {
 	label: string;
@@ -12,7 +13,7 @@ const BoxShadowOffsetControl = (props: {
 
 	return (
 		<>
-			<ControlHeader title={props.label} />
+			<ControlHeader title={props.label} hint={hint(props.value)} />
 			<RangeControl
 				max={128}
 				min={-128}

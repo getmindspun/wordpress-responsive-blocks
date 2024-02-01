@@ -2,6 +2,7 @@ import { RangeControl } from '@wordpress/components';
 import { parseUnitValue } from '../../utils';
 import ControlHeader from '../../components/ControlHeader/ControlHeader';
 import { UnitRangeControl } from '../index';
+import { hint } from './utils';
 
 const UNITS = [{ value: 'px', label: 'px' }];
 
@@ -19,7 +20,7 @@ const BoxShadowLengthControl = (props: {
 
 	return (
 		<>
-			<ControlHeader title={props.label} />
+			<ControlHeader title={props.label} hint={hint(props.value)} />
 			{props.isAdvanced ? (
 				<UnitRangeControl
 					value={props.value}

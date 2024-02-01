@@ -22,6 +22,13 @@ function toLength(value: string | undefined): string | 0 | undefined {
 	return value !== '0' ? value : 0;
 }
 
+export function hint(value: string | number | undefined): string | undefined {
+	if (value === 0) {
+		return '0';
+	}
+	return value ? value.toString() : undefined;
+}
+
 /*
  * Parse boxShadow values that we generate, so only single values.
  */
