@@ -4,7 +4,7 @@ Donate link: https://www.mindspun.com/about
 Tags: gutenberg, blocks, responsive
 Requires at least: 6.2
 Tested up to: 6.4
-Stable tag: 0.10.0
+Stable tag: 0.11.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -99,3 +99,14 @@ Release Date: January 28th, 2024
 * Make the font size control configurable and add XS as a default option.
 * Set a minimum img size via CSS.
 * Remove debugging output from CSSEditor.
+
+= 0.11.0 =
+Release Date: February 1st, 2024
+* Add value hint for BoxShadow controls.
+* Bump follow-redirects from 1.15.3 to 1.15.5 in /packages/wpx (dependabot)
+* Add eslint
+* Remove unused utility functions from wpx.
+* Add vw/vh units to the WidthHeightControl.
+* Create a position control and use it in the container block.
+* Fix a typo in PHP handling of whiteSpace.
+* Use a data attribute to identify styles instead of id.
