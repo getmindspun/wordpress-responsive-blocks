@@ -1,9 +1,5 @@
 import {LengthUnit} from './types';
 
-export function parseValue(value?: string | number | undefined): number | undefined {
-    return (typeof value === 'string') ? parseInt(value) : value;
-}
-
 export function isNumeric(value: string | number | undefined) {
     if (typeof value === 'number') return true;
     return value !== undefined ? /^-?\d+$/.test(value) : false
