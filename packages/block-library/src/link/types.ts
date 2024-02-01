@@ -1,10 +1,10 @@
-import {Link} from '@mindspun/wpx';
+import { Link } from '@mindspun/wpx';
 
 export type Props = {
-	clientId: string,
-	isSelected: boolean,
+	clientId: string;
+	isSelected: boolean;
 	attributes: {
-		link: Link
+		link: Link;
 	};
-	setAttributes: (attributes: Partial<Props['attributes']>) => void
-}
+	setAttributes: (attributes: Partial<Props['attributes']>) => void;
+};

@@ -1,12 +1,12 @@
-import {RichText} from '@wordpress/block-editor';
+import { RichText } from '@wordpress/block-editor';
 
-import {useBlockPropsWithId, StylePortalClientId} from '@mindspun/wpx';
+import { useBlockPropsWithId, StylePortalClientId } from '@mindspun/wpx';
 
 import './editor.scss';
-import {Props} from './types';
+import { Props } from './types';
 import Controls from './Controls';
 
-export default function Edit(props: Props & {clientId: string}) {
+export default function Edit(props: Props & { clientId: string }) {
 	const blockProps = useBlockPropsWithId(props);
 	const tagName = props.attributes.tagName ? props.attributes.tagName : 'h2';
 
@@ -20,11 +20,11 @@ export default function Edit(props: Props & {clientId: string}) {
 			<RichText
 				{...blockProps}
 				tagName={tagName}
-				onChange={ content => {
-					props.setAttributes( {content})
+				onChange={(content) => {
+					props.setAttributes({ content });
 				}}
-				value={ props.attributes.content }
-				allowedFormats={ [ 'core/bold', 'core/italic' ] }
+				value={props.attributes.content}
+				allowedFormats={['core/bold', 'core/italic']}
 				placeholder={'Heading...'}
 			/>
 		</>

@@ -18,6 +18,7 @@ packages: wpx block-library
 .PHONY: packages
 
 lint:
+	npm run lint
 	php vendor/bin/phpcbf || [ $$? -eq 1 ]
 	php vendor/bin/phpcs
 .PHONY: lint

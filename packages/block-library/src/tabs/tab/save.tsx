@@ -1,16 +1,14 @@
-import {useInnerBlocksProps} from '@wordpress/block-editor';
-import {useBlockPropsWithId} from '@mindspun/wpx';
-import {Props} from './types';
+import { useInnerBlocksProps } from '@wordpress/block-editor';
+import { useBlockPropsWithId } from '@mindspun/wpx';
+import { Props } from './types';
 import classNames from 'classnames';
 
-export default function save(props: {attributes: Props['attributes']}) {
+export default function save(props: { attributes: Props['attributes'] }) {
 	const className = classNames({
-		'wpx--tab-panel--active': props.attributes.isDefault
+		'wpx--tab-panel--active': props.attributes.isDefault,
 	});
-	const blockProps = useBlockPropsWithId.save(props, {className});
-	const innerBlocksProps = useInnerBlocksProps.save( blockProps );
+	const blockProps = useBlockPropsWithId.save(props, { className });
+	const innerBlocksProps = useInnerBlocksProps.save(blockProps);
 
-	return (
-		<div {...innerBlocksProps} role="tabpanel"/>
-	);
+	return <div {...innerBlocksProps} role="tabpanel" />;
 }

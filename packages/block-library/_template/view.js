@@ -21,5 +21,5 @@
  */
 
 /* eslint-disable no-console */
-console.log("Hello World! (from create-block-_template block)");
+console.log('Hello World! (from create-block-_template block)');
 /* eslint-enable no-console */

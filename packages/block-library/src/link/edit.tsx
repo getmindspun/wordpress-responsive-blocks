@@ -1,7 +1,7 @@
-import {useBlockProps, useInnerBlocksProps} from '@wordpress/block-editor';
-import {useState} from '@wordpress/element';
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
+import { useState } from '@wordpress/element';
 
-import {Props} from './types';
+import { Props } from './types';
 import Controls from './Controls';
 import classNames from 'classnames';
 
@@ -9,10 +9,12 @@ export default function Edit(props: Props) {
 	const [focused, setFocused] = useState(false);
 	const blockProps = useBlockProps({
 		className: classNames({
-			'wpx--focused': focused
-		})
+			'wpx--focused': focused,
+		}),
 	});
-	const innerBlocksProps = useInnerBlocksProps(blockProps as Record<string, any>);
+	const innerBlocksProps = useInnerBlocksProps(
+		blockProps as Record<string, any>
+	);
 
 	return (
 		<>

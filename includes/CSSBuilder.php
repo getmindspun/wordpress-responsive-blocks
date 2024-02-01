@@ -21,7 +21,7 @@ const PROPERTIES = array(
     'bottom',
     'boxShadow',
     'color',
-    'customCSS', // ***
+    'customCSS',
     'display',
     'flexBasis',
     'flexDirection',
@@ -59,7 +59,7 @@ const PROPERTIES = array(
     'top',
     'verticalAlign',
     'whiteSpace',
-    'width'
+    'width',
 );
 
 /**

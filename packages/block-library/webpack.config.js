@@ -19,22 +19,20 @@ module.exports = {
 	...defaultConfig,
 	output: {
 		path: path.join(__dirname, 'build'),
-		filename: outputFilename
+		filename: outputFilename,
 	},
 	entry,
 	plugins: [
 		...plugins,
-		new MiniCssExtractPlugin(
-			{
-				filename: (pathData) => {
-					if (pathData.chunk.name.startsWith('./style-')) {
-						const name = pathData.chunk.name.substring(8);
-						return `${ name }/style.css`;
-					}
-					return '[name]/editor.css';
-				},
-			}
-		),
+		new MiniCssExtractPlugin({
+			filename: (pathData) => {
+				if (pathData.chunk.name.startsWith('./style-')) {
+					const name = pathData.chunk.name.substring(8);
+					return `${name}/style.css`;
+				}
+				return '[name]/editor.css';
+			},
+		}),
 		new DependencyExtractionWebpackPlugin({
 			combineAssets: false,
 			combinedOutputFile: null,
@@ -48,6 +46,6 @@ module.exports = {
 					return 'wpx';
 				}
 			},
-		})
-	]
+		}),
+	],
 };

@@ -1,5 +1,5 @@
-import {registerBlockType} from '@wordpress/blocks';
-import {grid} from '@wordpress/icons';
+import { registerBlockType } from '@wordpress/blocks';
+import { grid } from '@wordpress/icons';
 
 import './style.scss';
 import edit from './edit';
@@ -10,8 +10,8 @@ import './row';
 import './col';
 
 const icon = {
-    foreground: '#005ffe',
-    src: grid
-}
+	foreground: '#005ffe',
+	src: grid,
+};
 
-registerBlockType( metadata.name, { edit, save, icon } as any );
+registerBlockType(metadata.name, { edit, save, icon } as any);

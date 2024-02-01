@@ -1,0 +1,7 @@
+.cache
+.idea
+assets
+build
+dist
+vendor
+vendor-prefixed

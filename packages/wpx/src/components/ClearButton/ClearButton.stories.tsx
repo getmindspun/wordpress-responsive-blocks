@@ -5,12 +5,12 @@
  */
 
 import React from 'react';
-import type {Meta, StoryObj} from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
 import ClearButton from './ClearButton';
 
 const meta: Meta<typeof ClearButton> = {
-    component: ClearButton,
+	component: ClearButton,
 };
 
 export default meta;
