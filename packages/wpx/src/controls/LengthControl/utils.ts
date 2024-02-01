@@ -1,10 +1,6 @@
 import {LengthUnit} from '../../types';
 import {isNumeric} from '../../utils';
 
-export function parseUnit(value?: string | number | undefined): 'px' | '%' | 'em' {
-    value = value ? value.toString().trim() : '';
-    return value.endsWith('%') ? '%' : (value.endsWith('em') ? 'em' : 'px');
-}
 
 export function headerHint(isMixed: boolean | null | undefined, isAdvanced: boolean | null | undefined, value: string | number | undefined, unit: string): string {
     if (isMixed) {
