@@ -53,7 +53,7 @@ const PROPERTIES = array(
     'textAlign',
     'textTransform',
     'verticalAlign',
-    'whitespace',
+    'whiteSpace',
     'width',
 );
 
