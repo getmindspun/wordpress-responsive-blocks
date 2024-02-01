@@ -45,9 +45,11 @@ export interface BlockCSSProperties extends CSSProperties {
     tabletBorderTopRightRadius?: CSSProperties['borderTopRightRadius'];
     tabletBorderBottomRightRadius?: CSSProperties['borderBottomRightRadius'];
     tabletBorderBottomLeftRadius?: CSSProperties['borderBottomLeftRadius'];
+    tabletBottom?: CSSProperties['bottom'];
     tabletColor?: CSSProperties['color'];
     tabletBackgroundColor?: CSSProperties['backgroundColor'];
     tabletJustifyContent?: CSSProperties['justifyContent'];
+    tabletLeft?: CSSProperties['left'];
     tabletMarginTop?: CSSProperties['marginTop'];
     tabletMarginRight?: CSSProperties['marginRight'];
     tabletMarginBottom?: CSSProperties['marginBottom'];
@@ -56,6 +58,7 @@ export interface BlockCSSProperties extends CSSProperties {
     tabletPaddingRight?: CSSProperties['paddingRight'];
     tabletPaddingBottom?: CSSProperties['paddingBottom'];
     tabletPaddingLeft?: CSSProperties['paddingLeft'];
+    tabletPosition?: CSSProperties['position'];
     tabletWidth?: CSSProperties['width'];
     tabletHeight?: CSSProperties['height'];
     tabletMinWidth?: CSSProperties['minWidth'];
@@ -64,6 +67,8 @@ export interface BlockCSSProperties extends CSSProperties {
     tabletMaxHeight?: CSSProperties['maxHeight'];
     tabletOverflowX?: CSSProperties['overflowX'];
     tabletOverflowY?: CSSProperties['overflowY'];
+    tabletRight?: CSSProperties['right'];
+    tabletTop?: CSSProperties['top'];
 
     mobileBlockAlign?: BlockAlign;
     mobileCustomCSS?: string;
@@ -94,9 +99,11 @@ export interface BlockCSSProperties extends CSSProperties {
     mobileBorderTopRightRadius?: CSSProperties['borderTopRightRadius'];
     mobileBorderBottomRightRadius?: CSSProperties['borderBottomRightRadius'];
     mobileBorderBottomLeftRadius?: CSSProperties['borderBottomLeftRadius'];
+    mobileBottom?: CSSProperties['bottom'];
     mobileColor?: CSSProperties['color'];
     mobileBackgroundColor?: CSSProperties['backgroundColor'];
     mobileJustifyContent?: CSSProperties['justifyContent'];
+    mobileLeft?: CSSProperties['left'];
     mobileMarginTop?: CSSProperties['marginTop'];
     mobileMarginRight?: CSSProperties['marginRight'];
     mobileMarginBottom?: CSSProperties['marginBottom'];
@@ -105,6 +112,7 @@ export interface BlockCSSProperties extends CSSProperties {
     mobilePaddingRight?: CSSProperties['paddingRight'];
     mobilePaddingBottom?: CSSProperties['paddingBottom'];
     mobilePaddingLeft?: CSSProperties['paddingLeft'];
+    mobilePosition?: CSSProperties['position'];
     mobileWidth?: CSSProperties['width'];
     mobileHeight?: CSSProperties['height'];
     mobileMinWidth?: CSSProperties['minWidth'];
@@ -113,6 +121,8 @@ export interface BlockCSSProperties extends CSSProperties {
     mobileMaxHeight?: CSSProperties['maxHeight'];
     mobileOverflowX?: CSSProperties['overflowX'];
     mobileOverflowY?: CSSProperties['overflowY'];
+    mobileRight?: CSSProperties['right'];
+    mobileTop?: CSSProperties['top'];
 }
 
 export type LengthUnit = 'px' | '%' | 'em' | 'rem';

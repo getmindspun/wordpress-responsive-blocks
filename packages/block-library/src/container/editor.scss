@@ -5,6 +5,11 @@
     }
 }
 
+/* Keep default positioning when editing but not in an iframe. */
+.is-desktop-preview .wp-block-mindspun-container {
+    position: relative !important;
+}
+
 .wp-block-mindspun-container--controls {
     .wpx--tabbed-control .wpx--tabbed-header .wpx--tab button {
         height: 72px;

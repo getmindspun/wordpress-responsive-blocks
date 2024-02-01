@@ -18,9 +18,10 @@ const PROPERTIES = array(
     'borderTop',
     'borderTopLeftRadius',
     'borderTopRightRadius',
+    'bottom',
     'boxShadow',
     'color',
-    'customCSS',
+    'customCSS', // ***
     'display',
     'flexBasis',
     'flexDirection',
@@ -34,6 +35,7 @@ const PROPERTIES = array(
     'height',
     'justifyContent',
     'listStyleType',
+    'left',
     'margin',
     'marginBottom',
     'marginLeft',
@@ -48,13 +50,16 @@ const PROPERTIES = array(
     'paddingLeft',
     'paddingRight',
     'paddingTop',
+    'position',
     'overflowX',
     'overflowY',
+    'right',
     'textAlign',
     'textTransform',
+    'top',
     'verticalAlign',
     'whiteSpace',
-    'width',
+    'width'
 );
 
 /**

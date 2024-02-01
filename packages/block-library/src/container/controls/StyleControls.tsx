@@ -7,6 +7,7 @@ import {
     WidthHeightControl
 } from '@mindspun/wpx';
 import OverflowControl from './OverflowControl';
+import PositionControl from '@mindspun/wpx/src/controls/PositionControl/PositionControl';
 
 const StyleControls = (props: Props) => {
     return (
@@ -24,14 +25,14 @@ const StyleControls = (props: Props) => {
                         padding: {responsive: true}
                     }}
                 />
-                <hr />
+                <hr/>
                 <BackgroundImageControl
                     attributes={props.attributes.style}
                     setAttributes={style => {
                         props.setAttributes({style: {...props.attributes.style, ...style}});
                     }}
                 />
-                <hr />
+                <hr/>
                 <BorderControl
                     attributes={props.attributes.style}
                     setAttributes={style => {
@@ -93,6 +94,17 @@ const StyleControls = (props: Props) => {
                     <WidthHeightControl
                         label={'Max Height'}
                         propertyName={'maxHeight'}
+                        attributes={props.attributes.style}
+                        setAttributes={style => {
+                            props.setAttributes({style: {...props.attributes.style, ...style}});
+                        }}
+                        isResponsive={true}
+                    />
+                </ContainerContents>
+            </ContainerControl>
+            <ContainerControl title={'Position'}>
+                <ContainerContents>
+                    <PositionControl
                         attributes={props.attributes.style}
                         setAttributes={style => {
                             props.setAttributes({style: {...props.attributes.style, ...style}});
