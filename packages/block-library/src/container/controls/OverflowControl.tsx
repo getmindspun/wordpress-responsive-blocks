@@ -128,6 +128,7 @@ const OverflowControl = (props: {
 			</DeviceTypeContainer>
 			<DeviceTypeContainer deviceType={'Tablet'}>
 				<SelectControl
+					label={__('Horizontal (X)')}
 					value={
 						props.attributes.tabletOverflowX
 							? props.attributes.tabletOverflowX
@@ -142,6 +143,7 @@ const OverflowControl = (props: {
 					__nextHasNoMarginBottom
 				/>
 				<SelectControl
+					label={__('Vertical (Y)')}
 					value={
 						props.attributes.tabletOverflowY
 							? props.attributes.tabletOverflowY
@@ -158,6 +160,7 @@ const OverflowControl = (props: {
 			</DeviceTypeContainer>
 			<DeviceTypeContainer deviceType={'Mobile'}>
 				<SelectControl
+					label={__('Horizontal (X)')}
 					value={
 						props.attributes.mobileOverflowX
 							? props.attributes.mobileOverflowX
@@ -172,6 +175,7 @@ const OverflowControl = (props: {
 					__nextHasNoMarginBottom
 				/>
 				<SelectControl
+					label={__('Vertical (Y)')}
 					value={
 						props.attributes.mobileOverflowY
 							? props.attributes.mobileOverflowY
