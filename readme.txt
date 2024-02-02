@@ -4,7 +4,7 @@ Donate link: https://www.mindspun.com/about
 Tags: gutenberg, blocks, responsive
 Requires at least: 6.2
 Tested up to: 6.4
-Stable tag: 0.11.0
+Stable tag: 0.11.1
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -110,3 +110,6 @@ Release Date: February 1st, 2024
 * Create a position control and use it in the container block.
 * Fix a typo in PHP handling of whiteSpace.
 * Use a data attribute to identify styles instead of id.
+
+= 0.11.1 =
+* Fix missing labels in the container overflow control.
