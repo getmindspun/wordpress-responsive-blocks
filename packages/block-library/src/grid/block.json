@@ -21,5 +21,8 @@
     "style": [
         "style-wpx",
         "file:./style.css"
-    ]
+    ],
+    "supports": {
+        "className": true
+    }
 }

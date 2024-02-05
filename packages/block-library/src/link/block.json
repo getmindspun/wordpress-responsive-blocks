@@ -17,5 +17,8 @@
     },
     "textdomain": "wpx",
     "editorScript": "file:./index.js",
-    "style": "file:./style.css"
+    "style": "file:./style.css",
+    "supports": {
+        "className": true
+    }
 }
