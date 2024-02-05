@@ -70,7 +70,7 @@ export default function Edit(props: Props) {
 					<StylePortalClientId
 						clientId={props.clientId}
 						attributes={props.attributes.tab}
-						selector={'.wpx--tab'}
+						selector={'.wpx--tab:not(.wpx--tab--active)'}
 					/>
 					<StylePortalClientId
 						clientId={props.clientId}

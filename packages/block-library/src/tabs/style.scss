@@ -12,7 +12,6 @@ $border: 1px solid #ccc;
         display: flex;
         margin: 0;
         padding: 0;
-        background-color: #e8e8e8;
         border-top: $border;
         border-left: $border;
         border-right: $border;
@@ -57,11 +56,11 @@ $border: 1px solid #ccc;
 
         .wpx--tab--active {
             color: #005ffe;
-            background-color: #fff;
         }
 
         .wpx--tab:not(.wpx--tab--active) {
             cursor: pointer;
+            background-color: #e8e8e8;
         }
     }
 
