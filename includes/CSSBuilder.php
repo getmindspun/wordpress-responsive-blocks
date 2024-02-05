@@ -6,6 +6,7 @@ namespace WPX;
 defined( 'ABSPATH' ) || exit;
 
 const PROPERTIES = array(
+    'accentColor',
     'alignItems',
     'backgroundColor',
     'backgroundImage',

@@ -3,6 +3,7 @@ import { kebabCase } from 'change-case';
 import { BlockCSSProperties } from '../types';
 
 const PROPERTIES = [
+	'accentColor',
 	'alignItems',
 	'backgroundColor',
 	'backgroundImage',
