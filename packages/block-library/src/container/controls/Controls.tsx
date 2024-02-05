@@ -1,8 +1,14 @@
 import { Props } from '../types';
-import { InspectorControls } from '@wordpress/block-editor';
+import {
+	InspectorAdvancedControls,
+	InspectorControls,
+} from '@wordpress/block-editor';
 import { layout, styles } from '@wordpress/icons';
+import { SelectControl } from '@wordpress/components';
+import { __ } from '@wordpress/i18n';
 
 import {
+	BlockId,
 	ContainerContents,
 	TabbedContainer,
 	TabbedControl,
@@ -13,8 +19,6 @@ import JustifyContentControl from './JustifyContentControl';
 import AlignItemsControl from './AlignItemsControl';
 import SizingControl from './sizing/SizingControl';
 import StyleControls from './StyleControls';
-import { SelectControl } from '@wordpress/components';
-import { __ } from '@wordpress/i18n';
 
 const Controls = (
 	props: Props & {
@@ -111,6 +115,9 @@ const Controls = (
 					</TabbedControl>
 				</div>
 			</InspectorControls>
+			<InspectorAdvancedControls>
+				<BlockId attributes={props.attributes} />
+			</InspectorAdvancedControls>
 		</>
 	);
 };

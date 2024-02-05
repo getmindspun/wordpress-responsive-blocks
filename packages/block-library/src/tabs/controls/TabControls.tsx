@@ -63,11 +63,18 @@ const TabControls = (props: {
 						<BaseControls
 							attributes={{
 								color: props.attributes.tab.colorHover,
-								tabletColor: props.attributes.tab.tabletColorHover,
-								mobileColor: props.attributes.tab.mobileColorHover,
-								backgroundColor: props.attributes.tab.backgroundColorHover,
-								tabletBackgroundColor: props.attributes.tab.tabletBackgroundColorHover,
-								mobileBackgroundColor: props.attributes.tab.mobileBackgroundColorHover
+								tabletColor:
+									props.attributes.tab.tabletColorHover,
+								mobileColor:
+									props.attributes.tab.mobileColorHover,
+								backgroundColor:
+									props.attributes.tab.backgroundColorHover,
+								tabletBackgroundColor:
+									props.attributes.tab
+										.tabletBackgroundColorHover,
+								mobileBackgroundColor:
+									props.attributes.tab
+										.mobileBackgroundColorHover,
 							}}
 							setAttributes={(tab) => {
 								props.setAttributes({
@@ -76,15 +83,18 @@ const TabControls = (props: {
 										colorHover: tab.color,
 										tabletColorHover: tab.tabletColor,
 										mobileColorHover: tab.mobileColor,
-										backgroundColorHover: tab.backgroundColor,
-										tabletBackgroundColorHover: tab.tabletBackgroundColor,
-										mobileBackgroundColorHover: tab.mobileBackgroundColor,
+										backgroundColorHover:
+											tab.backgroundColor,
+										tabletBackgroundColorHover:
+											tab.tabletBackgroundColor,
+										mobileBackgroundColorHover:
+											tab.mobileBackgroundColor,
 									},
 								});
 							}}
 							options={{
 								color: { responsive: true },
-								backgroundColor: { responsive: true }
+								backgroundColor: { responsive: true },
 							}}
 						/>
 					</ContainerContents>

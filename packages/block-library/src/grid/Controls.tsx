@@ -1,8 +1,12 @@
-import { InspectorControls } from '@wordpress/block-editor';
+import {
+	InspectorAdvancedControls,
+	InspectorControls,
+} from '@wordpress/block-editor';
 
 import { Props } from './types';
 
 import {
+	BlockId,
 	ContainerContents,
 	ContainerControl,
 	CustomCSSControl,
@@ -88,6 +92,9 @@ const Controls = (
 					</ContainerControl>
 				</div>
 			</InspectorControls>
+			<InspectorAdvancedControls>
+				<BlockId attributes={props.attributes} />
+			</InspectorAdvancedControls>
 		</>
 	);
 };

@@ -1,5 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
+export { default as BlockId } from './BlockId/BlockId';
 export { default as ClearButton } from './ClearButton/ClearButton';
 export { default as ColorsGroup } from './ColorsGroup/ColorsGroup';
 export { default as ControlHeader } from './ControlHeader/ControlHeader';
