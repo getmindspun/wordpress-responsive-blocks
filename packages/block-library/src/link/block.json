@@ -19,6 +19,7 @@
     "editorScript": "file:./index.js",
     "style": "file:./style.css",
     "supports": {
+        "anchor": true,
         "className": true
     }
 }

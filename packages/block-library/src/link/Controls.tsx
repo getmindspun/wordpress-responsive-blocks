@@ -1,14 +1,7 @@
 import { Props } from './types';
 import { InspectorControls } from '@wordpress/block-editor';
 
-import {
-	BaseControls,
-	BlockCSSProperties,
-	ContainerContents,
-	ContainerControl,
-	CustomCSSControl,
-	LinkControl,
-} from '@mindspun/wpx';
+import { ContainerContents, LinkControl } from '@mindspun/wpx';
 
 const Controls = (
 	props: Props & {
