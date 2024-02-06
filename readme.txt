@@ -4,7 +4,7 @@ Donate link: https://www.mindspun.com/about
 Tags: gutenberg, blocks, responsive
 Requires at least: 6.2
 Tested up to: 6.4
-Stable tag: 0.12.0
+Stable tag: 0.12.1
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -121,3 +121,6 @@ Release Date: February 5th, 2024
 * Add the className support to all top-level blocks.
 * Add the anchor support to the link block.
 * Create the BlockId component and add it to the top level blocks.
+
+= 0.12.1 =
+* Fix the tabs active selector.
