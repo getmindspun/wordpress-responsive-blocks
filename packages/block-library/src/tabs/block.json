@@ -32,7 +32,7 @@
         "tab": {
             "type": "object",
             "default": {},
-            "selector": ".wpx--tab:not(.wpx--tab-active)"
+            "selector": ".wpx--tab:not(.wpx--tab--active)"
         },
         "activeTab": {
             "type": "object",
