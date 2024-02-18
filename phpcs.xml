@@ -5,6 +5,7 @@
     <!-- Scan all files in post -->
     <file>blocks.php</file>
     <file>includes</file>
+    <file>tests</file>
     <exclude-pattern>*/vendor/*</exclude-pattern>
 
     <!-- Scan only PHP files -->

@@ -30,11 +30,11 @@ require_once "{$_tests_dir}/includes/functions.php";
  * Manually load the plugin being tested.
  */
 function _manually_load_plugin() {
-    require_once dirname( __FILE__, 2 ) . '/blocks.php';
+    require_once dirname( __DIR__, 1 ) . '/blocks.php';
 }
 
 tests_add_filter( 'muplugins_loaded', '_manually_load_plugin' );
 
 // Start up the WP testing environment.
 require "{$_tests_dir}/includes/bootstrap.php";
-require_once( dirname( __FILE__, 2 ) . '/vendor/autoload.php' );
+require_once dirname( __DIR__, 1 ) . '/vendor/autoload.php';

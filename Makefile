@@ -1,6 +1,6 @@
 VERSION := $(shell node scripts/version)
 
-all: lint coverage
+all: packages lint coverage
 	cp -a packages/wpx/build/*.php dist/
 .PHONY: all
 
