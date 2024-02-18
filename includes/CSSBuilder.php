@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace MRBLX;
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 const PROPERTIES = array(
     'accentColor',
@@ -66,7 +66,8 @@ const PROPERTIES = array(
 /**
  * Creates minimized CSS rulesets
  */
-class CSSBuilder {
+class CSSBuilder
+{
 
 
     /**
@@ -84,13 +85,43 @@ class CSSBuilder {
     );
 
     /**
+     * Add all attributes/properties.
+     *
+     * @param array $attributes
+     * @return void
+     */
+    public function add_attributes(array $attributes)
+    {
+        foreach ($attributes as $name => $value) {
+            $this->add_property($name, $value);
+        }
+    }
+
+    /**
+     * Add a new property to the right state.
+     *
+     * @param string $name
+     * @param string|integer|null $value
+     * @return void
+     */
+    protected function add_property(string $name, $value): void
+    {
+        $property = new Property($name);
+        if (in_array($property->name, PROPERTIES) && (null !== $value)) {
+            $state = &$this->state[$this->state_name($property)];
+            $state[$property->name] = $value;
+        }
+    }
+
+    /**
      * Gets the state key.
      *
      * @param Property $property
      * @return string
      */
-    private function state_name( Property $property ): string {
-        switch ( $property->device ) {
+    private function state_name(Property $property): string
+    {
+        switch ($property->device) {
             case 'mobile':
                 return $property->hover ? 'mobileHover' : 'mobile';
             case 'tablet':
@@ -100,114 +131,89 @@ class CSSBuilder {
     }
 
     /**
-     * Add a new property to the right state.
+     * Generate the CSS using the given selector.
      *
-     * @param string              $name
-     * @param string|integer|null $value
-     * @return void
+     * @param string $id
+     * @param array $options
+     * @return string
      */
-    protected function add_property( string $name, $value ): void {
-        $property = new Property( $name );
-        if ( in_array( $property->name, PROPERTIES ) && ( null !== $value ) ) {
-            $state = &$this->state[ $this->state_name( $property ) ];
-            $state[ $property->name ] = $value;
-        }
-    }
+    public function to_css(string $id, array $options = array()): string
+    {
+        $selector = $options['selector'] ?? null;
 
-    /**
-     * Add all attributes/properties.
-     *
-     * @param array $attributes
-     * @return void
-     */
-    public function add_attributes( array $attributes ) {
-        foreach ( $attributes as $name => $value ) {
-            $this->add_property( $name, $value );
+        $rulesets = array();
+
+        if (!empty($this->state['desktop'])) {
+            $ruleset = $this->ruleset($id, $this->state['desktop'], $selector);
+            if ($ruleset) {
+                $rulesets[] = $ruleset;
+            }
+            if ($this->state['desktop']['customCSS'] ?? '') {
+                $rulesets[] = $this->state['desktop']['customCSS'];
+            }
         }
+        if (!empty($this->state['desktopHover'])) {
+            $rulesets[] = $this->ruleset($id, $this->state['desktopHover'], $selector, true);
+        }
+
+        if (!empty($this->state['tablet'])) {
+            $ruleset = $this->ruleset($id, $this->state['tablet'], $selector);
+            if ($ruleset) {
+                $rulesets[] = '@media (max-width:1024px){' . $ruleset . '}';
+            }
+            if ($this->state['tablet']['customCSS'] ?? '') {
+                $rulesets[] = '@media (max-width:1024px){' . $this->state['tablet']['customCSS'] . '}';
+            }
+        }
+        if (!empty($this->state['tabletHover'])) {
+            $rulesets[] = '@media (max-width:1024px){' . $this->ruleset($id, $this->state['tabletHover'], $selector, true) . '}';
+        }
+
+        if (!empty($this->state['mobile'])) {
+            $ruleset = $this->ruleset($id, $this->state['mobile'], $selector);
+            if ($ruleset) {
+                $rulesets[] = '@media (max-width:480px){' . $ruleset . '}';
+            }
+            if ($this->state['mobile']['customCSS'] ?? '') {
+                $rulesets[] = '@media (max-width:480px){' . $this->state['mobile']['customCSS'] . '}';
+            }
+        }
+        if (!empty($this->state['mobileHover'])) {
+            $rulesets[] = '@media (max-width:480px){' . $this->ruleset($id, $this->state['mobileHover'], $selector, true) . '}';
+        }
+
+        return join("\n", $rulesets);
     }
 
     /**
      * Creates a ruleset for the selector from the given style.
      *
-     * @param string      $id
-     * @param array       $style
+     * @param string $id
+     * @param array $style
      * @param string|null $selector
-     * @param bool        $hover
+     * @param bool $hover
      * @return string
      */
-    private function ruleset( string $id, array $style, string $selector = null, bool $hover = false ): string {
+    private function ruleset(string $id, array $style, string $selector = null, bool $hover = false): string
+    {
         $array = array();
 
-        foreach ( $style as $name => $value ) {
-            if ( 'customCSS' !== $name ) {
-                $property = self::kebab_case( $name );
+        foreach ($style as $name => $value) {
+            if ('customCSS' !== $name) {
+                $property = self::kebab_case($name);
                 $array[] = "$property:$value";
             }
         }
 
         $prefix = "#$id";
-        if ( $selector ) {
+        if ($selector) {
             $prefix .= " $selector";
         }
-        if ( $hover ) {
+        if ($hover) {
             $prefix .= ':hover';
         }
 
-        return ( count( $array ) > 0 ) ? "$prefix{" . join( ';', $array ) . '}' : '';
-    }
-
-    /**
-     * Generate the CSS using the given selector.
-     *
-     * @param string $id
-     * @param array  $options
-     * @return string
-     */
-    public function to_css( string $id, array $options = array() ): string {
-        $selector = $options['selector'] ?? null;
-
-        $rulesets = array();
-
-        if ( ! empty( $this->state['desktop'] ) ) {
-            $ruleset = $this->ruleset( $id, $this->state['desktop'], $selector );
-            if ( $ruleset ) {
-                $rulesets[] = $ruleset;
-            }
-            if ( $this->state['desktop']['customCSS'] ?? '' ) {
-                $rulesets[] = $this->state['desktop']['customCSS'];
-            }
-        }
-        if ( ! empty( $this->state['desktopHover'] ) ) {
-            $rulesets[] = $this->ruleset( $id, $this->state['desktopHover'], $selector, true );
-        }
-
-        if ( ! empty( $this->state['tablet'] ) ) {
-            $ruleset = $this->ruleset( $id, $this->state['tablet'], $selector );
-            if ( $ruleset ) {
-                $rulesets[] = '@media (max-width:1024px){' . $ruleset . '}';
-            }
-            if ( $this->state['tablet']['customCSS'] ?? '' ) {
-                $rulesets[] = '@media (max-width:1024px){' . $this->state['tablet']['customCSS'] . '}';
-            }
-        }
-        if ( ! empty( $this->state['tabletHover'] ) ) {
-            $rulesets[] = '@media (max-width:1024px){' . $this->ruleset( $id, $this->state['tabletHover'], $selector, true ) . '}';
-        }
-
-        if ( ! empty( $this->state['mobile'] ) ) {
-            $ruleset = $this->ruleset( $id, $this->state['mobile'], $selector );
-            if ( $ruleset ) {
-                $rulesets[] = '@media (max-width:480px){' . $ruleset . '}';
-            }
-            if ( $this->state['mobile']['customCSS'] ?? '' ) {
-                $rulesets[] = '@media (max-width:480px){' . $this->state['mobile']['customCSS'] . '}';
-            }
-        }
-        if ( ! empty( $this->state['mobileHover'] ) ) {
-            $rulesets[] = '@media (max-width:480px){' . $this->ruleset( $id, $this->state['mobileHover'], $selector, true ) . '}';
-        }
-
-        return join( "\n", $rulesets );
+        return (!empty($array)) ? "$prefix{" . join(';', $array) . '}' : '';
     }
 
     /**
@@ -217,8 +223,9 @@ class CSSBuilder {
      *
      * @return string
      */
-    private static function kebab_case( string $name ): string {
-        $property = strtolower( preg_replace( '/(?<!^)[A-Z]/', '-$0', $name ) );
-        return str_replace( '_', '-', $property );
+    private static function kebab_case(string $name): string
+    {
+        $property = strtolower(preg_replace('/(?<!^)[A-Z]/', '-$0', $name));
+        return str_replace('_', '-', $property);
     }
 }

@@ -1,6 +1,6 @@
 VERSION := $(shell node scripts/version)
 
-all: packages lint coverage
+all: packages lint coverage dist
 	cp -a packages/mrblx/build/*.php dist/
 .PHONY: all
 
@@ -31,16 +31,20 @@ coverage:
 	XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-text --testdox --stop-on-failure
 .PHONY: coverage
 
-bundle-only:
-	rm -rf build/mindspun-responsive-blocks.$(VERSION).zip build/mindspun-responsive-blocks && mkdir -p build/mindspun-responsive-blocks/dist
+dist:
+	rm -rf build/mindspun-responsive-blocks && mkdir -p build/mindspun-responsive-blocks/dist
 	cp -a *.php includes vendor-prefixed build/mindspun-responsive-blocks/
 	cp -a packages/mrblx/build/* build/mindspun-responsive-blocks/dist/
 	cp -a packages/block-library/build/* build/mindspun-responsive-blocks/dist/
 	cp -a readme.txt README.md build/mindspun-responsive-blocks
+.PHONY: dist
+
+bundle-only:
+	rm -rf build/mindspun-responsive-blocks.$(VERSION).zip
 	cd build && zip -r mindspun-responsive-blocks.$(VERSION).zip mindspun-responsive-blocks
 .PHONY: bundle-only
 
-bundle: packages all bundle-only
+bundle: all bundle-only
 .PHONY: bundle
 
 version:

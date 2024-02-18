@@ -1,1 +1,1 @@
-../wpx/globals.d.ts
+../mrblx/globals.d.ts
