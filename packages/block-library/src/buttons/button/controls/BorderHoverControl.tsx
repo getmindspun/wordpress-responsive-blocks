@@ -1,4 +1,4 @@
-import { BlockCSSProperties, BorderControl } from '@mindspun/wpx';
+import { BlockCSSProperties, BorderControl } from '@mindspun/mrblx';
 
 const BorderHoverControl = (props: {
 	attributes: BlockCSSProperties;

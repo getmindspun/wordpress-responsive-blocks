@@ -7,7 +7,7 @@ import {
 	ControlHeader,
 	DeviceTypeContainer,
 	useGetPreviewDeviceType,
-} from '@mindspun/wpx';
+} from '@mindspun/mrblx';
 
 type JustifyContentProperties = Pick<
 	BlockCSSProperties,
@@ -61,7 +61,7 @@ const JustifyContentControl = (props: {
 	}
 
 	return (
-		<div className={'wpx--justify-content-control'}>
+		<div className={'mrblx--justify-content-control'}>
 			<ControlHeader
 				title={__('Justify Content')}
 				isResponsive={true}

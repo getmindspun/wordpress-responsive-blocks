@@ -5,7 +5,7 @@ export function registerInnerBlock(metadata: Partial<BlockConfiguration>) {
 		$schema: 'https://schemas.wp.org/trunk/block.json',
 		apiVersion: 3,
 		category: 'mindspun-responsive-blocks',
-		textdomain: 'wpx',
+		textdomain: 'mrblx',
 	};
 
 	return registerBlockType(

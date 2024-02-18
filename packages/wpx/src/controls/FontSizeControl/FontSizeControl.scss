@@ -1,9 +1,0 @@
-@import "../../scss/mixins";
-
-.wpx--font-size-control {
-
-    /* Responsive version */
-    & > .components-button-group {
-        @extend .wpx--button-group;
-    }
-}

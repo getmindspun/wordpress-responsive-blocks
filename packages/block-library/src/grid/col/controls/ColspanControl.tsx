@@ -5,7 +5,7 @@ import {
 	ControlHeader,
 	DeviceTypeContainer,
 	useGetPreviewDeviceType,
-} from '@mindspun/wpx';
+} from '@mindspun/mrblx';
 
 import { Colspan } from '../types';
 import { colToRange, hint, isFixed, radioSelected, radioValue } from '../utils';
@@ -24,7 +24,7 @@ const Controls = (props: {
 	const deviceType = useGetPreviewDeviceType();
 
 	return (
-		<div className={'wpx--colspan-control'}>
+		<div className={'mrblx--colspan-control'}>
 			<ControlHeader
 				title={__('Column span')}
 				hint={hint(props.attributes, deviceType)}

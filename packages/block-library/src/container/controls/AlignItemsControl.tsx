@@ -7,7 +7,7 @@ import {
 	ControlHeader,
 	DeviceTypeContainer,
 	useGetPreviewDeviceType,
-} from '@mindspun/wpx';
+} from '@mindspun/mrblx';
 
 type AlignItemsProperties = Pick<
 	BlockCSSProperties,
@@ -60,7 +60,7 @@ const AlignItemsControl = (props: {
 	}
 
 	return (
-		<div className={'wpx--align-items-control'}>
+		<div className={'mrblx--align-items-control'}>
 			<ControlHeader
 				title={__('Align Items')}
 				isResponsive={true}

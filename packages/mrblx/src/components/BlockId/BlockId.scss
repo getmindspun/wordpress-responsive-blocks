@@ -1,0 +1,21 @@
+.mrblx--block-id {
+    margin: 0 0 1em 0;
+
+    & > div {
+        padding: 2px 0;
+        display: flex;
+        & > div {
+            flex: 1 0 auto;
+        }
+    }
+
+    .mrblx-label {
+        font-size: 11px;
+        font-weight: 500;
+        line-height: 1.4;
+        text-transform: uppercase;
+        display: inline-block;
+        margin-bottom: calc(8px);
+        padding: 0;
+    }
+}

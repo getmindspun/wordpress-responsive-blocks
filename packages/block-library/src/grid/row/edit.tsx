@@ -1,5 +1,5 @@
 import { useInnerBlocksProps } from '@wordpress/block-editor';
-import { StylePortalClientId, useBlockPropsWithId } from '@mindspun/wpx';
+import { StylePortalClientId, useBlockPropsWithId } from '@mindspun/mrblx';
 
 import { Props } from '../types';
 import Controls from './Controls';

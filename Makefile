@@ -1,20 +1,20 @@
 VERSION := $(shell node scripts/version)
 
 all: packages lint coverage
-	cp -a packages/wpx/build/*.php dist/
+	cp -a packages/mrblx/build/*.php dist/
 .PHONY: all
 
-wpx:
+mrblx:
 	mkdir -p dist
-	npm run build -w packages/wpx
-.PHONY: wpx
+	npm run build -w packages/mrblx
+.PHONY: mrblx
 
 block-library:
 	mkdir -p dist
 	npm run build -w packages/block-library
-.PHONY: wpx
+.PHONY: mrblx
 
-packages: wpx block-library
+packages: mrblx block-library
 .PHONY: packages
 
 lint:
@@ -34,7 +34,7 @@ coverage:
 bundle-only:
 	rm -rf build/mindspun-responsive-blocks.$(VERSION).zip build/mindspun-responsive-blocks && mkdir -p build/mindspun-responsive-blocks/dist
 	cp -a *.php includes vendor-prefixed build/mindspun-responsive-blocks/
-	cp -a packages/wpx/build/* build/mindspun-responsive-blocks/dist/
+	cp -a packages/mrblx/build/* build/mindspun-responsive-blocks/dist/
 	cp -a packages/block-library/build/* build/mindspun-responsive-blocks/dist/
 	cp -a readme.txt README.md build/mindspun-responsive-blocks
 	cd build && zip -r mindspun-responsive-blocks.$(VERSION).zip mindspun-responsive-blocks

@@ -1,4 +1,4 @@
-import { BlockCSSProperties, HeadingTag } from '@mindspun/wpx';
+import { BlockCSSProperties, HeadingTag } from '@mindspun/mrblx';
 
 export type Props = {
 	attributes: {

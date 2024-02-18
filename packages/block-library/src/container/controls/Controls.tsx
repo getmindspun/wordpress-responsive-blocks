@@ -12,7 +12,7 @@ import {
 	ContainerContents,
 	TabbedContainer,
 	TabbedControl,
-} from '@mindspun/wpx';
+} from '@mindspun/mrblx';
 import DisplayControl from './DisplayControl';
 import FlexDirectionControl from './FlexDirectionControl';
 import JustifyContentControl from './JustifyContentControl';

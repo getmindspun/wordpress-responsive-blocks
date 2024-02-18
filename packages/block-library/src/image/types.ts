@@ -1,4 +1,4 @@
-import { BlockCSSProperties, Media } from '@mindspun/wpx';
+import { BlockCSSProperties, Media } from '@mindspun/mrblx';
 
 export type Props = {
 	attributes: {

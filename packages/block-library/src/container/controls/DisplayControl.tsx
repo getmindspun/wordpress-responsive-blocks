@@ -7,7 +7,7 @@ import {
 	ControlHeader,
 	DeviceTypeContainer,
 	useGetPreviewDeviceType,
-} from '@mindspun/wpx';
+} from '@mindspun/mrblx';
 import { CSSProperties } from 'react';
 
 type DisplayProperties = Pick<
@@ -60,7 +60,7 @@ const DisplayControl = (props: {
 	}
 
 	return (
-		<div className={'wpx--display-control'}>
+		<div className={'mrblx--display-control'}>
 			<ControlHeader
 				title={__('Display')}
 				isResponsive={true}

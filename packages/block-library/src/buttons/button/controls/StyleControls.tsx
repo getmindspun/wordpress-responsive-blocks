@@ -10,7 +10,7 @@ import {
 	ContainerContents,
 	ContainerControl,
 	CustomCSSControl,
-} from '@mindspun/wpx';
+} from '@mindspun/mrblx';
 import BorderHoverControl from './BorderHoverControl';
 
 const Controls = (props: Props) => {

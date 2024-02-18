@@ -10,7 +10,7 @@ registerBlockType('mindspun/grid-col', {
 	title: 'Grid Column',
 	category: 'mindspun-responsive-blocks',
 	description: 'A single column of a grid row.',
-	textdomain: 'wpx',
+	textdomain: 'mrblx',
 	parent: ['mindspun/grid-row'],
 	attributes: {
 		blockId: {

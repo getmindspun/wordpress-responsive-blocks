@@ -8,7 +8,7 @@ import {
 	TabbedContainer,
 	TabbedControl,
 	WidthHeightControl,
-} from '@mindspun/wpx';
+} from '@mindspun/mrblx';
 
 import { Props } from '../types';
 import StyleControls from './StyleControls';

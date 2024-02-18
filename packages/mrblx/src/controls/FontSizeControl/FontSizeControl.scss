@@ -1,0 +1,9 @@
+@import "../../scss/mixins";
+
+.mrblx--font-size-control {
+
+    /* Responsive version */
+    & > .components-button-group {
+        @extend .mrblx--button-group;
+    }
+}

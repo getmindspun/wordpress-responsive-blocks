@@ -1,5 +1,5 @@
 import { useInnerBlocksProps } from '@wordpress/block-editor';
-import { useBlockPropsWithId } from '@mindspun/wpx';
+import { useBlockPropsWithId } from '@mindspun/mrblx';
 import { Props } from '../types';
 
 export default function save(props: { attributes: Props['attributes'] }) {

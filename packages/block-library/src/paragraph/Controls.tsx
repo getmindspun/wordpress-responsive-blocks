@@ -11,7 +11,7 @@ import {
 	ContainerContents,
 	ContainerControl,
 	CustomCSSControl,
-} from '@mindspun/wpx';
+} from '@mindspun/mrblx';
 
 const Controls = (props: Props) => {
 	return (

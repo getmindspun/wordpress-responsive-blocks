@@ -10,7 +10,7 @@ registerBlockType('mindspun/grid-row', {
 	title: 'Grid Row',
 	category: 'mindspun-responsive-blocks',
 	description: 'A row in the grid layout',
-	textdomain: 'wpx',
+	textdomain: 'mrblx',
 	parent: ['mindspun/grid'],
 	attributes: {
 		blockId: {

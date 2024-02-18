@@ -1,4 +1,4 @@
-import { Link } from '@mindspun/wpx';
+import { Link } from '@mindspun/mrblx';
 
 export type Props = {
 	clientId: string;

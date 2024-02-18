@@ -20,14 +20,14 @@
             "default": {}
         }
     },
-    "textdomain": "wpx",
+    "textdomain": "mrblx",
     "editorScript": "file:./index.js",
     "editorStyle": [
-        "style-wpx",
+        "style-mrblx",
         "file:./editor.css"
     ],
     "style": [
-        "style-wpx",
+        "style-mrblx",
         "file:./style.css"
     ],
     "supports": {

@@ -1,4 +1,4 @@
-import { BlockCSSProperties } from '@mindspun/wpx';
+import { BlockCSSProperties } from '@mindspun/mrblx';
 
 export type Props = {
 	clientId: string;

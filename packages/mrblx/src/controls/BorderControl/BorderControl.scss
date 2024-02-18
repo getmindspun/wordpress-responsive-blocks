@@ -1,0 +1,20 @@
+@import "../../scss/variables";
+
+.mrblx--border-control {
+    .components-unit-control, .components-range-control {
+        margin-bottom: 0 !important;
+    }
+
+    .mrblx--border-radius-control {
+        margin-top: 1em;
+
+        .components-range-control {
+            padding-left: 6px;
+            padding-right: 6px;
+        }
+    }
+
+    .components-border-box-control-linked-button .components-button {
+        color: $gray;
+    }
+}

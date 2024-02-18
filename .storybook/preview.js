@@ -3,7 +3,7 @@ import '@wordpress/components/build-style/style.css';
 import 'codemirror/lib/codemirror.css';
 
 import './store';
-import '../packages/wpx/src/store';
+import '../packages/mrblx/src/store';
 
 import 'codemirror/mode/css/css';
 

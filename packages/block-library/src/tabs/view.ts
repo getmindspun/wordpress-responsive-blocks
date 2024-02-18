@@ -13,19 +13,19 @@ function selectTab(
 ) {
 	for (const tab of tabs) {
 		if (tab.getAttribute(ATTR_BLOCK_ID) === blockId) {
-			tab.classList.add('wpx--tab--active');
+			tab.classList.add('mrblx--tab--active');
 			tab.setAttribute('aria-current', 'page');
 		} else {
-			tab.classList.remove('wpx--tab--active');
+			tab.classList.remove('mrblx--tab--active');
 			tab.removeAttribute('aria-current');
 		}
 	}
 	for (const panel of panels) {
-		const id = `wpx-${blockId}`;
+		const id = `mrblx-${blockId}`;
 		if (panel.getAttribute('id') === id) {
-			panel.classList.add('wpx--tab-panel--active');
+			panel.classList.add('mrblx--tab-panel--active');
 		} else {
-			panel.classList.remove('wpx--tab-panel--active');
+			panel.classList.remove('mrblx--tab-panel--active');
 		}
 	}
 }
@@ -33,9 +33,9 @@ function selectTab(
 domReady(function () {
 	const blocks = document.querySelectorAll('.wp-block-mindspun-tabs');
 	blocks.forEach((block) => {
-		const tabs = block.querySelectorAll('.wpx--tab[data-block-id]');
+		const tabs = block.querySelectorAll('.mrblx--tab[data-block-id]');
 		const panels = block.querySelectorAll(
-			'.wpx--tab-contents .wp-block-mindspun-tab'
+			'.mrblx--tab-contents .wp-block-mindspun-tab'
 		);
 
 		for (const tab of tabs) {

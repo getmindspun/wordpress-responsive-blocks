@@ -13,7 +13,7 @@ import {
 	CustomCSSControl,
 	MediaControl,
 	WidthHeightControl,
-} from '@mindspun/wpx';
+} from '@mindspun/mrblx';
 
 const Controls = (props: Props) => {
 	return (

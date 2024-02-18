@@ -1,6 +1,6 @@
 import React from 'react';
 import { type BlockInstance } from '@wordpress/blocks';
-import { BlockCSSProperties } from '@mindspun/wpx';
+import { BlockCSSProperties } from '@mindspun/mrblx';
 
 export type BlockStoreSelectors = {
 	getSelectedBlock: () => BlockInstance | null;

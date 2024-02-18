@@ -1,5 +1,5 @@
 .wp-block-mindspun-grid {
-    &.wpx--focused {
+    &.mrblx--focused {
         .wp-block-mindspun-grid-col {
             box-shadow: 1px 0 0 0 #ccc,
                 0 1px 0 0 #ccc,
@@ -11,22 +11,22 @@
 }
 
 .wp-block-mindspun-grid--controls {
-    .wpx--tabbed-control .wpx--tabbed-header .wpx--tab button {
+    .mrblx--tabbed-control .mrblx--tabbed-header .mrblx--tab button {
         height: 72px;
         display: flex;
         flex-direction: column;
     }
 
-    .wpx--tabbed-grid .wpx--base-controls {
+    .mrblx--tabbed-grid .mrblx--base-controls {
         margin-top: 1em;
         margin-bottom: 1em;
     }
 
-    .wpx--colors-group {
+    .mrblx--colors-group {
         margin-bottom: 2em;
     }
 
-    .wpx--box-shadow-control .wpx--control-header {
+    .mrblx--box-shadow-control .mrblx--control-header {
         margin-bottom: 8px;
     }
 

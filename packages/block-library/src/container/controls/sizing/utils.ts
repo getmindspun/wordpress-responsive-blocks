@@ -1,5 +1,5 @@
 import { FlexSizingProperties } from './SizingControl';
-import { propertyName } from '@mindspun/wpx';
+import { propertyName } from '@mindspun/mrblx';
 
 function prop(name: string, deviceType: string) {
 	return propertyName(name, true, deviceType) as keyof FlexSizingProperties;

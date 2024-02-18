@@ -9,8 +9,8 @@ type Props = {
 };
 const Tab = (props: Props) => {
 	const className = classNames({
-		'wpx--tab': true,
-		'wpx--tab--active': props.isActive,
+		'mrblx--tab': true,
+		'mrblx--tab--active': props.isActive,
 	});
 
 	return (

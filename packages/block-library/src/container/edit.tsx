@@ -3,7 +3,7 @@ import { ElementType } from 'react';
 import { useInnerBlocksProps } from '@wordpress/block-editor';
 import { useState } from '@wordpress/element';
 
-import { useBlockPropsWithId, StylePortalClientId } from '@mindspun/wpx';
+import { useBlockPropsWithId, StylePortalClientId } from '@mindspun/mrblx';
 
 import './editor.scss';
 import { Props } from './types';
@@ -13,7 +13,7 @@ export default function Edit(props: Props & { clientId: string }) {
 	const [focused, setFocused] = useState(false);
 	const blockProps = useBlockPropsWithId(props, {
 		className: classNames({
-			'wpx--focused': focused,
+			'mrblx--focused': focused,
 		}),
 	});
 	const innerBlocksProps = useInnerBlocksProps(blockProps);

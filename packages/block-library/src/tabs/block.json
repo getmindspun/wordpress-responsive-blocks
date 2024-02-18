@@ -5,11 +5,11 @@
     "title": "Tabs",
     "category": "mindspun-responsive-blocks",
     "description": "Tabbed container.",
-    "textdomain": "wpx",
+    "textdomain": "mrblx",
     "editorScript": "file:./index.js",
     "editorStyle": "file:./editor.css",
     "style": [
-        "style-wpx",
+        "style-mrblx",
         "file:./style.css"
     ],
     "attributes": {
@@ -27,17 +27,17 @@
         "header": {
             "type": "object",
             "default": {},
-            "selector": ".wpx--tabs"
+            "selector": ".mrblx--tabs"
         },
         "tab": {
             "type": "object",
             "default": {},
-            "selector": ".wpx--tab:not(.wpx--tab--active)"
+            "selector": ".mrblx--tab:not(.mrblx--tab--active)"
         },
         "activeTab": {
             "type": "object",
             "default": {},
-            "selector": ".wpx--tab--active"
+            "selector": ".mrblx--tab--active"
         },
         "content": {
             "type": "object",

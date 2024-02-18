@@ -1,4 +1,4 @@
-import { useBlockPropsWithId } from '@mindspun/wpx';
+import { useBlockPropsWithId } from '@mindspun/mrblx';
 
 import { Props } from './types';
 import PictureContents from './PictureContents';

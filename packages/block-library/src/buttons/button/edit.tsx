@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { RichText } from '@wordpress/block-editor';
 
-import { StylePortalClientId, useBlockPropsWithId } from '@mindspun/wpx';
+import { StylePortalClientId, useBlockPropsWithId } from '@mindspun/mrblx';
 
 import { Props } from './types';
 import Controls from './controls/Controls';

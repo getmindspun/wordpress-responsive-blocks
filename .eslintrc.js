@@ -15,7 +15,7 @@ module.exports = {
             }
         },
         {
-            'files': ['packages/wpx/src/components/ControlHeader/ControlHeader.tsx'],
+            'files': ['packages/mrblx/src/components/ControlHeader/ControlHeader.tsx'],
             'rules': {
                 'jsx-a11y/label-has-associated-control': 'off'
             }

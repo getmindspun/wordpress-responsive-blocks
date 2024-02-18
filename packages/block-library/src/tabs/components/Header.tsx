@@ -1,15 +1,15 @@
 import React from 'react';
 import classNames from 'classnames';
-import { StylePortalClientId } from '@mindspun/wpx';
+import { StylePortalClientId } from '@mindspun/mrblx';
 import { ComponentProps } from '../types';
 
 const Header = (props: ComponentProps) => {
-	const className = classNames('wpx--tabs', {
-		[`wpx--block-align-${props.attributes.header.blockAlign}`]:
+	const className = classNames('mrblx--tabs', {
+		[`mrblx--block-align-${props.attributes.header.blockAlign}`]:
 			props.attributes.header.blockAlign !== undefined,
-		[`wpx--tablet-block-align-${props.attributes.header.tabletBlockAlign}`]:
+		[`mrblx--tablet-block-align-${props.attributes.header.tabletBlockAlign}`]:
 			props.attributes.header.tabletBlockAlign !== undefined,
-		[`wpx--block-align-${props.attributes.header.mobileBlockAlign}`]:
+		[`mrblx--block-align-${props.attributes.header.mobileBlockAlign}`]:
 			props.attributes.header.mobileBlockAlign !== undefined,
 		'stack-on-mobile': props.attributes.stackOnMobile,
 	});
@@ -20,7 +20,7 @@ const Header = (props: ComponentProps) => {
 				<StylePortalClientId
 					clientId={props.clientId}
 					attributes={props.attributes.header}
-					selector={'.wpx--tabs'}
+					selector={'.mrblx--tabs'}
 				/>
 			)}
 			<ul className={className}>{props.children}</ul>

@@ -1,8 +1,8 @@
 {
-    "name": "mindspun/wpx",
+    "name": "mindspun/mrblx",
     "autoload": {
         "psr-4": {
-            "WPX\\": "includes/"
+            "MRBLX\\": "includes/"
         }
     },
     "require-dev": {
@@ -30,7 +30,7 @@
     },
     "extra": {
         "strauss": {
-            "namespace_prefix": "WPX\\Vendor\\"
+            "namespace_prefix": "MRBLX\\Vendor\\"
         }
     },
     "require": {

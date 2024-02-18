@@ -1,0 +1,7 @@
+@import "../../scss/mixins";
+
+.mrblx--justify-content-control {
+    & > .components-button-group {
+        @extend .mrblx--button-group;
+    }
+}

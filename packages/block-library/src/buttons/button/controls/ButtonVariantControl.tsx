@@ -6,7 +6,7 @@ import {
 	ControlHeader,
 	DeviceTypeContainer,
 	useGetPreviewDeviceType,
-} from '@mindspun/wpx';
+} from '@mindspun/mrblx';
 import { ButtonVariant, Props } from '../types';
 
 const OPTIONS = [
@@ -20,7 +20,7 @@ const ButtonVariantControl = (props: {
 	setAttributes: (attributes: Partial<Props['attributes']>) => void;
 }) => {
 	return (
-		<div className={'wpx--button-variant-control'}>
+		<div className={'mrblx--button-variant-control'}>
 			<ControlHeader title={__('Button Type')} />
 			<SelectControl
 				value={props.attributes.variant}

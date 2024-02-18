@@ -1,4 +1,4 @@
-import { Media, MediaSize, propertyName } from '@mindspun/wpx';
+import { Media, MediaSize, propertyName } from '@mindspun/mrblx';
 import classNames from 'classnames';
 
 export function prop(name: string, deviceType: string) {
@@ -82,16 +82,16 @@ export function getMediaSizes(media: Media, deviceType: string): MediaSize[] {
 
 export function getClassName(media: Media) {
 	return classNames(
-		[showOnValue(media.showOn) ? 'wpx--d-block' : 'wpx--d-none'],
+		[showOnValue(media.showOn) ? 'mrblx--d-block' : 'mrblx--d-none'],
 		[
 			showOnValue(media.tabletShowOn)
-				? 'wpx--d-tablet-block'
-				: 'wpx--d-tablet-none',
+				? 'mrblx--d-tablet-block'
+				: 'mrblx--d-tablet-none',
 		],
 		[
 			showOnValue(media.mobileShowOn)
-				? 'wpx--d-mobile-block'
-				: 'wpx--d-mobile-none',
+				? 'mrblx--d-mobile-block'
+				: 'mrblx--d-mobile-none',
 		]
 	);
 }

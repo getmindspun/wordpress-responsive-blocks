@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
-use WPX\CSSBuilder;
+use MRBLX\CSSBuilder;
 
 defined( 'ABSPATH' ) || exit;
 

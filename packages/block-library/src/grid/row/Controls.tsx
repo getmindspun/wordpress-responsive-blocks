@@ -2,7 +2,7 @@ import { InspectorControls } from '@wordpress/block-editor';
 
 import { Props } from '../types';
 
-import { ContainerContents, GapControl } from '@mindspun/wpx';
+import { ContainerContents, GapControl } from '@mindspun/mrblx';
 
 const Controls = (
 	props: Props & {

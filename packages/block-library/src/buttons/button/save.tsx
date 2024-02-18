@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { useBlockPropsWithId } from '@mindspun/wpx';
+import { useBlockPropsWithId } from '@mindspun/mrblx';
 import { Props } from './types';
 
 export default function save(props: { attributes: Props['attributes'] }) {

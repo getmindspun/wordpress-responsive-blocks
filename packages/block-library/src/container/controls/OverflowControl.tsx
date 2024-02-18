@@ -7,7 +7,7 @@ import {
 	ControlHeader,
 	DeviceTypeContainer,
 	useGetPreviewDeviceType,
-} from '@mindspun/wpx';
+} from '@mindspun/mrblx';
 import { CSSProperties } from 'react';
 
 type OverflowProperties = Pick<
@@ -85,7 +85,7 @@ const OverflowControl = (props: {
 	}
 
 	return (
-		<div className={'wpx--overflow-control'}>
+		<div className={'mrblx--overflow-control'}>
 			<ControlHeader
 				isResponsive={true}
 				onClear={

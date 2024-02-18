@@ -11,7 +11,7 @@ import {
 	ContainerControl,
 	ControlGroup,
 	CustomCSSControl,
-} from '@mindspun/wpx';
+} from '@mindspun/mrblx';
 
 import { Props } from '../types';
 import TabControls from './TabControls';

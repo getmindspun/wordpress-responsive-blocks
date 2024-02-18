@@ -1,6 +1,6 @@
 import { useInnerBlocksProps } from '@wordpress/block-editor';
 
-import { useBlockPropsWithId, StylePortalClientId } from '@mindspun/wpx';
+import { useBlockPropsWithId, StylePortalClientId } from '@mindspun/mrblx';
 
 import './editor.scss';
 import { Props } from './types';

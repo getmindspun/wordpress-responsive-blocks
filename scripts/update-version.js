@@ -68,8 +68,8 @@ function updateVersion(dirpath, version) {
     const packages = path.join(topdir, 'packages');
     updateVersion(packages, version);
 
-    const wpx = path.join(packages, 'wpx', 'package.json');
-    updateFile(wpx, version);
+    const mrblx = path.join(packages, 'mrblx', 'package.json');
+    updateFile(mrblx, version);
 
 
 

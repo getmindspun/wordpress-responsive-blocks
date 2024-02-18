@@ -1,0 +1,16 @@
+.mrblx--color-control {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0;
+}
+
+.mrblx--popover {
+    box-sizing: border-box;
+    padding: .5em;
+}
+
+.mrblx--container-contents {
+    .mrblx--color-control {
+        margin-bottom: 0;
+    }
+}

@@ -7,7 +7,7 @@ import {
 	ControlHeader,
 	DeviceTypeContainer,
 	useGetPreviewDeviceType,
-} from '@mindspun/wpx';
+} from '@mindspun/mrblx';
 import { fromValue, toValue } from './utils';
 
 export type FlexSizingProperties = Pick<
@@ -85,7 +85,7 @@ const FlexSizingControl = (props: {
 	}
 
 	return (
-		<div className={'wpx--flex-sizing-control'}>
+		<div className={'mrblx--flex-sizing-control'}>
 			<ControlHeader
 				title={__('Sizing')}
 				isResponsive={true}

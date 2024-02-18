@@ -7,7 +7,7 @@ import {
 	ControlHeader,
 	DeviceTypeContainer,
 	useGetPreviewDeviceType,
-} from '@mindspun/wpx';
+} from '@mindspun/mrblx';
 
 type FlexDirectionProperties = Pick<
 	BlockCSSProperties,
@@ -59,7 +59,7 @@ const FlexDirectionControl = (props: {
 	}
 
 	return (
-		<div className={'wpx--flex-direction-control'}>
+		<div className={'mrblx--flex-direction-control'}>
 			<ControlHeader
 				title={__('Flex Direction')}
 				isResponsive={true}

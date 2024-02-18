@@ -1,4 +1,4 @@
-import { useBlockPropsWithId, StylePortalClientId } from '@mindspun/wpx';
+import { useBlockPropsWithId, StylePortalClientId } from '@mindspun/mrblx';
 
 import './editor.scss';
 import { Props } from './types';

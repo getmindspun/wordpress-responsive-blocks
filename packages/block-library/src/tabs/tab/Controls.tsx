@@ -1,6 +1,6 @@
 import { InspectorControls } from '@wordpress/block-editor';
 
-import { ContainerContents, ControlHeader } from '@mindspun/wpx';
+import { ContainerContents, ControlHeader } from '@mindspun/mrblx';
 
 import { Props } from './types';
 
@@ -13,7 +13,7 @@ const Controls = (props: Props) => {
 		<InspectorControls>
 			<div className={'wp-block-mindspun-tab--controls'}>
 				<ContainerContents>
-					<div className="wpx--tab-controls">
+					<div className="mrblx--tab-controls">
 						<ControlHeader title="Title" />
 						<input
 							type="text"

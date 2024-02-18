@@ -1,0 +1,23 @@
+@import "../../scss/variables";
+
+.mrblx--container-contents {
+    display: grid;
+    padding: 1em;
+
+    & > *, & > .components-base-control {
+        margin-bottom: 1em;
+    }
+
+    hr {
+        margin: 0 0 1em 0;
+    }
+}
+
+.mrblx--container-contents + .mrblx--container-contents {
+    padding-top: 0;
+}
+
+.mrblx--divider {
+    background-color: $light-gray;
+    height: 1em;
+}

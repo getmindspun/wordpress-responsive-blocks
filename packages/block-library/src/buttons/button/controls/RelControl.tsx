@@ -6,7 +6,7 @@ import {
 	ControlHeader,
 	DeviceTypeContainer,
 	useGetPreviewDeviceType,
-} from '@mindspun/wpx';
+} from '@mindspun/mrblx';
 import { Props } from '../types';
 
 const OPTIONS = [
@@ -21,7 +21,7 @@ const RelControl = (props: {
 	setAttributes: (attributes: Partial<Props['attributes']>) => void;
 }) => {
 	return (
-		<div className={'wpx--rel-control'}>
+		<div className={'mrblx--rel-control'}>
 			<ControlHeader title={__('rel Tag')} />
 			<SelectControl
 				multiple

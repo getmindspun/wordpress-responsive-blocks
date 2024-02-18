@@ -9,7 +9,7 @@ export default function Edit(props: Props) {
 	const [focused, setFocused] = useState(false);
 	const blockProps = useBlockProps({
 		className: classNames({
-			'wpx--focused': focused,
+			'mrblx--focused': focused,
 		}),
 	});
 	const innerBlocksProps = useInnerBlocksProps(

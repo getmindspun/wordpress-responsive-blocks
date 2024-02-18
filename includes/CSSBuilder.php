@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace WPX;
+namespace MRBLX;
 
 defined( 'ABSPATH' ) || exit;
 

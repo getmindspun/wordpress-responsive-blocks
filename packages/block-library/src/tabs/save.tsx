@@ -1,5 +1,5 @@
 import { useInnerBlocksProps } from '@wordpress/block-editor';
-import { useBlockPropsWithId } from '@mindspun/wpx';
+import { useBlockPropsWithId } from '@mindspun/mrblx';
 import { Props } from './types';
 import Header from './components/Header';
 import Tab from './components/Tab';
@@ -11,7 +11,7 @@ export default function save(props: {
 }) {
 	const blockProps = useBlockPropsWithId.save(props);
 	const innerBlocksProps = useInnerBlocksProps.save({
-		className: 'wpx--tab-contents',
+		className: 'mrblx--tab-contents',
 	});
 
 	return (

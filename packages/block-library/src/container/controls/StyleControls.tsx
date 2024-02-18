@@ -8,9 +8,9 @@ import {
 	ContainerControl,
 	CustomCSSControl,
 	WidthHeightControl,
-} from '@mindspun/wpx';
+} from '@mindspun/mrblx';
 import OverflowControl from './OverflowControl';
-import PositionControl from '@mindspun/wpx/src/controls/PositionControl/PositionControl';
+import PositionControl from '@mindspun/mrblx/src/controls/PositionControl/PositionControl';
 
 const StyleControls = (props: Props) => {
 	return (

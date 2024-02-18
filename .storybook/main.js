@@ -2,7 +2,7 @@ import * as path from 'path';
 
 /** @type {{webpackFinal: (function(*): any), stories: string[], framework: {name: string, options: {}}, docs: {autodocs: string}, addons: [string,{name: string, options: {rules: [{test: RegExp, use: [string,{loader: string, options: {}}], sideEffects: boolean},{test: RegExp, use: [string,{loader: string, options: {importLoaders: number}},string,{loader: string, options: {sassOptions: {}, sourceMap: boolean, implementation: string}}], sideEffects: boolean}]}}]}} */
 const config = {
-    stories: ['../packages/wpx/src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+    stories: ['../packages/mrblx/src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
     addons: [
         '@storybook/addon-styling-webpack',
         {
@@ -75,7 +75,7 @@ const config = {
                     }
                 },
             ],
-            exclude: [path.join(__dirname, 'packages/wpx/node_modules')]
+            exclude: [path.join(__dirname, 'packages/mrblx/node_modules')]
         });
 
         config.resolve.extensions.push('.ts', '.tsx');

@@ -17,7 +17,7 @@ import {
 	JustifyContentControl,
 	MarginControl,
 	PaddingControl,
-} from '@mindspun/wpx';
+} from '@mindspun/mrblx';
 
 import { Props } from './types';
 

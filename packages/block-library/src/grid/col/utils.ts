@@ -51,21 +51,21 @@ export function isFixed(value: string | undefined) {
 export function getClassName(colspan: Colspan) {
 	const classNames = [
 		colspan.desktop !== 'default'
-			? `wpx-col-${colspan.desktop}`
-			: 'wpx-col',
+			? `mrblx-col-${colspan.desktop}`
+			: 'mrblx-col',
 	];
 	if (colspan.tablet) {
 		classNames.push(
 			colspan.tablet !== 'default'
-				? `wpx-col-tablet-${colspan.tablet}`
-				: 'wpx-col-tablet'
+				? `mrblx-col-tablet-${colspan.tablet}`
+				: 'mrblx-col-tablet'
 		);
 	}
 	if (colspan.mobile) {
 		classNames.push(
 			colspan.mobile !== 'default'
-				? `wpx-col-mobile-${colspan.mobile}`
-				: 'wpx-col-mobile'
+				? `mrblx-col-mobile-${colspan.mobile}`
+				: 'mrblx-col-mobile'
 		);
 	}
 	return classNames.join(' ');

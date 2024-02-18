@@ -1,4 +1,4 @@
-import { Media } from '@mindspun/wpx';
+import { Media } from '@mindspun/mrblx';
 import { defaultMedia, getMediaSizes } from './utils';
 
 const PictureContents = (props: { media: Media }) => {

@@ -9,11 +9,11 @@
  * Author URI:        https://www.mindspun.com
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       wpx
+ * Text Domain:       mrblx
  */
 
-use WPX\Vendor\Mindspun\Framework\Autoloader;
-use WPX\CSSBuilder;
+use MRBLX\Vendor\Mindspun\Framework\Autoloader;
+use MRBLX\CSSBuilder;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 require_once __DIR__ . '/vendor-prefixed/autoload.php';
-Autoloader::autoload( 'WPX', __DIR__ . '/includes' );
+Autoloader::autoload( 'MRBLX', __DIR__ . '/includes' );
 
 /**
  * Helper function to build CSS from the block attributes using the given selector.
@@ -32,7 +32,7 @@ Autoloader::autoload( 'WPX', __DIR__ . '/includes' );
  * @return string
  * @noinspection PhpUnused
  */
-function wpx_build_css( string $id, array $attributes, array $options = array() ): string {
+function mrblx_build_css( string $id, array $attributes, array $options = array() ): string {
     $builder = new CSSBuilder();
     $builder->add_attributes( $attributes );
     return $builder->to_css( $id, $options );
@@ -44,7 +44,7 @@ function wpx_build_css( string $id, array $attributes, array $options = array() 
  * @param array $block
  * @return string
  */
-function wpx_block_css( array $block ) {
+function mrblx_block_css( array $block ) {
     $css = '';
     $registry = WP_Block_Type_Registry::get_instance();
 
@@ -66,7 +66,7 @@ function wpx_block_css( array $block ) {
 
                 /* An attribute is a style if it is named 'style' or has a selector */
                 if ( 'style' === $attr || $selector ) {
-                    $css .= wpx_build_css( "wpx-$block_id", $value, array( 'selector' => $selector ) );
+                    $css .= mrblx_build_css( "mrblx-$block_id", $value, array( 'selector' => $selector ) );
                 }
             }
         }
@@ -80,21 +80,21 @@ function wpx_block_css( array $block ) {
  * @param array $block
  * @return void
  */
-function wpx_style_block( array $block ): void {
+function mrblx_style_block( array $block ): void {
     $attrs = $block['attrs'] ?? array();
     $block_id = $attrs['blockId'] ?? '';
 
     if ( $block_id ) {
-        $css = wpx_block_css( $block );
+        $css = mrblx_block_css( $block );
         if ( $css ) {
             // Use wp_strip_all_tags instead of an esc_* function to avoid converting
             // characters like (>) to html entities.
-            echo "<style id=\"style-wpx-$block_id\">" . wp_strip_all_tags($css) . '</style>';  # phpcs:ignore
+            echo "<style id=\"style-mrblx-$block_id\">" . wp_strip_all_tags($css) . '</style>';  # phpcs:ignore
         }
     }
 
     foreach ( $block['innerBlocks'] ?? array() as $inner_block ) {
-        wpx_style_block( $inner_block );
+        mrblx_style_block( $inner_block );
     }
 }
 
@@ -106,7 +106,7 @@ if ( ! is_admin() ) {
             if ( $post && $post->post_content ) {
                 $blocks = parse_blocks( $post->post_content );
                 foreach ( $blocks as $block ) {
-                    wpx_style_block( $block );
+                    mrblx_style_block( $block );
                 }
             }
         }
@@ -116,7 +116,7 @@ if ( ! is_admin() ) {
 add_action(
     'enqueue_block_editor_assets',
     function () {
-        $handle = '@mindspun/wpx';
+        $handle = '@mindspun/mrblx';
         wp_enqueue_style( $handle );
     }
 );
@@ -124,16 +124,16 @@ add_action(
 add_action(
     'admin_enqueue_scripts',
     function () {
-        $handle = '@mindspun/wpx';
-        $asset_path = __DIR__ . '/dist/wpx.asset.php';
+        $handle = '@mindspun/mrblx';
+        $asset_path = __DIR__ . '/dist/mrblx.asset.php';
         $args = require_once $asset_path;
 
-        $style_path = plugins_url( '/dist/wpx.css', __FILE__ );
+        $style_path = plugins_url( '/dist/mrblx.css', __FILE__ );
         wp_register_style( $handle, $style_path, array( 'wp-codemirror' ), $args['version'] );
 
-        $script_path = plugins_url( '/dist/wpx.js', __FILE__ );
+        $script_path = plugins_url( '/dist/mrblx.js', __FILE__ );
         if ( ! wp_register_script( $handle, $script_path, $args['dependencies'], $args['version'] ) ) {
-            error_log( 'Failed to register script: wpx.js' );
+            error_log( 'Failed to register script: mrblx.js' );
         }
     }
 );
@@ -167,20 +167,20 @@ add_action(
  *
  * @return void
  */
-function wpx_enqueue_style() {
+function mrblx_enqueue_style() {
     if ( ! function_exists( 'get_plugin_data' ) ) {
         require_once ABSPATH . 'wp-admin/includes/plugin.php';
     }
 
     $plugin_data = get_plugin_data( __FILE__ );
     wp_register_style(
-        'style-wpx',
-        plugins_url( 'dist/style-wpx.css', __FILE__ ),
+        'style-mrblx',
+        plugins_url( 'dist/style-mrblx.css', __FILE__ ),
         array(),
         $plugin_data['Version']
     );
 }
 
 /* Global stylesheet for blocks that need it. This style is used in both the front-end and the editor. */
-add_action( 'wp_enqueue_scripts', 'wpx_enqueue_style' );
-add_action( 'admin_enqueue_scripts', 'wpx_enqueue_style' );
+add_action( 'wp_enqueue_scripts', 'mrblx_enqueue_style' );
+add_action( 'admin_enqueue_scripts', 'mrblx_enqueue_style' );

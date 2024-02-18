@@ -7,6 +7,6 @@ export function getClassName(
 	focused: boolean = false
 ) {
 	return classNames({
-		'wpx--focused': focused,
+		'mrblx--focused': focused,
 	});
 }

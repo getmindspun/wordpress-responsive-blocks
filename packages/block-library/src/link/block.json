@@ -15,7 +15,7 @@
             }
         }
     },
-    "textdomain": "wpx",
+    "textdomain": "mrblx",
     "editorScript": "file:./index.js",
     "style": "file:./style.css",
     "supports": {

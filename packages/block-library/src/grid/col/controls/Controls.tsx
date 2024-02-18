@@ -4,7 +4,7 @@ import {
 	BaseControls,
 	BlockCSSProperties,
 	ContainerContents,
-} from '@mindspun/wpx';
+} from '@mindspun/mrblx';
 
 import { Props } from '../types';
 import ColspanControl from './ColspanControl';

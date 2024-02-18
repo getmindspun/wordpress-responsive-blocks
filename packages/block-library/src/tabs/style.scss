@@ -7,7 +7,7 @@
 $border: 1px solid #ccc;
 
 .wp-block-mindspun-tabs {
-    .wpx--tabs {
+    .mrblx--tabs {
         position: relative;
         display: flex;
         margin: 0;
@@ -23,13 +23,13 @@ $border: 1px solid #ccc;
                 flex-direction: column;
                 border: $border;
 
-                .wpx--tab:not(:last-of-type) {
+                .mrblx--tab:not(:last-of-type) {
                     border-bottom: $border;
                 }
             }
         }
 
-        .wpx--tab {
+        .mrblx--tab {
             list-style: none;
             display: flex;
             flex: 1 1 0;
@@ -54,11 +54,11 @@ $border: 1px solid #ccc;
             }
         }
 
-        .wpx--tab--active {
+        .mrblx--tab--active {
             color: #005ffe;
         }
 
-        .wpx--tab:not(.wpx--tab--active) {
+        .mrblx--tab:not(.mrblx--tab--active) {
             cursor: pointer;
             background-color: #e8e8e8;
         }
@@ -74,12 +74,12 @@ $border: 1px solid #ccc;
         margin-top: 0;
         margin-bottom: 0;
 
-        &.wpx--tab--active {
+        &.mrblx--tab--active {
             display: block !important;
         }
     }
 
-    .wpx--tab-panel--active {
+    .mrblx--tab-panel--active {
         display: block !important;
     }
 }

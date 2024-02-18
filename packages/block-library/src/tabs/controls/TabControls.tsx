@@ -4,7 +4,7 @@ import {
 	ContainerControl,
 	TabbedContainer,
 	TabbedControl,
-} from '@mindspun/wpx';
+} from '@mindspun/mrblx';
 
 import { Props } from '../types';
 

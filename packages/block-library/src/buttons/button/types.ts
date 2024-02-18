@@ -1,4 +1,4 @@
-import { BlockCSSProperties, Link } from '@mindspun/wpx';
+import { BlockCSSProperties, Link } from '@mindspun/mrblx';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'link';
 

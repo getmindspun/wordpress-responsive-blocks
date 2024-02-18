@@ -1,0 +1,7 @@
+@import "../../scss/mixins";
+
+.mrblx--block-align-control {
+    & > .components-button-group {
+        @extend .mrblx--button-group;
+    }
+}

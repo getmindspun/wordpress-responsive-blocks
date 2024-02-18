@@ -1,0 +1,40 @@
+@import "../../scss/variables";
+
+.mrblx--tabbed-control {
+    border-top: 1px solid $light-gray;
+
+    .mrblx--tabbed-header {
+        display: flex;
+
+        .mrblx--tab {
+            display: flex;
+            flex: 1 1 0;
+            justify-content: center;
+            align-items: center;
+            background-color: $light-gray;
+
+            .components-button {
+                width: 100%;
+                justify-content: center;
+
+                svg {
+                    max-height: 100%;
+                }
+
+                .dashicon {
+                    font-size: 16px;
+                }
+            }
+
+            .components-button:focus:not(:disabled) {
+                box-shadow: none;
+                outline: none;
+            }
+
+            &.mrblx--tab-active {
+                background-color: white;
+                box-shadow: inset 0 -3px 0 0 $blue;
+            }
+        }
+    }
+}
