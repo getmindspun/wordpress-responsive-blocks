@@ -4,7 +4,7 @@ Donate link: https://www.mindspun.com/about
 Tags: gutenberg, blocks, responsive
 Requires at least: 6.2
 Tested up to: 6.4
-Stable tag: 0.12.1
+Stable tag: 0.13.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -124,3 +124,8 @@ Release Date: February 5th, 2024
 
 = 0.12.1 =
 * Fix the tabs active selector.
+
+= 0.13.0 =
+* Switch prefix and library name from wpx_ to mrblx_ based on wordpress.org guidelines.
+* Use wp_add_inline_style instead of manually generating styles.
+* Build updates.
