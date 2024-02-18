@@ -1,7 +1,7 @@
 const readline = require('readline');
 const path = require('path');
 const fs = require('fs');
-const childProcess = require("child_process");
+const childProcess = require('child_process');
 
 function shell(cmd) {
     return childProcess.execSync(cmd).toString();
@@ -55,7 +55,7 @@ function updateVersion(dirpath, version) {
 }
 
 (async () => {
-    const version = await askQuestion("Enter version number (without 'v'): ");
+    const version = await askQuestion('Enter version number (without \'v\'): ');
     if (!version) {
         return;
     }
@@ -72,14 +72,14 @@ function updateVersion(dirpath, version) {
     updateFile(mrblx, version);
 
 
-
     updateFile(path.join(path.dirname(__dirname), 'package.json'), version);
 
     console.log('Next steps: ');
     console.log(' * Update readme.txt with changelog.');
     console.log(` * Commit with the message v${version}.`);
     console.log(` * Tag that commit as v${version}.`);
-    console.log(` * Build the release and publish to GitHub with the changes.`);
+    console.log(` * Build the release via 'make release'.`);
+    console.log(` * Publish to GitHub with the changes - remembering to add the zip file.`);
     console.log();
 
     console.log(shell('git log --color=always $(git describe --tags --abbrev=0)..HEAD --oneline'));

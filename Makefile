@@ -47,6 +47,9 @@ bundle-only:
 bundle: all bundle-only
 .PHONY: bundle
 
+release: bundle
+.PHONY: release
+
 version:
 	@echo $(VERSION)
 .PHONY: version
