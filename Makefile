@@ -36,7 +36,7 @@ dist:
 	cp -a *.php includes vendor-prefixed build/mindspun-responsive-blocks/
 	cp -a packages/mrblx/build/* build/mindspun-responsive-blocks/dist/
 	cp -a packages/block-library/build/* build/mindspun-responsive-blocks/dist/
-	cp -a readme.txt README.md build/mindspun-responsive-blocks
+	cp -a readme.txt build/mindspun-responsive-blocks
 .PHONY: dist
 
 bundle-only:
@@ -54,3 +54,10 @@ version:
 	@echo $(VERSION)
 .PHONY: version
 
+clean:
+	rm -rf build dist
+.PHONY: clean
+
+svn: bundle
+	cp -a build/mindspun-responsive-blocks/* wordpress-org/trunk/
+.PHONY: svn

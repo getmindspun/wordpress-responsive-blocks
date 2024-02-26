@@ -8,6 +8,7 @@ build
 /*.zip
 /storybook-static
 /vendor-prefixed
+/wordpress-org
 
 # Runtime data
 pids

@@ -23,7 +23,7 @@ It consists of easy-to-use blocks like container, image, heading, paragraph, tab
 * Image - Show different images and/or sizes for different screens.
 * Grid - Easily create responsive layouts using a 12-point grid system.
 * Container - Advanced block allowing the user to crete any flex-based layout they choose.
-* Link Container - Turns any collection of blocks into link.
+* Link Container - Turns any collection of blocks into a link.
 
 = Key Features =
 * Easy-to-use configuration options that are separately applied to desktop, tablet and mobile.
