@@ -1,15 +1,15 @@
 {
   "name": "@mindspun/mrblx",
-  "version": "0.13.0",
+  "version": "0.13.1",
   "description": "Responsive block controls for Gutenberg.",
-  "main": "index.ts",
+  "main": "build/mrblx.js",
   "scripts": {
     "build": "wp-scripts build",
     "start": "wp-scripts start --output-path=../../dist/",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "wp-scripts build"
   },
-  "author": "",
-  "license": "ISC",
+  "license": "GPL-2.0-or-later",
   "devDependencies": {
     "@types/wordpress__block-editor": "^11.5.7",
     "@wordpress/block-editor": "^12.15.0",
@@ -33,5 +33,8 @@
   "bugs": {
     "url": "https://github.com/getmindspun/wordpress-responsive-blocks/issues"
   },
-  "homepage": "https://github.com/getmindspun/wordpress-responsive-blocks#readme"
+  "homepage": "https://github.com/getmindspun/wordpress-responsive-blocks#readme",
+  "publishConfig": {
+    "access": "public"
+  }
 }

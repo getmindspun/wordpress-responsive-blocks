@@ -9,7 +9,7 @@
     "url": "git+https://github.com/getmindspun/wordpress-responsive-blocks.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "GPL-2.0-or-later",
   "bugs": {
     "url": "https://github.com/getmindspun/wordpress-responsive-blocks/issues"
   },

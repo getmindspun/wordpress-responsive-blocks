@@ -1,0 +1,70 @@
+/**
+ * Retrieves the translation of text.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
+ */
+import { __ } from '@wordpress/i18n';
+
+/*
+ * Block controls.
+ */
+import { InspectorControls } from '@wordpress/block-editor';
+
+/**
+ * Use the Responsive Blocks React hook for block properties.
+ * This hooks wraps useBlockProps() and requires a blockId attribute.
+ */
+import { useBlockPropsWithId } from '@mindspun/mrblx';
+
+/**
+ * React component that generates styles on the fly in the block editor (edit only).
+ */
+import { StylePortalClientId } from '@mindspun/mrblx';
+
+/**
+ * React component to add a default set of block controls.
+ */
+import { ControlGroup } from '@mindspun/mrblx';
+
+/**
+ * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
+ * Those files can contain any CSS code that gets applied to the editor.
+ *
+ * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
+ */
+import './editor.scss';
+
+/**
+ * The edit function describes the structure of your block in the context of the
+ * editor. This represents what the editor will render when the block is used.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
+ *
+ * @return {Element} Element to render.
+ */
+export default function Edit(props) {
+    const blockProps = useBlockPropsWithId(props);
+    return (
+        <>
+            <InspectorControls>
+                <ControlGroup
+                    title={'Style'}
+                    attributes={props.attributes.style}
+                    setAttributes={(style) => {
+                        props.setAttributes({
+                            style: { ...props.attributes.style, ...style },
+                        });
+                    }}
+                    initialOpen={true}
+                />
+            </InspectorControls>
+            <StylePortalClientId
+                clientId={props.clientId}
+                attributes={props.attributes.style}
+            />
+            <p { ...blockProps }>
+                { __( '{{title}} – hello from the editor!', '{{textdomain}}' ) }
+            </p>
+        </>
+    );
+}
