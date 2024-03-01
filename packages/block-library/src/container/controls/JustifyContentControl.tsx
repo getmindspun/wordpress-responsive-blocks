@@ -19,9 +19,9 @@ const OPTIONS = [
 	{ label: 'Start', value: 'start' },
 	{ label: 'End', value: 'end' },
 	{ label: 'Center', value: 'center' },
-	{ label: 'Between', value: 'between' },
-	{ label: 'Around', value: 'around' },
-	{ label: 'Evenly', value: 'evenly' },
+	{ label: 'Between', value: 'space-between' },
+	{ label: 'Around', value: 'space-around' },
+	{ label: 'Evenly', value: 'space-evenly' },
 ];
 
 export function showClear(style: JustifyContentProperties, deviceType: string) {
