@@ -4,7 +4,7 @@ Donate link: https://www.mindspun.com/about
 Tags: gutenberg, blocks, responsive
 Requires at least: 6.2
 Tested up to: 6.4
-Stable tag: 0.13.0
+Stable tag: 0.14.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -129,3 +129,12 @@ Release Date: February 5th, 2024
 * Switch prefix and library name from wpx_ to mrblx_ based on wordpress.org guidelines.
 * Use wp_add_inline_style instead of manually generating styles.
 * Build updates.
+
+= 0.14.0 =
+* Build improvements.
+* Fix the spacing values in the container display controls.
+* Update the pages action to use 18.x node.
+* Add the create-block package.
+* Fix a moderate npm security alert from dependabot.
+* Add a GitHub action to deploy storybook to pages.
+* Build updates for the plugin repo.

@@ -4,7 +4,7 @@
  * Description:       Fully-responsive, easy-to-use Gutenberg blocks for your site.
  * Requires at least: 6.2
  * Requires PHP:      7.4
- * Version:           0.13.0
+ * Version:           0.14.0
  * Author:            Mindspun
  * Author URI:        https://www.mindspun.com
  * License:           GPL-2.0-or-later
