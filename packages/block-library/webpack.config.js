@@ -18,7 +18,7 @@ const plugins = defaultConfig.plugins.filter((plugin) => {
 module.exports = {
 	...defaultConfig,
 	output: {
-		path: path.join(__dirname, 'build'),
+		path: path.join(__dirname, '..', '..', 'dist'),
 		filename: outputFilename,
 	},
 	entry,

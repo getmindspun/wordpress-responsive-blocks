@@ -1,3 +1,4 @@
+const path = require('path');
 const DependencyExtractionWebpackPlugin = require('@wordpress/dependency-extraction-webpack-plugin');
 
 const defaultConfig = require('@wordpress/scripts/config/webpack.config');
@@ -9,6 +10,8 @@ const plugins = defaultConfig.plugins.filter((plugin) => {
 	);
 });
 
+const outputPath = path.join(__dirname, '..', '..', 'dist');
+
 module.exports = {
 	...defaultConfig,
 	target: 'web',
@@ -18,7 +21,7 @@ module.exports = {
 	output: {
 		libraryTarget: 'var',
 		library: ['mrblx'],
-		path: defaultConfig.output.path,
+		path: outputPath,
 	},
 	module: {
 		...defaultConfig.module,
@@ -36,15 +39,18 @@ module.exports = {
 					},
 				],
 			},
-		],
-	},
-	resolve: {
-		extensions: [
-			'.ts',
-			'.tsx',
-			...(defaultConfig.resolve
-				? defaultConfig.resolve.extensions || ['.js', '.jsx']
-				: []),
+			{
+				test: /\.tsx?$/,
+				use: [
+					{
+						loader: 'ts-loader',
+						options: {
+							configFile: 'tsconfig.json',
+							transpileOnly: true,
+						},
+					},
+				],
+			},
 		],
 	},
 	plugins: [

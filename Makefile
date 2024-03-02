@@ -1,7 +1,6 @@
 VERSION := $(shell node scripts/version)
 
-all: packages lint coverage dist
-	cp -a packages/mrblx/build/*.php dist/
+all: clean-dist packages lint coverage dist
 .PHONY: all
 
 mrblx:
@@ -16,6 +15,10 @@ block-library:
 
 packages: mrblx block-library
 .PHONY: packages
+
+clean-dist:
+	rm -rf dist/*
+.PHONY: clean-dist
 
 lint:
 	npm run lint
@@ -33,9 +36,8 @@ coverage:
 
 dist:
 	rm -rf build/mindspun-responsive-blocks && mkdir -p build/mindspun-responsive-blocks/dist
+	cp -a dist/* build/mindspun-responsive-blocks/dist
 	cp -a *.php includes vendor-prefixed build/mindspun-responsive-blocks/
-	cp -a packages/mrblx/build/* build/mindspun-responsive-blocks/dist/
-	cp -a packages/block-library/build/* build/mindspun-responsive-blocks/dist/
 	cp -a readme.txt build/mindspun-responsive-blocks
 .PHONY: dist
 
