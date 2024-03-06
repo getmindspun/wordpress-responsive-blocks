@@ -71,6 +71,9 @@ function updateVersion(dirpath, version) {
     const mrblx = path.join(packages, 'mrblx', 'package.json');
     updateFile(mrblx, version);
 
+    const createBlock = path.join(packages, 'create-block', 'package.json');
+    updateFile(createBlock, version);
+
 
     updateFile(path.join(path.dirname(__dirname), 'package.json'), version);
 

@@ -1,42 +1,39 @@
 {
-  "name": "@mindspun/create-block",
-  "version": "0.13.1",
-  "description": "Generates PHP, JS and CSS code for WordPress responsive blocks plugin.",
-  "license": "GPL-2.0-or-later",
-  "keywords": [
-    "wordpress",
-    "gutenberg",
-    "responsive",
-    "block",
-    "scaffold"
-  ],
-  "homepage": "https://github.com/getmindspun/wordpress-responsive-blocks/tree/main/packages/create-block",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/getmindspun/wordpress-responsive-blocks.git",
-    "directory": "packages/create-block"
-  },
-  "bugs": {
-    "url": "https://github.com/getmindspun/wordpress-responsive-blocks/issues"
-  },
-  "engines": {
-    "node": ">=14",
-    "npm": ">=6.14.4"
-  },
-  "files": [
-    "lib"
-  ],
-  "main": "index.js",
-  "bin": {
-    "mindspun-create-block": "./index.js"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "devDependencies": {
-    "@wordpress/create-block": "^4.36.0",
-    "change-case": "^5.4.3",
-    "commander": "^12.0.0",
-    "inquirer": "^9.2.15"
-  }
+    "name": "@mindspun/create-block",
+    "version": "0.14.0",
+    "description": "Generates PHP, JS and CSS code for WordPress responsive blocks plugin.",
+    "license": "GPL-2.0-or-later",
+    "keywords": [
+        "wordpress",
+        "gutenberg",
+        "responsive",
+        "block",
+        "scaffold"
+    ],
+    "homepage": "https://github.com/getmindspun/wordpress-responsive-blocks/tree/main/packages/create-block",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/getmindspun/wordpress-responsive-blocks.git",
+        "directory": "packages/create-block"
+    },
+    "bugs": {
+        "url": "https://github.com/getmindspun/wordpress-responsive-blocks/issues"
+    },
+    "engines": {
+        "node": ">=14",
+        "npm": ">=6.14.4"
+    },
+    "main": "index.js",
+    "bin": {
+        "mindspun-create-block": "./index.js"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "devDependencies": {
+        "@wordpress/create-block": "^4.36.0",
+        "change-case": "^5.4.3",
+        "commander": "^12.0.0",
+        "inquirer": "^9.2.15"
+    }
 }
