@@ -1,4 +1,5 @@
 /.idea
 /.webpack
+/.storybook
 /node_modules
 *.zip

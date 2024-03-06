@@ -2,8 +2,10 @@
     "name": "@mindspun/mrblx",
     "version": "0.14.0",
     "description": "Responsive block controls for Gutenberg.",
-    "main": "build/mrblx.js",
+    "main": "dist/mrblx.js",
     "scripts": {
+        "prepare": "BUILD_PATH=./dist npm run build",
+        "postpack": "npx shx rm -rf dist",
         "build": "wp-scripts build",
         "start": "wp-scripts start",
         "test": "echo \"Error: no test specified\" && exit 1",
