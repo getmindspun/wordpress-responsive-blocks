@@ -14,6 +14,8 @@ module.exports = {
             },
         },
         npmDevDependencies: [
+            '@wordpress/blocks',
+            '@wordpress/block-editor',
             '@mindspun/mrblx',
             '@wordpress/i18n',
             'shx'

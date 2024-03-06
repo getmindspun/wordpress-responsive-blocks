@@ -2,7 +2,7 @@
     "name": "@mindspun/mrblx",
     "version": "0.14.0",
     "description": "Responsive block controls for Gutenberg.",
-    "main": "dist/mrblx.js",
+    "main": "index.ts",
     "scripts": {
         "prepare": "BUILD_PATH=./dist npm run build",
         "postpack": "npx shx rm -rf dist",
