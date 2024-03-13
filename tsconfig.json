@@ -13,7 +13,7 @@
         "skipLibCheck": true,
         "allowSyntheticDefaultImports": true,
         "lib": [
-            "es5"
+            "ES2021"
         ]
     },
     "exclude": [
