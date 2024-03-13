@@ -35,6 +35,7 @@ const PROPERTIES = array(
     'gap',
     'height',
     'justifyContent',
+    'lineHeight',
     'listStyleType',
     'left',
     'margin',

@@ -32,6 +32,7 @@ const PROPERTIES = [
 	'gap',
 	'height',
 	'justifyContent',
+	'lineHeight',
 	'listStyleType',
 	'left',
 	'margin',
