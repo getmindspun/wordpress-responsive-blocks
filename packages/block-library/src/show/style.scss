@@ -1,0 +1,28 @@
+.wp-block-mindspun-show-hide {
+    box-sizing: border-box;
+    width: 100%;
+    height: 300px;
+
+    &>div {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .wp-block-mindspun-show-hide-inner {
+        margin: 0;
+
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden; /* Safari */
+        backface-visibility: hidden;
+        transform: perspective(100vw) rotateY(180deg);
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+    }
+
+    .mrblx--show {
+        transform: perspective(100vw)rotateY(0deg);
+    }
+}

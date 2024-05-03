@@ -1,4 +1,4 @@
-import { InspectorControls } from '@wordpress/block-editor';
+import {InspectorAdvancedControls, InspectorControls} from '@wordpress/block-editor';
 import { layout, styles } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
 
@@ -13,9 +13,11 @@ import {
 import { Props } from '../types';
 import StyleControls from './StyleControls';
 import ButtonVariantControl from './ButtonVariantControl';
+import CustomEventControl from './CustomEventControl';
 
 const Controls = (props: Props) => {
 	return (
+		<>
 		<InspectorControls>
 			<div className={'wp-block-mindspun-button--controls'}>
 				<TabbedControl>
@@ -61,6 +63,13 @@ const Controls = (props: Props) => {
 				</TabbedControl>
 			</div>
 		</InspectorControls>
+		<InspectorAdvancedControls>
+			<CustomEventControl
+				attributes={props.attributes}
+				setAttributes={props.setAttributes}
+			/>
+		</InspectorAdvancedControls>
+		</>
 	);
 };
 

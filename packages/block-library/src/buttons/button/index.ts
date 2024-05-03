@@ -31,6 +31,10 @@ registerInnerBlock({
 			type: 'object',
 			default: { rel: ['noopener'] },
 		},
+		customEvent: {
+			type: 'object',
+			default: {}
+		},
 		style: {
 			type: 'object',
 			default: {},

@@ -59,5 +59,5 @@ export function useGetBlock(clientId: string): BlockInstance | null {
 }
 
 export function useBlockEditor() {
-	return useDispatch(blockEditor) as BlockEditorActions;
+	return useDispatch('core/block-editor') as BlockEditorActions;
 }

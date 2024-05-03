@@ -3,9 +3,7 @@ import { __ } from '@wordpress/i18n';
 import { SelectControl } from '@wordpress/components';
 
 import {
-	ControlHeader,
-	DeviceTypeContainer,
-	useGetPreviewDeviceType,
+	ControlHeader
 } from '@mindspun/mrblx';
 import { ButtonVariant, Props } from '../types';
 

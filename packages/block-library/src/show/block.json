@@ -1,0 +1,36 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "mindspun/show-hide",
+    "version": "0.14.0",
+    "title": "Show/Hide",
+    "category": "mindspun-responsive-blocks",
+    "description": "Conditionally show a block based on an event.",
+    "example": {},
+    "attributes": {
+        "blockId": {
+            "type": "string"
+        },
+        "transition": {
+            "type": "string",
+            "default": ""
+        },
+        "defaultBlockId": {
+            "type": "string"
+        },
+        "style": {
+            "type": "object",
+            "default": {"width":"100%", "height":"300px"}
+        }
+    },
+    "textdomain": "mrblx",
+    "editorScript": "file:./index.js",
+    "style": "file:./style.css",
+    "viewScript": "file:./view.js",
+    "supports": {
+        "className": true
+    },
+    "providesContext": {
+        "mindspun/defaultBlockId": "defaultBlockId"
+    }
+}
