@@ -1,14 +1,16 @@
 import { registerBlockType } from '@wordpress/blocks';
-import { seen } from '@wordpress/icons';
+
 
 import './style.scss';
+import icon from './icon';
 import edit from './edit';
 import save from './save';
 import metadata from './block.json';
 
-const icon = {
-	foreground: '#005ffe',
-	src: seen,
-};
-
-registerBlockType(metadata.name, { edit, save, icon } as any);
+registerBlockType(metadata.name, {
+	edit, save,
+	icon: {
+		foreground: '#005ffe',
+		src: icon,
+	},
+} as any);
