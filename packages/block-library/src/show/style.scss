@@ -2,7 +2,6 @@
     box-sizing: border-box;
     width: 100%;
     height: 300px;
-    overflow: hidden;
 
     &>div {
         position: relative;
@@ -88,9 +87,9 @@
     }
 
     &.mrblx--transition-slide-down {
+        overflow-y: hidden;
         .wp-block-mindspun-show-hide-inner {
             visibility: visible;
-            overflow: hidden;
             bottom: 100%;
             position: absolute;
             transition: bottom .8s step-end;
@@ -105,9 +104,9 @@
     }
 
     &.mrblx--transition-slide-up {
+        overflow-y: hidden;
         .wp-block-mindspun-show-hide-inner {
             visibility: visible;
-            overflow: hidden;
             top: 100%;
             position: absolute;
             transition: top .8s step-end;
@@ -122,9 +121,9 @@
     }
 
     &.mrblx--transition-slide-left {
+        overflow-x: hidden;
         .wp-block-mindspun-show-hide-inner {
             visibility: visible;
-            overflow: hidden;
             left: 100%;
             position: absolute;
             transition: left .8s step-end;
@@ -139,9 +138,9 @@
     }
 
     &.mrblx--transition-slide-right {
+        overflow-x: hidden;
         .wp-block-mindspun-show-hide-inner {
             visibility: visible;
-            overflow: hidden;
             right: 100%;
             position: absolute;
             transition: right .8s step-end;
