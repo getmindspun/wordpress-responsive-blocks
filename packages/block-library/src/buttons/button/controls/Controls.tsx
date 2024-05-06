@@ -42,6 +42,7 @@ const Controls = (props: Props) => {
 											},
 										});
 									}}
+									isResponsive={true}
 								/>
 								<hr />
 								<LinkControl
