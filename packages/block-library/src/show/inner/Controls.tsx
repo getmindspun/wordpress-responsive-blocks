@@ -1,8 +1,8 @@
-import {__} from '@wordpress/i18n';
-import {TextControl} from '@wordpress/components';
+import { __ } from '@wordpress/i18n';
+import { TextControl } from '@wordpress/components';
 import { InspectorControls } from '@wordpress/block-editor';
 
-import { ContainerContents} from '@mindspun/mrblx';
+import { ContainerContents } from '@mindspun/mrblx';
 
 import { Props } from './types';
 
@@ -14,11 +14,19 @@ const Controls = (props: Props) => {
 					<div className="mrblx--tab-controls">
 						<TextControl
 							label={__('Event Target')}
-							value={props.attributes.target ? props.attributes.target : ''}
+							value={
+								props.attributes.target
+									? props.attributes.target
+									: ''
+							}
 							onChange={(target) => {
-								props.setAttributes({ target })
+								props.setAttributes({ target });
 							}}
-							help={__(`The custom event target to show this block.  If not specified, the target defaults to the block ID: mrblx-${props.attributes.blockId}.`)}
+							help={
+								__(
+									'The custom event target to show this block. If not specified, the target defaults to the block ID: '
+								) + `mrblx-${props.attributes.blockId}`
+							}
 						/>
 					</div>
 				</ContainerContents>

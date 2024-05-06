@@ -18,12 +18,12 @@ registerInnerBlock({
 			type: 'string',
 		},
 		target: {
-			type: 'string'
+			type: 'string',
 		},
 		isDefault: {
 			type: 'boolean',
-			default: true
-		}
+			default: true,
+		},
 	},
 	edit,
 	save,

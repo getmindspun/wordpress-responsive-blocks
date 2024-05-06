@@ -1,5 +1,5 @@
 import { useInnerBlocksProps } from '@wordpress/block-editor';
-import {useEffect} from '@wordpress/element';
+import { useEffect } from '@wordpress/element';
 import { useBlockPropsWithId } from '@mindspun/mrblx';
 
 import { Props } from './types';
@@ -14,13 +14,14 @@ export default function Edit(props: Props) {
 	const blockProps = useBlockPropsWithId(props, { className });
 	const innerBlocksProps = useInnerBlocksProps(blockProps);
 
-	console.log(props);
-
 	useEffect(() => {
 		props.setAttributes({
-			isDefault: (!!props.attributes.blockId && props.context['mindspun/defaultBlockId'] === props.attributes.blockId)
+			isDefault:
+				!!props.attributes.blockId &&
+				props.context['mindspun/defaultBlockId'] ===
+					props.attributes.blockId,
 		});
-	}, [props.context]);
+	}, [props]);
 
 	return (
 		<>

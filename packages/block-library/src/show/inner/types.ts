@@ -1,5 +1,5 @@
 export type Props = {
-	clientId: string,
+	clientId: string;
 	attributes: {
 		blockId: string;
 		target: string;

@@ -10,8 +10,12 @@ export default function save(props: { attributes: Props['attributes'] }) {
 	const blockProps = useBlockPropsWithId.save(props, { className });
 	const innerBlocksProps = useInnerBlocksProps.save(blockProps);
 
-	return <div
-		{...innerBlocksProps}
-		data-target={props.attributes.target ? props.attributes.target : undefined}
-	/>;
+	return (
+		<div
+			{...innerBlocksProps}
+			data-target={
+				props.attributes.target ? props.attributes.target : undefined
+			}
+		/>
+	);
 }

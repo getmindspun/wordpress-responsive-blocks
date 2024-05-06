@@ -33,7 +33,7 @@ registerInnerBlock({
 		},
 		customEvent: {
 			type: 'object',
-			default: {}
+			default: {},
 		},
 		style: {
 			type: 'object',

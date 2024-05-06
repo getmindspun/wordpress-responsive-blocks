@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { useBlockPropsWithId } from '@mindspun/mrblx';
-import {CustomEvent, Props} from './types';
+import { CustomEvent, Props } from './types';
 
 function javascript(event: CustomEvent) {
 	let js = null;
@@ -33,7 +33,6 @@ export default function save(props: { attributes: Props['attributes'] }) {
 		props.attributes.link.rel && props.attributes.link.rel.length > 0
 			? props.attributes.link.rel.join(' ')
 			: undefined;
-
 
 	return (
 		<a
