@@ -1,0 +1,15 @@
+.wp-block-mindspun-show-hide {
+
+    .wp-block-mindspun-show-hide-inner {
+        visibility: visible;
+        z-index: 0;
+
+        &.mrblx--default {
+            z-index: 1;
+        }
+
+        &.mrblx--active {
+            z-index: 2;
+        }
+    }
+}

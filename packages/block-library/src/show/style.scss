@@ -25,7 +25,8 @@
     }
 }
 
-:not(.block-editor) .wp-block-mindspun-show-hide {
+// Transitions.
+.wp-block-mindspun-show-hide {
     &.mrblx--transition-flip-right {
         .wp-block-mindspun-show-hide-inner {
             visibility: visible;

@@ -1,10 +1,10 @@
 import { useInnerBlocksProps } from '@wordpress/block-editor';
-import { useEffect, useState } from '@wordpress/element';
+import { useEffect } from '@wordpress/element';
 import { useSelect } from '@wordpress/data';
 
+import './editor.scss';
 import { Props } from './types';
 import Controls from './Controls';
-import classNames from 'classnames';
 
 import { BLOCK_NAME as INNER_BLOCK } from './inner';
 import type { BlockInstance } from '@wordpress/blocks';
@@ -29,15 +29,7 @@ function useFirstBlockId(clientId: string): string | null {
 }
 
 export default function Edit(props: Props) {
-	const [focused, setFocused] = useState(false);
-	const blockProps = useBlockPropsWithId(props, {
-		className: classNames({
-			'mrblx--focused': focused,
-			[`mrblx--transition-${props.attributes.transition}`]:
-				!!props.attributes.transition &&
-				props.attributes.transition !== 'none',
-		}),
-	});
+	const blockProps = useBlockPropsWithId(props);
 
 	const firstBlockId = useFirstBlockId(props.clientId);
 
@@ -57,11 +49,7 @@ export default function Edit(props: Props) {
 
 	return (
 		<>
-			<Controls
-				{...props}
-				onMouseEnter={() => setFocused(true)}
-				onMouseLeave={() => setFocused(false)}
-			/>
+			<Controls {...props} />
 			<StylePortalClientId
 				clientId={props.clientId}
 				attributes={props.attributes.style}

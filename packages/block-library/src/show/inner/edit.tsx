@@ -5,10 +5,45 @@ import { useBlockPropsWithId } from '@mindspun/mrblx';
 import { Props } from './types';
 import Controls from './Controls';
 import classNames from 'classnames';
+import {useSelect} from '@wordpress/data';
+import type {BlockInstance} from '@wordpress/blocks';
+
+function isActive(clientId: string): boolean {
+	return useSelect(
+		(select) => {
+			const block = (
+				select('core/block-editor') as {
+					getSelectedBlock: () => BlockInstance | null;
+				}
+			).getSelectedBlock();
+
+			if (block?.clientId === clientId) {
+				return true;
+			}
+
+			if (block) {
+				const parents = (
+					select('core/block-editor') as {
+						getBlockParents: (clientId: string) => string[];
+					}
+				).getBlockParents(block.clientId);
+				for (const parentClientId of parents) {
+					if (parentClientId === clientId) {
+						return true;
+					}
+				}
+			}
+			return false;
+		},
+		[clientId]
+	);
+}
 
 export default function Edit(props: Props) {
+	const active = isActive(props.clientId)
 	const className = classNames({
-		'mrblx--show': props.attributes.isDefault,
+		'mrblx--default': props.attributes.isDefault,
+		'mrblx--active': active,
 	});
 
 	const blockProps = useBlockPropsWithId(props, { className });

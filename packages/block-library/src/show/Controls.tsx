@@ -17,20 +17,11 @@ const OPTIONS = [
     {label: 'Slide Down', value: 'slide-down'},
 ];
 
-const Controls = (
-    props: Props & {
-        onMouseEnter?: () => void;
-        onMouseLeave?: () => void;
-    }
-) => {
+const Controls = (props: Props) => {
     return (
         <>
             <InspectorControls>
-                <div
-                    className={'wp-block-mindspun-show-hide--controls'}
-                    onMouseEnter={props.onMouseEnter}
-                    onMouseLeave={props.onMouseLeave}
-                >
+                <div className={'wp-block-mindspun-show-hide--controls'}>
                     <ContainerContents>
                         <SelectControl
                             label={__('Transition')}
