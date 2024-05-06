@@ -2,6 +2,7 @@
     box-sizing: border-box;
     width: 100%;
     height: 300px;
+    overflow: hidden;
 
     &>div {
         position: relative;
@@ -22,8 +23,10 @@
             visibility: visible;
         }
     }
+}
 
-    .mrblx--transition-flip-right {
+:not(.block-editor) .wp-block-mindspun-show-hide {
+    &.mrblx--transition-flip-right {
         .wp-block-mindspun-show-hide-inner {
             visibility: visible;
             -webkit-backface-visibility: hidden; /* Safari */
@@ -34,6 +37,119 @@
 
             &.mrblx--show {
                 transform: perspective(100vw) rotateY(0deg);
+            }
+        }
+    }
+
+    &.mrblx--transition-flip-left {
+        .wp-block-mindspun-show-hide-inner {
+            visibility: visible;
+            -webkit-backface-visibility: hidden; /* Safari */
+            backface-visibility: hidden;
+            transform: perspective(100vw) rotateY(-180deg);
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+
+            &.mrblx--show {
+                transform: perspective(100vw) rotateY(0deg);
+            }
+        }
+    }
+
+    &.mrblx--transition-flip-up {
+        .wp-block-mindspun-show-hide-inner {
+            visibility: visible;
+            -webkit-backface-visibility: hidden; /* Safari */
+            backface-visibility: hidden;
+            transform: perspective(100vw) rotateX(-180deg);
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+
+            &.mrblx--show {
+                transform: perspective(100vw) rotateX(0deg);
+            }
+        }
+    }
+
+    &.mrblx--transition-flip-down {
+        .wp-block-mindspun-show-hide-inner {
+            visibility: visible;
+            -webkit-backface-visibility: hidden; /* Safari */
+            backface-visibility: hidden;
+            transform: perspective(100vw) rotateX(180deg);
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+
+            &.mrblx--show {
+                transform: perspective(100vw) rotateX(0deg);
+            }
+        }
+    }
+
+    &.mrblx--transition-slide-down {
+        .wp-block-mindspun-show-hide-inner {
+            visibility: visible;
+            overflow: hidden;
+            bottom: 100%;
+            position: absolute;
+            transition: bottom .8s step-end;
+            z-index: 0;
+
+            &.mrblx--show {
+                bottom: 0;
+                transition: bottom .8s;
+                z-index: 1;
+            }
+        }
+    }
+
+    &.mrblx--transition-slide-up {
+        .wp-block-mindspun-show-hide-inner {
+            visibility: visible;
+            overflow: hidden;
+            top: 100%;
+            position: absolute;
+            transition: top .8s step-end;
+            z-index: 0;
+
+            &.mrblx--show {
+                top: 0;
+                transition: top .8s;
+                z-index: 1;
+            }
+        }
+    }
+
+    &.mrblx--transition-slide-left {
+        .wp-block-mindspun-show-hide-inner {
+            visibility: visible;
+            overflow: hidden;
+            left: 100%;
+            position: absolute;
+            transition: left .8s step-end;
+            z-index: 0;
+
+            &.mrblx--show {
+                left: 0;
+                transition: left .8s;
+                z-index: 1;
+            }
+        }
+    }
+
+    &.mrblx--transition-slide-right {
+        .wp-block-mindspun-show-hide-inner {
+            visibility: visible;
+            overflow: hidden;
+            right: 100%;
+            position: absolute;
+            transition: right .8s step-end;
+            z-index: 0;
+
+            &.mrblx--show {
+                right: 0;
+                transition: right .8s;
+                z-index: 1;
             }
         }
     }
