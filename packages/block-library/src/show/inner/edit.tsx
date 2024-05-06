@@ -5,10 +5,10 @@ import { useBlockPropsWithId } from '@mindspun/mrblx';
 import { Props } from './types';
 import Controls from './Controls';
 import classNames from 'classnames';
-import {useSelect} from '@wordpress/data';
-import type {BlockInstance} from '@wordpress/blocks';
+import { useSelect } from '@wordpress/data';
+import type { BlockInstance } from '@wordpress/blocks';
 
-function isActive(clientId: string): boolean {
+function useIsActive(clientId: string): boolean {
 	return useSelect(
 		(select) => {
 			const block = (
@@ -40,10 +40,10 @@ function isActive(clientId: string): boolean {
 }
 
 export default function Edit(props: Props) {
-	const active = isActive(props.clientId)
+	const isActive = useIsActive(props.clientId);
 	const className = classNames({
 		'mrblx--default': props.attributes.isDefault,
-		'mrblx--active': active,
+		'mrblx--active': isActive,
 	});
 
 	const blockProps = useBlockPropsWithId(props, { className });
