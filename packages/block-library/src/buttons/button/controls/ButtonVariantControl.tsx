@@ -2,11 +2,7 @@ import { __ } from '@wordpress/i18n';
 
 import { SelectControl } from '@wordpress/components';
 
-import {
-	ControlHeader,
-	DeviceTypeContainer,
-	useGetPreviewDeviceType,
-} from '@mindspun/mrblx';
+import { ControlHeader } from '@mindspun/mrblx';
 import { ButtonVariant, Props } from '../types';
 
 const OPTIONS = [

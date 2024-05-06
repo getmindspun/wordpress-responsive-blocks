@@ -1,6 +1,24 @@
 import classNames from 'classnames';
 import { useBlockPropsWithId } from '@mindspun/mrblx';
-import { Props } from './types';
+import { CustomEvent, Props } from './types';
+
+function javascript(event: CustomEvent) {
+	let js = null;
+	if (event && event.type) {
+		if (event.detail) {
+			const detail = event.detail.trim();
+			js = `new CustomEvent('${event.type}',{detail:'${detail}'})`;
+		} else {
+			js = `new CustomEvent('${event.type}')`;
+		}
+	}
+
+	if (js) {
+		return `javascript:window.dispatchEvent(${js})`;
+	}
+
+	return undefined;
+}
 
 export default function save(props: { attributes: Props['attributes'] }) {
 	const variant = props.attributes.variant || 'primary';
@@ -22,6 +40,8 @@ export default function save(props: { attributes: Props['attributes'] }) {
 			href={props.attributes.link.href}
 			target={props.attributes.link.target}
 			rel={rel}
+			// @ts-ignore
+			onClick={javascript(props.attributes.customEvent)}
 		>
 			{props.attributes.text}
 		</a>

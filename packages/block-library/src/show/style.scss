@@ -1,0 +1,156 @@
+.wp-block-mindspun-show-hide {
+    box-sizing: border-box;
+    width: 100%;
+    height: 300px;
+
+    &>div {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .wp-block-mindspun-show-hide-inner {
+        margin: 0;
+
+        position: absolute;
+        width: 100%;
+        height: 100%;
+
+        visibility: hidden;
+
+        &.mrblx--show {
+            visibility: visible;
+        }
+    }
+}
+
+// Transitions.
+.wp-block-mindspun-show-hide {
+    &.mrblx--transition-flip-right {
+        .wp-block-mindspun-show-hide-inner {
+            visibility: visible;
+            -webkit-backface-visibility: hidden; /* Safari */
+            backface-visibility: hidden;
+            transform: perspective(100vw) rotateY(180deg);
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+
+            &.mrblx--show {
+                transform: perspective(100vw) rotateY(0deg);
+            }
+        }
+    }
+
+    &.mrblx--transition-flip-left {
+        .wp-block-mindspun-show-hide-inner {
+            visibility: visible;
+            -webkit-backface-visibility: hidden; /* Safari */
+            backface-visibility: hidden;
+            transform: perspective(100vw) rotateY(-180deg);
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+
+            &.mrblx--show {
+                transform: perspective(100vw) rotateY(0deg);
+            }
+        }
+    }
+
+    &.mrblx--transition-flip-up {
+        .wp-block-mindspun-show-hide-inner {
+            visibility: visible;
+            -webkit-backface-visibility: hidden; /* Safari */
+            backface-visibility: hidden;
+            transform: perspective(100vw) rotateX(-180deg);
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+
+            &.mrblx--show {
+                transform: perspective(100vw) rotateX(0deg);
+            }
+        }
+    }
+
+    &.mrblx--transition-flip-down {
+        .wp-block-mindspun-show-hide-inner {
+            visibility: visible;
+            -webkit-backface-visibility: hidden; /* Safari */
+            backface-visibility: hidden;
+            transform: perspective(100vw) rotateX(180deg);
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+
+            &.mrblx--show {
+                transform: perspective(100vw) rotateX(0deg);
+            }
+        }
+    }
+
+    &.mrblx--transition-slide-down {
+        overflow-y: hidden;
+        .wp-block-mindspun-show-hide-inner {
+            visibility: visible;
+            bottom: 100%;
+            position: absolute;
+            transition: bottom .8s step-end;
+            z-index: 0;
+
+            &.mrblx--show {
+                bottom: 0;
+                transition: bottom .8s;
+                z-index: 1;
+            }
+        }
+    }
+
+    &.mrblx--transition-slide-up {
+        overflow-y: hidden;
+        .wp-block-mindspun-show-hide-inner {
+            visibility: visible;
+            top: 100%;
+            position: absolute;
+            transition: top .8s step-end;
+            z-index: 0;
+
+            &.mrblx--show {
+                top: 0;
+                transition: top .8s;
+                z-index: 1;
+            }
+        }
+    }
+
+    &.mrblx--transition-slide-left {
+        overflow-x: hidden;
+        .wp-block-mindspun-show-hide-inner {
+            visibility: visible;
+            left: 100%;
+            position: absolute;
+            transition: left .8s step-end;
+            z-index: 0;
+
+            &.mrblx--show {
+                left: 0;
+                transition: left .8s;
+                z-index: 1;
+            }
+        }
+    }
+
+    &.mrblx--transition-slide-right {
+        overflow-x: hidden;
+        .wp-block-mindspun-show-hide-inner {
+            visibility: visible;
+            right: 100%;
+            position: absolute;
+            transition: right .8s step-end;
+            z-index: 0;
+
+            &.mrblx--show {
+                right: 0;
+                transition: right .8s;
+                z-index: 1;
+            }
+        }
+    }
+}
