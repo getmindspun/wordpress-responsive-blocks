@@ -3,6 +3,8 @@ import {
 	InspectorControls,
 } from '@wordpress/block-editor';
 import { SelectControl, TextControl } from '@wordpress/components';
+import { __experimentalNumberControl as NumberControl } from '@wordpress/components';
+
 import { __ } from '@wordpress/i18n';
 import { ContainerContents, WidthHeightControl } from '@mindspun/mrblx';
 
@@ -79,6 +81,23 @@ const Controls = (props: Props) => {
 					}}
 					help={__(
 						'The custom event that shows a given inner block.'
+					)}
+				/>
+				<NumberControl
+					label={__('Transition Duration')}
+					value={
+						props.attributes.transitionDuration
+							? props.attributes.transitionDuration
+							: .8
+					}
+					onChange={(value) => {
+						const transitionDuration = value ? parseFloat(value) : null;
+						props.setAttributes({ transitionDuration: transitionDuration ? transitionDuration : null });
+					}}
+					isShiftStepEnabled={ true }
+					shiftStep={ .1 }
+					help={__(
+						'How long the transition should take to complete, measured in seconds.'
 					)}
 				/>
 			</InspectorAdvancedControls>

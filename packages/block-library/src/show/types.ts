@@ -6,6 +6,7 @@ export type Props = {
 	attributes: {
 		blockId: string;
 		transition: string;
+		transitionDuration: number | null;
 		eventType: string;
 		defaultBlockId: string | null;
 		style: BlockCSSProperties;

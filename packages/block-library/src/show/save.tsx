@@ -17,7 +17,7 @@ export default function save(props: { attributes: Props['attributes'] }) {
 	const innerBlockProps = useInnerBlocksProps.save();
 
 	return (
-		<div {...blockProps}>
+		<div {...blockProps} data-transition-duration={props.attributes.transitionDuration ? `${props.attributes.transitionDuration}s` : undefined} >
 			<div {...innerBlockProps} />
 		</div>
 	);
