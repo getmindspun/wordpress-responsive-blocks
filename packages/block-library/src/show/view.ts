@@ -20,11 +20,17 @@ domReady(function () {
 			}
 		});
 
-		const transitionDuration = block.getAttribute('data-transition-duration');
+		const transitionDuration = block.getAttribute(
+			'data-transition-duration'
+		);
 		if (transitionDuration) {
-			block.querySelectorAll<HTMLElement>('.wp-block-mindspun-show-hide-inner').forEach((innerBlock) => {
-				innerBlock.style.transitionDuration = transitionDuration;
-			});
+			block
+				.querySelectorAll<HTMLElement>(
+					'.wp-block-mindspun-show-hide-inner'
+				)
+				.forEach((innerBlock) => {
+					innerBlock.style.transitionDuration = transitionDuration;
+				});
 		}
 	});
 });
