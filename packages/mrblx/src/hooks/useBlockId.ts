@@ -44,7 +44,7 @@ export default function useBlockId(blockId: string, clientId: string) {
 		).getCurrentPostId();
 
 		// In FSE, getCurrentPostId() returns null.
-		return currentPostId !== null ? currentPostId.toString() : '0';
+		return currentPostId !== null ? currentPostId.toString().replace(/\/+/g, '--') : '0';
 	}, []);
 
 	const prefix = `${postId}_${clientId.substring(2, 9)}`;
