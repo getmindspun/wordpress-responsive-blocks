@@ -169,10 +169,11 @@ add_action( 'wp_enqueue_scripts', 'mrblx_enqueue_style' );
 add_action( 'admin_enqueue_scripts', 'mrblx_enqueue_style' );
 
 if ( ! is_admin() ) {
-    /* The wp hook is the first hook where $post is defined. */
+    /* The wp_enqueue_scripts hook is the first hook where $post is defined. */
     add_action(
         'wp_enqueue_scripts',
         function () {
+            /* Post content */
             $post = get_post();
             if ( $post && $post->post_content ) {
                 $blocks = parse_blocks( $post->post_content );
@@ -180,6 +181,15 @@ if ( ! is_admin() ) {
                     mrblx_style_block( $block );
                 }
             }
+
+            /* If we have a block theme, look for blocks in the template. */
+            global $_wp_current_template_content;
+            if ( current_theme_supports( 'block-templates' ) && $_wp_current_template_content ) {
+                $blocks = parse_blocks( $_wp_current_template_content );
+                foreach ( $blocks as $block ) {
+                    mrblx_style_block( $block );
+                }
+            }
         }
     );
-}
+}//end if
