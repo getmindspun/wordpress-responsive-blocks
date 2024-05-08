@@ -8,10 +8,7 @@ export default function save(props: { attributes: Props['attributes'] }) {
 		className: classNames({
 			[`mrblx--transition-${props.attributes.transition}`]:
 				!!props.attributes.transition &&
-				props.attributes.transition !== 'none',
-			'data-event-type': props.attributes.eventType
-				? props.attributes.eventType
-				: 'mrblx.show',
+				props.attributes.transition !== 'none'
 		}),
 	});
 	const innerBlockProps = useInnerBlocksProps.save();
@@ -24,6 +21,11 @@ export default function save(props: { attributes: Props['attributes'] }) {
 					? `${props.attributes.transitionDuration}s`
 					: undefined
 			}
+			data-event-type={
+                props.attributes.eventType
+                    ? props.attributes.eventType
+                    : undefined
+            }
 		>
 			<div {...innerBlockProps} />
 		</div>
