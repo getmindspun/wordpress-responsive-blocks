@@ -16,6 +16,10 @@ export default function (blockId: string) {
 							flexDirection: 'column',
 							height: '100%',
 							justifyContent: 'center',
+							paddingTop: '1em',
+							paddingRight: '1em',
+							paddingBottom: '1em',
+							paddingLeft: '1em',
 						},
 					},
 					[
@@ -76,6 +80,10 @@ export default function (blockId: string) {
 							flexDirection: 'column',
 							height: '100%',
 							justifyContent: 'center',
+							paddingTop: '1em',
+							paddingRight: '1em',
+							paddingBottom: '1em',
+							paddingLeft: '1em',
 						},
 					},
 					[
@@ -136,6 +144,10 @@ export default function (blockId: string) {
 							flexDirection: 'column',
 							height: '100%',
 							justifyContent: 'center',
+							paddingTop: '1em',
+							paddingRight: '1em',
+							paddingBottom: '1em',
+							paddingLeft: '1em',
 						},
 					},
 					[
