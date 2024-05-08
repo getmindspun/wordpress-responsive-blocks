@@ -3,8 +3,7 @@ import domReady from '@wordpress/dom-ready';
 domReady(function () {
 	const blocks = document.querySelectorAll('.wp-block-mindspun-show-hide');
 	blocks.forEach((block) => {
-		const eventType = block.getAttribute('data-event-type') || 'mrblx.show';
-		addEventListener(eventType, function (event: Event) {
+		function listener(event: Event) {
 			const customEvent = event as Event & { detail?: string | null };
 			if (customEvent.detail) {
 				const target = block.querySelector(
@@ -18,7 +17,13 @@ domReady(function () {
 					target.classList.add('mrblx--show');
 				}
 			}
-		});
+		}
+
+		const eventType = block.getAttribute('data-event-type');
+		if (eventType) {
+			addEventListener(eventType, listener);
+		}
+		addEventListener('mrblx.show', listener);
 
 		const transitionDuration = block.getAttribute(
 			'data-transition-duration'
