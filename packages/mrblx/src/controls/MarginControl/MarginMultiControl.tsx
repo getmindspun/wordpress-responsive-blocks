@@ -39,6 +39,7 @@ const MarginMultiControl = (props: MarginMultiControlProps) => {
 						: undefined
 				}
 				isAdvanced={props.isAdvanced}
+				allowAuto={true}
 			/>
 			<LengthControl
 				title={'right'}
@@ -60,6 +61,7 @@ const MarginMultiControl = (props: MarginMultiControlProps) => {
 						: undefined
 				}
 				isAdvanced={props.isAdvanced}
+				allowAuto={true}
 			/>
 			<LengthControl
 				title={'bottom'}
@@ -81,6 +83,7 @@ const MarginMultiControl = (props: MarginMultiControlProps) => {
 						: undefined
 				}
 				isAdvanced={props.isAdvanced}
+				allowAuto={true}
 			/>
 			<LengthControl
 				title={'left'}
@@ -102,6 +105,7 @@ const MarginMultiControl = (props: MarginMultiControlProps) => {
 						: undefined
 				}
 				isAdvanced={props.isAdvanced}
+				allowAuto={true}
 			/>
 		</>
 	);

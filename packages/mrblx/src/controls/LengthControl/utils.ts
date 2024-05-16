@@ -5,8 +5,12 @@ export function headerHint(
 	isMixed: boolean | null | undefined,
 	isAdvanced: boolean | null | undefined,
 	value: string | number | undefined,
-	unit: string
+	unit: string,
+	isAuto: boolean | null | undefined = undefined
 ): string {
+	if (isAuto) {
+		return 'AUTO';
+	}
 	if (isMixed) {
 		return 'MIXED';
 	}

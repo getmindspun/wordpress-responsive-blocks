@@ -73,6 +73,28 @@ export const Advanced: Story = {
 	},
 };
 
+export const Auto: Story = {
+	name: 'Advanced with Auto',
+	render: () => {
+		const [isAdvanced, setIsAdvanced] = useState(false);
+		const [value, setValue] = useState<string | number | undefined>(
+			undefined
+		);
+		return (
+			<>
+				<LengthControl
+					title="Title"
+					value={value}
+					onChange={setValue}
+					isAdvanced={isAdvanced}
+					onAdvancedChange={setIsAdvanced}
+				/>
+				<pre>Value: {value !== undefined ? value : 'undefined'}</pre>
+			</>
+		);
+	},
+};
+
 export const Linked: Story = {
 	render: () => {
 		const [isLinked, setIsLinked] = useState(false);
