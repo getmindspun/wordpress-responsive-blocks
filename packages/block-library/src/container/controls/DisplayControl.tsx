@@ -22,6 +22,9 @@ const OPTIONS = [
 	{ label: 'Inline', value: 'inline' },
 	{ label: 'Inline Block', value: 'inline-block' },
 	{ label: 'Inline Flex', value: 'inline-flex' },
+	{ label: 'Table', value: 'table' },
+	{ label: 'Table Row', value: 'table-row' },
+	{ label: 'Table Cell', value: 'table-cell' },
 	{ label: 'None', value: 'none' },
 ];
 
