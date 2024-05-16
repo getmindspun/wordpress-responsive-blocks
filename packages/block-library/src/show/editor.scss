@@ -1,5 +1,9 @@
 .wp-block-mindspun-show-hide {
 
+    & > .block-editor-block-list__layout {
+        height: 100%;
+    }
+
     .wp-block-mindspun-show-hide-inner {
         visibility: visible;
         z-index: 0;
