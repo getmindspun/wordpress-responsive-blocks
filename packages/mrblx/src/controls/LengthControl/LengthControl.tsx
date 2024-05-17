@@ -69,13 +69,15 @@ const LengthControl = (props: LengthControlProps) => {
 							units={UNITS}
 						/>
 					) : null}
-					<CheckboxControl
-						label={'auto'}
-						checked={isAuto}
-						onChange={(isChecked) => {
-							props.onChange(isChecked ? 'auto' : undefined);
-						}}
-					/>
+					{props.allowAuto ? (
+						<CheckboxControl
+							label={'auto'}
+							checked={isAuto}
+							onChange={(isChecked) => {
+								props.onChange(isChecked ? 'auto' : undefined);
+							}}
+						/>
+					) : null}
 				</>
 			) : (
 				<RangeControl

@@ -60,6 +60,7 @@ const MarginBaseControl = (props: {
 							: undefined
 					}
 					isAdvanced={props.isAdvanced}
+					allowAuto={true}
 				/>
 			) : (
 				<MarginMultiControl
