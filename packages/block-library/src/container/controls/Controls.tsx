@@ -12,6 +12,7 @@ import {
 	ContainerContents,
 	TabbedContainer,
 	TabbedControl,
+	useGetPreviewDeviceType,
 } from '@mindspun/mrblx';
 import DisplayControl from './DisplayControl';
 import FlexDirectionControl from './FlexDirectionControl';
@@ -19,6 +20,39 @@ import JustifyContentControl from './JustifyContentControl';
 import AlignItemsControl from './AlignItemsControl';
 import SizingControl from './sizing/SizingControl';
 import StyleControls from './StyleControls';
+import TableCellControls from './TableCellControls';
+import React from 'react';
+import FlexControls from './FlexControls';
+
+function showFlexControls(props: Props, deviceType: string) {
+	const allowed = ['flex', 'inline-flex'];
+	switch (deviceType) {
+		case 'Tablet':
+			return allowed.includes(
+				props.attributes.style.tabletDisplay as string
+			);
+		case 'Mobile':
+			return allowed.includes(
+				props.attributes.style.mobileDisplay as string
+			);
+	}
+	return allowed.includes(props.attributes.style.display as string);
+}
+
+function showTableCellControls(props: Props, deviceType: string) {
+	const allowed = ['inline', 'inline-block', 'table-cell'];
+	switch (deviceType) {
+		case 'Tablet':
+			return allowed.includes(
+				props.attributes.style.tabletDisplay as string
+			);
+		case 'Mobile':
+			return allowed.includes(
+				props.attributes.style.mobileDisplay as string
+			);
+	}
+	return allowed.includes(props.attributes.style.display as string);
+}
 
 const Controls = (
 	props: Props & {
@@ -26,6 +60,8 @@ const Controls = (
 		onMouseLeave?: () => void;
 	}
 ) => {
+	const deviceType = useGetPreviewDeviceType();
+
 	return (
 		<>
 			<InspectorControls>
@@ -47,36 +83,21 @@ const Controls = (
 										props.setAttributes({ style });
 									}}
 								/>
-								<FlexDirectionControl
-									attributes={props.attributes.style}
-									setAttributes={(newStyle) => {
-										const style = {
-											...props.attributes.style,
-											...newStyle,
-										};
-										props.setAttributes({ style });
-									}}
-								/>
-								<JustifyContentControl
-									attributes={props.attributes.style}
-									setAttributes={(newStyle) => {
-										const style = {
-											...props.attributes.style,
-											...newStyle,
-										};
-										props.setAttributes({ style });
-									}}
-								/>
-								<AlignItemsControl
-									attributes={props.attributes.style}
-									setAttributes={(newStyle) => {
-										const style = {
-											...props.attributes.style,
-											...newStyle,
-										};
-										props.setAttributes({ style });
-									}}
-								/>
+								{showFlexControls(props, deviceType) ? (
+									<FlexControls {...props} />
+								) : null}
+								{showTableCellControls(props, deviceType) ? (
+									<TableCellControls
+										attributes={props.attributes.style}
+										setAttributes={(newStyle) => {
+											const style = {
+												...props.attributes.style,
+												...newStyle,
+											};
+											props.setAttributes({ style });
+										}}
+									/>
+								) : null}
 								<hr />
 								<SizingControl
 									attributes={props.attributes.style}
