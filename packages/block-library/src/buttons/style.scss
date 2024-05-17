@@ -19,13 +19,15 @@
         &.variant-primary {
             color: var(--wp--preset--color--contrast, white);
             background-color: var(--wp--preset--color--primary, #005ffe);
+            text-decoration: none;
         }
 
         &.variant-outline {
             color: currentColor;
             border: 2px solid;
             background-color: transparent;
-            padding: calc(0.667em) calc(1.333em)
+            padding: calc(0.667em) calc(1.333em);
+            text-decoration: none;
         }
 
         &.variant-link {
