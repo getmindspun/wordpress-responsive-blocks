@@ -53,6 +53,7 @@ const PROPERTIES = [
 	'overflowX',
 	'overflowY',
 	'right',
+	'tableLayout',
 	'textAlign',
 	'textTransform',
 	'top',

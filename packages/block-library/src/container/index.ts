@@ -1,3 +1,4 @@
+import {capitalCase} from 'change-case';
 import { registerBlockType } from '@wordpress/blocks';
 import { addTemplate } from '@wordpress/icons';
 
@@ -7,7 +8,7 @@ import save from './save';
 import metadata from './block.json';
 import { Props } from './types';
 
-const icon = registerBlockType(metadata.name, {
+registerBlockType(metadata.name, {
 	edit,
 	save,
 	icon: {
@@ -15,6 +16,19 @@ const icon = registerBlockType(metadata.name, {
 		src: addTemplate,
 	},
 	__experimentalLabel: (attributes: Props['attributes']) => {
-		return attributes.tagName === 'section' ? 'Section' : 'Container';
+		if (!attributes.tagName || attributes.tagName === 'div') {
+			return 'Container';
+		}
+		switch(attributes.tagName) {
+			case 'thead':
+				return 'Table Header';
+			case 'tfoot':
+				return 'Table Footer';
+			case 'th':
+				return 'Table Header Cell';
+			case 'td':
+				return 'Table Cell';
+		}
+		return capitalCase(attributes.tagName);
 	},
 } as any);

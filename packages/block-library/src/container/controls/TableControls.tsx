@@ -11,34 +11,32 @@ import {
 
 type TableControlProperties = Pick<
 	BlockCSSProperties,
-	'verticalAlign' | 'tabletVerticalAlign' | 'mobileVerticalAlign'
+	'tableLayout' | 'tabletTableLayout' | 'mobileTableLayout'
 >;
 
 const OPTIONS = [
 	{ label: 'Default', value: 'default' },
-	{ label: 'Baseline', value: 'baseline' },
-	{ label: 'Top', value: 'top' },
-	{ label: 'Middle', value: 'middle' },
-	{ label: 'Bottom', value: 'bottom' },
+	{ label: 'Auto', value: 'auto' },
+	{ label: 'Fixed', value: 'fixed' },
 ];
 
 export function showClear(style: TableControlProperties, deviceType: string) {
 	switch (deviceType) {
 		case 'Tablet':
-			return style.tabletVerticalAlign !== undefined;
+			return style.tabletTableLayout !== undefined;
 		case 'Mobile':
-			return style.mobileVerticalAlign !== undefined;
+			return style.mobileTableLayout !== undefined;
 	}
-	return style.verticalAlign !== undefined;
+	return style.tableLayout !== undefined;
 }
 
-function verticalAlignValue(verticalAlign: string | undefined) {
-	return verticalAlign !== 'default'
-		? (verticalAlign as TableControlProperties['verticalAlign'])
+function tableLayoutValue(tableLayout: string | undefined) {
+	return tableLayout !== 'default'
+		? (tableLayout as TableControlProperties['tableLayout'])
 		: undefined;
 }
 
-const TableCellControls = (props: {
+const TableControls = (props: {
 	attributes: TableControlProperties;
 	setAttributes: (attributes: Partial<TableControlProperties>) => void;
 }) => {
@@ -47,13 +45,13 @@ const TableCellControls = (props: {
 	function onClear() {
 		switch (deviceType) {
 			case 'Tablet':
-				props.setAttributes({ tabletVerticalAlign: undefined });
+				props.setAttributes({ tabletTableLayout: undefined });
 				break;
 			case 'Mobile':
-				props.setAttributes({ mobileVerticalAlign: undefined });
+				props.setAttributes({ mobileTableLayout: undefined });
 				break;
 			default:
-				props.setAttributes({ verticalAlign: undefined });
+				props.setAttributes({ tableLayout: undefined });
 				break;
 		}
 	}
@@ -61,9 +59,9 @@ const TableCellControls = (props: {
 	return (
 		<>
 			<hr />
-			<div className={'mrblx--table-cell-control'}>
+			<div className={'mrblx--table-control'}>
 				<ControlHeader
-					title={__('Vertical Align')}
+					title={__('Table Layout')}
 					isResponsive={true}
 					onClear={
 						showClear(props.attributes, deviceType)
@@ -74,15 +72,15 @@ const TableCellControls = (props: {
 				<DeviceTypeContainer deviceType={'Desktop'}>
 					<SelectControl
 						value={
-							props.attributes.verticalAlign
-								? (props.attributes.verticalAlign as string)
+							props.attributes.tableLayout
+								? (props.attributes.tableLayout as string)
 								: 'default'
 						}
 						options={OPTIONS}
 						onChange={(flexDirection) =>
 							props.setAttributes({
-								verticalAlign:
-									verticalAlignValue(flexDirection),
+								tableLayout:
+									tableLayoutValue(flexDirection),
 							})
 						}
 						__nextHasNoMarginBottom
@@ -91,16 +89,14 @@ const TableCellControls = (props: {
 				<DeviceTypeContainer deviceType={'Tablet'}>
 					<SelectControl
 						value={
-							props.attributes.tabletVerticalAlign
-								? (props.attributes
-										.tabletVerticalAlign as string)
+							props.attributes.tabletTableLayout
+								? (props.attributes.tabletTableLayout as string)
 								: 'default'
 						}
 						options={OPTIONS}
-						onChange={(tabletVerticalAlign) =>
+						onChange={(tabletTableLayout) =>
 							props.setAttributes({
-								tabletVerticalAlign:
-									verticalAlignValue(tabletVerticalAlign),
+								tabletTableLayout: tableLayoutValue(tabletTableLayout),
 							})
 						}
 						__nextHasNoMarginBottom
@@ -109,16 +105,14 @@ const TableCellControls = (props: {
 				<DeviceTypeContainer deviceType={'Mobile'}>
 					<SelectControl
 						value={
-							props.attributes.mobileVerticalAlign
-								? (props.attributes
-										.mobileVerticalAlign as string)
+							props.attributes.mobileTableLayout
+								? (props.attributes.mobileTableLayout as string)
 								: 'default'
 						}
 						options={OPTIONS}
-						onChange={(mobileVerticalAlign) =>
+						onChange={(mobileTableLayout) =>
 							props.setAttributes({
-								mobileVerticalAlign:
-									verticalAlignValue(mobileVerticalAlign),
+								mobileTableLayout: tableLayoutValue(mobileTableLayout),
 							})
 						}
 						__nextHasNoMarginBottom
@@ -129,4 +123,4 @@ const TableCellControls = (props: {
 	);
 };
 
-export default TableCellControls;
+export default TableControls;

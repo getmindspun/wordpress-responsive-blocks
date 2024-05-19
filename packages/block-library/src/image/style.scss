@@ -7,5 +7,9 @@ picture.wp-block-mindspun-image {
         display: block;
         min-width: 24px;
         min-height: 24px;
+
+        /* Keep for 'raw' images in email */
+        max-width: 100%;
+        height: auto;
     }
 }

@@ -15,14 +15,28 @@ import {
 	useGetPreviewDeviceType,
 } from '@mindspun/mrblx';
 import DisplayControl from './DisplayControl';
-import FlexDirectionControl from './FlexDirectionControl';
-import JustifyContentControl from './JustifyContentControl';
-import AlignItemsControl from './AlignItemsControl';
 import SizingControl from './sizing/SizingControl';
 import StyleControls from './StyleControls';
 import TableCellControls from './TableCellControls';
 import React from 'react';
 import FlexControls from './FlexControls';
+import TableControls from './TableControls';
+
+const tagOptions = [
+	{ label: 'Default <div>', value: 'div' },
+	{ label: '<section>', value: 'section' },
+	{ label: '<header>', value: 'header' },
+	{ label: '<main>', value: 'main' },
+	{ label: '<article>', value: 'article' },
+	{ label: '<aside>', value: 'aside' },
+	{ label: '<footer>', value: 'footer' },
+	{ label: '<table>', value: 'table' },
+	{ label: '<tr>', value: 'tr' },
+	{ label: '<th>', value: 'th' },
+	{ label: '<td>', value: 'td' },
+	{ label: '<thead>', value: 'thead' },
+	{ label: '<tfoot>', value: 'tfoot' },
+]
 
 function showFlexControls(props: Props, deviceType: string) {
 	const allowed = ['flex', 'inline-flex'];
@@ -37,6 +51,10 @@ function showFlexControls(props: Props, deviceType: string) {
 			);
 	}
 	return allowed.includes(props.attributes.style.display as string);
+}
+
+function showTableControls(props: Props) {
+	return props.attributes.tagName === 'table';
 }
 
 function showTableCellControls(props: Props, deviceType: string) {
@@ -73,6 +91,19 @@ const Controls = (
 					<TabbedControl>
 						<TabbedContainer key={'Layout'} icon={layout}>
 							<ContainerContents>
+								<SelectControl
+									label={__('HTML Tag')}
+									value={
+										props.attributes.tagName
+											? props.attributes.tagName
+											: 'div'
+									}
+									options={tagOptions}
+									onChange={(tagName) =>
+										props.setAttributes({ tagName })
+									}
+									__nextHasNoMarginBottom
+								/>
 								<DisplayControl
 									attributes={props.attributes.style}
 									setAttributes={(newStyle) => {
@@ -85,6 +116,18 @@ const Controls = (
 								/>
 								{showFlexControls(props, deviceType) ? (
 									<FlexControls {...props} />
+								) : null}
+								{showTableControls(props) ? (
+									<TableControls
+										attributes={props.attributes.style}
+										setAttributes={(newStyle) => {
+											const style = {
+												...props.attributes.style,
+												...newStyle,
+											};
+											props.setAttributes({ style });
+										}}
+									/>
 								) : null}
 								{showTableCellControls(props, deviceType) ? (
 									<TableCellControls
@@ -108,22 +151,6 @@ const Controls = (
 										};
 										props.setAttributes({ style });
 									}}
-								/>
-								<SelectControl
-									label={__('HTML Tag')}
-									value={
-										props.attributes.tagName
-											? props.attributes.tagName
-											: 'div'
-									}
-									options={[
-										{ label: 'div', value: 'div' },
-										{ label: 'section', value: 'section' },
-									]}
-									onChange={(tagName) =>
-										props.setAttributes({ tagName })
-									}
-									__nextHasNoMarginBottom
 								/>
 							</ContainerContents>
 						</TabbedContainer>
