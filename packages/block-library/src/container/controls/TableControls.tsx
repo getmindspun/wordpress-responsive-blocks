@@ -79,8 +79,7 @@ const TableControls = (props: {
 						options={OPTIONS}
 						onChange={(flexDirection) =>
 							props.setAttributes({
-								tableLayout:
-									tableLayoutValue(flexDirection),
+								tableLayout: tableLayoutValue(flexDirection),
 							})
 						}
 						__nextHasNoMarginBottom
@@ -96,7 +95,8 @@ const TableControls = (props: {
 						options={OPTIONS}
 						onChange={(tabletTableLayout) =>
 							props.setAttributes({
-								tabletTableLayout: tableLayoutValue(tabletTableLayout),
+								tabletTableLayout:
+									tableLayoutValue(tabletTableLayout),
 							})
 						}
 						__nextHasNoMarginBottom
@@ -112,7 +112,8 @@ const TableControls = (props: {
 						options={OPTIONS}
 						onChange={(mobileTableLayout) =>
 							props.setAttributes({
-								mobileTableLayout: tableLayoutValue(mobileTableLayout),
+								mobileTableLayout:
+									tableLayoutValue(mobileTableLayout),
 							})
 						}
 						__nextHasNoMarginBottom

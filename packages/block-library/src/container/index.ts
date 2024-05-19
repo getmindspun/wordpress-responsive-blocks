@@ -1,4 +1,4 @@
-import {capitalCase} from 'change-case';
+import { capitalCase } from 'change-case';
 import { registerBlockType } from '@wordpress/blocks';
 import { addTemplate } from '@wordpress/icons';
 
@@ -19,7 +19,7 @@ registerBlockType(metadata.name, {
 		if (!attributes.tagName || attributes.tagName === 'div') {
 			return 'Container';
 		}
-		switch(attributes.tagName) {
+		switch (attributes.tagName) {
 			case 'thead':
 				return 'Table Header';
 			case 'tfoot':

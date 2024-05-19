@@ -36,7 +36,7 @@ const tagOptions = [
 	{ label: '<td>', value: 'td' },
 	{ label: '<thead>', value: 'thead' },
 	{ label: '<tfoot>', value: 'tfoot' },
-]
+];
 
 function showFlexControls(props: Props, deviceType: string) {
 	const allowed = ['flex', 'inline-flex'];
