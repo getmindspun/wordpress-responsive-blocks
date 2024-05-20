@@ -5,7 +5,7 @@
     "version": "0.14.0",
     "title": "Container",
     "category": "mindspun-responsive-blocks",
-    "description": "Advanced, powerful containers designed for responsive flex layouts.",
+    "description": "Advanced, powerful containers designed for responsive CSS layouts.",
     "example": {},
     "attributes": {
         "blockId": {

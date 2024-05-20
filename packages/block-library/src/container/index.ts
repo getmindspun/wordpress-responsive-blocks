@@ -24,6 +24,8 @@ registerBlockType(metadata.name, {
 				return 'Table Header';
 			case 'tfoot':
 				return 'Table Footer';
+			case 'tr':
+				return 'Table Row';
 			case 'th':
 				return 'Table Header Cell';
 			case 'td':
