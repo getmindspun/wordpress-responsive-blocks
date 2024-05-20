@@ -32,6 +32,7 @@
 
             &.mrblx--show {
                 transform: perspective(100vw) rotateY(0deg);
+                z-index: 1;
             }
         }
     }
@@ -47,6 +48,7 @@
 
             &.mrblx--show {
                 transform: perspective(100vw) rotateY(0deg);
+                z-index: 1;
             }
         }
     }
@@ -62,6 +64,7 @@
 
             &.mrblx--show {
                 transform: perspective(100vw) rotateX(0deg);
+                z-index: 1;
             }
         }
     }
@@ -77,6 +80,7 @@
 
             &.mrblx--show {
                 transform: perspective(100vw) rotateX(0deg);
+                z-index: 1;
             }
         }
     }
