@@ -19,17 +19,21 @@ It consists of easy-to-use blocks like container, image, heading, paragraph, tab
 * Heading - Create headings in a range of sizes with precise margins, padding and text appearance including font styles, colors, and alignment options.
 * Paragraph - Create body text match your design preferences with font sizes, various appearance options and one-click letter case styles.
 * Buttons - Create and style buttons for any screen size with primary, outline and link button types.   You can even customize the hover state.
-* Tabs - Structure and present information in a tabular format.   Highly customizable to create any desired tabbed layout.
 * Image - Show different images and/or sizes for different screens.
 * Grid - Easily create responsive layouts using a 12-point grid system.
 * Container - Advanced block allowing the user to crete any flex-based layout they choose.
-* Link Container - Turns any collection of blocks into a link.
+* Link Group - Turns any collection of blocks into a link.
+* Tabs - Structure and present information in a tabular format.   Highly customizable to create any desired tabbed layout.
+* Show/Hide - Conditionally show inner blocks based on event.   Select from a slide or flip transition styles.
+
 
 = Key Features =
 * Easy-to-use configuration options that are separately applied to desktop, tablet and mobile.
-* Works like a responsive version of core blocks making it quick to learn.
+* Works like a responsive version of core blocks making them quick to learn.
 * Lightweight, modern design to creating any layout without the bloat of a page-builder.
+* All blocks are [static blocks](https://developer.wordpress.org/block-editor/getting-started/glossary/#static-block) to ensure optimal performance.
 * Allows optional per-block custom CSS with media queries automatically applied for advanced use cases.
+
 
 = Source files =
 
@@ -138,3 +142,16 @@ Release Date: February 5th, 2024
 * Fix a moderate npm security alert from dependabot.
 * Add a GitHub action to deploy storybook to pages.
 * Build updates for the plugin repo.
+
+= 0.15.0 =
+* Add the Show/Hide block with custom control events.
+* Add table and other tags to the container plus associated controls.
+* Allow auto values for margins.
+* Add table, table-row and table-cell to container display.
+* Add verticalAlign to the container controls and conditionally display it and flex controls.
+* Add text-decoration:none to primary and outline button variants.
+* Allow custom events in for buttons.
+* Enable responsive controls for button width.
+* Security updates for package dependencies.
+* Update tested to WordPress 6.5.
+* Various build improvements.

@@ -3,6 +3,7 @@
 WordPress plugin that adds fully-responsive Gutenberg blocks to your WordPress instance.
 
 ## Blocks
+All blocks are [static blocks](https://developer.wordpress.org/block-editor/getting-started/glossary/#static-block) to ensure optimal performance.
 
 ### Heading
 
@@ -23,11 +24,6 @@ alternative to the core buttons block.
 
 Fully-responsive images. Show different images - or hide entirely - for different screen sizes.
 
-### Tabs
-
-Structures your information into tabs, providing a clean and organized layout for your users. Creators can manage tabbed
-container, heading and content sections separately to align and adjust the content.
-
 ### Grid
 
 Layout block that uses a 12-point grid system to create fully responsive designs based on rows and columns.
@@ -35,6 +31,19 @@ Layout block that uses a 12-point grid system to create fully responsive designs
 ### Container
 
 Advanced block for creating virtually any type of flex layout. Offers all the control of native CSS.
+
+### Link Group
+
+Turn any collection of blocks into a single link.
+
+### Tabs
+
+Structures your information into tabs, providing a clean and organized layout for your users. Creators can manage tabbed
+container, heading and content sections separately to align and adjust the content.
+
+### Show/Hide
+
+Conditionally show or hide one of a collection of blocks based on an event.   Choose from either a flip or slide transition. 
 
 In addition, each block allows developers and advanced users to specify custom CSS scoped only to that particular block
 instance using persistent block ids.
