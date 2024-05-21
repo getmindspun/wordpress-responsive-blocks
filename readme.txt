@@ -73,76 +73,6 @@ Mindspun provides customer support to address any issues or queries. Users can a
 
 == Changelog ==
 
-= 0.7.0 =
-Release Date: January 22nd, 2024
-* Initial submission to wordpress.org.
-
-= 0.7.1 =
-* wordpress.org assets
-
-= 0.7.2 =
-* FIX: bundle readme files
-
-= 0.8.0 =
-Release Date: January 25th, 2024
-* Fix button default variant attribute and default the margin to 0.
-* Fix border control clear option when responsive.
-* Allow changing the html tag for containers - uses either div or section.
-* All links in paragraph text.
-* Better default styles for container and buttons.
-* Add the padding control to the grid columns block.
-
-= 0.9.0 =
-Release Date: January 26th, 2024
-* Allow the selector to be specified via a magic property inside the attribute for inner blocks.
-
-= 0.10.0 =
-Release Date: January 28th, 2024
-* Add a variant selector and gap controls to grid.
-* Add the padding control to the buttons block.
-* Make the font size control configurable and add XS as a default option.
-* Set a minimum img size via CSS.
-* Remove debugging output from CSSEditor.
-
-= 0.11.0 =
-Release Date: February 1st, 2024
-* Add value hint for BoxShadow controls.
-* Bump follow-redirects from 1.15.3 to 1.15.5 in /packages/wpx (dependabot)
-* Add eslint
-* Remove unused utility functions from wpx.
-* Add vw/vh units to the WidthHeightControl.
-* Create a position control and use it in the container block.
-* Fix a typo in PHP handling of whiteSpace.
-* Use a data attribute to identify styles instead of id.
-
-= 0.11.1 =
-* Fix missing labels in the container overflow control.
-
-= 0.12.0 =
-Release Date: February 5th, 2024
-* Add accentColor to the build CSS.
-* Improve the tab default styling and add the ability to style the hover state.
-* Add the className support to all top-level blocks.
-* Add the anchor support to the link block.
-* Create the BlockId component and add it to the top level blocks.
-
-= 0.12.1 =
-* Fix the tabs active selector.
-
-= 0.13.0 =
-* Switch prefix and library name from wpx_ to mrblx_ based on wordpress.org guidelines.
-* Use wp_add_inline_style instead of manually generating styles.
-* Build updates.
-
-= 0.14.0 =
-* Build improvements.
-* Fix the spacing values in the container display controls.
-* Update the pages action to use 18.x node.
-* Add the create-block package.
-* Fix a moderate npm security alert from dependabot.
-* Add a GitHub action to deploy storybook to pages.
-* Build updates for the plugin repo.
-
 = 0.15.0 =
 * Add the Show/Hide block with custom control events.
 * Add table and other tags to the container plus associated controls.
@@ -155,3 +85,74 @@ Release Date: February 5th, 2024
 * Security updates for package dependencies.
 * Update tested to WordPress 6.5.
 * Various build improvements.
+
+= 0.14.0 =
+Release Date: May 21st, 2024
+* Build improvements.
+* Fix the spacing values in the container display controls.
+* Update the pages action to use 18.x node.
+* Add the create-block package.
+* Fix a moderate npm security alert from dependabot.
+* Add a GitHub action to deploy storybook to pages.
+* Build updates for the plugin repo.
+
+= 0.13.0 =
+* Switch prefix and library name from wpx_ to mrblx_ based on wordpress.org guidelines.
+* Use wp_add_inline_style instead of manually generating styles.
+* Build updates.
+
+= 0.12.1 =
+* Fix the tabs active selector.
+
+= 0.12.0 =
+Release Date: February 5th, 2024
+* Add accentColor to the build CSS.
+* Improve the tab default styling and add the ability to style the hover state.
+* Add the className support to all top-level blocks.
+* Add the anchor support to the link block.
+* Create the BlockId component and add it to the top level blocks.
+
+= 0.11.1 =
+* Fix missing labels in the container overflow control.
+
+= 0.11.0 =
+Release Date: February 1st, 2024
+* Add value hint for BoxShadow controls.
+* Bump follow-redirects from 1.15.3 to 1.15.5 in /packages/wpx (dependabot)
+* Add eslint
+* Remove unused utility functions from wpx.
+* Add vw/vh units to the WidthHeightControl.
+* Create a position control and use it in the container block.
+* Fix a typo in PHP handling of whiteSpace.
+* Use a data attribute to identify styles instead of id.
+
+= 0.10.0 =
+Release Date: January 28th, 2024
+* Add a variant selector and gap controls to grid.
+* Add the padding control to the buttons block.
+* Make the font size control configurable and add XS as a default option.
+* Set a minimum img size via CSS.
+* Remove debugging output from CSSEditor.
+
+= 0.9.0 =
+Release Date: January 26th, 2024
+* Allow the selector to be specified via a magic property inside the attribute for inner blocks.
+
+= 0.8.0 =
+Release Date: January 25th, 2024
+* Fix button default variant attribute and default the margin to 0.
+* Fix border control clear option when responsive.
+* Allow changing the html tag for containers - uses either div or section.
+* All links in paragraph text.
+* Better default styles for container and buttons.
+* Add the padding control to the grid columns block.
+
+= 0.7.2 =
+* FIX: bundle readme files
+
+= 0.7.1 =
+* wordpress.org assets
+
+= 0.7.0 =
+Release Date: January 22nd, 2024
+* Initial submission to wordpress.org.
