@@ -4,15 +4,27 @@ export function useGetPreviewDeviceType(isResponsive?: boolean) {
 	isResponsive = isResponsive !== undefined ? isResponsive : true;
 	const { deviceType } = useSelect(
 		(select) => {
-			const selectors = select('core/edit-post') as {
+			if (!isResponsive) {
+				return {deviceType: 'Desktop'};
+			}
+
+			const editor = select('core/editor') as {
+				getDeviceType: () => string;
+			} | null;
+
+			if (editor && editor.getDeviceType) {
+				return {deviceType: editor.getDeviceType()}
+			}
+
+			const editPost = select('core/edit-post') as {
 				__experimentalGetPreviewDeviceType: () => string;
 			} | null;
 
 			return {
 				deviceType:
-					selectors && isResponsive
-						? selectors.__experimentalGetPreviewDeviceType()
-						: 'Desktop',
+					editPost
+						? editPost.__experimentalGetPreviewDeviceType()
+						: 'Desktop'
 			};
 		},
 		[isResponsive]

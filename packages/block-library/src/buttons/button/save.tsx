@@ -20,6 +20,25 @@ function javascript(event: CustomEvent) {
 	return undefined;
 }
 
+/**
+ * WP automatically adds the noopener attribute to anchor tags (in most cases)
+ * if the target attribute is set.
+ *
+ * https://github.com/WordPress/gutenberg/issues/14934
+ * https://github.com/WordPress/gutenberg/issues/39051
+ *
+ * This behavior is controllable by a filter, so we add noopener just in case.
+ * https://github.com/WordPress/WordPress/blob/2ae4784ca0aa4ba0e8e87d9c7c1c22f26b214701/wp-includes/formatting.php#L3236-L3288
+ * @param attributes
+ */
+function rel(attributes: Props['attributes']) {
+	const rels: string[] = attributes.link.rel ? [...attributes.link.rel] : [];
+	if (attributes.link.target && !rels.includes('noopener')) {
+		rels.push('noopener');
+	}
+	return rels.length ? rels.join(' ') : undefined;
+}
+
 export default function save(props: { attributes: Props['attributes'] }) {
 	const variant = props.attributes.variant || 'primary';
 
@@ -29,17 +48,12 @@ export default function save(props: { attributes: Props['attributes'] }) {
 		}),
 	});
 
-	const rel =
-		props.attributes.link.rel && props.attributes.link.rel.length > 0
-			? props.attributes.link.rel.join(' ')
-			: undefined;
-
 	return (
 		<a
 			{...blockProps}
 			href={props.attributes.link.href}
 			target={props.attributes.link.target}
-			rel={rel}
+			rel={rel(props.attributes)}
 			// @ts-ignore
 			onClick={javascript(props.attributes.customEvent)}
 		>
