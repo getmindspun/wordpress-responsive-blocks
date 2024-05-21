@@ -2,7 +2,7 @@
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "apiVersion": 3,
     "name": "mindspun/container",
-    "version": "0.15.0",
+    "version": "0.15.1",
     "title": "Container",
     "category": "mindspun-responsive-blocks",
     "description": "Advanced, powerful containers designed for responsive CSS layouts.",
