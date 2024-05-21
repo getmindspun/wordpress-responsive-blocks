@@ -63,3 +63,8 @@ clean:
 svn: bundle
 	cp -a build/mindspun-responsive-blocks/* wordpress-org/trunk/
 .PHONY: svn
+
+svn-tag:
+	cp -a wordpress-org/trunk/ wordpress-org/tags/$(VERSION)
+	cd wordpress-org/tags/ && svn add $(VERSION)
+.PHONY: svn-tag
