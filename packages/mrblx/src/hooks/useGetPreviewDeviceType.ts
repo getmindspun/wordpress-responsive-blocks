@@ -5,7 +5,7 @@ export function useGetPreviewDeviceType(isResponsive?: boolean) {
 	const { deviceType } = useSelect(
 		(select) => {
 			if (!isResponsive) {
-				return {deviceType: 'Desktop'};
+				return { deviceType: 'Desktop' };
 			}
 
 			const editor = select('core/editor') as {
@@ -13,7 +13,7 @@ export function useGetPreviewDeviceType(isResponsive?: boolean) {
 			} | null;
 
 			if (editor && editor.getDeviceType) {
-				return {deviceType: editor.getDeviceType()}
+				return { deviceType: editor.getDeviceType() };
 			}
 
 			const editPost = select('core/edit-post') as {
@@ -21,10 +21,9 @@ export function useGetPreviewDeviceType(isResponsive?: boolean) {
 			} | null;
 
 			return {
-				deviceType:
-					editPost
-						? editPost.__experimentalGetPreviewDeviceType()
-						: 'Desktop'
+				deviceType: editPost
+					? editPost.__experimentalGetPreviewDeviceType()
+					: 'Desktop',
 			};
 		},
 		[isResponsive]
