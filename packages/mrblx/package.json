@@ -1,6 +1,6 @@
 {
     "name": "@mindspun/mrblx",
-    "version": "0.15.1",
+    "version": "0.15.2",
     "description": "Responsive block controls for Gutenberg.",
     "main": "index.ts",
     "scripts": {

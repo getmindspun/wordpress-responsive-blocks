@@ -53,7 +53,7 @@
     "providesContext": {
         "mindspun/tabs": "labels"
     },
-    "version": "0.15.1",
+    "version": "0.15.2",
     "supports": {
         "className": true
     }

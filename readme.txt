@@ -4,7 +4,7 @@ Donate link: https://www.mindspun.com/about
 Tags: gutenberg, blocks, responsive
 Requires at least: 6.2
 Tested up to: 6.5
-Stable tag: 0.15.1
+Stable tag: 0.15.2
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -72,6 +72,9 @@ Mindspun provides customer support to address any issues or queries. Users can a
 
 
 == Changelog ==
+= 0.15.2 =
+* Only set the id for a block when the blockId attribute is defined in useBlockPropsWithId.save()
+
 = 0.15.1 =
 * Fix the rel attribute on the buttons block that was causing validation errors.
 * Fix deprecation warning about getDeviceType/setDeviceType
