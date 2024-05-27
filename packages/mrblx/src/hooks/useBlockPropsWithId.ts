@@ -31,6 +31,8 @@ useBlockPropsWithId.save = function (
 	config?: Parameters<UseBlockProps>[0]
 ) {
 	const blockProps = useBlockProps.save(config);
-	blockProps.id = `mrblx-${props.attributes.blockId}`;
+	if (props.attributes.blockId) {
+		blockProps.id = `mrblx-${props.attributes.blockId}`;
+	}
 	return blockProps;
 };
