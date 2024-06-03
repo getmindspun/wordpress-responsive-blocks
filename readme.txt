@@ -76,6 +76,7 @@ Mindspun provides customer support to address any issues or queries. Users can a
 Release Date: Jun 3rd, 2024
 * Add a view all/clear all advanced component and add it to all parent blocks.
 * Add alt text controls to the Image block.
+* Update the storybook store for setDeviceType/getDeviceType.
 
 = 0.15.2 =
 * Only set the id for a block when the blockId attribute is defined in useBlockPropsWithId.save()
