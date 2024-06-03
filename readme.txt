@@ -4,7 +4,7 @@ Donate link: https://www.mindspun.com/about
 Tags: gutenberg, blocks, responsive
 Requires at least: 6.2
 Tested up to: 6.5
-Stable tag: 0.15.2
+Stable tag: 0.16.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -72,6 +72,11 @@ Mindspun provides customer support to address any issues or queries. Users can a
 
 
 == Changelog ==
+= 0.16.0 =
+Release Date: Jun 3rd, 2024
+* Add a view all/clear all advanced component and add it to all parent blocks.
+* Add alt text controls to the Image block.
+
 = 0.15.2 =
 * Only set the id for a block when the blockId attribute is defined in useBlockPropsWithId.save()
 
@@ -82,6 +87,7 @@ Mindspun provides customer support to address any issues or queries. Users can a
 * Reorder this changelog.
 
 = 0.15.0 =
+Release Date: May 20th, 2024
 * Add the Show/Hide block with custom control events.
 * Add table and other tags to the container plus associated controls.
 * Allow auto values for margins.
@@ -95,7 +101,7 @@ Mindspun provides customer support to address any issues or queries. Users can a
 * Various build improvements.
 
 = 0.14.0 =
-Release Date: May 21st, 2024
+Release Date: Mar 2nd, 2024
 * Build improvements.
 * Fix the spacing values in the container display controls.
 * Update the pages action to use 18.x node.
