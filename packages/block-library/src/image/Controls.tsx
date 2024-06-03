@@ -1,8 +1,6 @@
-import { Props } from './types';
-import {
-	InspectorAdvancedControls,
-	InspectorControls,
-} from '@wordpress/block-editor';
+import {InspectorAdvancedControls, InspectorControls} from '@wordpress/block-editor';
+import {TextareaControl} from '@wordpress/components';
+import {__} from '@wordpress/i18n';
 
 import {
 	BaseControls,
@@ -14,6 +12,8 @@ import {
 	MediaControl,
 	WidthHeightControl,
 } from '@mindspun/mrblx';
+
+import { Props } from './types';
 
 const Controls = (props: Props) => {
 	return (
@@ -32,6 +32,16 @@ const Controls = (props: Props) => {
 						}}
 						isResponsive={true}
 					/>
+					{props.attributes.media?.url ?
+						<TextareaControl
+							label={__('Alternative Text')}
+							value={props.attributes.media.alt ? props.attributes.media.alt : ''}
+							onChange={alt => {
+								const media = {...props.attributes.media, alt};
+								props.setAttributes({media});
+							}}
+						/> : null
+					}
 					<WidthHeightControl
 						label={'Width'}
 						propertyName={'width'}
