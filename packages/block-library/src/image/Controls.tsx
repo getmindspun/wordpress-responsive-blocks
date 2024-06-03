@@ -1,6 +1,9 @@
-import {InspectorAdvancedControls, InspectorControls} from '@wordpress/block-editor';
-import {TextareaControl} from '@wordpress/components';
-import {__} from '@wordpress/i18n';
+import {
+	InspectorAdvancedControls,
+	InspectorControls,
+} from '@wordpress/block-editor';
+import { TextareaControl } from '@wordpress/components';
+import { __ } from '@wordpress/i18n';
 
 import {
 	BaseControls,
@@ -10,10 +13,12 @@ import {
 	ContainerControl,
 	CustomCSSControl,
 	MediaControl,
+	ViewAll,
 	WidthHeightControl,
 } from '@mindspun/mrblx';
 
 import { Props } from './types';
+import React from 'react';
 
 const Controls = (props: Props) => {
 	return (
@@ -32,16 +37,23 @@ const Controls = (props: Props) => {
 						}}
 						isResponsive={true}
 					/>
-					{props.attributes.media?.url ?
+					{props.attributes.media?.url ? (
 						<TextareaControl
 							label={__('Alternative Text')}
-							value={props.attributes.media.alt ? props.attributes.media.alt : ''}
-							onChange={alt => {
-								const media = {...props.attributes.media, alt};
-								props.setAttributes({media});
+							value={
+								props.attributes.media.alt
+									? props.attributes.media.alt
+									: ''
+							}
+							onChange={(alt) => {
+								const media = {
+									...props.attributes.media,
+									alt,
+								};
+								props.setAttributes({ media });
 							}}
-						/> : null
-					}
+						/>
+					) : null}
 					<WidthHeightControl
 						label={'Width'}
 						propertyName={'width'}
@@ -100,6 +112,10 @@ const Controls = (props: Props) => {
 			</InspectorControls>
 			<InspectorAdvancedControls>
 				<BlockId attributes={props.attributes} />
+				<ViewAll
+					attributes={props.attributes.style}
+					onClear={() => props.setAttributes({ style: {} })}
+				/>
 			</InspectorAdvancedControls>
 		</>
 	);

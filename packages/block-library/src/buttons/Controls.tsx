@@ -17,9 +17,11 @@ import {
 	JustifyContentControl,
 	MarginControl,
 	PaddingControl,
+	ViewAll,
 } from '@mindspun/mrblx';
 
 import { Props } from './types';
+import React from 'react';
 
 const Controls = (props: Props) => {
 	return (
@@ -134,6 +136,10 @@ const Controls = (props: Props) => {
 			</InspectorControls>
 			<InspectorAdvancedControls>
 				<BlockId attributes={props.attributes} />
+				<ViewAll
+					attributes={props.attributes.style}
+					onClear={() => props.setAttributes({ style: {} })}
+				/>
 			</InspectorAdvancedControls>
 		</>
 	);

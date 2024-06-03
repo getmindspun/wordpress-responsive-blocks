@@ -10,8 +10,10 @@ import {
 	ContainerContents,
 	ContainerControl,
 	CustomCSSControl,
+	ViewAll,
 	WidthHeightControl,
 } from '@mindspun/mrblx';
+import React from 'react';
 
 const Controls = (
 	props: Props & {
@@ -94,6 +96,10 @@ const Controls = (
 			</InspectorControls>
 			<InspectorAdvancedControls>
 				<BlockId attributes={props.attributes} />
+				<ViewAll
+					attributes={props.attributes.style}
+					onClear={() => props.setAttributes({ style: {} })}
+				/>
 			</InspectorAdvancedControls>
 		</>
 	);

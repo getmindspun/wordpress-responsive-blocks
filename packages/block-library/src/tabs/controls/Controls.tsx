@@ -15,6 +15,8 @@ import {
 
 import { Props } from '../types';
 import TabControls from './TabControls';
+import ViewAll from '@mindspun/mrblx/src/components/ViewAll/ViewAll';
+import React from 'react';
 
 const Controls = (props: Props) => {
 	return (
@@ -97,6 +99,10 @@ const Controls = (props: Props) => {
 			</InspectorControls>
 			<InspectorAdvancedControls>
 				<BlockId attributes={props.attributes} />
+				<ViewAll
+					attributes={props.attributes.style}
+					onClear={() => props.setAttributes({ style: {} })}
+				/>
 			</InspectorAdvancedControls>
 		</>
 	);

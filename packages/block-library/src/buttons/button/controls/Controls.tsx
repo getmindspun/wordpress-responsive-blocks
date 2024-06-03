@@ -6,10 +6,12 @@ import { layout, styles } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
 
 import {
+	BlockId,
 	ContainerContents,
 	LinkControl,
 	TabbedContainer,
 	TabbedControl,
+	ViewAll,
 	WidthHeightControl,
 } from '@mindspun/mrblx';
 
@@ -17,6 +19,7 @@ import { Props } from '../types';
 import StyleControls from './StyleControls';
 import ButtonVariantControl from './ButtonVariantControl';
 import CustomEventControl from './CustomEventControl';
+import React from 'react';
 
 const Controls = (props: Props) => {
 	return (
@@ -71,6 +74,11 @@ const Controls = (props: Props) => {
 				<CustomEventControl
 					attributes={props.attributes}
 					setAttributes={props.setAttributes}
+				/>
+				<BlockId attributes={props.attributes} />
+				<ViewAll
+					attributes={props.attributes.style}
+					onClear={() => props.setAttributes({ style: {} })}
 				/>
 			</InspectorAdvancedControls>
 		</>

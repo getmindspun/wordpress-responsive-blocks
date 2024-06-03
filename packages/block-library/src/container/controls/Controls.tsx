@@ -13,6 +13,7 @@ import {
 	TabbedContainer,
 	TabbedControl,
 	useGetPreviewDeviceType,
+	ViewAll,
 } from '@mindspun/mrblx';
 import DisplayControl from './DisplayControl';
 import SizingControl from './sizing/SizingControl';
@@ -165,6 +166,10 @@ const Controls = (
 			</InspectorControls>
 			<InspectorAdvancedControls>
 				<BlockId attributes={props.attributes} />
+				<ViewAll
+					attributes={props.attributes.style}
+					onClear={() => props.setAttributes({ style: {} })}
+				/>
 			</InspectorAdvancedControls>
 		</>
 	);

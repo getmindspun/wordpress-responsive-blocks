@@ -9,9 +9,15 @@ import {
 } from '@wordpress/components';
 
 import { __ } from '@wordpress/i18n';
-import { ContainerContents, WidthHeightControl } from '@mindspun/mrblx';
+import {
+	BlockId,
+	ContainerContents,
+	ViewAll,
+	WidthHeightControl,
+} from '@mindspun/mrblx';
 
 import { Props } from './types';
+import React from 'react';
 
 const OPTIONS = [
 	{ label: 'None', value: 'none' },
@@ -108,6 +114,11 @@ const Controls = (props: Props) => {
 					help={__(
 						'How long the transition should take to complete, measured in seconds.'
 					)}
+				/>
+				<BlockId attributes={props.attributes} />
+				<ViewAll
+					attributes={props.attributes.style}
+					onClear={() => props.setAttributes({ style: {} })}
 				/>
 			</InspectorAdvancedControls>
 		</>

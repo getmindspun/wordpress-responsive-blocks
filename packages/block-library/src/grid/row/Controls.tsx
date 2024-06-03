@@ -1,8 +1,17 @@
-import { InspectorControls } from '@wordpress/block-editor';
+import {
+	InspectorAdvancedControls,
+	InspectorControls,
+} from '@wordpress/block-editor';
 
 import { Props } from '../types';
 
-import { ContainerContents, GapControl } from '@mindspun/mrblx';
+import {
+	BlockId,
+	ContainerContents,
+	GapControl,
+	ViewAll,
+} from '@mindspun/mrblx';
+import React from 'react';
 
 const Controls = (
 	props: Props & {
@@ -34,6 +43,13 @@ const Controls = (
 					</ContainerContents>
 				</div>
 			</InspectorControls>
+			<InspectorAdvancedControls>
+				<BlockId attributes={props.attributes} />
+				<ViewAll
+					attributes={props.attributes.style}
+					onClear={() => props.setAttributes({ style: {} })}
+				/>
+			</InspectorAdvancedControls>
 		</>
 	);
 };
