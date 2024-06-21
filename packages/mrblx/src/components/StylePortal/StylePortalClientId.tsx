@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useEffect } from '@wordpress/element';
+import {useEffect, useState} from '@wordpress/element';
 
 import { BlockCSSProperties } from '../../types';
 import { useGetPreviewDeviceType } from '../../hooks';
@@ -12,6 +12,9 @@ const StylePortalClientId = (props: {
 	selector?: string;
 	attributes: BlockCSSProperties;
 }) => {
+	/* Keep data state so that portal doesn't internally recreate the element. */
+	const [data, setData] = useState({'client-id': props.clientId});
+
 	const deviceType = useGetPreviewDeviceType();
 	const iframe = document.querySelector('iframe[name="editor-canvas"]');
 
@@ -19,6 +22,10 @@ const StylePortalClientId = (props: {
 	const css = buildCSS(id, props.attributes, {
 		selector: props.selector,
 	});
+
+	if (data['client-id'] !== props.clientId) {
+		setData({'client-id': props.clientId});
+	}
 
 	useEffect(() => {
 		if (iframe && css) {
@@ -44,7 +51,7 @@ const StylePortalClientId = (props: {
 		<Portal
 			selector={'head'}
 			tagName={'style'}
-			data={{ 'client-id': props.clientId }}
+			data={data}
 		>
 			{css}
 		</Portal>
