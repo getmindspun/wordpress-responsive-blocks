@@ -89,10 +89,38 @@ function mrblx_style_block( array $block ): void {
         if ( $css ) {
             wp_add_inline_style( 'style-mrblx', $css );
         }
+    } else {
+        // synced patterns/reusable blocks.
+        $name = $block['blockName'] ?? null;
+        $ref = $attrs['ref'] ?? false;
+        if ( $ref && 'core/block' === $name ) {
+            $post_id = intval( $ref );
+            mrblx_style_post( get_post( $post_id ) );
+        }
     }
 
     foreach ( $block['innerBlocks'] ?? array() as $inner_block ) {
         mrblx_style_block( $inner_block );
+    }
+}
+
+/**
+ * Handle a post or pattern.
+ *
+ * @param WP_Post|null $post
+ * @return void
+ */
+function mrblx_style_post( ?WP_Post $post ) {
+    // Keep track of the posts we've already seen in case the same pattern
+    // is used multiple times on the same page.
+    static $posts = array();
+
+    if ( $post && $post->post_content && ! isset( $posts[ $post->ID ] ) ) {
+        $blocks = parse_blocks( $post->post_content );
+        foreach ( $blocks as $block ) {
+            mrblx_style_block( $block );
+        }
+        $posts[ $post->ID ] = true;
     }
 }
 
@@ -174,13 +202,7 @@ if ( ! is_admin() ) {
         'wp_enqueue_scripts',
         function () {
             /* Post content */
-            $post = get_post();
-            if ( $post && $post->post_content ) {
-                $blocks = parse_blocks( $post->post_content );
-                foreach ( $blocks as $block ) {
-                    mrblx_style_block( $block );
-                }
-            }
+            mrblx_style_post( get_post() );
 
             /* If we have a block theme, look for blocks in the template. */
             global $_wp_current_template_content;

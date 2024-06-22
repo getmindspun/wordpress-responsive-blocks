@@ -1,6 +1,6 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
-import {useEffect, useState} from '@wordpress/element';
+import { useEffect, useState } from '@wordpress/element';
 
 const Portal = (props: {
 	children: React.ReactNode;
@@ -13,7 +13,7 @@ const Portal = (props: {
 	const tagName = props.tagName ? props.tagName : 'div';
 
 	const mount = document.querySelector(selector);
-	const [element, setElement] = useState<HTMLElement|null>(null);
+	const [element, setElement] = useState<HTMLElement | null>(null);
 
 	useEffect(() => {
 		if (mount) {
