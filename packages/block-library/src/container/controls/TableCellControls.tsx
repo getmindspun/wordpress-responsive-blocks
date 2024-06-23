@@ -38,6 +38,7 @@ function verticalAlignValue(verticalAlign: string | undefined) {
 		: undefined;
 }
 
+/* Formatting options for containers displayed like table cells, not the tags themselves */
 const TableCellControls = (props: {
 	attributes: TableControlProperties;
 	setAttributes: (attributes: Partial<TableControlProperties>) => void;

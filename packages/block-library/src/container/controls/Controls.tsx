@@ -22,6 +22,7 @@ import TableCellControls from './TableCellControls';
 import React from 'react';
 import FlexControls from './FlexControls';
 import TableControls from './TableControls';
+import TableSpanControls from './TableSpanControls';
 
 const tagOptions = [
 	{ label: 'Default <div>', value: 'div' },
@@ -56,6 +57,10 @@ function showFlexControls(props: Props, deviceType: string) {
 
 function showTableControls(props: Props) {
 	return props.attributes.tagName === 'table';
+}
+
+function showThTdControls(props: Props) {
+	return ['td', 'th'].includes(props.attributes.tagName);
 }
 
 function showTableCellControls(props: Props, deviceType: string) {
@@ -141,6 +146,9 @@ const Controls = (
 											props.setAttributes({ style });
 										}}
 									/>
+								) : null}
+								{showThTdControls(props) ? (
+									<TableSpanControls {...props} />
 								) : null}
 								<hr />
 								<SizingControl

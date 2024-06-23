@@ -8,5 +8,5 @@ export default function save(props: { attributes: Props['attributes'] }) {
 	const innerBlocksProps = useInnerBlocksProps.save(blockProps);
 	const HeadingTag = (props.attributes.tagName || 'div') as ElementType;
 
-	return <HeadingTag {...innerBlocksProps} />;
+	return <HeadingTag {...innerBlocksProps} {...props.attributes.tagAttrs} />;
 }

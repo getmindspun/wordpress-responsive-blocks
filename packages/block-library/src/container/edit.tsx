@@ -30,7 +30,7 @@ export default function Edit(props: Props & { clientId: string }) {
 				clientId={props.clientId}
 				attributes={props.attributes.style}
 			/>
-			<HeadingTag {...innerBlocksProps} />
+			<HeadingTag {...innerBlocksProps} {...props.attributes.tagAttrs} />
 		</>
 	);
 }

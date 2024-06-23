@@ -15,6 +15,10 @@
             "type": "string",
             "default": "div"
         },
+        "tagAttrs": {
+            "type": "object",
+            "default": {}
+        },
         "style": {
             "type": "object",
             "default": {}
