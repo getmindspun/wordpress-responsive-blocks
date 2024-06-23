@@ -2,6 +2,25 @@ import React from 'react';
 import { createPortal } from 'react-dom';
 import { useEffect, useState } from '@wordpress/element';
 
+function createElement(
+	mount: Element,
+	tagName: string,
+	id?: string | undefined,
+	data?: Record<string, string>
+) {
+	const el = document.createElement(tagName) as HTMLElement;
+	if (id) {
+		el.setAttribute('id', id);
+	}
+	if (data) {
+		for (const [key, value] of Object.entries(data)) {
+			el.setAttribute(`data-${key}`, value);
+		}
+	}
+	mount.append(el);
+	return el;
+}
+
 const Portal = (props: {
 	children: React.ReactNode;
 	selector: string | undefined;
@@ -17,20 +36,17 @@ const Portal = (props: {
 
 	useEffect(() => {
 		if (mount) {
-			const el = document.createElement(tagName);
-			if (props.id) {
-				el.setAttribute('id', props.id);
-			}
-			if (props.data) {
-				for (const [key, value] of Object.entries(props.data)) {
-					el.setAttribute(`data-${key}`, value);
-				}
-			}
+			const el = createElement(mount, tagName, props.id, props.data);
 			setElement(el);
 
-			mount.appendChild(el);
+			if (element) {
+				element.remove();
+			}
+
 			return () => {
-				mount.removeChild(el);
+				if (el) {
+					mount.removeChild(el);
+				}
 			};
 		}
 	}, [mount, props.data]);

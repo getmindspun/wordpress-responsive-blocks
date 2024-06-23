@@ -31,7 +31,7 @@ const StylePortalClientId = (props: {
 		if (iframe && css) {
 			const doc = (iframe as HTMLIFrameElement).contentDocument;
 			if (doc) {
-				const el = doc.createElement('style');
+				const el = doc.createElement('style') as HTMLStyleElement;
 				el.setAttribute('data-client-id', props.clientId);
 				el.innerHTML = css;
 				doc.head.appendChild(el);
