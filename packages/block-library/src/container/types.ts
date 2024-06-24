@@ -3,7 +3,7 @@ import { BlockCSSProperties, Link } from '@mindspun/mrblx';
 type TagAttributes = {
 	colspan?: number;
 	rowspan?: number;
-}
+};
 
 export type Props = {
 	attributes: {
