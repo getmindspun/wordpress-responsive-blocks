@@ -7,10 +7,12 @@ import {
 	ContainerContents,
 	ContainerControl,
 	CustomCSSControl,
+	PositionControl,
 	WidthHeightControl,
 } from '@mindspun/mrblx';
+
 import OverflowControl from './OverflowControl';
-import PositionControl from '@mindspun/mrblx/src/controls/PositionControl/PositionControl';
+import WhiteSpaceControl from './WhiteSpaceControl';
 
 const StyleControls = (props: Props) => {
 	return (
@@ -139,6 +141,18 @@ const StyleControls = (props: Props) => {
 			<ContainerControl title={'Overflow'}>
 				<ContainerContents>
 					<OverflowControl
+						attributes={props.attributes.style}
+						setAttributes={(style) => {
+							props.setAttributes({
+								style: { ...props.attributes.style, ...style },
+							});
+						}}
+					/>
+				</ContainerContents>
+			</ContainerControl>
+			<ContainerControl title={'White Space'}>
+				<ContainerContents>
+					<WhiteSpaceControl
 						attributes={props.attributes.style}
 						setAttributes={(style) => {
 							props.setAttributes({

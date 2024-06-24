@@ -76,6 +76,7 @@ export interface BlockCSSProperties extends CSSProperties {
 	tabletOverflowY?: CSSProperties['overflowY'];
 	tabletRight?: CSSProperties['right'];
 	tabletTop?: CSSProperties['top'];
+	tabletWhiteSpace?: CSSProperties['whiteSpace'];
 
 	mobileBlockAlign?: BlockAlign;
 	mobileCustomCSS?: string;
@@ -132,6 +133,7 @@ export interface BlockCSSProperties extends CSSProperties {
 	mobileOverflowY?: CSSProperties['overflowY'];
 	mobileRight?: CSSProperties['right'];
 	mobileTop?: CSSProperties['top'];
+	mobileWhiteSpace?: CSSProperties['whiteSpace'];
 }
 
 export type LengthUnit = 'px' | '%' | 'em' | 'rem';

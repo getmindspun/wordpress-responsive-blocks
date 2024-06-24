@@ -54,6 +54,7 @@ export * from './MediaControl/MediaControl';
 export { default as PaddingControl } from './PaddingControl/PaddingControl';
 export * from './PaddingControl/PaddingControl';
 
+export { default as PositionControl } from './PositionControl/PositionControl';
 export * from './PositionControl/PositionControl';
 
 export { default as TextAlignControl } from './TextAlignControl/TextAlignControl';
