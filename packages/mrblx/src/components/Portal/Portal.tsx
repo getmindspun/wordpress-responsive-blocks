@@ -1,4 +1,3 @@
-import React from 'react';
 import { createPortal } from 'react-dom';
 import { useEffect, useState } from '@wordpress/element';
 
@@ -39,17 +38,13 @@ const Portal = (props: {
 			const el = createElement(mount, tagName, props.id, props.data);
 			setElement(el);
 
-			if (element) {
-				element.remove();
-			}
-
 			return () => {
 				if (el) {
 					mount.removeChild(el);
 				}
 			};
 		}
-	}, [mount, props.data]);
+	}, [mount, props.id, props.data, tagName]);
 
 	return element ? createPortal(props.children, element) : null;
 };

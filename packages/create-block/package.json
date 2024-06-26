@@ -1,6 +1,6 @@
 {
     "name": "@mindspun/create-block",
-    "version": "0.16.0",
+    "version": "0.17.0",
     "description": "Generates PHP, JS and CSS code for WordPress responsive blocks plugin.",
     "license": "GPL-2.0-or-later",
     "keywords": [
