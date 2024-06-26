@@ -1,3 +1,4 @@
+import React from 'react';
 import { createPortal } from 'react-dom';
 import { useEffect, useState } from '@wordpress/element';
 
