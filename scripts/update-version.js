@@ -84,7 +84,7 @@ function updateVersion(dirpath, version) {
     console.log(` * Build the release via 'make release'.`);
     console.log(` * Publish to GitHub with the changes - remembering to add the zip file.`);
     console.log(` * Copy to SVN trunk and wordpress-org/tags/${version}.`);
-    console.log(` * Publish a new version to npm.`)
+    console.log(` * Publish a new version of mrblx via 'npm publish'.`)
     console.log();
 
     console.log(shell('git log --color=always $(git describe --tags --abbrev=0)..HEAD --oneline'));
