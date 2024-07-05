@@ -4,7 +4,7 @@ Donate link: https://www.mindspun.com/about
 Tags: gutenberg, blocks, responsive
 Requires at least: 6.2
 Tested up to: 6.5
-Stable tag: 0.17.0
+Stable tag: 0.17.1
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -72,6 +72,8 @@ Mindspun provides customer support to address any issues or queries. Users can a
 
 
 == Changelog ==
+= 0.17.1 =
+* Update build for most recent webpack.
 = 0.17.0 =
 Release Date: Jun 26th, 2024
 * Add a whitespace control to the container block.

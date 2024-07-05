@@ -23,7 +23,7 @@ module.exports = {
 	output: {
 		library: {
 			name: 'mrblx',
-			type: 'var'
+			type: 'var',
 		},
 		path: path.resolve(outputPath),
 	},

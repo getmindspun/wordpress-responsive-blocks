@@ -1,6 +1,6 @@
 {
     "name": "blocks",
-    "version": "0.17.0",
+    "version": "0.17.1",
     "private": true,
     "scripts": {
         "lint": "eslint packages --fix",
@@ -25,6 +25,7 @@
         "change-case": "^5.4.2",
         "codemirror": "^5.65.16",
         "css-loader": "^6.8.1",
+        "eslint-plugin-prettier": "^5.0.0",
         "eslint-plugin-storybook": "^0.6.15",
         "mini-css-extract-plugin": "^2.7.6",
         "resolve-url-loader": "^5.0.0",
