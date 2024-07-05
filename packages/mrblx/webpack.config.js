@@ -21,8 +21,10 @@ module.exports = {
 		mrblx: './index.ts',
 	},
 	output: {
-		libraryTarget: 'var',
-		library: ['mrblx'],
+		library: {
+			name: 'mrblx',
+			type: 'var'
+		},
 		path: path.resolve(outputPath),
 	},
 	module: {
