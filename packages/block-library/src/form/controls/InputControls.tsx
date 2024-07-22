@@ -7,7 +7,12 @@ import {
 
 import {Props} from '../types';
 
-const InputControls = (props: Props) => {
+type Attributes = Pick<Props['attributes'], 'inputStyle'|'inputStyleError'|'inputStyleFocus'>;
+
+const InputControls = (props: {
+    attributes: Attributes,
+    setAttributes: (attributes: Partial<Attributes>) => void
+}) => {
     return (
         <>
             <ContainerControl title={ 'Style' }>

@@ -5,7 +5,12 @@ import {
 
 import {Props} from '../types';
 
-const FieldErrorControls = (props: Props) => {
+type Attributes = Pick<Props['attributes'], 'fieldErrorStyle'>;
+
+const FieldErrorControls = (props: {
+    attributes: Attributes,
+    setAttributes: (attributes: Partial<Attributes>) => void;
+}) => {
     return (
         <ContainerContents>
             <BaseControls

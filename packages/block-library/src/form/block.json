@@ -30,27 +30,27 @@
         "labelStyleError": {
             "type": "object",
             "default": {},
-            "selector": ".pay-label.is-error"
+            "selector": ".is-error"
         },
         "inputStyle": {
             "type": "object",
             "default": {},
-            "selector": ".pay-form-group--input input"
+            "selector": "input"
         },
         "inputStyleFocus": {
             "type": "object",
             "default": {},
-            "selector": ".pay-form-group--input input:focus"
+            "selector": "input:focus-visible"
         },
         "inputStyleError": {
             "type": "object",
             "default": {},
-            "selector": ".pay-form-group--input input.is-error"
+            "selector": "input.is-error"
         },
         "fieldErrorStyle": {
             "type": "object",
             "default": {},
-            "selector": ".pay-field-error"
+            "selector": ".field-error"
         },
         "style": {
             "type": "object",

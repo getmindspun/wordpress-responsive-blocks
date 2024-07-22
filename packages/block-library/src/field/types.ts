@@ -10,12 +10,19 @@ export interface Attributes {
     autoFocus?: boolean;
     spellCheck?: boolean;
     autoCapitalize?: string | null | undefined;
-    labelPosition: string;
+    labelPosition: 'top' | 'inline' | 'none';
+    labelStyle: BlockCSSProperties;
+    labelStyleError: BlockCSSProperties;
+    inputStyle: BlockCSSProperties;
+    inputStyleFocus: BlockCSSProperties;
+    inputStyleError: BlockCSSProperties;
+    fieldErrorStyle: BlockCSSProperties;
     style: BlockCSSProperties;
 }
 
 export type Props = {
     clientId: string;
+    isSelected: boolean;
     attributes: Attributes;
     setAttributes: (attributes: Partial<Attributes>) => void;
     context: {

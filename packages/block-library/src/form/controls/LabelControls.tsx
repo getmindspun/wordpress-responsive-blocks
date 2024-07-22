@@ -8,7 +8,12 @@ import {
 
 import {Props} from '../types';
 
-const LabelControls = (props: Props) => {
+type Attributes = Pick<Props['attributes'], 'labelPosition'|'labelStyle'|'labelStyleError'>;
+
+const LabelControls = (props: {
+    attributes: Attributes,
+    setAttributes: (attributes: Partial<Attributes>) => void,
+}) => {
     return (
         <>
             <ContainerContents>

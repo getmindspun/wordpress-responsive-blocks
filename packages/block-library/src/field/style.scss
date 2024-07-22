@@ -23,6 +23,15 @@
     &.mrblx-label-inline {
         label.mrblx-label {
             flex-direction: row;
+            align-items: center;
+
+            span {
+                margin-right: .25em;
+            }
         }
+    }
+
+    input:focus-visible {
+        outline: none;
     }
 }

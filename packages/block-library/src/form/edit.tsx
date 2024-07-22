@@ -22,6 +22,36 @@ export default function Edit(props: Props) {
 				clientId={ props.clientId }
 				attributes={ props.attributes.style }
 			/>
+			<StylePortalClientId
+				clientId={ props.clientId }
+				attributes={ props.attributes.labelStyle }
+				selector={ 'label' }
+			/>
+			<StylePortalClientId
+				clientId={ props.clientId }
+				attributes={ props.attributes.labelStyleError }
+				selector={ 'label.is-error' }
+			/>
+			<StylePortalClientId
+				clientId={ props.clientId }
+				attributes={ props.attributes.inputStyle }
+				selector={ 'input' }
+			/>
+			<StylePortalClientId
+				clientId={ props.clientId }
+				attributes={ props.attributes.inputStyleFocus }
+				selector={ 'input:focus-visible' }
+			/>
+			<StylePortalClientId
+				clientId={ props.clientId }
+				attributes={ props.attributes.inputStyleError }
+				selector={ 'input.is-error' }
+			/>
+			<StylePortalClientId
+				clientId={ props.clientId }
+				attributes={ props.attributes.fieldErrorStyle }
+				selector={ '.field-error' }
+			/>
 			<Controls
 				{...props}
 			/>

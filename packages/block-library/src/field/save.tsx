@@ -1,7 +1,7 @@
 import {useBlockPropsWithId} from '@mindspun/mrblx';
 import type {Props} from './types';
-import Input from './Input';
 import {getClassName, buildBlockAttrs} from './utils';
+import Field from './Field';
 
 const Save = (props: { attributes: Props['attributes'] }) => {
     const blockProps = useBlockPropsWithId.save(props, {
@@ -10,10 +10,12 @@ const Save = (props: { attributes: Props['attributes'] }) => {
 
     return (
         <div
-            { ...blockProps }
-            data-mrblx-attrs={ buildBlockAttrs(props.attributes) }
+            {...blockProps}
+            data-mrblx-attrs={buildBlockAttrs(props.attributes)}
         >
-            <Input attributes={ props.attributes }/>
+            <div {...blockProps}>
+                <Field attributes={props.attributes}/>
+            </div>
         </div>
     );
 };

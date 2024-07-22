@@ -18,13 +18,15 @@
             "type": "string"
         },
         "labelPosition": {
-            "type": "string"
+            "type": "string",
+            "default": "top"
         },
         "name": {
             "type": "string"
         },
         "type": {
-            "type": "string"
+            "type": "string",
+            "default": "text"
         },
         "autoComplete": {
             "type": "string"
@@ -39,6 +41,36 @@
         },
         "autoCapitalize": {
             "type": "string"
+        },
+        "labelStyle": {
+            "type": "object",
+            "default": {},
+            "selector": "label"
+        },
+        "labelStyleError": {
+            "type": "object",
+            "default": {},
+            "selector": "label.is-error"
+        },
+        "inputStyle": {
+            "type": "object",
+            "default": {},
+            "selector": "input"
+        },
+        "inputStyleFocus": {
+            "type": "object",
+            "default": {},
+            "selector": "input:focus-visible"
+        },
+        "inputStyleError": {
+            "type": "object",
+            "default": {},
+            "selector": "input.is-error"
+        },
+        "fieldErrorStyle": {
+            "type": "object",
+            "default": {},
+            "selector": ".field-error"
         },
         "style": {
             "type": "object",

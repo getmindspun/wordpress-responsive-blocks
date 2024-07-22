@@ -10,7 +10,7 @@ const Input = (props: {
         <input
             className={props.className}
             name={props.attributes.name ? props.attributes.name : undefined}
-            type={props.attributes.type ? props.attributes.type : undefined}
+            type={props.attributes.type ? props.attributes.type : 'text'}
             autoComplete={props.attributes.autoComplete ? props.attributes.autoComplete : undefined}
             autoFocus={!!props.attributes.autoFocus}
             spellCheck={!!props.attributes.spellCheck}
