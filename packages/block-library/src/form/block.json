@@ -1,0 +1,71 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "mindspun/form",
+    "version": "0.17.1",
+    "title": "Form",
+    "category": "mindspun-responsive-blocks",
+    "description": "General form element meant to contain fields.",
+    "example": {},
+    "attributes": {
+        "blockId": {
+            "type": "string"
+        },
+        "method": {
+            "type": "string",
+            "default": "get"
+        },
+        "action": {
+            "type": "string"
+        },
+        "labelPosition": {
+            "type": "string",
+            "default": "top"
+        },
+        "labelStyle": {
+            "type": "object",
+            "default": {},
+            "selector": "label"
+        },
+        "labelStyleError": {
+            "type": "object",
+            "default": {},
+            "selector": ".pay-label.is-error"
+        },
+        "inputStyle": {
+            "type": "object",
+            "default": {},
+            "selector": ".pay-form-group--input input"
+        },
+        "inputStyleFocus": {
+            "type": "object",
+            "default": {},
+            "selector": ".pay-form-group--input input:focus"
+        },
+        "inputStyleError": {
+            "type": "object",
+            "default": {},
+            "selector": ".pay-form-group--input input.is-error"
+        },
+        "fieldErrorStyle": {
+            "type": "object",
+            "default": {},
+            "selector": ".pay-field-error"
+        },
+        "style": {
+            "type": "object",
+            "default": {}
+        }
+    },
+    "textdomain": "mrblx",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./editor.css",
+    "style": "file:./style.css",
+    "supports": {
+        "className": true
+    },
+    "providesContext": {
+        "mindspun/formBlockId": "blockId",
+        "mindspun/labelPosition": "labelPosition"
+    }
+}

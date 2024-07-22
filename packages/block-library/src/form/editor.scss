@@ -1,0 +1,11 @@
+.wp-block-mindspun-form--controls {
+    .mrblx--tabbed-control {
+        border-top: 1px solid #ccc;
+
+        .mrblx--tabbed-header .mrblx--tab button.has-icon {
+            height: 72px;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

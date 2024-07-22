@@ -1,15 +1,17 @@
 import React from 'react';
 import { register, createReduxStore } from '@wordpress/data';
-import { State } from '@wordpress/data/build-types/redux-store/metadata/selectors';
+
+type State = {
+	blockIds: Record<string, string>,
+	controlStates: Record<string, string>,
+}
+
 
 if (!window.mrblxStore) {
 	const DEFAULT_STATE = {
 		blockIds: {},
 		controlStates: {},
-	} as {
-		blockIds: Record<string, string>;
-		controlStates: Record<string | number, React.Key>;
-	};
+	} as State;
 
 	const store = createReduxStore('mrblx/block-data', {
 		reducer(state = DEFAULT_STATE, action) {

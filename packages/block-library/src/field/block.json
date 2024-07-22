@@ -1,0 +1,60 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "mindspun/field",
+    "version": "0.17.1",
+    "title": "Field",
+    "category": "mindspun-responsive-blocks",
+    "description": "Fully-responsive fields consisting of inputs and optional labels.",
+    "example": {},
+    "attributes": {
+        "blockId": {
+            "type": "string"
+        },
+        "inputSize": {
+            "type": "integer"
+        },
+        "label": {
+            "type": "string"
+        },
+        "labelPosition": {
+            "type": "string"
+        },
+        "name": {
+            "type": "string"
+        },
+        "type": {
+            "type": "string"
+        },
+        "autoComplete": {
+            "type": "string"
+        },
+        "autoFocus": {
+            "type": "boolean",
+            "default": false
+        },
+        "spellCheck": {
+            "type": "boolean",
+            "default": false
+        },
+        "autoCapitalize": {
+            "type": "string"
+        },
+        "style": {
+            "type": "object",
+            "default": {}
+        }
+    },
+    "textdomain": "mrblx",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./editor.css",
+    "style": "file:./style.css",
+    "viewScript": "file:./view.js",
+    "supports": {
+        "className": true
+    },
+    "usesContext": [
+        "mindspun/formBlockId",
+        "mindspun/labelPosition"
+    ]
+}

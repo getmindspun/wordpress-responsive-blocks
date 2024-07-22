@@ -1,0 +1,28 @@
+// Keep .mrblx-label for extra specificity
+.wp-block-mindspun-field {
+    label.mrblx-label {
+        display: flex;
+    }
+
+    & label.mrblx-label.is-error {
+        color: #DF1B41;
+    }
+
+    .mrblx-field-error {
+        color: #DF1B41;
+        margin: .25em 0;
+        font-size: smaller;
+    }
+
+    &.mrblx-label-top {
+        label.mrblx-label {
+            flex-direction: column;
+        }
+    }
+
+    &.mrblx-label-inline {
+        label.mrblx-label {
+            flex-direction: row;
+        }
+    }
+}
