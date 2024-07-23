@@ -1,5 +1,8 @@
 // Keep .mrblx-label for extra specificity
 .wp-block-mindspun-field {
+    &, &.wp-block {
+        margin-bottom: 1em;
+    }
     label.mrblx-label {
         display: flex;
     }

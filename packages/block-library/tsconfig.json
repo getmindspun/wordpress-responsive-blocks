@@ -11,7 +11,12 @@
         "moduleResolution": "node",
         "resolveJsonModule": true,
         "esModuleInterop": true,
-        "skipLibCheck": true
+        "skipLibCheck": true,
+        "paths": {
+            "~shared/*": [
+                "./src/_shared/*"
+            ]
+        }
     },
     "exclude": [
         "node_modules"

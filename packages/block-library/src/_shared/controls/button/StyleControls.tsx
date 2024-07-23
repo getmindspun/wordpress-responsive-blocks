@@ -1,10 +1,8 @@
 import { __ } from '@wordpress/i18n';
-import { Props } from '../types';
 
 import {
 	BaseControls,
 	BlockCSSProperties,
-	BorderControl,
 	ColorControl,
 	ColorsGroup,
 	ContainerContents,
@@ -13,7 +11,15 @@ import {
 } from '@mindspun/mrblx';
 import BorderHoverControl from './BorderHoverControl';
 
-const Controls = (props: Props) => {
+type Attributes = {
+	blockId: string;
+	style: BlockCSSProperties
+};
+
+const StyleControls = (props: {
+	attributes: Attributes;
+	setAttributes: (attributes: Partial<Attributes>) => void;
+}) => {
 	return (
 		<>
 			<ContainerContents>
@@ -126,4 +132,4 @@ const Controls = (props: Props) => {
 	);
 };
 
-export default Controls;
+export default StyleControls;

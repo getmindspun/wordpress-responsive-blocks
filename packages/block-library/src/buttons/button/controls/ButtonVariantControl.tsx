@@ -1,8 +1,6 @@
 import { __ } from '@wordpress/i18n';
 
 import { SelectControl } from '@wordpress/components';
-
-import { ControlHeader } from '@mindspun/mrblx';
 import { ButtonVariant, Props } from '../types';
 
 const OPTIONS = [
@@ -17,8 +15,8 @@ const ButtonVariantControl = (props: {
 }) => {
 	return (
 		<div className={'mrblx--button-variant-control'}>
-			<ControlHeader title={__('Button Type')} />
 			<SelectControl
+				label={__('Button Type')}
 				value={props.attributes.variant}
 				options={OPTIONS}
 				onChange={(variant) =>

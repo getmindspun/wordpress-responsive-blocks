@@ -1,9 +1,12 @@
+import React from 'react';
 import {
 	InspectorAdvancedControls,
 	InspectorControls,
 } from '@wordpress/block-editor';
 import { layout, styles } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
+
+
 
 import {
 	BlockId,
@@ -16,10 +19,10 @@ import {
 } from '@mindspun/mrblx';
 
 import { Props } from '../types';
-import StyleControls from './StyleControls';
+
+import StyleControls from '~shared/controls/button/StyleControls';
 import ButtonVariantControl from './ButtonVariantControl';
 import CustomEventControl from './CustomEventControl';
-import React from 'react';
 
 const Controls = (props: Props) => {
 	return (

@@ -48,6 +48,26 @@ Conditionally show or hide one of a collection of blocks based on an event.   Ch
 In addition, each block allows developers and advanced users to specify custom CSS scoped only to that particular block
 instance using persistent block ids.
 
+### Form
+
+Create a form element containing other blocks.   The form can be submitted to any form handler you choose.
+Forms are usually used in conjunction with the `field` and `submit` blocks.
+
+### Field
+
+A block containing an input, optional label and error message.   When a field is contained inside a `form` block, 
+styles are added on the containing `form`.
+
+## Events
+Some block communicate with one another via Javascript events internally.   If you are a developer
+and wish to extend listen to one of these events to extend the base functionality, here's how they work.
+
+### Fields
+Form elements generate a 'submit' event when that form is submitted.  
+Fields listen to the 'submit' event of parent form and validate themselves as needed.  
+If the field is invalid, notes the error on the event.  The form then cancels the submission.
+
+
 ## Create Custom Responsive Blocks
 
 You can create your own responsive blocks for the Gutenberg block editor just like you do regular custom blocks.

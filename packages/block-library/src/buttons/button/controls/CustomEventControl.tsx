@@ -1,6 +1,5 @@
 import { __ } from '@wordpress/i18n';
 
-import { ControlHeader } from '@mindspun/mrblx';
 import { Props } from '../types';
 import { TextControl } from '@wordpress/components';
 

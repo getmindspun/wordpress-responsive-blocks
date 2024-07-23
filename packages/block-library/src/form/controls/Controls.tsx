@@ -5,9 +5,10 @@ import {layout, keyboard, tag} from '@wordpress/icons';
 import {TabbedControl, TabbedContainer} from '@mindspun/mrblx';
 
 import GeneralControls from './GeneralControls';
-import LabelControls from './LabelControls';
-import InputControls from './InputControls';
-import FieldErrorControls from './FieldErrorControls';
+
+import LabelControls from '~shared/controls/form/LabelControls';
+import InputControls from '~shared/controls/form/InputControls';
+import FieldErrorControls from '~shared/controls/form/FieldErrorControls';
 
 
 const Controls = (
