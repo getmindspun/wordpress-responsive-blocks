@@ -1,3 +1,5 @@
+$red: #DF1B41;
+
 // Keep .mrblx-label for extra specificity
 .wp-block-mindspun-field {
     &, &.wp-block {
@@ -5,15 +7,18 @@
     }
     label.mrblx-label {
         display: flex;
+
+        .mrblx-required-indicator {
+            color: $red;
+        }
     }
 
     & label.mrblx-label.is-error {
-        color: #DF1B41;
+        color: $red;
     }
 
     .mrblx-field-error {
-        color: #DF1B41;
-        margin: .25em 0;
+        color: $red;
         font-size: smaller;
     }
 
@@ -28,7 +33,7 @@
             flex-direction: row;
             align-items: center;
 
-            span {
+            & > span {
                 margin-right: .25em;
             }
         }

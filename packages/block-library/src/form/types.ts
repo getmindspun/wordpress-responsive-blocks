@@ -1,4 +1,5 @@
 import {BlockCSSProperties} from '@mindspun/mrblx';
+import {LabelPosition} from '~shared/controls/form/LabelControls';
 
 export type Props = {
 	clientId: string;
@@ -7,7 +8,8 @@ export type Props = {
 		blockId: string;
 		method: string;
 		action: string | undefined;
-		labelPosition: 'top' | 'inline' | 'none';
+		encType: 'application/form-data' | 'application/x-www-form-urlencoded' | 'application/json' | undefined;
+		labelPosition: LabelPosition;
 		labelStyle: BlockCSSProperties;
 		labelStyleError: BlockCSSProperties;
 		inputStyle: BlockCSSProperties;

@@ -9,6 +9,15 @@ export const methodOptions = [
     {value: 'dialog', label: 'dialog'}
 ];
 
+export const enctypeOptions = [
+    {value: 'default', label: 'Default'},
+    {value: 'multipart/form-data', label: 'multipart/form-data'},
+    {value: 'application/json', label: 'application/json'},
+    {value: 'application/x-www-form-urlencoded', label: 'application/x-www-form-urlencoded'},
+    {value: 'text/plain', label: 'text/plain'},
+];
+
+
 const GeneralControls = (props: Props) => {
     return (
         <>
@@ -38,6 +47,14 @@ const GeneralControls = (props: Props) => {
                                 action: action ? action : undefined
                             });
                         }}
+                    />
+                    <SelectControl
+                        label={ 'Encoding' }
+                        value={ props.attributes.enctype ? props.attributes.enctype : 'default' }
+                        onChange={ value => props.setAttributes({
+                            enctype: value !== 'default' ? value as Props['attributes']['enctype'] : undefined
+                        }) }
+                        options={ enctypeOptions }
                     />
                 </BaseControls>
             </ContainerContents>

@@ -21,6 +21,10 @@
             "type": "string",
             "default": "top"
         },
+        "labelRequiredIndicator": {
+            "type": "string",
+            "default": "*"
+        },
         "name": {
             "type": "string"
         },
@@ -42,6 +46,13 @@
         "autoCapitalize": {
             "type": "string"
         },
+        "help": {
+            "type": "string"
+        },
+        "validation": {
+            "type": "object",
+            "default": {}
+        },
         "labelStyle": {
             "type": "object",
             "default": {},
@@ -51,6 +62,11 @@
             "type": "object",
             "default": {},
             "selector": "label.is-error"
+        },
+        "labelStyleRequiredIndicator": {
+            "type": "object",
+            "default": {},
+            "selector": "label .mrblx-required-indicator"
         },
         "inputStyle": {
             "type": "object",
@@ -87,6 +103,7 @@
     },
     "usesContext": [
         "mindspun/formBlockId",
-        "mindspun/labelPosition"
+        "mindspun/labelPosition",
+        "mindspun/labelRequiredIndicator"
     ]
 }

@@ -1,7 +1,7 @@
 import {useBlockPropsWithId} from '@mindspun/mrblx';
 import type {Props} from './types';
 import {getClassName, buildBlockAttrs} from './utils';
-import Field from './Field';
+import BaseField from './BaseField';
 
 const Save = (props: { attributes: Props['attributes'] }) => {
     const blockProps = useBlockPropsWithId.save(props, {
@@ -13,9 +13,7 @@ const Save = (props: { attributes: Props['attributes'] }) => {
             {...blockProps}
             data-mrblx-attrs={buildBlockAttrs(props.attributes)}
         >
-            <div {...blockProps}>
-                <Field attributes={props.attributes}/>
-            </div>
+            <BaseField attributes={props.attributes}/>
         </div>
     );
 };

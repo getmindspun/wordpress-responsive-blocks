@@ -18,6 +18,9 @@
         "action": {
             "type": "string"
         },
+        "encType": {
+            "type": "string"
+        },
         "labelPosition": {
             "type": "string",
             "default": "top"
@@ -61,6 +64,7 @@
     "editorScript": "file:./index.js",
     "editorStyle": "file:./editor.css",
     "style": "file:./style.css",
+    "viewScript": "file:./view.js",
     "supports": {
         "className": true
     },

@@ -6,7 +6,7 @@ import './editor.scss';
 import type {Props} from './types';
 import Controls from './controls/Controls';
 import {getClassName} from './utils';
-import Field from './Field';
+import BaseField from './BaseField';
 
 const Edit = (props: Props) => {
     const blockProps = useBlockPropsWithId(props, {
@@ -20,6 +20,14 @@ const Edit = (props: Props) => {
             });
         }
     }, [props.context['mindspun/labelPosition']]);
+
+    useEffect(() => {
+        if (props.context['mindspun/labelRequiredIndicator'] !== undefined) {
+            props.setAttributes({
+                labelRequiredIndicator: props.context['mindspun/labelRequiredIndicator'] as Props['attributes']['labelRequiredIndicator']
+            });
+        }
+    }, [props.context['mindspun/labelRequiredIndicator']]);
 
     return (
         <>
@@ -37,6 +45,11 @@ const Edit = (props: Props) => {
                 clientId={ props.clientId }
                 attributes={ props.attributes.labelStyleError }
                 selector={ 'label.is-error' }
+            />
+            <StylePortalClientId
+                clientId={ props.clientId }
+                attributes={ props.attributes.labelStyleRequiredIndicator }
+                selector={ 'label .mrblx-required-indicator' }
             />
             <StylePortalClientId
                 clientId={ props.clientId }
@@ -59,7 +72,7 @@ const Edit = (props: Props) => {
                 selector={ '.field-error' }
             />
             <div { ...blockProps }>
-                <Field attributes={ props.attributes }/>
+                <BaseField attributes={ props.attributes }/>
             </div>
         </>
     );

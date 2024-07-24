@@ -1,5 +1,5 @@
 const FieldError = (props: {message: string}) => {
-    return <p className={'mrblx-label mrblx-field-error'}>{props.message}</p>
+    return <small className={'mrblx-field-error'}>{props.message}</small>
 }
 
 export default FieldError;

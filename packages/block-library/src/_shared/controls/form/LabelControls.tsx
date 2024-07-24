@@ -1,14 +1,22 @@
-import {SelectControl} from '@wordpress/components';
+import {__} from '@wordpress/i18n';
+import {SelectControl, TextControl} from '@wordpress/components';
 
+import type {BlockCSSProperties} from '@mindspun/mrblx';
 import {
     BaseControls,
     ContainerContents,
     ContainerControl,
 } from '@mindspun/mrblx';
 
-import {Props} from '../types';
+export type LabelPosition = 'top' | 'inline' | 'none';
 
-type Attributes = Pick<Props['attributes'], 'labelPosition'|'labelStyle'|'labelStyleError'>;
+type Attributes = {
+    labelPosition: LabelPosition,
+    labelRequiredIndicator: string | null,
+    labelStyle: BlockCSSProperties,
+    labelStyleError: BlockCSSProperties,
+    labelStyleRequiredIndicator: BlockCSSProperties,
+}
 
 const LabelControls = (props: {
     attributes: Attributes,
@@ -18,7 +26,7 @@ const LabelControls = (props: {
         <>
             <ContainerContents>
                 <SelectControl
-                    label="Position"
+                    label={__('Position')}
                     value={ props.attributes.labelPosition }
                     options={ [
                         {label: 'Top', value: 'top'},
@@ -26,12 +34,22 @@ const LabelControls = (props: {
                         {label: 'None', value: 'none'},
                     ] }
                     onChange={ labelPosition => props.setAttributes({
-                        labelPosition: labelPosition as Props['attributes']['labelPosition']
+                        labelPosition: labelPosition as LabelPosition
                     }) }
                     __nextHasNoMarginBottom
                 />
+                <TextControl
+                    label={__('Required Indicator')}
+                    value={props.attributes.labelRequiredIndicator ? props.attributes.labelRequiredIndicator : ''}
+                    onChange={value => {
+                        props.setAttributes({
+                            labelRequiredIndicator: value ? value : ''
+                        })
+                    }}
+                    >
+                </TextControl>
             </ContainerContents>
-            <ContainerControl title={ 'Style' }>
+            <ContainerControl title={__('Style')}>
                 <ContainerContents>
                     <BaseControls
                         attributes={ props.attributes.labelStyle }
@@ -52,7 +70,28 @@ const LabelControls = (props: {
                     />
                 </ContainerContents>
             </ContainerControl>
-            <ContainerControl title={ 'Error State' }>
+            <ContainerControl title={__('Required Indicator')}>
+                <ContainerContents>
+                    <BaseControls
+                        attributes={ props.attributes.labelStyleRequiredIndicator }
+                        setAttributes={ style => {
+                            const labelStyleRequiredIndicator = {...props.attributes.labelStyleRequiredIndicator, ...style};
+                            props.setAttributes({labelStyleRequiredIndicator});
+                        } }
+                        options={ {
+                            color: {responsive: true},
+                            backgroundColor: {responsive: true},
+                            fontAppearance: true,
+                            fontSize: {responsive: true},
+                            textAlign: {responsive: true},
+                            letterCase: true,
+                            margin: {responsive: true},
+                            padding: {responsive: true}
+                        } }
+                    />
+                </ContainerContents>
+            </ContainerControl>
+            <ContainerControl title={__('Error State')}>
                 <ContainerContents>
                     <BaseControls
                         attributes={ props.attributes.labelStyleError }

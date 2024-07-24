@@ -1,6 +1,3 @@
-import React from 'react';
-import {hydrateRoot} from '@wordpress/element';
-import Field from './Field';
 import type {Props} from './types';
 
 export function getClassName(props: {attributes: Props['attributes']}) {
@@ -21,19 +18,32 @@ export function getBlockAttrsFromElement(element: HTMLElement, name: string = 'd
     return {};
 }
 
-export function hydrateInputs() {
-    document.querySelectorAll<HTMLDivElement>('.mrblx-form-group--input').forEach(div => {
-        hydrateRoot(div, React.createElement(Field, {
-            attributes: getBlockAttrsFromElement(div)
-        }));
-    });
+function isEmptyObjectOrArray(obj: any) {
+    if (obj === null || obj === undefined) {
+        /* Don't forget null is an object... */
+        return false;
+    }
+    if (typeof obj === 'object' && Object.keys(obj).length === 0) {
+        return true;
+    }
+    return Array.isArray(obj) && (obj.length === 0);
 }
 
 // Sort the attributes so that the JSON always generates the same.
 export function buildBlockAttrs(attributes: any) {
     const obj = {} as any;
     Object.keys(attributes).sort().map(key => {
-        obj[key] = attributes[key];
+        const value = attributes[key];
+        if (value !== null && value !== undefined &&  !isEmptyObjectOrArray(value)) {
+            obj[key] = value;
+        }
     });
     return JSON.stringify(obj);
+}
+
+export function isRequired(attributes: Props['attributes']) {
+    if (attributes.validation) {
+        return !!(attributes.validation.type && attributes.validation.required);
+    }
+    return false;
 }

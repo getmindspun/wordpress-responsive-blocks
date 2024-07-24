@@ -1,3 +1,5 @@
+
+import type {BlockCSSProperties} from '@mindspun/mrblx';
 import {
     BaseControls,
     BoxShadowControl,
@@ -5,9 +7,11 @@ import {
     ContainerControl,
 } from '@mindspun/mrblx';
 
-import {Props} from '../types';
-
-type Attributes = Pick<Props['attributes'], 'inputStyle'|'inputStyleError'|'inputStyleFocus'>;
+type Attributes = {
+    inputStyle: BlockCSSProperties,
+    inputStyleError: BlockCSSProperties,
+    inputStyleFocus: BlockCSSProperties,
+};
 
 const InputControls = (props: {
     attributes: Attributes,

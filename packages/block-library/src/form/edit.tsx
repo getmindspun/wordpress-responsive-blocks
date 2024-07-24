@@ -55,7 +55,7 @@ export default function Edit(props: Props) {
 			<Controls
 				{...props}
 			/>
-			<form {...innerBlocksProps} />
+			<form {...innerBlocksProps} noValidate={true} />
 		</>
 	);
 }

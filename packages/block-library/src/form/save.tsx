@@ -9,6 +9,8 @@ export default function save(props: { attributes: Props['attributes'] }) {
     return (
         <form
             {...innerBlockProps}
+            noValidate={true}
+            encType={props.attributes.encType}
         />
     );
 }

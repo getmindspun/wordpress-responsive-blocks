@@ -1,11 +1,12 @@
+import type {BlockCSSProperties} from '@mindspun/mrblx';
 import {
     BaseControls,
     ContainerContents
 } from '@mindspun/mrblx';
 
-import {Props} from '../types';
-
-type Attributes = Pick<Props['attributes'], 'fieldErrorStyle'>;
+type Attributes = {
+    fieldErrorStyle: BlockCSSProperties;
+}
 
 const FieldErrorControls = (props: {
     attributes: Attributes,
@@ -35,4 +36,3 @@ const FieldErrorControls = (props: {
 };
 
 export default FieldErrorControls;
-
