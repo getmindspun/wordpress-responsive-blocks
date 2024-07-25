@@ -2,17 +2,26 @@ import React from 'react';
 import classNames from 'classnames';
 import {forwardRef} from '@wordpress/element';
 
-import FieldText from '~shared/components/field/FieldText';
 import RequiredIndicator from '~shared/components/field/RequiredIndicator';
+import FieldText from '~shared/components/field/FieldText';
 
 import type {Props} from './types'
-import Input from './Input';
-import {isRequired} from './utils';
 
-const BaseField = forwardRef((props: {
+const SelectElement = forwardRef((props: {
+    className?: string,
+    attributes: Props['attributes'],
+}, ref: React.ForwardedRef<HTMLSelectElement>) => (
+    <select ref={ref}>
+        {props.attributes.options.map(option => (
+            <option value={option.value}>{option.label}</option>
+        ))}
+    </select>
+));
+
+const BaseSelect = forwardRef((props: {
     attributes: Props['attributes'],
     fieldError?: string|null
-}, ref: React.ForwardedRef<HTMLInputElement>) => {
+}, ref: React.ForwardedRef<HTMLSelectElement>) => {
     const className = classNames('mrblx-label', {
         'is-error': !!props.fieldError
     });
@@ -20,8 +29,9 @@ const BaseField = forwardRef((props: {
     if (props.attributes.labelPosition === 'none') {
         return (
             <>
-                <Input
+                <SelectElement
                     className={!!props.fieldError ? 'is-error' : undefined}
+                    ref={ref}
                     attributes={props.attributes}
                 />
                 <FieldText {...props} />
@@ -31,11 +41,11 @@ const BaseField = forwardRef((props: {
 
     return (
         <label className={className}>
-            <span>{props.attributes.label}<RequiredIndicator isRequired={isRequired(props.attributes)} text={props.attributes.labelRequiredIndicator}/></span>
-            <Input ref={ref} attributes={props.attributes} />
+            <span>{props.attributes.label}<RequiredIndicator isRequired={props.attributes.required} text={props.attributes.labelRequiredIndicator}/></span>
+            <SelectElement ref={ref} attributes={props.attributes} />
             <FieldText {...props} />
         </label>
     )
 });
 
-export default BaseField;
+export default BaseSelect;

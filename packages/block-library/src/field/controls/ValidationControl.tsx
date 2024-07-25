@@ -1,24 +1,14 @@
 import {__} from '@wordpress/i18n';
 import {
-    CheckboxControl,
     RadioControl,
     __experimentalNumberControl as NumberControl,
     TextControl
 } from '@wordpress/components';
-import {Validation, InputType} from '../types';
 
-const RequiredControl = (props: {
-    validation: Validation,
-    setValidation: (attributes: Partial<Validation>) => void,
-}) => (
-    <CheckboxControl
-        label={__('Required')}
-        checked={!!props.validation.required}
-        onChange={required => {
-            props.setValidation({required})
-        }}
-    />
-);
+import RequiredControl from '~shared/controls/form/RequiredControl';
+
+import {Validation, InputType} from '../types'
+
 
 const SimpleValidationControl = (props: {
     inputType: InputType,
@@ -28,7 +18,12 @@ const SimpleValidationControl = (props: {
     const isTextInput = (props.inputType === 'text' || !props.inputType);
     return (
         <>
-            <RequiredControl {...props} />
+            <RequiredControl
+                required={!!props.validation.required}
+                setRequired={required => {
+                    props.setValidation({required});
+                }}
+            />
             {isTextInput && <NumberControl
                 label={__('Minimum Length')}
                 value={props.validation.minLength}
@@ -48,7 +43,12 @@ const CustomValidationControl = (props: {
 }) => {
     return (
         <>
-            <RequiredControl {...props} />
+            <RequiredControl
+                required={!!props.validation.required}
+                setRequired={required => {
+                    props.setValidation({required});
+                }}
+            />
             <TextControl
                 label={__('Pattern')}
                 value={props.validation.pattern ? props.validation.pattern : ''}

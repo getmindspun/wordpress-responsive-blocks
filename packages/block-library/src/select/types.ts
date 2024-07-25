@@ -1,35 +1,22 @@
 import {BlockCSSProperties} from '@mindspun/mrblx';
 
-export type InputType = 'text' | 'password' | 'email' | 'date' | 'number' | 'tel' | 'url' | undefined;
-
-export type Validation = {
-    type: 'simple' | 'custom' | undefined,
-    required: boolean | undefined,
-    minLength: number | undefined,
-    pattern: string | undefined,
-    message: string | undefined,
-}
+import {LabelPosition, Option} from '~shared/types';
 
 export interface Attributes {
     blockId: string;
-    inputSize: number;
     label: string;
     name: string | null | undefined;
-    type: InputType;
-    autoComplete?: string | null | undefined;
-    autoFocus?: boolean;
-    spellCheck?: boolean;
-    autoCapitalize?: string | null | undefined;
+    autoComplete: string | null | undefined;
+    autoFocus: boolean;
+    options: Option[];
     help: string | undefined;
-    validation: Validation;
-    labelPosition: 'top' | 'inline' | 'none';
+    required: boolean;
+    labelPosition: LabelPosition;
     labelRequiredIndicator: string | undefined;
     labelStyle: BlockCSSProperties;
     labelStyleError: BlockCSSProperties;
     labelStyleRequiredIndicator: BlockCSSProperties;
-    inputStyle: BlockCSSProperties;
-    inputStyleFocus: BlockCSSProperties;
-    inputStyleError: BlockCSSProperties;
+    selectStyle: BlockCSSProperties;
     fieldErrorStyle: BlockCSSProperties;
     style: BlockCSSProperties;
 }

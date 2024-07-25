@@ -9,6 +9,25 @@ function countColumns(data: string[][]) {
     return count;
 }
 
+const TableHead = (props: {
+    columns?: string[],
+}) => {
+    if (!props.columns) {
+        return null;
+    }
+
+    return (
+        <thead>
+            <tr>
+                <th></th>
+                {props.columns.map(column => {
+                    return <th>{column}</th>
+                })}
+            </tr>
+        </thead>
+    )
+}
+
 const TableEditor = (props: {
     id: string,
     columns?: string[],
@@ -50,6 +69,7 @@ const TableEditor = (props: {
 
     return (
         <table id={props.id} className={'mrblx--table-editor'} style={{width: '100%'}}>
+            <TableHead columns={props.columns} />
             <tbody>
             {props.data.map((tr, index) => (
                 <TableRow

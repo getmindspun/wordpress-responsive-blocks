@@ -1,6 +1,8 @@
+import {useState, useRef} from '@wordpress/element';
+import {useEvent} from '~shared/hooks/useEvent';
+
 import BaseField from './BaseField';
 import type {Props, Validation} from './types';
-import {useState, useEffect, useRef} from '@wordpress/element';
 import {validate} from './validate';
 import {CustomEvent} from '../buttons/button/types';
 
@@ -22,28 +24,15 @@ const Field = (props: {
     const [error, setError] = useState<string|null>(null);
     const ref = useRef<HTMLInputElement|null>(null);
 
-    useEffect(() => {
-        const eventHandler = (event: CustomEvent) => {
-            const form = (event as {detail: any}).detail;
-            if (form && ref.current && form) {
-                setError(validateField(form as HTMLFormElement, ref.current, props.attributes.validation));
-            }
-        } // move callback inside function
-        window.addEventListener('mrblx.submit', eventHandler)
-        return () => {
-            window.removeEventListener('mrblx.submit', eventHandler) // this is called to remove it when the component 'unmounts' or the dependencies change, but the dependencies never change because you pass empty array
+    const submitEventHandler = (event: CustomEvent) => {
+        const form = (event as {detail: any}).detail;
+        if (form && ref.current && form) {
+            setError(validateField(form as HTMLFormElement, ref.current, props.attributes.validation));
         }
-    }, []);
+    }
 
-    useEffect(() => {
-        const eventHandler = () => {
-            setError(null);
-        } // move callback inside function
-        window.addEventListener('reset', eventHandler)
-        return () => {
-            window.removeEventListener('reset', eventHandler) // this is called to remove it when the component 'unmounts' or the dependencies change, but the dependencies never change because you pass empty array
-        }
-    }, []);
+    useEvent('mrblx.submit', submitEventHandler);
+    useEvent('reset', () => setError(null));
 
     return (<BaseField {...props} fieldError={error} ref={ref}/>);
 }

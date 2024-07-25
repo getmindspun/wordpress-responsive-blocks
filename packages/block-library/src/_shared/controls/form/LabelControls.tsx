@@ -8,11 +8,12 @@ import {
     ContainerControl,
 } from '@mindspun/mrblx';
 
-export type LabelPosition = 'top' | 'inline' | 'none';
+
+import type {LabelPosition} from '~shared/types';
 
 type Attributes = {
     labelPosition: LabelPosition,
-    labelRequiredIndicator: string | null,
+    labelRequiredIndicator: string | undefined,
     labelStyle: BlockCSSProperties,
     labelStyleError: BlockCSSProperties,
     labelStyleRequiredIndicator: BlockCSSProperties,

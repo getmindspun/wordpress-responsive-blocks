@@ -1,0 +1,89 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "mindspun/select",
+    "version": "0.17.1",
+    "title": "Select",
+    "category": "mindspun-responsive-blocks",
+    "description": "Fully-responsive select block.",
+    "example": {},
+    "attributes": {
+        "blockId": {
+            "type": "string"
+        },
+        "label": {
+            "type": "string"
+        },
+        "labelPosition": {
+            "type": "string",
+            "default": "top"
+        },
+        "labelRequiredIndicator": {
+            "type": "string",
+            "default": "*"
+        },
+        "name": {
+            "type": "string"
+        },
+        "autoComplete": {
+            "type": "string"
+        },
+        "autoFocus": {
+            "type": "boolean",
+            "default": false
+        },
+        "options": {
+            "type": "array",
+            "default": []
+        },
+        "required": {
+            "type": "boolean",
+            "default": false
+        },
+        "help": {
+            "type": "string"
+        },
+        "labelStyle": {
+            "type": "object",
+            "default": {},
+            "selector": "label"
+        },
+        "labelStyleError": {
+            "type": "object",
+            "default": {},
+            "selector": "label.is-error"
+        },
+        "labelStyleRequiredIndicator": {
+            "type": "object",
+            "default": {},
+            "selector": "label .mrblx-required-indicator"
+        },
+        "selectStyle": {
+            "type": "object",
+            "default": {},
+            "selector": "select"
+        },
+        "fieldErrorStyle": {
+            "type": "object",
+            "default": {},
+            "selector": ".field-error"
+        },
+        "style": {
+            "type": "object",
+            "default": {}
+        }
+    },
+    "textdomain": "mrblx",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./editor.css",
+    "style": "file:./style.css",
+    "viewScript": "file:./view.js",
+    "supports": {
+        "className": true
+    },
+    "usesContext": [
+        "mindspun/formBlockId",
+        "mindspun/labelPosition",
+        "mindspun/labelRequiredIndicator"
+    ]
+}
