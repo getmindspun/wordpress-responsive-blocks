@@ -1,22 +1,16 @@
-import {BlockCSSProperties} from '@mindspun/mrblx';
-import {LabelPosition} from '~shared/controls/form/LabelControls';
+import { ElementsAttributes } from '~shared/types';
 
 export type Props = {
 	clientId: string;
 	isSelected: boolean;
-	attributes: {
-		blockId: string;
+	attributes: ElementsAttributes & {
 		method: string;
 		action: string | undefined;
-		encType: 'application/form-data' | 'application/x-www-form-urlencoded' | 'application/json' | undefined;
-		labelPosition: LabelPosition;
-		labelStyle: BlockCSSProperties;
-		labelStyleError: BlockCSSProperties;
-		inputStyle: BlockCSSProperties;
-		inputStyleFocus: BlockCSSProperties;
-		inputStyleError: BlockCSSProperties;
-		fieldErrorStyle: BlockCSSProperties;
-		style: BlockCSSProperties;
+		encType:
+			| 'application/form-data'
+			| 'application/x-www-form-urlencoded'
+			| 'application/json'
+			| undefined;
 	};
 	setAttributes: (attributes: Partial<Props['attributes']>) => void;
 };

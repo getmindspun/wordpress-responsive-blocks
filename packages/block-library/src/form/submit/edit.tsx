@@ -1,7 +1,7 @@
-import {StylePortalClientId, useBlockPropsWithId} from '@mindspun/mrblx';
+import { StylePortalClientId, useBlockPropsWithId } from '@mindspun/mrblx';
 
 import './editor.scss';
-import type {Props} from './types';
+import type { Props } from './types';
 import Controls from './controls/Controls';
 
 export default function Edit(props: Props) {
@@ -13,10 +13,13 @@ export default function Edit(props: Props) {
 				clientId={props.clientId}
 				attributes={props.attributes.style}
 			/>
-			<input {...blockProps}
-				   value={props.attributes.value ? props.attributes.value : undefined}
-				   type={props.attributes.type ? props.attributes.type : 'submit'}
-				   onClick={event => event.preventDefault()}
+			<input
+				{...blockProps}
+				value={
+					props.attributes.value ? props.attributes.value : undefined
+				}
+				type={props.attributes.type ? props.attributes.type : 'submit'}
+				onClick={(event) => event.preventDefault()}
 			/>
 		</>
 	);

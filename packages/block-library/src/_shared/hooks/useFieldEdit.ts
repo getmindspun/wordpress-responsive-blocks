@@ -1,33 +1,36 @@
-import {useEffect} from '@wordpress/element';
-import type {LabelPosition} from '~shared/types';
+import { useEffect } from '@wordpress/element';
+import type { LabelPosition } from '~shared/types';
 
 type Attributes = {
-    labelPosition: LabelPosition;
-    labelRequiredIndicator: string | undefined;
-}
+	labelPosition: LabelPosition;
+	labelRequiredIndicator: string | undefined;
+};
 
 export function useFieldEdit(props: {
-    attributes: Attributes;
-    setAttributes: (attributes: Partial<Attributes>) => void;
-    context: {
-        ['mindspun/formBlockId']: string | undefined,
-        ['mindspun/labelPosition']: string | undefined,
-        ['mindspun/labelRequiredIndicator']: string | undefined,
-    }
+	attributes: Attributes;
+	setAttributes: (attributes: Partial<Attributes>) => void;
+	context: {
+		['mindspun/formBlockId']: string | undefined;
+		['mindspun/labelPosition']: LabelPosition | undefined;
+		['mindspun/labelRequiredIndicator']: Attributes['labelRequiredIndicator'];
+	};
 }) {
-    useEffect(() => {
-        if (props.context['mindspun/labelPosition']) {
-            props.setAttributes({
-                labelPosition: props.context['mindspun/labelPosition'] as LabelPosition || 'top'
-            });
-        }
-    }, [props.context['mindspun/labelPosition']]);
+	const labelPosition = props.context['mindspun/labelPosition'];
+	const labelRequiredIndicator =
+		props.context['mindspun/labelRequiredIndicator'];
+	const { setAttributes } = props;
 
-    useEffect(() => {
-        if (props.context['mindspun/labelRequiredIndicator'] !== undefined) {
-            props.setAttributes({
-                labelRequiredIndicator: props.context['mindspun/labelRequiredIndicator'] as Attributes['labelRequiredIndicator']
-            });
-        }
-    }, [props.context['mindspun/labelRequiredIndicator']]);
+	useEffect(() => {
+		if (labelPosition) {
+			setAttributes({
+				labelPosition: labelPosition ? labelPosition : 'top',
+			});
+		}
+	}, [labelPosition, setAttributes]);
+
+	useEffect(() => {
+		if (labelRequiredIndicator !== undefined) {
+			setAttributes({ labelRequiredIndicator });
+		}
+	}, [labelRequiredIndicator, setAttributes]);
 }

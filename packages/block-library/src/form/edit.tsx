@@ -1,6 +1,6 @@
 import { useInnerBlocksProps } from '@wordpress/block-editor';
 
-import {StylePortalClientId, useBlockPropsWithId} from '@mindspun/mrblx';
+import { StylePortalClientId, useBlockPropsWithId } from '@mindspun/mrblx';
 
 import './editor.scss';
 import type { Props } from './types';
@@ -9,52 +9,47 @@ import template from './template';
 
 export default function Edit(props: Props) {
 	const blockProps = useBlockPropsWithId(props);
-	const innerBlocksProps = useInnerBlocksProps(
-		blockProps,
-		{
-			template: template,
-		}
-	);
+	const innerBlocksProps = useInnerBlocksProps(blockProps, {
+		template,
+	});
 
 	return (
 		<>
 			<StylePortalClientId
-				clientId={ props.clientId }
-				attributes={ props.attributes.style }
+				clientId={props.clientId}
+				attributes={props.attributes.style}
 			/>
 			<StylePortalClientId
-				clientId={ props.clientId }
-				attributes={ props.attributes.labelStyle }
-				selector={ 'label' }
+				clientId={props.clientId}
+				attributes={props.attributes.labelStyle}
+				selector={'label'}
 			/>
 			<StylePortalClientId
-				clientId={ props.clientId }
-				attributes={ props.attributes.labelStyleError }
-				selector={ 'label.is-error' }
+				clientId={props.clientId}
+				attributes={props.attributes.labelStyleError}
+				selector={'label.is-error'}
 			/>
 			<StylePortalClientId
-				clientId={ props.clientId }
-				attributes={ props.attributes.inputStyle }
-				selector={ 'input' }
+				clientId={props.clientId}
+				attributes={props.attributes.inputStyle}
+				selector={'input'}
 			/>
 			<StylePortalClientId
-				clientId={ props.clientId }
-				attributes={ props.attributes.inputStyleFocus }
-				selector={ 'input:focus-visible' }
+				clientId={props.clientId}
+				attributes={props.attributes.inputStyleFocus}
+				selector={'input:focus-visible'}
 			/>
 			<StylePortalClientId
-				clientId={ props.clientId }
-				attributes={ props.attributes.inputStyleError }
-				selector={ 'input.is-error' }
+				clientId={props.clientId}
+				attributes={props.attributes.inputStyleError}
+				selector={'input.is-error'}
 			/>
 			<StylePortalClientId
-				clientId={ props.clientId }
-				attributes={ props.attributes.fieldErrorStyle }
-				selector={ '.field-error' }
+				clientId={props.clientId}
+				attributes={props.attributes.fieldErrorStyle}
+				selector={'.field-error'}
 			/>
-			<Controls
-				{...props}
-			/>
+			<Controls {...props} />
 			<form {...innerBlocksProps} noValidate={true} />
 		</>
 	);

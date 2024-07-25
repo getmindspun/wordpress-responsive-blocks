@@ -19,8 +19,8 @@ const resolve = {
 	...defaultConfig.resolve,
 	alias: {
 		...defaultConfig.resolve.alias,
-		'~shared': path.resolve(__dirname, 'src', '_shared')
-	}
+		'~shared': path.resolve(__dirname, 'src', '_shared'),
+	},
 };
 
 module.exports = {
@@ -56,5 +56,5 @@ module.exports = {
 			},
 		}),
 	],
-	resolve
+	resolve,
 };

@@ -7,12 +7,12 @@ import {
 } from '@mindspun/mrblx';
 
 type Attributes = {
-	inputStyle: BlockCSSProperties;
-	inputStyleError: BlockCSSProperties;
-	inputStyleFocus: BlockCSSProperties;
+	selectStyle: BlockCSSProperties;
+	selectStyleError: BlockCSSProperties;
+	selectStyleFocus: BlockCSSProperties;
 };
 
-const InputControls = (props: {
+const SelectControls = (props: {
 	attributes: Attributes;
 	setAttributes: (attributes: Partial<Attributes>) => void;
 }) => {
@@ -21,13 +21,13 @@ const InputControls = (props: {
 			<ContainerControl title={'Style'}>
 				<ContainerContents>
 					<BaseControls
-						attributes={props.attributes.inputStyle}
+						attributes={props.attributes.selectStyle}
 						setAttributes={(style) => {
-							const inputStyle = {
-								...props.attributes.inputStyle,
+							const selectStyle = {
+								...props.attributes.selectStyle,
 								...style,
 							};
-							props.setAttributes({ inputStyle });
+							props.setAttributes({ selectStyle });
 						}}
 						options={{
 							color: { responsive: true },
@@ -38,12 +38,12 @@ const InputControls = (props: {
 						}}
 					/>
 					<BoxShadowControl
-						attributes={props.attributes.inputStyle}
-						setAttributes={(inputStyle) => {
+						attributes={props.attributes.selectStyle}
+						setAttributes={(selectStyle) => {
 							props.setAttributes({
-								inputStyle: {
-									...props.attributes.inputStyle,
-									...inputStyle,
+								selectStyle: {
+									...props.attributes.selectStyle,
+									...selectStyle,
 								},
 							});
 						}}
@@ -54,13 +54,13 @@ const InputControls = (props: {
 			<ContainerControl title={'Error State'}>
 				<ContainerContents>
 					<BaseControls
-						attributes={props.attributes.inputStyleError}
+						attributes={props.attributes.selectStyleError}
 						setAttributes={(style) => {
-							const inputStyleError = {
-								...props.attributes.inputStyleError,
+							const selectStyleError = {
+								...props.attributes.selectStyleError,
 								...style,
 							};
-							props.setAttributes({ inputStyleError });
+							props.setAttributes({ selectStyleError });
 						}}
 						options={{
 							color: { responsive: true },
@@ -69,12 +69,12 @@ const InputControls = (props: {
 						}}
 					/>
 					<BoxShadowControl
-						attributes={props.attributes.inputStyleError}
-						setAttributes={(inputStyleError) => {
+						attributes={props.attributes.selectStyleError}
+						setAttributes={(selectStyleError) => {
 							props.setAttributes({
-								inputStyleError: {
-									...props.attributes.inputStyleError,
-									...inputStyleError,
+								selectStyleError: {
+									...props.attributes.selectStyleError,
+									...selectStyleError,
 								},
 							});
 						}}
@@ -85,13 +85,13 @@ const InputControls = (props: {
 			<ContainerControl title={'Focus'}>
 				<ContainerContents>
 					<BaseControls
-						attributes={props.attributes.inputStyleFocus}
+						attributes={props.attributes.selectStyleFocus}
 						setAttributes={(style) => {
-							const inputStyleFocus = {
-								...props.attributes.inputStyleFocus,
+							const selectStyleFocus = {
+								...props.attributes.selectStyleFocus,
 								...style,
 							};
-							props.setAttributes({ inputStyleFocus });
+							props.setAttributes({ selectStyleFocus });
 						}}
 						options={{
 							color: { responsive: true },
@@ -100,12 +100,12 @@ const InputControls = (props: {
 						}}
 					/>
 					<BoxShadowControl
-						attributes={props.attributes.inputStyleFocus}
-						setAttributes={(inputStyleFocus) => {
+						attributes={props.attributes.selectStyleFocus}
+						setAttributes={(selectStyleFocus) => {
 							props.setAttributes({
-								inputStyleFocus: {
-									...props.attributes.inputStyleFocus,
-									...inputStyleFocus,
+								selectStyleFocus: {
+									...props.attributes.selectStyleFocus,
+									...selectStyleFocus,
 								},
 							});
 						}}
@@ -117,4 +117,4 @@ const InputControls = (props: {
 	);
 };
 
-export default InputControls;
+export default SelectControls;

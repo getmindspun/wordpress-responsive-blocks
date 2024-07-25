@@ -13,7 +13,7 @@ import BorderHoverControl from './BorderHoverControl';
 
 type Attributes = {
 	blockId: string;
-	style: BlockCSSProperties
+	style: BlockCSSProperties;
 };
 
 const StyleControls = (props: {

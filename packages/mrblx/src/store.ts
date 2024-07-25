@@ -2,10 +2,9 @@ import React from 'react';
 import { register, createReduxStore } from '@wordpress/data';
 
 type State = {
-	blockIds: Record<string, string>,
-	controlStates: Record<string, string>,
-}
-
+	blockIds: Record<string, string>;
+	controlStates: Record<string, string>;
+};
 
 if (!window.mrblxStore) {
 	const DEFAULT_STATE = {

@@ -50,6 +50,36 @@
             "default": {},
             "selector": "input.is-error"
         },
+        "selectStyle": {
+            "type": "object",
+            "default": {},
+            "selector": "select"
+        },
+        "selectStyleFocus": {
+            "type": "object",
+            "default": {},
+            "selector": "select:focus-visible"
+        },
+        "selectStyleError": {
+            "type": "object",
+            "default": {},
+            "selector": "select.is-error"
+        },
+        "textAreaStyle": {
+            "type": "object",
+            "default": {},
+            "selector": "input"
+        },
+        "textAreaStyleFocus": {
+            "type": "object",
+            "default": {},
+            "selector": "input:focus-visible"
+        },
+        "textAreaStyleError": {
+            "type": "object",
+            "default": {},
+            "selector": "input.is-error"
+        },
         "fieldErrorStyle": {
             "type": "object",
             "default": {},

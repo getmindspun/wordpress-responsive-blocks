@@ -1,5 +1,5 @@
 import { registerBlockType } from '@wordpress/blocks';
-import {keyboard} from '@wordpress/icons';
+import { keyboard } from '@wordpress/icons';
 
 import './style.scss';
 import edit from './edit';

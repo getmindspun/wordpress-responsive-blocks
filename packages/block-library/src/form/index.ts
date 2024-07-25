@@ -8,7 +8,7 @@ import './submit';
 
 const icon = {
 	foreground: '#005ffe',
-	src: 'forms'
+	src: 'forms',
 };
 
 registerBlockType(metadata.name, { edit, save, icon } as any);

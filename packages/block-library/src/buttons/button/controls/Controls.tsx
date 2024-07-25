@@ -6,8 +6,6 @@ import {
 import { layout, styles } from '@wordpress/icons';
 import { __ } from '@wordpress/i18n';
 
-
-
 import {
 	BlockId,
 	ContainerContents,
