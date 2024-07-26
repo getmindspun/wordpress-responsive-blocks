@@ -1,0 +1,15 @@
+.wp-block-mindspun-select--controls {
+    .mrblx--tabbed-control {
+        border-top: 1px solid #ccc;
+
+        .mrblx--tabbed-header .mrblx--tab button.has-icon {
+            height: 72px;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    .mrblx-button--edit-options {
+        justify-content: center;
+    }
+}

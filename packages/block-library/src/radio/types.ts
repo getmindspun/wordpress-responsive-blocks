@@ -1,4 +1,4 @@
-import { ElementsAttributes, LabelPosition, Option } from '~shared/types';
+import { ElementsAttributes, Option } from '~shared/types';
 
 export interface Attributes
 	extends Pick<
@@ -9,16 +9,14 @@ export interface Attributes
 		| 'labelStyle'
 		| 'labelRequiredIndicator'
 		| 'labelStyleRequiredIndicator'
-		| 'selectStyle'
-		| 'selectStyleError'
-		| 'selectStyleFocus'
+		| 'inputStyle'
+		| 'inputStyleError'
+		| 'inputStyleFocus'
 		| 'fieldErrorStyle'
 		| 'style'
 	> {
 	label: string;
 	name: string | null | undefined;
-	autoComplete: string | null | undefined;
-	autoFocus: boolean;
 	options: Option[];
 	help: string | undefined;
 	required: boolean;
@@ -31,7 +29,7 @@ export type Props = {
 	setAttributes: (attributes: Partial<Attributes>) => void;
 	context: {
 		['mindspun/formBlockId']: string | undefined;
-		['mindspun/labelPosition']: LabelPosition | undefined;
+		['mindspun/labelPosition']: string | undefined;
 		['mindspun/labelRequiredIndicator']: string | undefined;
 	};
 };
