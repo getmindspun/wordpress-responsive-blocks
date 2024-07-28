@@ -1,6 +1,9 @@
 import { useBlockPropsWithId } from '@mindspun/mrblx';
+
+import {buildBlockAttrs} from '~shared/utils';
+
 import type { Props } from './types';
-import { getClassName, buildBlockAttrs } from './utils';
+import { getClassName } from './utils';
 import BaseSelect from './BaseSelect';
 
 const Save = (props: { attributes: Props['attributes'] }) => {

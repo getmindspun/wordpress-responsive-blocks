@@ -2,8 +2,8 @@ import React from 'react';
 import { createRoot } from '@wordpress/element';
 import domReady from '@wordpress/dom-ready';
 
-import { getBlockAttrsFromElement } from './utils';
-import Select from './Select';
+import { getBlockAttrsFromElement } from '~shared/utils';
+import Radio from './Radio';
 
 function handleRadio(form: HTMLFormElement, field: HTMLDivElement) {
 	const props = {
@@ -12,7 +12,7 @@ function handleRadio(form: HTMLFormElement, field: HTMLDivElement) {
 
 	/* NB We can't hydrate here (but should).  span inside span causes hydration errors. */
 	const root = createRoot(field);
-	root.render(React.createElement(Select, props));
+	root.render(React.createElement(Radio, props));
 }
 
 domReady(() => {

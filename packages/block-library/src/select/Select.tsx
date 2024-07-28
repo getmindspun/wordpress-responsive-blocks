@@ -1,8 +1,9 @@
-import BaseSelect from './BaseSelect';
-import type { Props } from './types';
 import { useState, useRef } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 import { useEvent } from '~shared/hooks/useEvent';
+
+import BaseSelect from './BaseSelect';
+import type { Props } from './types';
 
 const Select = (props: { attributes: Props['attributes'] }) => {
 	const [error, setError] = useState<string | null>(null);
@@ -10,7 +11,7 @@ const Select = (props: { attributes: Props['attributes'] }) => {
 
 	const submitEventHandler = (event: Event) => {
 		const form = (event as unknown as { detail: any }).detail;
-		if (form && ref.current && form) {
+		if (form && ref.current) {
 			const select = ref.current;
 			if (props.attributes.required && select.selectedIndex < 0) {
 				setError(__('Required'));

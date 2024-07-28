@@ -1,4 +1,4 @@
-import { ElementsAttributes, Option } from '~shared/types';
+import {ElementsAttributes, Option, OptionWithSelected} from '~shared/types';
 
 export interface Attributes
 	extends Pick<
@@ -17,8 +17,8 @@ export interface Attributes
 		| 'style'
 	> {
 	label: string;
-	name: string | null | undefined;
-	options: Option[];
+	name: string | undefined;
+	options: OptionWithSelected[];
 	help: string | undefined;
 	required: boolean;
 }

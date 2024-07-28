@@ -2,7 +2,7 @@ import React from 'react';
 import {
 	Button,
 	Draggable,
-	__experimentalInputControl as InputControl,
+	__experimentalInputControl as InputControl, Icon,
 } from '@wordpress/components';
 import { dragHandle, plus, closeSmall, check } from '@wordpress/icons';
 
@@ -11,13 +11,15 @@ const SelectColumn = (props: {
 	selected: boolean;
 	onClick: () => void
 }) => {
+	const style = {width:'24px', cursor:'pointer', padding:0};
+
 	if (!props.hasSelect) {
 		return null;
 	}
 	if (props.selected) {
-		return <td width={'24px'} onClick={props.onClick}>{check}</td>
+		return <td style={style} onClick={props.onClick}><Icon icon={check} /></td>
 	}
-	return <td width={'24px'} onClick={props.onClick}>&nbsp;</td>
+	return <td style={style} onClick={props.onClick}>&nbsp;</td>
 }
 
 const TableRow = (props: {

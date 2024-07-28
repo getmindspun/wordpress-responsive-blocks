@@ -36,9 +36,9 @@
         "options": {
             "type": "array",
             "default": [
-                {"label": "First Choice", "value":  "1"},
-                {"label": "Second Choice", "value":  "2"},
-                {"label": "Third Choice", "value":  "3"}
+                {"label": "First Choice", "value":  "1st", "selected":  true},
+                {"label": "Second Choice", "value":  "2nd"},
+                {"label": "Third Choice", "value":  "3rd"}
             ]
         },
         "required": {

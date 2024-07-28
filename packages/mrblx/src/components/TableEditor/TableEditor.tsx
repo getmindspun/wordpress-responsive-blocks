@@ -9,7 +9,10 @@ function countColumns(data: string[][]) {
 	return count;
 }
 
-const TableHead = (props: { columns?: string[] }) => {
+const TableHead = (props: {
+	hasSelect: boolean;
+	columns?: string[]
+}) => {
 	if (!props.columns) {
 		return null;
 	}
@@ -18,6 +21,7 @@ const TableHead = (props: { columns?: string[] }) => {
 		<thead>
 			<tr>
 				<th></th>
+				{props.hasSelect ? <th></th> : null}
 				{props.columns.map((column, index) => {
 					return <th key={index}>{column}</th>;
 				})}
@@ -34,6 +38,7 @@ const TableEditor = (props: {
 	selected?: number|undefined;
 	setSelected?: (selected: number|undefined) => void;
 }) => {
+	const hasSelect = (props.setSelected !== undefined);
 	const columnCount = countColumns(props.data);
 
 	function onAdd(index: number) {
@@ -89,7 +94,7 @@ const TableEditor = (props: {
 			className={'mrblx--table-editor'}
 			style={{ width: '100%' }}
 		>
-			<TableHead columns={props.columns} />
+			<TableHead hasSelect={hasSelect} columns={props.columns} />
 			<tbody>
 				{props.data.map((tr, index) => (
 					<TableRow

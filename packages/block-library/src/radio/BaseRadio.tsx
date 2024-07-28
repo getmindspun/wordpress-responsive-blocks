@@ -10,6 +10,7 @@ import type { Props } from './types';
 const Radios = (props: {
 	className?: string;
 	attributes: Props['attributes'];
+	name: string | undefined;
 	value?: string | undefined;
 	onChange?: (value: string) => void;
 }) => {
@@ -26,6 +27,7 @@ const Radios = (props: {
 					<input
 						type={'radio'}
 						key={index}
+						name={props.name}
 						value={option.value}
 						checked={props.value === option.value}
 						onChange={onOptionChange}
@@ -41,7 +43,14 @@ const BaseRadio = forwardRef(
 	(props: {
 		attributes: Props['attributes'];
 		fieldError?: string | null;
+		value?: string | undefined;
+		onChange?: (value: string) => void;
 	}) => {
+		let name = props.attributes.name;
+		if (!name && props.attributes.blockId) {
+			name = props.attributes.blockId.substring(5, 11);
+		}
+
 		const className = classNames({
 			'is-error': !!props.fieldError,
 		});
@@ -52,6 +61,7 @@ const BaseRadio = forwardRef(
 					<Radios
 						className={!!props.fieldError ? 'is-error' : undefined}
 						attributes={props.attributes}
+						name={name}
 					/>
 					<FieldText {...props} />
 				</>
@@ -67,7 +77,12 @@ const BaseRadio = forwardRef(
 						text={props.attributes.labelRequiredIndicator}
 					/>
 				</div>
-				<Radios attributes={props.attributes} />
+				<Radios
+					name={name}
+					attributes={props.attributes}
+					value={props.value}
+					onChange={props.onChange}
+				/>
 				<FieldText {...props} />
 			</div>
 		);

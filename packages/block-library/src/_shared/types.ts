@@ -10,6 +10,10 @@ export type Option = {
 	hidden?: boolean;
 };
 
+export type OptionWithSelected = Option & {
+	selected?: boolean;
+}
+
 export type ElementsAttributes = {
 	blockId: string;
 	labelPosition: LabelPosition;

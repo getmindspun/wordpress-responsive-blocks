@@ -1,45 +1,13 @@
-import { Button, Modal } from '@wordpress/components';
+import { Button } from '@wordpress/components';
 import { useState } from '@wordpress/element';
-import { __ } from '@wordpress/i18n';
 
-import { Option } from '~shared/types';
-import TableEditor from '@mindspun/mrblx/src/components/TableEditor/TableEditor';
+import {OptionWithSelected} from '~shared/types';
+import OptionsModal from '~shared/controls/OptionsModal';
 
-const OptionsModal = (props: {
-	onRequestClose: () => void;
-	options: Option[];
-	setOptions: (options: Option[]) => void;
-}) => {
-	const data = props.options.map((option) => {
-		return [option.label, option.value];
-	});
-
-	if (data.length === 0) {
-		data.push(['', '']);
-	}
-
-	function setData(newData: string[][]) {
-		const options = newData.map((row) => {
-			return { label: row[0], value: row[1] };
-		});
-		props.setOptions(options);
-	}
-
-	return (
-		<Modal onRequestClose={props.onRequestClose}>
-			<TableEditor
-				id={'mrblx-options-modal'}
-				columns={[__('Label'), __('Value')]}
-				data={data}
-				setData={setData}
-			/>
-		</Modal>
-	);
-};
 
 const EditOptionsControl = (props: {
-	options: Option[];
-	setOptions: (options: Option[]) => void;
+	options: OptionWithSelected[];
+	setOptions: (options: OptionWithSelected[]) => void;
 }) => {
 	const [showModal, setShowModal] = useState(false);
 

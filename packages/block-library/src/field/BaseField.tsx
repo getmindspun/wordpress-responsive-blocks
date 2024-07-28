@@ -7,7 +7,13 @@ import RequiredIndicator from '~shared/components/field/RequiredIndicator';
 
 import type { Props } from './types';
 import Input from './Input';
-import { isRequired } from './utils';
+
+export function isRequired(attributes: Props['attributes']) {
+	if (attributes.validation) {
+		return !!(attributes.validation.type && attributes.validation.required);
+	}
+	return false;
+}
 
 const BaseField = forwardRef(
 	(

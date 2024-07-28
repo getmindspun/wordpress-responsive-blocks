@@ -41,7 +41,9 @@ const GeneralControls = (props: Props) => {
 			<hr />
 			<EditOptionsControl
 				options={props.attributes.options}
-				setOptions={(options) => props.setAttributes({ options })}
+				setOptions={(options) => {
+					props.setAttributes({ options })
+				}}
 			/>
 			<hr />
 			<BaseControls

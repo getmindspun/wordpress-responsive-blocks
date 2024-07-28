@@ -2,7 +2,7 @@ import React from 'react';
 import { createRoot } from '@wordpress/element';
 import domReady from '@wordpress/dom-ready';
 
-import { getBlockAttrsFromElement } from './utils';
+import {getBlockAttrsFromElement} from '~shared/utils';
 import Field from './Field';
 
 function handleField(form: HTMLFormElement, field: HTMLDivElement) {
