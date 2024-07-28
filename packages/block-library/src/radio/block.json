@@ -12,7 +12,8 @@
             "type": "string"
         },
         "label": {
-            "type": "string"
+            "type": "string",
+            "default": "Untitled"
         },
         "labelPosition": {
             "type": "string",
@@ -34,7 +35,11 @@
         },
         "options": {
             "type": "array",
-            "default": []
+            "default": [
+                {"label": "First Choice", "value":  "1"},
+                {"label": "Second Choice", "value":  "2"},
+                {"label": "Third Choice", "value":  "3"}
+            ]
         },
         "required": {
             "type": "boolean",
@@ -46,17 +51,17 @@
         "labelStyle": {
             "type": "object",
             "default": {},
-            "selector": "label"
+            "selector": ".mrblx-field-label"
         },
         "labelStyleError": {
             "type": "object",
             "default": {},
-            "selector": "label.is-error"
+            "selector": ".is-error .mrblx-field-label"
         },
         "labelStyleRequiredIndicator": {
             "type": "object",
             "default": {},
-            "selector": "label .mrblx-required-indicator"
+            "selector": ".mrblx-field-label.mrblx-required-indicator"
         },
         "inputStyle": {
             "type": "object",
@@ -72,6 +77,11 @@
             "type": "object",
             "default": {},
             "selector": "input.is-error"
+        },
+        "helpStyle": {
+            "type": "object",
+            "default": {},
+            "selector": "small.field-help"
         },
         "fieldErrorStyle": {
             "type": "object",

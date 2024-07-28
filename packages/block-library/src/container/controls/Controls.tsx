@@ -15,11 +15,12 @@ import {
 	useGetPreviewDeviceType,
 	ViewAll,
 } from '@mindspun/mrblx';
-import DisplayControl from './DisplayControl';
+
+import DisplayControl from '~shared/controls/container/DisplayControl';
+
 import SizingControl from './sizing/SizingControl';
 import StyleControls from './StyleControls';
 import TableCellControls from './TableCellControls';
-import React from 'react';
 import FlexControls from './FlexControls';
 import TableControls from './TableControls';
 import TableSpanControls from './TableSpanControls';

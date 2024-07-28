@@ -1,14 +1,16 @@
 import { StylePortalClientId, useBlockPropsWithId } from '@mindspun/mrblx';
 
+
+import {useRequiredIndicator} from '~shared/hooks/useFieldEdit';
+
 import './editor.scss';
 import type { Props } from './types';
 import Controls from './controls/Controls';
 import { getClassName } from './utils';
 import BaseRadio from './BaseRadio';
-import { useFieldEdit } from '~shared/hooks/useFieldEdit';
 
 const Edit = (props: Props) => {
-	useFieldEdit(props);
+	useRequiredIndicator(props);
 
 	const blockProps = useBlockPropsWithId(props, {
 		className: getClassName(props),
@@ -24,22 +26,32 @@ const Edit = (props: Props) => {
 			<StylePortalClientId
 				clientId={props.clientId}
 				attributes={props.attributes.labelStyle}
-				selector={'label'}
+				selector={'.mrblx-field-label'}
 			/>
 			<StylePortalClientId
 				clientId={props.clientId}
 				attributes={props.attributes.labelStyleError}
-				selector={'label.is-error'}
+				selector={'.is-error .mrblx-field-label'}
 			/>
 			<StylePortalClientId
 				clientId={props.clientId}
 				attributes={props.attributes.labelStyleRequiredIndicator}
-				selector={'label .mrblx-required-indicator'}
+				selector={'.mrblx-field-label .mrblx-required-indicator'}
 			/>
 			<StylePortalClientId
 				clientId={props.clientId}
-				attributes={props.attributes.selectStyle}
-				selector={'select'}
+				attributes={props.attributes.inputStyle}
+				selector={'input'}
+			/>
+			<StylePortalClientId
+				clientId={props.clientId}
+				attributes={props.attributes.inputStyleError}
+				selector={'input.is-error'}
+			/>
+			<StylePortalClientId
+				clientId={props.clientId}
+				attributes={props.attributes.fieldErrorStyle}
+				selector={'.field-help'}
 			/>
 			<StylePortalClientId
 				clientId={props.clientId}

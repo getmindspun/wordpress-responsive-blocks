@@ -1,3 +1,4 @@
+import React from 'react';
 import type { BlockCSSProperties } from '@mindspun/mrblx';
 import {
 	BaseControls,
@@ -15,9 +16,11 @@ type Attributes = {
 const InputControls = (props: {
 	attributes: Attributes;
 	setAttributes: (attributes: Partial<Attributes>) => void;
+    children?: React.ReactNode
 }) => {
 	return (
 		<>
+            {props.children}
 			<ContainerControl title={'Style'}>
 				<ContainerContents>
 					<BaseControls

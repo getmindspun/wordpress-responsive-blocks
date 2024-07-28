@@ -9,7 +9,7 @@ const FieldText = (props: {
 		return <FieldError message={props.fieldError} />;
 	}
 	if (props.attributes.help) {
-		return <small>{props.attributes.help}</small>;
+		return <small className={'field-help'}>{props.attributes.help}</small>;
 	}
 	return null;
 };

@@ -22,7 +22,7 @@ const Radios = (props: {
 	return (
 		<>
 			{props.attributes.options.map((option, index) => (
-				<label key={index}>
+				<label key={index} className={'mrblx-radio-label'}>
 					<input
 						type={'radio'}
 						key={index}
@@ -42,7 +42,7 @@ const BaseRadio = forwardRef(
 		attributes: Props['attributes'];
 		fieldError?: string | null;
 	}) => {
-		const className = classNames('mrblx-label', {
+		const className = classNames({
 			'is-error': !!props.fieldError,
 		});
 
@@ -60,7 +60,7 @@ const BaseRadio = forwardRef(
 
 		return (
 			<div className={className}>
-				<div>
+				<div className={'mrblx-field-label'}>
 					{props.attributes.label}
 					<RequiredIndicator
 						isRequired={props.attributes.required}

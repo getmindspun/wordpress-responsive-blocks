@@ -1,11 +1,11 @@
 $red: #DF1B41;
 
 // Keep .mrblx-label for extra specificity
-.wp-block-mindspun-select {
+.wp-block-mindspun-radio {
     &, &.wp-block {
         margin-bottom: 1em;
     }
-    label.mrblx-label {
+    .mrblx-field-label {
         display: flex;
 
         .mrblx-required-indicator {
@@ -13,8 +13,12 @@ $red: #DF1B41;
         }
     }
 
-    & label.mrblx-label.is-error {
+    & .is-error .mrblx-field-label {
         color: $red;
+    }
+
+    .mrblx-field-label {
+        font-weight: bold;
     }
 
     .mrblx-field-error {
@@ -39,7 +43,19 @@ $red: #DF1B41;
         }
     }
 
+    .mrblx-radio-label {
+        display: block;
+    }
+
+    input[type="radio"] {
+        margin-right: .5em;
+    }
+
     input:focus-visible {
         outline: none;
+    }
+
+    small {
+        display: block;
     }
 }

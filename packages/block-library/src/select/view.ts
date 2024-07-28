@@ -20,7 +20,7 @@ domReady(() => {
 		.querySelectorAll<HTMLFormElement>('.wp-block-mindspun-form')
 		.forEach((form) => {
 			form.querySelectorAll<HTMLDivElement>(
-				'.wp-block-mindspun-field'
+				'.wp-block-mindspun-select'
 			).forEach((field) => {
 				handleSelect(form, field);
 			});

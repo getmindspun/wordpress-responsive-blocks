@@ -26,6 +26,7 @@ export type ElementsAttributes = {
 	textAreaStyle: BlockCSSProperties;
 	textAreaStyleFocus: BlockCSSProperties;
 	textAreaStyleError: BlockCSSProperties;
+	helpStyle: BlockCSSProperties;
 	fieldErrorStyle: BlockCSSProperties;
 	style: BlockCSSProperties;
 };

@@ -1,12 +1,18 @@
 import { __ } from '@wordpress/i18n';
 
+import { ContainerContents } from '@mindspun/mrblx';
+
 import SelectedContainerControl from '~shared/controls/SelectedContainerControl';
 import SelectedContainer from '~shared/controls/SelectedContainer';
 
+import DisplayControl from '~shared/controls/container/DisplayControl';
+
 import LabelControls from '~shared/controls/form/LabelControls';
-import SelectControls from '~shared/controls/form/SelectControls';
 import FieldErrorControls from '~shared/controls/form/FieldErrorControls';
+import InputControls from '~shared/controls/form/InputControls';
+
 import { Attributes } from '../types';
+import HelpControls from '~shared/controls/form/HelpControls';
 
 const ElementsControls = (props: {
 	attributes: Attributes;
@@ -17,13 +23,34 @@ const ElementsControls = (props: {
 			blockId={props.attributes.blockId}
 			label={__('Element')}
 		>
-			<SelectedContainer key={'Labels'}>
+			<SelectedContainer key={'Field Label'}>
 				<LabelControls {...props} />
 			</SelectedContainer>
-			<SelectedContainer key={'Selects'}>
-				<SelectControls {...props} />
+			<SelectedContainer key={'Inputs'}>
+				<InputControls {...props}>
+					<ContainerContents>
+						<DisplayControl
+							attributes={props.attributes.style}
+							setAttributes={(newStyle) => {
+								const style = {
+									...props.attributes.style,
+									...newStyle,
+								};
+								props.setAttributes({ style });
+							}}
+							options={[
+								{ label: 'Default', value: 'default' },
+								{ label: 'Block', value: 'block' },
+								{ label: 'Inline Block', value: 'inline-block' },
+							]}
+						/>
+					</ContainerContents>
+				</InputControls>
 			</SelectedContainer>
-			<SelectedContainer key={'Field Errors'}>
+			<SelectedContainer key={'Field Help'}>
+				<HelpControls {...props} />
+			</SelectedContainer>
+			<SelectedContainer key={'Field Error'}>
 				<FieldErrorControls {...props} />
 			</SelectedContainer>
 		</SelectedContainerControl>

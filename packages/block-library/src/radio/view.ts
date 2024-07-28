@@ -5,7 +5,7 @@ import domReady from '@wordpress/dom-ready';
 import { getBlockAttrsFromElement } from './utils';
 import Select from './Select';
 
-function handleSelect(form: HTMLFormElement, field: HTMLDivElement) {
+function handleRadio(form: HTMLFormElement, field: HTMLDivElement) {
 	const props = {
 		attributes: getBlockAttrsFromElement(field),
 	};
@@ -20,9 +20,9 @@ domReady(() => {
 		.querySelectorAll<HTMLFormElement>('.wp-block-mindspun-form')
 		.forEach((form) => {
 			form.querySelectorAll<HTMLDivElement>(
-				'.wp-block-mindspun-field'
+				'.wp-block-mindspun-radio'
 			).forEach((field) => {
-				handleSelect(form, field);
+				handleRadio(form, field);
 			});
 		});
 });

@@ -6,18 +6,14 @@ type Attributes = {
 	labelRequiredIndicator: string | undefined;
 };
 
-export function useFieldEdit(props: {
-	attributes: Attributes;
-	setAttributes: (attributes: Partial<Attributes>) => void;
+export function useLabelPosition(props: {
+	attributes: { labelPosition: LabelPosition; };
+	setAttributes: (attributes: Partial<{labelPosition: LabelPosition}>) => void;
 	context: {
-		['mindspun/formBlockId']: string | undefined;
 		['mindspun/labelPosition']: LabelPosition | undefined;
-		['mindspun/labelRequiredIndicator']: Attributes['labelRequiredIndicator'];
 	};
 }) {
 	const labelPosition = props.context['mindspun/labelPosition'];
-	const labelRequiredIndicator =
-		props.context['mindspun/labelRequiredIndicator'];
 	const { setAttributes } = props;
 
 	useEffect(() => {
@@ -27,10 +23,35 @@ export function useFieldEdit(props: {
 			});
 		}
 	}, [labelPosition, setAttributes]);
+}
+
+
+export function useRequiredIndicator(props: {
+	attributes: { labelRequiredIndicator: string | undefined };
+	setAttributes: (attributes: Partial<{ labelRequiredIndicator: string | undefined }>) => void;
+	context: {
+		['mindspun/labelRequiredIndicator']: Attributes['labelRequiredIndicator'];
+	};
+}) {
+	const labelRequiredIndicator =
+		props.context['mindspun/labelRequiredIndicator'];
+	const { setAttributes } = props;
 
 	useEffect(() => {
 		if (labelRequiredIndicator !== undefined) {
 			setAttributes({ labelRequiredIndicator });
 		}
 	}, [labelRequiredIndicator, setAttributes]);
+}
+
+export function useFieldEdit(props: {
+	attributes: Attributes;
+	setAttributes: (attributes: Partial<Attributes>) => void;
+	context: {
+		['mindspun/labelPosition']: LabelPosition | undefined;
+		['mindspun/labelRequiredIndicator']: Attributes['labelRequiredIndicator'];
+	};
+}) {
+	useLabelPosition(props);
+	useRequiredIndicator(props);
 }

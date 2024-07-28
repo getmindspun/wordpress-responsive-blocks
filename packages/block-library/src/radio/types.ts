@@ -12,6 +12,7 @@ export interface Attributes
 		| 'inputStyle'
 		| 'inputStyleError'
 		| 'inputStyleFocus'
+		| 'helpStyle'
 		| 'fieldErrorStyle'
 		| 'style'
 	> {

@@ -10,18 +10,9 @@ const GeneralControls = (props: Props) => {
 	return (
 		<ContainerContents>
 			<TextControl
-				label={'Label'}
+				label={'Field Label'}
 				value={props.attributes.label}
 				onChange={(label) => props.setAttributes({ label })}
-			/>
-			<TextControl
-				label={'Name'}
-				value={props.attributes.name ? props.attributes.name : ''}
-				onChange={(name) =>
-					props.setAttributes({
-						name: name ? name : undefined,
-					})
-				}
 			/>
 			<TextControl
 				label={'Help'}
@@ -29,6 +20,15 @@ const GeneralControls = (props: Props) => {
 				onChange={(help) =>
 					props.setAttributes({
 						help: help ? help : undefined,
+					})
+				}
+			/>
+			<TextControl
+				label={'Name'}
+				value={props.attributes.name ? props.attributes.name : ''}
+				onChange={(name) =>
+					props.setAttributes({
+						name: name ? name : undefined,
 					})
 				}
 			/>
