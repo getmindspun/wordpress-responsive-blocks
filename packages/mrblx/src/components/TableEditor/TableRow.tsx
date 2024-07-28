@@ -4,7 +4,21 @@ import {
 	Draggable,
 	__experimentalInputControl as InputControl,
 } from '@wordpress/components';
-import { dragHandle, plus, closeSmall } from '@wordpress/icons';
+import { dragHandle, plus, closeSmall, check } from '@wordpress/icons';
+
+const SelectColumn = (props: {
+	hasSelect: boolean;
+	selected: boolean;
+	onClick: () => void
+}) => {
+	if (!props.hasSelect) {
+		return null;
+	}
+	if (props.selected) {
+		return <td width={'24px'} onClick={props.onClick}>{check}</td>
+	}
+	return <td width={'24px'} onClick={props.onClick}>&nbsp;</td>
+}
 
 const TableRow = (props: {
 	id: string;
@@ -14,7 +28,11 @@ const TableRow = (props: {
 	onDelete?: () => void;
 	onEdit?: (data: string[]) => void;
 	onDrop?: (data: string) => void;
+	selected?: boolean;
+	onSelect?: () => void;
 }) => {
+	const hasSelect = (props.onSelect !== undefined);
+
 	function onChange(index: number, value: string | undefined) {
 		if (props.onEdit) {
 			const newData = [...props.data];
@@ -27,6 +45,7 @@ const TableRow = (props: {
 		event.preventDefault();
 		event.dataTransfer.dropEffect = 'move';
 	}
+
 	function onDrop(event: React.DragEvent) {
 		event.preventDefault();
 		// Get the id of the target and add the moved element to the target's DOM
@@ -57,6 +76,15 @@ const TableRow = (props: {
 					)}
 				</Draggable>
 			</td>
+			<SelectColumn
+				hasSelect={hasSelect}
+				selected={!!props.selected}
+				onClick={() => {
+					if (props.onSelect) {
+						props.onSelect();
+					}
+				}}
+			/>
 			{props.data.map((td, index) => (
 				<td key={index}>
 					<InputControl

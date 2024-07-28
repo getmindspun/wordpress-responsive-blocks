@@ -9,4 +9,5 @@ export { default as DeviceTypeContainer } from './DeviceTypeContainer/DeviceType
 export { default as Portal } from './Portal/Portal';
 export { default as StylePortalClientId } from './StylePortal/StylePortalClientId';
 export { default as TabbedContainer } from './TabbedContainer/TabbedContainer';
+export { default as TableEditor } from './TableEditor/TableEditor';
 export { default as ViewAll } from './ViewAll/ViewAll';

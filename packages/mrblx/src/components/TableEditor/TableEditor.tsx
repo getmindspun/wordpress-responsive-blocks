@@ -31,6 +31,8 @@ const TableEditor = (props: {
 	columns?: string[];
 	data: string[][];
 	setData: (data: string[][]) => void;
+	selected?: number|undefined;
+	setSelected?: (selected: number|undefined) => void;
 }) => {
 	const columnCount = countColumns(props.data);
 
@@ -57,12 +59,28 @@ const TableEditor = (props: {
 			index: number;
 			data: string[];
 		};
+		let newSelect = props.selected;
+		if (props.selected === data.index) {
+			newSelect = toIndex;
+		} else if (props.selected === toIndex) {
+			newSelect = data.index;
+		}
 
 		const newData = [...props.data];
 		newData.splice(data.index, 1);
 		newData.splice(toIndex, 0, data.data);
 
 		props.setData(newData);
+		if (props.setSelected) {
+			props.setSelected(newSelect);
+		}
+	}
+
+	function onSelect(index: number) {
+		if (props.setSelected) {
+			const selected = index !== props.selected ? index : undefined;
+			props.setSelected(selected);
+		}
 	}
 
 	return (
@@ -83,6 +101,8 @@ const TableEditor = (props: {
 						onDelete={() => onDelete(index)}
 						onEdit={(row) => onEdit(index, row)}
 						onDrop={(data) => onDrop(index, data)}
+						selected={props.selected === index}
+						onSelect={props.setSelected ? () => onSelect(index) : undefined}
 					/>
 				))}
 			</tbody>
