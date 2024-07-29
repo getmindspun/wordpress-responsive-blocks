@@ -1,0 +1,28 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "mindspun/hidden",
+    "version": "0.17.1",
+    "title": "Hidden Field",
+    "category": "mindspun-responsive-blocks",
+    "description": "An element that is not visible to the user but can still hold data that will be sent to the server when a form is submitted.",
+    "example": {},
+    "attributes": {
+        "name": {
+            "type": "string"
+        },
+        "value": {
+            "type": "string"
+        }
+    },
+    "textdomain": "mrblx",
+    "editorScript": "file:./index.js",
+    "supports": {
+        "className": true
+    },
+    "usesContext": [
+        "mindspun/formBlockId",
+        "mindspun/labelPosition",
+        "mindspun/labelRequiredIndicator"
+    ]
+}
