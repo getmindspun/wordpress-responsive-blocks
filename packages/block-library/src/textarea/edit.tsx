@@ -4,7 +4,7 @@ import './editor.scss';
 import type { Props } from './types';
 import Controls from './controls/Controls';
 import { getClassName } from './utils';
-import BaseSelect from './BaseSelect';
+import BaseTextArea from './BaseTextArea';
 import { useFieldEdit } from '~shared/hooks/useFieldEdit';
 
 const Edit = (props: Props) => {
@@ -38,8 +38,18 @@ const Edit = (props: Props) => {
 			/>
 			<StylePortalClientId
 				clientId={props.clientId}
-				attributes={props.attributes.selectStyle}
-				selector={'select'}
+				attributes={props.attributes.textAreaStyle}
+				selector={'input'}
+			/>
+			<StylePortalClientId
+				clientId={props.clientId}
+				attributes={props.attributes.textAreaStyleFocus}
+				selector={'input:focus-visible'}
+			/>
+			<StylePortalClientId
+				clientId={props.clientId}
+				attributes={props.attributes.textAreaStyleError}
+				selector={'input.is-error'}
 			/>
 			<StylePortalClientId
 				clientId={props.clientId}
@@ -52,7 +62,7 @@ const Edit = (props: Props) => {
 				selector={'.field-error'}
 			/>
 			<div {...blockProps}>
-				<BaseSelect attributes={props.attributes} />
+				<BaseTextArea attributes={props.attributes} />
 			</div>
 		</>
 	);

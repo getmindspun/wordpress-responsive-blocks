@@ -1,18 +1,25 @@
 {
     "$schema": "https://schemas.wp.org/trunk/block.json",
     "apiVersion": 3,
-    "name": "mindspun/select",
+    "name": "mindspun/textarea",
     "version": "0.17.1",
-    "title": "Select",
+    "title": "Text Area",
     "category": "mindspun-responsive-blocks",
-    "description": "Fully-responsive select block.",
+    "description": "Multi-line editing control for free-form text.",
     "example": {},
     "attributes": {
         "blockId": {
             "type": "string"
         },
+        "rows": {
+            "type": "integer"
+        },
+        "cols": {
+            "type": "integer"
+        },
         "label": {
-            "type": "string"
+            "type": "string",
+            "default": "Untitled"
         },
         "labelPosition": {
             "type": "string",
@@ -25,23 +32,23 @@
         "name": {
             "type": "string"
         },
-        "autoComplete": {
+        "autoCorrect": {
             "type": "string"
         },
         "autoFocus": {
             "type": "boolean",
             "default": false
         },
-        "options": {
-            "type": "array",
-            "default": []
-        },
-        "required": {
+        "spellCheck": {
             "type": "boolean",
             "default": false
         },
         "help": {
             "type": "string"
+        },
+        "validation": {
+            "type": "object",
+            "default": {}
         },
         "labelStyle": {
             "type": "object",
@@ -58,15 +65,25 @@
             "default": {},
             "selector": "label .mrblx-required-indicator"
         },
-        "selectStyle": {
-            "type": "object",
-            "default": {},
-            "selector": "select"
-        },
         "helpStyle": {
             "type": "object",
             "default": {},
-            "selector": ".field-help"
+            "selector": "small.field-help"
+        },
+        "textAreaStyle": {
+            "type": "object",
+            "default": {},
+            "selector": "textarea"
+        },
+        "textAreaStyleFocus": {
+            "type": "object",
+            "default": {},
+            "selector": "textarea:focus-visible"
+        },
+        "textAreaStyleError": {
+            "type": "object",
+            "default": {},
+            "selector": "textarea.is-error"
         },
         "fieldErrorStyle": {
             "type": "object",

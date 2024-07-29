@@ -12,6 +12,7 @@ export interface Attributes
 		| 'selectStyle'
 		| 'selectStyleError'
 		| 'selectStyleFocus'
+		| 'helpStyle'
 		| 'fieldErrorStyle'
 		| 'style'
 	> {

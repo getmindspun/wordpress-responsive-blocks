@@ -83,6 +83,11 @@
             "default": {},
             "selector": "input.is-error"
         },
+        "helpStyle": {
+            "type": "object",
+            "default": {},
+            "selector": ".field-help"
+        },
         "fieldErrorStyle": {
             "type": "object",
             "default": {},

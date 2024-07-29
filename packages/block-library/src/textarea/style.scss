@@ -1,0 +1,49 @@
+$red: #DF1B41;
+
+// Keep .mrblx-label for extra specificity
+.wp-block-mindspun-textarea {
+    &, &.wp-block {
+        margin-bottom: 1em;
+    }
+    label.mrblx-label {
+        display: flex;
+
+        .mrblx-required-indicator {
+            color: $red;
+        }
+    }
+
+    .mrblx-field-label {
+        font-weight: bold;
+    }
+
+    & label.mrblx-label.is-error {
+        color: $red;
+    }
+
+    .mrblx-field-error {
+        color: $red;
+        font-size: smaller;
+    }
+
+    &.mrblx-label-top {
+        label.mrblx-label {
+            flex-direction: column;
+        }
+    }
+
+    &.mrblx-label-inline {
+        label.mrblx-label {
+            flex-direction: row;
+            align-items: center;
+
+            & > span {
+                margin-right: .25em;
+            }
+        }
+    }
+
+    textarea:focus-visible {
+        outline: none;
+    }
+}

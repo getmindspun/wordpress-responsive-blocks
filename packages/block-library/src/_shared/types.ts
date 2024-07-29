@@ -34,3 +34,11 @@ export type ElementsAttributes = {
 	fieldErrorStyle: BlockCSSProperties;
 	style: BlockCSSProperties;
 };
+
+export type Validation = {
+	type: 'simple' | 'custom' | undefined;
+	required: boolean | undefined;
+	minLength: number | undefined;
+	pattern: string | undefined;
+	message: string | undefined;
+};
