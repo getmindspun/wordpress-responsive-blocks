@@ -1,0 +1,62 @@
+$red: #DF1B41;
+
+// Keep .mrblx-label for extra specificity
+.wp-block-mindspun-checkbox {
+    &, &.wp-block {
+        margin-bottom: 1em;
+    }
+    .mrblx-field-label {
+        display: flex;
+
+        .mrblx-required-indicator {
+            color: $red;
+        }
+    }
+
+    & .is-error .mrblx-field-label {
+        color: $red;
+    }
+
+    .mrblx-field-label {
+        font-weight: bold;
+    }
+
+    .mrblx-field-error {
+        color: $red;
+        font-size: smaller;
+    }
+
+    &.mrblx-label-top {
+        label.mrblx-label {
+            flex-direction: column;
+        }
+    }
+
+    &.mrblx-label-inline {
+        label.mrblx-label {
+            flex-direction: row;
+            align-items: center;
+
+            & > span {
+                margin-right: .25em;
+            }
+        }
+    }
+
+    .mrblx-checkbox-label {
+        display: flex;
+        align-items: center;
+    }
+
+    input[type="checkbox"] {
+        margin-right: .5em;
+    }
+
+    input:focus-visible {
+        outline: none;
+    }
+
+    small {
+        display: block;
+    }
+}
