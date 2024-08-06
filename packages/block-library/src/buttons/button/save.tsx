@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { useBlockPropsWithId } from '@mindspun/mrblx';
-import { CustomEvent, Props } from './types';
+import type { CustomEvent } from '~shared/types';
+import type { Props } from './types';
 
 function javascript(event: CustomEvent) {
 	let js = null;

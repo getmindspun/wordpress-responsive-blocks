@@ -4,7 +4,6 @@ import { BaseControls, ContainerContents } from '@mindspun/mrblx';
 import RequiredControl from '~shared/controls/form/RequiredControl';
 
 import { Props } from '../types';
-import EditOptionsControl from './EditOptionsControl';
 
 const GeneralControls = (props: Props) => {
 	return (
@@ -36,13 +35,6 @@ const GeneralControls = (props: Props) => {
 				required={props.attributes.required}
 				setRequired={(required) => {
 					props.setAttributes({ required });
-				}}
-			/>
-			<hr />
-			<EditOptionsControl
-				options={props.attributes.options}
-				setOptions={(options) => {
-					props.setAttributes({ options })
 				}}
 			/>
 			<hr />

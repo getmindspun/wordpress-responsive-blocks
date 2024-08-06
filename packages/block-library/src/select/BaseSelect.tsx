@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 import { forwardRef } from '@wordpress/element';
 
 import RequiredIndicator from '~shared/components/field/RequiredIndicator';
@@ -15,7 +14,7 @@ const SelectElement = forwardRef(
 		},
 		ref: React.ForwardedRef<HTMLSelectElement>
 	) => (
-		<select ref={ref}>
+		<select ref={ref} multiple={props.attributes.multiple}>
 			{props.attributes.options.map((option, index) => (
 				<option key={index} value={option.value}>
 					{option.label}
@@ -33,11 +32,10 @@ const BaseSelect = forwardRef(
 		},
 		ref: React.ForwardedRef<HTMLSelectElement>
 	) => {
-		const className = classNames('mrblx-label', {
-			'is-error': !!props.fieldError,
-		});
-
-		if (props.attributes.labelPosition === 'none') {
+		if (
+			props.attributes.labelPosition === 'none' ||
+			!props.attributes.label
+		) {
 			return (
 				<>
 					<SelectElement
@@ -52,8 +50,8 @@ const BaseSelect = forwardRef(
 
 		/* eslint-disable jsx-a11y/label-has-associated-control */
 		return (
-			<label className={className}>
-				<span>
+			<label className={props.fieldError ? 'is-error' : undefined}>
+				<span className={'mrblx-field-label'}>
 					{props.attributes.label}
 					<RequiredIndicator
 						isRequired={props.attributes.required}

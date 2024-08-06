@@ -23,6 +23,7 @@ export interface Attributes
 	options: Option[];
 	help: string | undefined;
 	required: boolean;
+	multiple: boolean;
 }
 
 export type Props = {

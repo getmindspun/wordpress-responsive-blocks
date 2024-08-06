@@ -35,7 +35,7 @@
         },
         "required": {
             "type": "boolean",
-            "default": true
+            "default": false
         },
         "checked": {
             "type": "boolean",
@@ -45,7 +45,7 @@
             "type": "string",
             "default": "You must select this option."
         },
-        "optionText": {
+        "optionContent": {
             "type": "string",
             "default": "Please select this option."
         },
@@ -79,12 +79,12 @@
             "default": {},
             "selector": "input.is-error"
         },
-        "fieldTextStyle": {
+        "optionContentStyle": {
             "type": "object",
             "default": {},
             "selector": ".mrblx-checkbox-label"
         },
-        "fieldTextStyleError": {
+        "optionContentStyleError": {
             "type": "object",
             "default": {},
             "selector": "is-error .mrblx-checkbox-label"

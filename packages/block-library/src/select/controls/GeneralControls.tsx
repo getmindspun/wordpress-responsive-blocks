@@ -5,6 +5,7 @@ import RequiredControl from '~shared/controls/form/RequiredControl';
 
 import { Props } from '../types';
 import EditOptionsControl from './EditOptionsControl';
+import MultipleControl from './MutlipleControl';
 
 const GeneralControls = (props: Props) => {
 	return (
@@ -36,6 +37,12 @@ const GeneralControls = (props: Props) => {
 				required={props.attributes.required}
 				setRequired={(required) => {
 					props.setAttributes({ required });
+				}}
+			/>
+			<MultipleControl
+				multiple={props.attributes.multiple}
+				setMultiple={(multiple) => {
+					props.setAttributes({ multiple });
 				}}
 			/>
 			<hr />

@@ -6,7 +6,6 @@ import FieldText from '~shared/components/field/FieldText';
 import RequiredIndicator from '~shared/components/field/RequiredIndicator';
 
 import type { Props } from './types';
-import TextArea from './TextArea';
 
 export function isRequired(attributes: Props['attributes']) {
 	if (attributes.validation) {
@@ -14,6 +13,48 @@ export function isRequired(attributes: Props['attributes']) {
 	}
 	return false;
 }
+
+const TextAreaElement = forwardRef(
+	(
+		props: {
+			className?: string;
+			attributes: Props['attributes'];
+			value?: string | undefined;
+			onChange?: (value: string) => void;
+		},
+		ref: React.ForwardedRef<HTMLTextAreaElement>
+	) => {
+		function onChange(event: React.ChangeEvent<HTMLTextAreaElement>) {
+			if (props.onChange) {
+				props.onChange(event.target.value);
+			}
+		}
+
+		return (
+			<textarea
+				className={props.className}
+				name={props.attributes.name ? props.attributes.name : undefined}
+				autoComplete={
+					props.attributes.autoComplete
+						? props.attributes.autoComplete
+						: undefined
+				}
+				autoFocus={!!props.attributes.autoFocus}
+				spellCheck={!!props.attributes.spellCheck}
+				autoCapitalize={
+					props.attributes.autoCapitalize
+						? props.attributes.autoCapitalize
+						: undefined
+				}
+				rows={props.attributes.rows}
+				cols={props.attributes.cols}
+				ref={ref}
+				value={props.value}
+				onChange={onChange}
+			/>
+		);
+	}
+);
 
 const BaseTextArea = forwardRef(
 	(
@@ -27,10 +68,13 @@ const BaseTextArea = forwardRef(
 			'is-error': !!props.fieldError,
 		});
 
-		if (props.attributes.labelPosition === 'none') {
+		if (
+			props.attributes.labelPosition === 'none' ||
+			!props.attributes.label
+		) {
 			return (
 				<>
-					<TextArea
+					<TextAreaElement
 						className={!!props.fieldError ? 'is-error' : undefined}
 						attributes={props.attributes}
 					/>
@@ -48,7 +92,7 @@ const BaseTextArea = forwardRef(
 						text={props.attributes.labelRequiredIndicator}
 					/>
 				</span>
-				<TextArea ref={ref} attributes={props.attributes} />
+				<TextAreaElement ref={ref} attributes={props.attributes} />
 				<FieldText {...props} />
 			</label>
 		);

@@ -24,17 +24,17 @@ const Edit = (props: Props) => {
 			<StylePortalClientId
 				clientId={props.clientId}
 				attributes={props.attributes.labelStyle}
-				selector={'label'}
+				selector={'.mrblx-field-label'}
 			/>
 			<StylePortalClientId
 				clientId={props.clientId}
 				attributes={props.attributes.labelStyleError}
-				selector={'label.is-error'}
+				selector={'.mrblx-field-label.is-error'}
 			/>
 			<StylePortalClientId
 				clientId={props.clientId}
 				attributes={props.attributes.labelStyleRequiredIndicator}
-				selector={'label .mrblx-required-indicator'}
+				selector={'.mrblx-field-label .mrblx-required-indicator'}
 			/>
 			<StylePortalClientId
 				clientId={props.clientId}

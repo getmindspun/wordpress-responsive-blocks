@@ -1,4 +1,4 @@
-import {ElementsAttributes, Option, OptionWithSelected} from '~shared/types';
+import { ElementsAttributes, Option, OptionWithSelected } from '~shared/types';
 
 export interface Attributes
 	extends Pick<
@@ -12,8 +12,8 @@ export interface Attributes
 		| 'inputStyle'
 		| 'inputStyleError'
 		| 'inputStyleFocus'
-		| 'optionTextStyle'
-		| 'optionTextErrorStyle'
+		| 'optionContentStyle'
+		| 'optionContentErrorStyle'
 		| 'helpStyle'
 		| 'fieldErrorStyle'
 		| 'style'
@@ -22,7 +22,7 @@ export interface Attributes
 	name: string | undefined;
 	value: string | undefined;
 	help: string | undefined;
-	optionText: string | undefined;
+	optionContent: string | undefined;
 	required: boolean;
 	checked: boolean;
 	autoFocus: boolean | undefined;

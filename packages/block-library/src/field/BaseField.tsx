@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 import { forwardRef } from '@wordpress/element';
 
 import FieldText from '~shared/components/field/FieldText';
@@ -23,25 +22,24 @@ const BaseField = forwardRef(
 		},
 		ref: React.ForwardedRef<HTMLInputElement>
 	) => {
-		const className = classNames('mrblx-label', {
-			'is-error': !!props.fieldError,
-		});
-
-		if (props.attributes.labelPosition === 'none') {
+		if (
+			props.attributes.labelPosition === 'none' ||
+			!props.attributes.label
+		) {
 			return (
-				<>
+				<div className={props.fieldError ? 'is-error' : undefined}>
 					<Input
 						className={!!props.fieldError ? 'is-error' : undefined}
 						attributes={props.attributes}
 					/>
 					<FieldText {...props} />
-				</>
+				</div>
 			);
 		}
 
 		return (
-			<label className={className}>
-				<span>
+			<label className={props.fieldError ? 'is-error' : undefined}>
+				<span className={'mrblx-field-label'}>
 					{props.attributes.label}
 					<RequiredIndicator
 						isRequired={isRequired(props.attributes)}

@@ -59,3 +59,8 @@ export function getBlockAttrsFromElement(
 	}
 	return {};
 }
+
+export function formInvalidate(form: HTMLFormElement) {
+	form.classList.add('mrblx-invalid');
+	form.isInvalid = true;
+}

@@ -5,15 +5,19 @@ $red: #DF1B41;
     &, &.wp-block {
         margin-bottom: 1em;
     }
-    label.mrblx-label {
-        display: flex;
+    label {
+        display: flex !important;
+
+        .mrblx-field-label {
+            font-weight: bold;
+        }
 
         .mrblx-required-indicator {
             color: $red;
         }
     }
 
-    & label.mrblx-label.is-error {
+    & .is-error .mrblx-field-label {
         color: $red;
     }
 
@@ -23,13 +27,13 @@ $red: #DF1B41;
     }
 
     &.mrblx-label-top {
-        label.mrblx-label {
+        label {
             flex-direction: column;
         }
     }
 
     &.mrblx-label-inline {
-        label.mrblx-label {
+        label {
             flex-direction: row;
             align-items: center;
 

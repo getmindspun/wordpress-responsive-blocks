@@ -1,9 +1,9 @@
 import { useBlockPropsWithId } from '@mindspun/mrblx';
 
-import {buildBlockAttrs} from '~shared/utils';
+import { buildBlockAttrs } from '~shared/utils';
 
 import type { Props } from './types';
-import {getClassName} from './utils';
+import { getClassName } from './utils';
 import BaseCheckbox from './BaseCheckbox';
 
 const Save = (props: { attributes: Props['attributes'] }) => {

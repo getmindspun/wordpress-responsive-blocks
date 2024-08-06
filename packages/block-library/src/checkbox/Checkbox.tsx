@@ -4,7 +4,7 @@ import { __ } from '@wordpress/i18n';
 import { useEvent } from '~shared/hooks/useEvent';
 import BaseCheckbox from './BaseCheckbox';
 import type { Props } from './types';
-
+import { formInvalidate } from '~shared/utils';
 
 const Checkbox = (props: { attributes: Props['attributes'] }) => {
 	const [checked, setChecked] = useState(props.attributes.checked);
@@ -14,7 +14,10 @@ const Checkbox = (props: { attributes: Props['attributes'] }) => {
 		const form = (event as unknown as { detail: any }).detail;
 		if (form) {
 			if (props.attributes.required && !checked) {
+				formInvalidate(form);
 				setError(__('Required'));
+			} else {
+				setError(null);
 			}
 		}
 	};
@@ -25,7 +28,14 @@ const Checkbox = (props: { attributes: Props['attributes'] }) => {
 		setError(null);
 	});
 
-	return <BaseCheckbox {...props} checked={checked} fieldError={error} onChange={setChecked} />;
+	return (
+		<BaseCheckbox
+			{...props}
+			checked={checked}
+			fieldError={error}
+			onChange={setChecked}
+		/>
+	);
 };
 
 export default Checkbox;

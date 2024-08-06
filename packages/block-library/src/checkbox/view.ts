@@ -5,7 +5,7 @@ import domReady from '@wordpress/dom-ready';
 import { getBlockAttrsFromElement } from '~shared/utils';
 import Checkbox from './Checkbox';
 
-function handleRadio(form: HTMLFormElement, field: HTMLDivElement) {
+function handleCheckbox(form: HTMLFormElement, field: HTMLDivElement) {
 	const props = {
 		attributes: getBlockAttrsFromElement(field),
 	};
@@ -20,9 +20,9 @@ domReady(() => {
 		.querySelectorAll<HTMLFormElement>('.wp-block-mindspun-form')
 		.forEach((form) => {
 			form.querySelectorAll<HTMLDivElement>(
-				'.wp-block-mindspun-radio'
+				'.wp-block-mindspun-checkbox'
 			).forEach((field) => {
-				handleRadio(form, field);
+				handleCheckbox(form, field);
 			});
 		});
 });

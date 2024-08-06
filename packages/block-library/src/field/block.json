@@ -56,17 +56,17 @@
         "labelStyle": {
             "type": "object",
             "default": {},
-            "selector": "label"
+            "selector": ".mrblx-field-label"
         },
         "labelStyleError": {
             "type": "object",
             "default": {},
-            "selector": "label.is-error"
+            "selector": ".is-error .mrblx-field-label"
         },
         "labelStyleRequiredIndicator": {
             "type": "object",
             "default": {},
-            "selector": "label .mrblx-required-indicator"
+            "selector": ".mrblx-field-label .mrblx-required-indicator"
         },
         "inputStyle": {
             "type": "object",
@@ -81,7 +81,7 @@
         "inputStyleError": {
             "type": "object",
             "default": {},
-            "selector": "input.is-error"
+            "selector": ".is-error label"
         },
         "helpStyle": {
             "type": "object",

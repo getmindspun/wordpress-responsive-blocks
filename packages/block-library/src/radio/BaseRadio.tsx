@@ -55,13 +55,17 @@ const BaseRadio = forwardRef(
 			'is-error': !!props.fieldError,
 		});
 
-		if (props.attributes.labelPosition === 'none') {
+		if (
+			props.attributes.labelPosition === 'none' ||
+			!props.attributes.label
+		) {
 			return (
 				<>
 					<Radios
 						className={!!props.fieldError ? 'is-error' : undefined}
 						attributes={props.attributes}
 						name={name}
+						onChange={props.onChange}
 					/>
 					<FieldText {...props} />
 				</>

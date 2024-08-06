@@ -1,10 +1,10 @@
 import { StylePortalClientId, useBlockPropsWithId } from '@mindspun/mrblx';
 
-import {useRequiredIndicator} from '~shared/hooks/useFieldEdit';
+import { useRequiredIndicator } from '~shared/hooks/useFieldEdit';
 
 import type { Props } from './types';
 import Controls from './controls/Controls';
-import {getClassName} from './utils';
+import { getClassName } from './utils';
 import Checkbox from './Checkbox';
 
 const Edit = (props: Props) => {
@@ -16,9 +16,7 @@ const Edit = (props: Props) => {
 
 	return (
 		<>
-			<Controls
-				{...props}
-			/>
+			<Controls {...props} />
 			<StylePortalClientId
 				clientId={props.clientId}
 				attributes={props.attributes.style}
@@ -59,9 +57,7 @@ const Edit = (props: Props) => {
 				selector={'.field-error'}
 			/>
 			<div {...blockProps}>
-				<Checkbox
-					attributes={props.attributes}
-				/>
+				<Checkbox attributes={props.attributes} />
 			</div>
 		</>
 	);

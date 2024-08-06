@@ -30,8 +30,8 @@ export type ElementsAttributes = {
 	textAreaStyle: BlockCSSProperties;
 	textAreaStyleFocus: BlockCSSProperties;
 	textAreaStyleError: BlockCSSProperties;
-	optionTextStyle: BlockCSSProperties;
-	optionTextErrorStyle: BlockCSSProperties;
+	optionContentStyle: BlockCSSProperties;
+	optionContentErrorStyle: BlockCSSProperties;
 	helpStyle: BlockCSSProperties;
 	fieldErrorStyle: BlockCSSProperties;
 	style: BlockCSSProperties;
@@ -43,4 +43,9 @@ export type Validation = {
 	minLength: number | undefined;
 	pattern: string | undefined;
 	message: string | undefined;
+};
+
+export type CustomEvent = {
+	type?: string;
+	detail?: string | null;
 };

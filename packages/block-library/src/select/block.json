@@ -40,6 +40,10 @@
             "type": "boolean",
             "default": false
         },
+        "multiple": {
+            "type": "boolean",
+            "default": false
+        },
         "help": {
             "type": "string"
         },

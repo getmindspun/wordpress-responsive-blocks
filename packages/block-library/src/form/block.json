@@ -28,12 +28,12 @@
         "labelStyle": {
             "type": "object",
             "default": {},
-            "selector": "label"
+            "selector": ".mrblx-field-label"
         },
         "labelStyleError": {
             "type": "object",
             "default": {},
-            "selector": ".is-error"
+            "selector": ".is-error .mrblx-field-label"
         },
         "inputStyle": {
             "type": "object",
@@ -48,7 +48,7 @@
         "inputStyleError": {
             "type": "object",
             "default": {},
-            "selector": "input.is-error"
+            "selector": ".is-error input"
         },
         "selectStyle": {
             "type": "object",
@@ -63,7 +63,7 @@
         "selectStyleError": {
             "type": "object",
             "default": {},
-            "selector": "select.is-error"
+            "selector": ".is-error select"
         },
         "textAreaStyle": {
             "type": "object",
@@ -78,7 +78,7 @@
         "textAreaStyleError": {
             "type": "object",
             "default": {},
-            "selector": "input.is-error"
+            "selector": ".is-error textarea"
         },
         "fieldErrorStyle": {
             "type": "object",

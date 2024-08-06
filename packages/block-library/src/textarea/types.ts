@@ -31,6 +31,7 @@ export interface Attributes
 	validation: Validation;
 	rows: number | undefined;
 	cols: number | undefined;
+	required?: boolean;
 }
 
 export type Props = {

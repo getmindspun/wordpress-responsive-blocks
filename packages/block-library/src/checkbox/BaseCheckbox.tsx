@@ -7,21 +7,18 @@ import FieldText from '~shared/components/field/FieldText';
 
 import type { Props } from './types';
 
-const BaseCheckbox = forwardRef(
+const CheckboxInput = forwardRef(
 	(props: {
 		attributes: Props['attributes'];
 		checked: boolean;
 		fieldError?: string | null;
 		onChange?: (value: boolean) => void;
+		children?: React.ReactNode;
 	}) => {
 		let name = props.attributes.name;
 		if (!name && props.attributes.blockId) {
 			name = props.attributes.blockId.substring(5, 11);
 		}
-
-		const className = classNames({
-			'is-error': !!props.fieldError,
-		});
 
 		function onChange() {
 			if (props.onChange) {
@@ -29,24 +26,45 @@ const BaseCheckbox = forwardRef(
 			}
 		}
 
-		if (props.attributes.labelPosition === 'none') {
-			return (
-				<>
+		return (
+			<div className={props.fieldError ? 'is-error' : undefined}>
+				{props.children}
+				<label className={'mrblx-checkbox-label'}>
 					<input
-						className={!!props.fieldError ? 'is-error' : undefined}
 						name={name}
 						type={'checkbox'}
 						autoFocus={!!props.attributes.autoFocus}
 						onChange={onChange}
 						checked={props.checked}
 					/>
-					<FieldText {...props} />
-				</>
-			);
+					{props.attributes.optionContent}
+				</label>
+				<FieldText {...props} />
+			</div>
+		);
+	}
+);
+
+const BaseCheckbox = forwardRef(
+	(props: {
+		attributes: Props['attributes'];
+		checked: boolean;
+		fieldError?: string | null;
+		onChange?: (value: boolean) => void;
+	}) => {
+		const className = classNames({
+			'is-error': !!props.fieldError,
+		});
+
+		if (
+			props.attributes.labelPosition === 'none' ||
+			!props.attributes.label
+		) {
+			return <CheckboxInput {...props} />;
 		}
 
 		return (
-			<div className={className}>
+			<CheckboxInput {...props}>
 				<div className={'mrblx-field-label'}>
 					{props.attributes.label}
 					<RequiredIndicator
@@ -54,18 +72,7 @@ const BaseCheckbox = forwardRef(
 						text={props.attributes.labelRequiredIndicator}
 					/>
 				</div>
-				<label className={'mrblx-checkbox-label'}>
-					<input
-						name={name}
-						type={'checkbox'}
-						autoFocus={!!props.attributes.autoFocus}
-						checked={props.checked}
-						onChange={onChange}
-					/>
-					{props.attributes.optionText}
-				</label>
-				<FieldText {...props} />
-			</div>
+			</CheckboxInput>
 		);
 	}
 );

@@ -1,8 +1,8 @@
 import { __ } from '@wordpress/i18n';
 import { Validation } from '~shared/types';
 
-export function validateRequired(
-	input: HTMLInputElement,
+function validateRequired(
+	input: HTMLInputElement | HTMLTextAreaElement,
 	validation: Validation
 ): string | null {
 	if (validation.required) {
@@ -13,8 +13,8 @@ export function validateRequired(
 	return null;
 }
 
-export function validateText(
-	input: HTMLInputElement,
+function validateText(
+	input: HTMLInputElement | HTMLTextAreaElement,
 	validation: Validation
 ): string | null {
 	const result = validateRequired(input, validation);
@@ -33,8 +33,8 @@ export function validateText(
 	return null;
 }
 
-export function validateCustom(
-	input: HTMLInputElement,
+function validateCustom(
+	input: HTMLInputElement | HTMLTextAreaElement,
 	validation: Validation
 ) {
 	const result = validateRequired(input, validation);
@@ -46,6 +46,23 @@ export function validateCustom(
 		if (!regex.test(input.value)) {
 			return validation.message ? validation.message : __('Invalid');
 		}
+	}
+	return null;
+}
+
+export function validate(
+	input: HTMLInputElement | HTMLTextAreaElement,
+	validation: Validation
+): string | null {
+	if (validation.type === 'custom') {
+		return validateCustom(input, validation);
+	}
+	if (validation.type === 'simple') {
+		const inputType = input.type ? input.type : 'text';
+		if (inputType === 'text') {
+			return validateText(input, validation);
+		}
+		return validateRequired(input, validation);
 	}
 	return null;
 }
