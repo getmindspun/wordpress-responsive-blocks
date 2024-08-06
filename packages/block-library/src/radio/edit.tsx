@@ -1,16 +1,18 @@
-import {useEffect, useState} from '@wordpress/element';
+import { useEffect, useState } from '@wordpress/element';
 import { StylePortalClientId, useBlockPropsWithId } from '@mindspun/mrblx';
 
-import {useRequiredIndicator} from '~shared/hooks/useFieldEdit';
+import { useRequiredIndicator } from '~shared/hooks/useFieldEdit';
 
 import './editor.scss';
 import type { Props } from './types';
 import Controls from './controls/Controls';
-import {getClassName, getDefaultValue} from './utils';
+import { getClassName, getDefaultValue } from './utils';
 import BaseRadio from './BaseRadio';
 
 const Edit = (props: Props) => {
-	const [value, setValue] = useState<string|undefined>(getDefaultValue(props.attributes.options));
+	const [value, setValue] = useState<string | undefined>(
+		getDefaultValue(props.attributes.options)
+	);
 	useRequiredIndicator(props);
 
 	const blockProps = useBlockPropsWithId(props, {
@@ -19,9 +21,7 @@ const Edit = (props: Props) => {
 
 	return (
 		<>
-			<Controls
-				{...props}
-			/>
+			<Controls {...props} />
 			<StylePortalClientId
 				clientId={props.clientId}
 				attributes={props.attributes.style}

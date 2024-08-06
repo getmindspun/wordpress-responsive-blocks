@@ -1,9 +1,9 @@
 import { useBlockPropsWithId } from '@mindspun/mrblx';
 
-import {buildBlockAttrs} from '~shared/utils';
+import { buildBlockAttrs } from '~shared/utils';
 
 import type { Props } from './types';
-import {getClassName, getDefaultValue} from './utils';
+import { getClassName, getDefaultValue } from './utils';
 import BaseRadio from './BaseRadio';
 
 const Save = (props: { attributes: Props['attributes'] }) => {
@@ -16,7 +16,10 @@ const Save = (props: { attributes: Props['attributes'] }) => {
 			{...blockProps}
 			data-mrblx-attrs={buildBlockAttrs(props.attributes)}
 		>
-			<BaseRadio attributes={props.attributes} value={getDefaultValue(props.attributes.options)} />
+			<BaseRadio
+				attributes={props.attributes}
+				value={getDefaultValue(props.attributes.options)}
+			/>
 		</div>
 	);
 };

@@ -1,10 +1,33 @@
 import { useState, useRef } from '@wordpress/element';
+
+import type { Validation } from '~shared/types';
 import { useEvent } from '~shared/hooks/useEvent';
+import {
+	validateCustom,
+	validateRequired,
+	validateText,
+} from '~shared/components/field/validate';
 
 import BaseField from './BaseField';
-import type { Props, Validation } from './types';
-import { validate } from './validate';
+import type { Props } from './types';
 import { CustomEvent } from '../buttons/button/types';
+
+export function validate(
+	input: HTMLInputElement,
+	validation: Validation
+): string | null {
+	if (validation.type === 'custom') {
+		return validateCustom(input, validation);
+	}
+	if (validation.type === 'simple') {
+		const inputType = input.type ? input.type : 'text';
+		if (inputType === 'text') {
+			return validateText(input, validation);
+		}
+		return validateRequired(input, validation);
+	}
+	return null;
+}
 
 function validateField(
 	form: HTMLFormElement,

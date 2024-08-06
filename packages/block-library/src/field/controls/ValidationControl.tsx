@@ -8,7 +8,7 @@ import {
 import RequiredControl from '~shared/controls/form/RequiredControl';
 
 import type { InputType } from '../types';
-import {Validation} from '~shared/types';
+import { Validation } from '~shared/types';
 
 const SimpleValidationControl = (props: {
 	inputType: InputType;

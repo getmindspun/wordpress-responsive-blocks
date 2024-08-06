@@ -1,4 +1,8 @@
-import type {ElementsAttributes, LabelPosition, Validation} from '~shared/types';
+import type {
+	ElementsAttributes,
+	LabelPosition,
+	Validation,
+} from '~shared/types';
 
 export type InputType =
 	| 'text'
@@ -9,7 +13,6 @@ export type InputType =
 	| 'tel'
 	| 'url'
 	| undefined;
-
 
 export interface Attributes
 	extends Pick<

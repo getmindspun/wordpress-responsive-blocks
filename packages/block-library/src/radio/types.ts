@@ -1,4 +1,4 @@
-import {ElementsAttributes, Option, OptionWithSelected} from '~shared/types';
+import { ElementsAttributes, Option, OptionWithSelected } from '~shared/types';
 
 export interface Attributes
 	extends Pick<

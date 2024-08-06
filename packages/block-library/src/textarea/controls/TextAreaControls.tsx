@@ -5,7 +5,7 @@ import {
 	ContainerContents,
 	ContainerControl,
 } from '@mindspun/mrblx';
-import {Attributes} from '../types';
+import { Attributes } from '../types';
 
 const TextAreaControls = (props: {
 	attributes: Attributes;

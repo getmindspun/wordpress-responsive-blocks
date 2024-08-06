@@ -16,11 +16,11 @@ type Attributes = {
 const InputControls = (props: {
 	attributes: Attributes;
 	setAttributes: (attributes: Partial<Attributes>) => void;
-    children?: React.ReactNode
+	children?: React.ReactNode;
 }) => {
 	return (
 		<>
-            {props.children}
+			{props.children}
 			<ContainerControl title={'Style'}>
 				<ContainerContents>
 					<BaseControls

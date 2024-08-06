@@ -2,7 +2,7 @@ import { useBlockPropsWithId } from '@mindspun/mrblx';
 import type { Props } from './types';
 import { getClassName } from './utils';
 import BaseTextArea from './BaseTextArea';
-import {buildBlockAttrs} from '~shared/utils';
+import { buildBlockAttrs } from '~shared/utils';
 
 const Save = (props: { attributes: Props['attributes'] }) => {
 	const blockProps = useBlockPropsWithId.save(props, {

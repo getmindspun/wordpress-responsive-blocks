@@ -2,7 +2,7 @@ import React from 'react';
 import { createRoot } from '@wordpress/element';
 import domReady from '@wordpress/dom-ready';
 
-import {getBlockAttrsFromElement} from '~shared/utils';
+import { getBlockAttrsFromElement } from '~shared/utils';
 import TextArea from './TextArea';
 
 function handleTextArea(form: HTMLFormElement, field: HTMLDivElement) {

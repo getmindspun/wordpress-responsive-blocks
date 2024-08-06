@@ -7,8 +7,10 @@ type Attributes = {
 };
 
 export function useLabelPosition(props: {
-	attributes: { labelPosition: LabelPosition; };
-	setAttributes: (attributes: Partial<{labelPosition: LabelPosition}>) => void;
+	attributes: { labelPosition: LabelPosition };
+	setAttributes: (
+		attributes: Partial<{ labelPosition: LabelPosition }>
+	) => void;
 	context: {
 		['mindspun/labelPosition']: LabelPosition | undefined;
 	};
@@ -25,10 +27,11 @@ export function useLabelPosition(props: {
 	}, [labelPosition, setAttributes]);
 }
 
-
 export function useRequiredIndicator(props: {
 	attributes: { labelRequiredIndicator: string | undefined };
-	setAttributes: (attributes: Partial<{ labelRequiredIndicator: string | undefined }>) => void;
+	setAttributes: (
+		attributes: Partial<{ labelRequiredIndicator: string | undefined }>
+	) => void;
 	context: {
 		['mindspun/labelRequiredIndicator']: Attributes['labelRequiredIndicator'];
 	};

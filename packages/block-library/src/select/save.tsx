@@ -1,6 +1,6 @@
 import { useBlockPropsWithId } from '@mindspun/mrblx';
 
-import {buildBlockAttrs} from '~shared/utils';
+import { buildBlockAttrs } from '~shared/utils';
 
 import type { Props } from './types';
 import { getClassName } from './utils';

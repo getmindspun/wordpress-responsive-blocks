@@ -28,7 +28,7 @@ const TextArea = forwardRef(
 				}
 				rows={props.attributes.rows}
 				cols={props.attributes.cols}
-                ref={ref}
+				ref={ref}
 			/>
 		);
 	}

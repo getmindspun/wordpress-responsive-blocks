@@ -41,7 +41,10 @@ const ElementsControls = (props: {
 							options={[
 								{ label: 'Default', value: 'default' },
 								{ label: 'Block', value: 'block' },
-								{ label: 'Inline Block', value: 'inline-block' },
+								{
+									label: 'Inline Block',
+									value: 'inline-block',
+								},
 							]}
 						/>
 					</ContainerContents>

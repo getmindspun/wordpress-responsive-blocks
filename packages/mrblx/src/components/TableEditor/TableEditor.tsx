@@ -1,6 +1,8 @@
 import React from 'react';
 import TableRow from './TableRow';
 
+import './TableEditor.scss';
+
 function countColumns(data: string[][]) {
 	let count = 0;
 	for (const row of data) {
@@ -9,10 +11,7 @@ function countColumns(data: string[][]) {
 	return count;
 }
 
-const TableHead = (props: {
-	hasSelect: boolean;
-	columns?: string[]
-}) => {
+const TableHead = (props: { hasSelect: boolean; columns?: string[] }) => {
 	if (!props.columns) {
 		return null;
 	}
@@ -35,10 +34,10 @@ const TableEditor = (props: {
 	columns?: string[];
 	data: string[][];
 	setData: (data: string[][]) => void;
-	selected?: number|undefined;
-	setSelected?: (selected: number|undefined) => void;
+	selected?: number | undefined;
+	setSelected?: (selected: number | undefined) => void;
 }) => {
-	const hasSelect = (props.setSelected !== undefined);
+	const hasSelect = props.setSelected !== undefined;
 	const columnCount = countColumns(props.data);
 
 	function onAdd(index: number) {
@@ -107,7 +106,11 @@ const TableEditor = (props: {
 						onEdit={(row) => onEdit(index, row)}
 						onDrop={(data) => onDrop(index, data)}
 						selected={props.selected === index}
-						onSelect={props.setSelected ? () => onSelect(index) : undefined}
+						onSelect={
+							props.setSelected
+								? () => onSelect(index)
+								: undefined
+						}
 					/>
 				))}
 			</tbody>

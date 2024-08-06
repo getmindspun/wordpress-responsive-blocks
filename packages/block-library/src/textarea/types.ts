@@ -1,4 +1,8 @@
-import type {ElementsAttributes, LabelPosition, Validation} from '~shared/types';
+import type {
+	ElementsAttributes,
+	LabelPosition,
+	Validation,
+} from '~shared/types';
 
 export interface Attributes
 	extends Pick<

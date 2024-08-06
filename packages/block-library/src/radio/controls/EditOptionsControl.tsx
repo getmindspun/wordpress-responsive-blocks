@@ -1,9 +1,8 @@
 import { Button } from '@wordpress/components';
 import { useState } from '@wordpress/element';
 
-import {OptionWithSelected} from '~shared/types';
+import { OptionWithSelected } from '~shared/types';
 import OptionsModal from '~shared/controls/OptionsModal';
-
 
 const EditOptionsControl = (props: {
 	options: OptionWithSelected[];

@@ -9,7 +9,7 @@ import {
 	useGetPreviewDeviceType,
 } from '@mindspun/mrblx';
 import { CSSProperties } from 'react';
-import {Option} from '~shared/types';
+import { Option } from '~shared/types';
 
 type DisplayProperties = Pick<
 	BlockCSSProperties,
@@ -46,7 +46,7 @@ function displayValue(display: string): CSSProperties['display'] {
 const DisplayControl = (props: {
 	attributes: DisplayProperties;
 	setAttributes: (attributes: Partial<DisplayProperties>) => void;
-	options?: Option[],
+	options?: Option[];
 }) => {
 	const deviceType = useGetPreviewDeviceType();
 	const options = props.options ? props.options : OPTIONS;

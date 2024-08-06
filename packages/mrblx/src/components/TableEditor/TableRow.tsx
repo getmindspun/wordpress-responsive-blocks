@@ -2,25 +2,50 @@ import React from 'react';
 import {
 	Button,
 	Draggable,
-	__experimentalInputControl as InputControl, Icon,
+	__experimentalInputControl as InputControl,
+	Icon,
 } from '@wordpress/components';
 import { dragHandle, plus, closeSmall, check } from '@wordpress/icons';
 
 const SelectColumn = (props: {
 	hasSelect: boolean;
 	selected: boolean;
-	onClick: () => void
+	onClick: () => void;
 }) => {
-	const style = {width:'24px', cursor:'pointer', padding:0};
+	const tdStyle = { width: '24px' };
+	const linkStyle = {
+		width: '24px',
+		cursor: 'pointer',
+		display: 'inline-block',
+	};
 
 	if (!props.hasSelect) {
 		return null;
 	}
 	if (props.selected) {
-		return <td style={style} onClick={props.onClick}><Icon icon={check} /></td>
+		return (
+			<td style={tdStyle} className={'mrblx--selectable-column'}>
+				<Button
+					style={linkStyle}
+					onClick={props.onClick}
+					onKeyDown={props.onClick}
+					icon={check}
+				/>
+			</td>
+		);
 	}
-	return <td style={style} onClick={props.onClick}>&nbsp;</td>
-}
+	return (
+		<td style={tdStyle} className={'mrblx--selectable-column'}>
+			<button
+				style={linkStyle}
+				onClick={props.onClick}
+				onKeyDown={props.onClick}
+			>
+				&nbsp;
+			</button>
+		</td>
+	);
+};
 
 const TableRow = (props: {
 	id: string;
@@ -33,7 +58,7 @@ const TableRow = (props: {
 	selected?: boolean;
 	onSelect?: () => void;
 }) => {
-	const hasSelect = (props.onSelect !== undefined);
+	const hasSelect = props.onSelect !== undefined;
 
 	function onChange(index: number, value: string | undefined) {
 		if (props.onEdit) {

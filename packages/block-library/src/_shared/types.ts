@@ -12,7 +12,7 @@ export type Option = {
 
 export type OptionWithSelected = Option & {
 	selected?: boolean;
-}
+};
 
 export type ElementsAttributes = {
 	blockId: string;
