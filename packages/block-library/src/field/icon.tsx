@@ -1,38 +1,13 @@
 import { SVG, Path } from '@wordpress/components';
 
 const Icon = () => (
-	<SVG
-		width="48"
-		height="48"
-		viewBox="0 0 48 48"
-		fill="none"
-		xmlns="http://www.w3.org/2000/svg"
-	>
-		<Path
-			fill-rule="evenodd"
-			clip-rule="evenodd"
-			d="M42.5 5.5H5.5V8.5H42.5V5.5ZM4 4V10H44V4H4Z"
-			fill="currentColor"
-		/>
-		<Path
-			fill-rule="evenodd"
-			clip-rule="evenodd"
-			d="M42.5 14.5H5.5V17.5H42.5V14.5ZM4 13V19H44V13H4Z"
-			fill="currentColor"
-		/>
-		<Path
-			fill-rule="evenodd"
-			clip-rule="evenodd"
-			d="M42.5 23.5H5.5V31.5H42.5V23.5ZM4 22V33H44V22H4Z"
-			fill="currentColor"
-		/>
-		<Path
-			fill-rule="evenodd"
-			clip-rule="evenodd"
-			d="M8.5 37.5H5.5V40.5H8.5V37.5ZM4 36V42H10V36H4Z"
-			fill="currentColor"
-		/>
-		<Path d="M20 36H44V42H20V36Z" fill="currentColor" />
+	<SVG width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+		<Path fill-rule="evenodd" clip-rule="evenodd" d="M41 18H7V29H41V18ZM4 15V32H44V15H4Z" fill="currentColor"/>
+		<Path d="M11 21H14V28H11V21Z" fill="currentColor"/>
+		<Path d="M19 11H22V35H19V11Z" fill="currentColor"/>
+		<Path d="M9 20H16V23H9V20Z" fill="currentColor"/>
+		<Path d="M17 9H24V12H17V9Z" fill="currentColor"/>
+		<Path d="M17 35H24V38H17V35Z" fill="currentColor"/>
 	</SVG>
 );
 
