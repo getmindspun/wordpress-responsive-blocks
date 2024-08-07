@@ -31,8 +31,8 @@ const TableEditor = (props: {
 	columns?: string[];
 	data: string[][];
 	setData: (data: string[][]) => void;
-	selected?: number|undefined;
-	setSelected?: (selected: number|undefined) => void;
+	selected?: number | undefined;
+	setSelected?: (selected: number | undefined) => void;
 }) => {
 	const columnCount = countColumns(props.data);
 
@@ -102,7 +102,11 @@ const TableEditor = (props: {
 						onEdit={(row) => onEdit(index, row)}
 						onDrop={(data) => onDrop(index, data)}
 						selected={props.selected === index}
-						onSelect={props.setSelected ? () => onSelect(index) : undefined}
+						onSelect={
+							props.setSelected
+								? () => onSelect(index)
+								: undefined
+						}
 					/>
 				))}
 			</tbody>

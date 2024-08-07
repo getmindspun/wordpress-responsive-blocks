@@ -9,16 +9,24 @@ import { dragHandle, plus, closeSmall, check } from '@wordpress/icons';
 const SelectColumn = (props: {
 	hasSelect: boolean;
 	selected: boolean;
-	onClick: () => void
+	onClick: () => void;
 }) => {
 	if (!props.hasSelect) {
 		return null;
 	}
 	if (props.selected) {
-		return <td width={'24px'} onClick={props.onClick}>{check}</td>
+		return (
+			<td width={'24px'} onClick={props.onClick}>
+				{check}
+			</td>
+		);
 	}
-	return <td width={'24px'} onClick={props.onClick}>&nbsp;</td>
-}
+	return (
+		<td width={'24px'} onClick={props.onClick}>
+			&nbsp;
+		</td>
+	);
+};
 
 const TableRow = (props: {
 	id: string;
@@ -31,7 +39,7 @@ const TableRow = (props: {
 	selected?: boolean;
 	onSelect?: () => void;
 }) => {
-	const hasSelect = (props.onSelect !== undefined);
+	const hasSelect = props.onSelect !== undefined;
 
 	function onChange(index: number, value: string | undefined) {
 		if (props.onEdit) {
