@@ -12,6 +12,7 @@
  * Text Domain:       mrblx
  */
 
+use MRBLX\Admin\SettingsPage;
 use MRBLX\Vendor\Mindspun\Framework\Autoloader;
 use MRBLX\CSSBuilder;
 
@@ -22,6 +23,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once __DIR__ . '/vendor-prefixed/autoload.php';
 Autoloader::autoload( 'MRBLX', __DIR__ . '/includes' );
+
+/* Constants */
+if ( ! defined( 'MRBLX_OPTION' ) ) {
+    define( 'MRBLX_OPTION', 'mrblx_option' );
+}
 
 /**
  * Helper function to build CSS from the block attributes using the given selector.
@@ -215,3 +221,12 @@ if ( ! is_admin() ) {
         }
     );
 }//end if
+
+/* Admin / Settings page */
+add_action(
+    'admin_menu',
+    function () {
+        $page = new SettingsPage();
+        add_action( 'admin_init', array( $page, 'admin_init' ) );
+    }
+);
