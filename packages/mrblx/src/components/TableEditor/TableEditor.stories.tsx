@@ -26,12 +26,20 @@ export const Default: Story = {
 
 export const WithSelect: Story = {
 	render: () => {
-		const [selected, setSelected] = useState<number|undefined>(0);
+		const [selected, setSelected] = useState<number | undefined>(0);
 		const [data, setData] = useState([
 			['Apple', 'alice'],
 			['Banana', 'bob'],
 			['Coconut', 'charlie'],
 		]);
-		return <TableEditor id={'myTable'} data={data} setData={setData} selected={selected} setSelected={setSelected}/>;
+		return (
+			<TableEditor
+				id={'myTable'}
+				data={data}
+				setData={setData}
+				selected={selected}
+				setSelected={setSelected}
+			/>
+		);
 	},
 };

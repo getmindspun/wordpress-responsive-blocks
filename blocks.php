@@ -13,6 +13,7 @@
  */
 
 use MRBLX\Admin\SettingsPage;
+use MRBLX\API\FormEndpoint;
 use MRBLX\Vendor\Mindspun\Framework\Autoloader;
 use MRBLX\CSSBuilder;
 
@@ -27,6 +28,10 @@ Autoloader::autoload( 'MRBLX', __DIR__ . '/includes' );
 /* Constants */
 if ( ! defined( 'MRBLX_OPTION' ) ) {
     define( 'MRBLX_OPTION', 'mrblx_option' );
+}
+
+if ( ! defined( 'MRBLX_REST_NAMESPACE' ) ) {
+    define( 'MRBLX_REST_NAMESPACE', 'mindspun/blocks/v1' );
 }
 
 /**
@@ -228,5 +233,25 @@ add_action(
     function () {
         $page = new SettingsPage();
         add_action( 'admin_init', array( $page, 'admin_init' ) );
+    }
+);
+
+/* REST API (if enabled) */
+add_action(
+    'rest_api_init',
+    function () {
+        $options = get_option( MRBLX_OPTION );
+        if ( $options['rest_api_enabled'] ?? true ) {
+            $endpoint = new FormEndpoint();
+            register_rest_route(
+                MRBLX_REST_NAMESPACE,
+                '/form',
+                array(
+                    'methods' => 'POST',
+                    'callback' => array( $endpoint, 'post' ),
+                    'permission_callback' => '__return_true',
+                )
+            );
+        }
     }
 );
