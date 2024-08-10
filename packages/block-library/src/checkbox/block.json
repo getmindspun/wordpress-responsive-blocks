@@ -87,7 +87,7 @@
         "optionContentStyleError": {
             "type": "object",
             "default": {},
-            "selector": "is-error .mrblx-checkbox-label"
+            "selector": ".mrblx-checkbox-label"
         },
         "helpStyle": {
             "type": "object",

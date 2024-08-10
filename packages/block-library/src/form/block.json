@@ -16,10 +16,12 @@
             "default": "get"
         },
         "action": {
-            "type": "string"
+            "type": "string",
+            "default": null
         },
         "encType": {
-            "type": "string"
+            "type": "string",
+            "default": null
         },
         "labelPosition": {
             "type": "string",

@@ -255,3 +255,16 @@ add_action(
         }
     }
 );
+
+
+/* Make the REST URL available to the form block. */
+add_action(
+    'enqueue_block_editor_assets',
+    function () {
+        wp_add_inline_script(
+            'mindspun-form-editor-script',
+            'window.mrblxData = window.mrblxData || {}; window.mrblxData.rest_url = "' . esc_url_raw( rest_url( MRBLX_REST_NAMESPACE ) ) . '";',
+            'before'
+        );
+    }
+);

@@ -11,7 +11,6 @@
         "phpunit/phpunit": "^9.6",
         "yoast/phpunit-polyfills": "^2.0",
         "brianhenryie/strauss": "^0.15.0",
-        "ext-json": "*",
         "mockery/mockery": "^1.6"
     },
     "config": {
@@ -36,6 +35,7 @@
         }
     },
     "require": {
+        "ext-json": "*",
         "mindspun/wordpress-plugin-framework": "^1.0"
     }
 }
