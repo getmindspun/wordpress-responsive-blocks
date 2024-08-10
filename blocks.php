@@ -16,6 +16,7 @@ use MRBLX\Admin\SettingsPage;
 use MRBLX\API\FormEndpoint;
 use MRBLX\Vendor\Mindspun\Framework\Autoloader;
 use MRBLX\CSSBuilder;
+use MRBLX\Vendor\Mindspun\Framework\Providers\GlobalsProvider;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -33,6 +34,9 @@ if ( ! defined( 'MRBLX_OPTION' ) ) {
 if ( ! defined( 'MRBLX_REST_NAMESPACE' ) ) {
     define( 'MRBLX_REST_NAMESPACE', 'mindspun/blocks/v1' );
 }
+
+/* Providers */
+GlobalsProvider::provide();
 
 /**
  * Helper function to build CSS from the block attributes using the given selector.

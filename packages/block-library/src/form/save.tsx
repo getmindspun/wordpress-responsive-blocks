@@ -10,6 +10,7 @@ export default function save(props: { attributes: Props['attributes'] }) {
         <form
             {...innerBlockProps}
             method={props.attributes.method}
+            action={props.attributes.action}
             noValidate={true}
             encType={props.attributes.encType}
         />

@@ -1,12 +1,57 @@
 .wp-block-mindspun-form {
-	input[type="submit"] {
-		border: 0;
-		padding: 8px 16px;
-		color: white;
-		background-color: #005ffe;
-	}
-	input[type="reset"] {
-		border: 0;
-		background-color: transparent;
-	}
+    input[type="submit"] {
+        border: 0;
+        padding: 8px 16px;
+        color: white;
+        background-color: #005ffe;
+    }
+
+    input[type="reset"] {
+        border: 0;
+        background-color: transparent;
+    }
+
+    .snackbar-list {
+        bottom: 24px;
+        padding-left: 24px;
+        padding-right: 24px;
+        position: fixed;
+        right: 0;
+
+        box-sizing: border-box;
+        pointer-events: none;
+        width: 100%;
+        z-index: 100000;
+
+        .components-snackbar-list > div {
+            margin-bottom: .5rem;
+        }
+
+        .components-snackbar {
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            backdrop-filter: blur(16px) saturate(180%);
+            background: #000000d9;
+            border-radius: 2px;
+            box-shadow: 0 .7px 1px #0000001a, 0 1.2px 1.7px -.2px #0000001a, 0 2.3px 3.3px -.5px #0000001a;
+            box-sizing: border-box;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1rem;
+            max-width: 600px;
+            padding: 12px 20px;
+            pointer-events: auto;
+            width: 100%;
+        }
+
+        @media (min-width: 600px) {
+            .components-snackbar {
+                // width: -moz-fit-content;
+                width: fit-content;
+            }
+        }
+
+        .components-snackbar + .components-snackbar {
+            margin-top: 1rem;
+        }
+    }
 }

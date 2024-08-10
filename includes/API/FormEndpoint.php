@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace MRBLX\API;
 
-use MRBLX\Vendor\Mindspun\Framework\Facades\Globals;
+use MRBLX\Facades\Globals;
 use WP_REST_Request;
 use WP_REST_Response;
 
@@ -35,7 +35,7 @@ class FormEndpoint {
             do_action( 'mrblx_form_submit', $params );
         }
 
-        return apply_filters( 'mrblx_form_rest_response', new WP_REST_Response( null, 204 ) );
+        return apply_filters( 'mrblx_form_rest_response', new WP_REST_Response( array(), 200 ) );
     }
 
     /**
@@ -77,7 +77,7 @@ class FormEndpoint {
         $message = join( "\n", $lines );
         $message = apply_filters( 'mrblx_form_email_message', $message, $params );
 
-        /* @noinspection PhpUndefinedMethodInspection */
+        error_log( 'SUBMITTED' );
         Globals::wp_mail( $to, $subject, $message );
     }
 }
