@@ -5,7 +5,7 @@ import domReady from '@wordpress/dom-ready';
 import { getBlockAttrsFromElement } from '~shared/utils';
 import TextArea from './TextArea';
 
-function handleTextArea(form: HTMLFormElement, field: HTMLDivElement) {
+function handleTextArea(form: HTMLFormElement, field: HTMLTextAreaElement) {
 	const props = {
 		attributes: getBlockAttrsFromElement(field),
 	};
@@ -19,8 +19,8 @@ domReady(() => {
 	document
 		.querySelectorAll<HTMLFormElement>('.wp-block-mindspun-form')
 		.forEach((form) => {
-			form.querySelectorAll<HTMLDivElement>(
-				'.wp-block-mindspun-text-area'
+			form.querySelectorAll<HTMLTextAreaElement>(
+				'.wp-block-mindspun-textarea'
 			).forEach((field) => {
 				handleTextArea(form, field);
 			});

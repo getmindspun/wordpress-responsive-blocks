@@ -10,9 +10,9 @@ import DisplayControl from '~shared/controls/container/DisplayControl';
 import LabelControls from '~shared/controls/form/LabelControls';
 import FieldErrorControls from '~shared/controls/form/FieldErrorControls';
 import InputControls from '~shared/controls/form/InputControls';
+import HelpControls from '~shared/controls/form/HelpControls';
 
 import { Attributes } from '../types';
-import HelpControls from '~shared/controls/form/HelpControls';
 
 const ElementsControls = (props: {
 	attributes: Attributes;
@@ -23,10 +23,10 @@ const ElementsControls = (props: {
 			blockId={props.attributes.blockId}
 			label={__('Element')}
 		>
-			<SelectedContainer key={'Field Label'}>
+			<SelectedContainer key={__('Field Label')}>
 				<LabelControls {...props} />
 			</SelectedContainer>
-			<SelectedContainer key={'Inputs'}>
+			<SelectedContainer key={__('Inputs')}>
 				<InputControls {...props}>
 					<ContainerContents>
 						<DisplayControl
@@ -50,10 +50,13 @@ const ElementsControls = (props: {
 					</ContainerContents>
 				</InputControls>
 			</SelectedContainer>
-			<SelectedContainer key={'Field Help'}>
+			<SelectedContainer key={__('Checkbox Text')}>
 				<HelpControls {...props} />
 			</SelectedContainer>
-			<SelectedContainer key={'Field Error'}>
+			<SelectedContainer key={__('Field Help')}>
+				<HelpControls {...props} />
+			</SelectedContainer>
+			<SelectedContainer key={__('Field Error')}>
 				<FieldErrorControls {...props} />
 			</SelectedContainer>
 		</SelectedContainerControl>

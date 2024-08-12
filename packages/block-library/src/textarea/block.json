@@ -50,6 +50,10 @@
             "type": "object",
             "default": {}
         },
+        "style": {
+            "type": "object",
+            "default": {}
+        },
         "labelStyle": {
             "type": "object",
             "default": {},
@@ -64,11 +68,6 @@
             "type": "object",
             "default": {},
             "selector": "label .mrblx-required-indicator"
-        },
-        "helpStyle": {
-            "type": "object",
-            "default": {},
-            "selector": "small.field-help"
         },
         "textAreaStyle": {
             "type": "object",
@@ -85,14 +84,15 @@
             "default": {},
             "selector": "textarea.is-error"
         },
+        "helpStyle": {
+            "type": "object",
+            "default": {},
+            "selector": ".mrblx-field-help"
+        },
         "fieldErrorStyle": {
             "type": "object",
             "default": {},
             "selector": ".field-error"
-        },
-        "style": {
-            "type": "object",
-            "default": {}
         }
     },
     "textdomain": "mrblx",

@@ -7,6 +7,7 @@ import FieldErrorControls from '~shared/controls/form/FieldErrorControls';
 import InputControls from '~shared/controls/form/InputControls';
 
 import { Attributes } from '../types';
+import HelpControls from '~shared/controls/form/HelpControls';
 
 const ElementsControls = (props: {
 	attributes: Attributes;
@@ -17,13 +18,16 @@ const ElementsControls = (props: {
 			blockId={props.attributes.blockId}
 			label={__('Element')}
 		>
-			<SelectedContainer key={'Labels'}>
+			<SelectedContainer key={__('Labels')}>
 				<LabelControls {...props} />
 			</SelectedContainer>
-			<SelectedContainer key={'Inputs'}>
+			<SelectedContainer key={__('Inputs')}>
 				<InputControls {...props} />
 			</SelectedContainer>
-			<SelectedContainer key={'Field Errors'}>
+			<SelectedContainer key={__('Description')}>
+				<HelpControls {...props} />
+			</SelectedContainer>
+			<SelectedContainer key={__('Field Errors')}>
 				<FieldErrorControls {...props} />
 			</SelectedContainer>
 		</SelectedContainerControl>

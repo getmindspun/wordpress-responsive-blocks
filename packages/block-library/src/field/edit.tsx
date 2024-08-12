@@ -1,66 +1,44 @@
-import {StylePortalClientId, useBlockPropsWithId} from '@mindspun/mrblx';
+import { useBlockPropsWithId } from '@mindspun/mrblx';
 
+import { useFieldEdit } from '~shared/hooks/useFieldEdit';
+import EditorStyles from '~shared/components/EditorStyles';
+
+import metadata from './block.json';
 import './editor.scss';
-import type {Props} from './types';
+import type { Props } from './types';
 import Controls from './controls/Controls';
-import {getClassName} from './utils';
+import { getClassName } from './utils';
 import Field from './Field';
-import {useFieldEdit} from '~shared/hooks/useFieldEdit';
 
 const Edit = (props: Props) => {
-    useFieldEdit(props);
+	useFieldEdit(props);
 
-    const blockProps = useBlockPropsWithId(props, {
-        className: getClassName(props),
-    });
+	const blockProps = useBlockPropsWithId(props, {
+		className: getClassName(props),
+	});
 
-    return (
-        <>
-            <Controls {...props} />
-            <StylePortalClientId
-                clientId={props.clientId}
-                attributes={props.attributes.style}
-            />
-            <StylePortalClientId
-                clientId={props.clientId}
-                attributes={props.attributes.labelStyle}
-                selector={'.mrblx-field-label'}
-            />
-            <StylePortalClientId
-                clientId={props.clientId}
-                attributes={props.attributes.labelStyleError}
-                selector={'.is-error .mrblx-field-label'}
-            />
-            <StylePortalClientId
-                clientId={props.clientId}
-                attributes={props.attributes.labelStyleRequiredIndicator}
-                selector={'.mrblx-field-label .mrblx-required-indicator'}
-            />
-            <StylePortalClientId
-                clientId={props.clientId}
-                attributes={props.attributes.inputStyle}
-                selector={'input'}
-            />
-            <StylePortalClientId
-                clientId={props.clientId}
-                attributes={props.attributes.inputStyleFocus}
-                selector={'input:focus-visible'}
-            />
-            <StylePortalClientId
-                clientId={props.clientId}
-                attributes={props.attributes.inputStyleError}
-                selector={'.is-error input'}
-            />
-            <StylePortalClientId
-                clientId={props.clientId}
-                attributes={props.attributes.fieldErrorStyle}
-                selector={'.field-error'}
-            />
-            <div {...blockProps}>
-                <Field attributes={props.attributes}/>
-            </div>
-        </>
-    );
+	return (
+		<EditorStyles
+			{...props}
+			metadata={metadata}
+			keys={[
+				'style',
+				'labelStyle',
+				'labelStyleRequiredIndicator',
+				'labelStyleError',
+				'inputStyle',
+				'inputStyleFocus',
+				'inputStyleError',
+				'helpStyle',
+				'fieldErrorStyle',
+			]}
+		>
+			<Controls {...props} />
+			<div {...blockProps}>
+				<Field attributes={props.attributes} />
+			</div>
+		</EditorStyles>
+	);
 };
 
 export default Edit;

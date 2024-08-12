@@ -36,9 +36,19 @@
         "options": {
             "type": "array",
             "default": [
-                {"label": "First Choice", "value":  "1st", "selected":  true},
-                {"label": "Second Choice", "value":  "2nd"},
-                {"label": "Third Choice", "value":  "3rd"}
+                {
+                    "label": "First Choice",
+                    "value": "1st",
+                    "selected": true
+                },
+                {
+                    "label": "Second Choice",
+                    "value": "2nd"
+                },
+                {
+                    "label": "Third Choice",
+                    "value": "3rd"
+                }
             ]
         },
         "required": {
@@ -76,17 +86,27 @@
         "inputStyleError": {
             "type": "object",
             "default": {},
-            "selector": "input.is-error"
+            "selector": ".is-error input"
+        },
+        "optionContentStyle": {
+            "type": "object",
+            "default": {},
+            "selector": ".mrblx-option-content"
+        },
+        "optionContentErrorStyle": {
+            "type": "object",
+            "default": {},
+            "selector": ".is-error .mrblx-option-content"
         },
         "helpStyle": {
             "type": "object",
             "default": {},
-            "selector": "small.field-help"
+            "selector": ".mrblx-field-help"
         },
         "fieldErrorStyle": {
             "type": "object",
             "default": {},
-            "selector": ".field-error"
+            "selector": ".mrblx-field-error"
         },
         "style": {
             "type": "object",
@@ -95,6 +115,7 @@
     },
     "textdomain": "mrblx",
     "editorScript": "file:./index.js",
+    "editorStyle": "file:./editor.css",
     "style": "file:./style.css",
     "viewScript": "file:./view.js",
     "supports": {

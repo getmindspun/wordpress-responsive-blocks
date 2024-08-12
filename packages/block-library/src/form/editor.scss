@@ -1,13 +1,7 @@
-.wp-block-mindspun-form--controls {
-    .mrblx--tabbed-control {
-        border-top: 1px solid #ccc;
+@import "~shared/scss/_editor.scss";
 
-        .mrblx--tabbed-header .mrblx--tab button.has-icon {
-            height: 72px;
-            display: flex;
-            flex-direction: column;
-        }
-    }
+.wp-block-mindspun-form--controls {
+    @include tabbed-controls;
 }
 
 .wp-block-mindspun-form--controls-adv {

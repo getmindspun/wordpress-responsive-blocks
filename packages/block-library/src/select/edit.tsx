@@ -1,11 +1,14 @@
-import { StylePortalClientId, useBlockPropsWithId } from '@mindspun/mrblx';
+import { useBlockPropsWithId } from '@mindspun/mrblx';
 
+import { useFieldEdit } from '~shared/hooks/useFieldEdit';
+import EditorStyles from '~shared/components/EditorStyles';
+
+import metadata from '../form/block.json';
 import './editor.scss';
 import type { Props } from './types';
 import Controls from './controls/Controls';
 import { getClassName } from './utils';
-import BaseSelect from './BaseSelect';
-import { useFieldEdit } from '~shared/hooks/useFieldEdit';
+import Select from './Select';
 
 const Edit = (props: Props) => {
 	useFieldEdit(props);
@@ -15,46 +18,26 @@ const Edit = (props: Props) => {
 	});
 
 	return (
-		<>
+		<EditorStyles
+			{...props}
+			metadata={metadata}
+			keys={[
+				'style',
+				'labelStyle',
+				'labelStyleRequiredIndicator',
+				'labelStyleError',
+				'selectStyle',
+				'selectStyleError',
+				'selectStyleFocus',
+				'helpStyle',
+				'fieldErrorStyle',
+			]}
+		>
 			<Controls {...props} />
-			<StylePortalClientId
-				clientId={props.clientId}
-				attributes={props.attributes.style}
-			/>
-			<StylePortalClientId
-				clientId={props.clientId}
-				attributes={props.attributes.labelStyle}
-				selector={'.mrblx-field-label'}
-			/>
-			<StylePortalClientId
-				clientId={props.clientId}
-				attributes={props.attributes.labelStyleError}
-				selector={'.mrblx-field-label.is-error'}
-			/>
-			<StylePortalClientId
-				clientId={props.clientId}
-				attributes={props.attributes.labelStyleRequiredIndicator}
-				selector={'.mrblx-field-label .mrblx-required-indicator'}
-			/>
-			<StylePortalClientId
-				clientId={props.clientId}
-				attributes={props.attributes.selectStyle}
-				selector={'select'}
-			/>
-			<StylePortalClientId
-				clientId={props.clientId}
-				attributes={props.attributes.helpStyle}
-				selector={'.field-help'}
-			/>
-			<StylePortalClientId
-				clientId={props.clientId}
-				attributes={props.attributes.fieldErrorStyle}
-				selector={'.field-error'}
-			/>
 			<div {...blockProps}>
-				<BaseSelect attributes={props.attributes} />
+				<Select attributes={props.attributes} />
 			</div>
-		</>
+		</EditorStyles>
 	);
 };
 

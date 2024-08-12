@@ -77,7 +77,7 @@ class FormEndpoint {
         $message = join( "\n", $lines );
         $message = apply_filters( 'mrblx_form_email_message', $message, $params );
 
-        error_log( 'SUBMITTED' );
+        error_log( 'SUBMITTED -> ' . $to );
         Globals::wp_mail( $to, $subject, $message );
     }
 }

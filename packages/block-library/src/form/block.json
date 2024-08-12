@@ -27,6 +27,14 @@
             "type": "string",
             "default": "top"
         },
+        "labelRequiredIndicator": {
+            "type": "string",
+            "default": "*"
+        },
+        "style": {
+            "type": "object",
+            "default": {}
+        },
         "labelStyle": {
             "type": "object",
             "default": {},
@@ -87,15 +95,15 @@
             "default": {},
             "selector": ".is-error textarea"
         },
-        "checkboxContentStyle": {
+        "optionContentStyle": {
             "type": "object",
             "default": {},
-            "selector": ".mrblx-checkbox-content"
+            "selector": ".mrblx-option-content"
         },
-        "checkboxContentErrorStyle": {
+        "optionContentErrorStyle": {
             "type": "object",
             "default": {},
-            "selector": ".is-error .mrblx-checkbox-content"
+            "selector": ".is-error .mrblx-option-content"
         },
         "helpStyle": {
             "type": "object",
@@ -106,10 +114,6 @@
             "type": "object",
             "default": {},
             "selector": ".mrblx-field-error"
-        },
-        "style": {
-            "type": "object",
-            "default": {}
         }
     },
     "textdomain": "mrblx",
@@ -121,6 +125,7 @@
         "className": true
     },
     "providesContext": {
-        "mindspun/labelPosition": "labelPosition"
+        "mindspun/labelPosition": "labelPosition",
+        "mindspun/labelRequiredIndicator": "labelRequiredIndicator"
     }
 }

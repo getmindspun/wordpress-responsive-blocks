@@ -7,7 +7,7 @@ import FieldText from '~shared/components/field/FieldText';
 
 import type { Props } from './types';
 
-const Radios = (props: {
+const RadioInput = (props: {
 	className?: string;
 	attributes: Props['attributes'];
 	name: string | undefined;
@@ -23,7 +23,7 @@ const Radios = (props: {
 	return (
 		<>
 			{props.attributes.options.map((option, index) => (
-				<label key={index} className={'mrblx-radio-label'}>
+				<label key={index} className={'mrblx-option-content'}>
 					<input
 						type={'radio'}
 						key={index}
@@ -61,7 +61,7 @@ const BaseRadio = forwardRef(
 		) {
 			return (
 				<>
-					<Radios
+					<RadioInput
 						className={!!props.fieldError ? 'is-error' : undefined}
 						attributes={props.attributes}
 						name={name}
@@ -81,7 +81,7 @@ const BaseRadio = forwardRef(
 						text={props.attributes.labelRequiredIndicator}
 					/>
 				</div>
-				<Radios
+				<RadioInput
 					name={name}
 					attributes={props.attributes}
 					value={props.value}

@@ -1,74 +1,49 @@
-import {useState} from '@wordpress/element';
-import {StylePortalClientId, useBlockPropsWithId} from '@mindspun/mrblx';
+import { useState } from '@wordpress/element';
+import { useBlockPropsWithId } from '@mindspun/mrblx';
 
-import {useFieldEdit, useRequiredIndicator} from '~shared/hooks/useFieldEdit';
+import { useFieldEdit } from '~shared/hooks/useFieldEdit';
+import EditorStyles from '~shared/components/EditorStyles';
 
-import type {Props} from './types';
+import './editor.scss';
+import metadata from './block.json';
+import type { Props } from './types';
 import Controls from './controls/Controls';
-import {getClassName, getDefaultValue} from './utils';
-import BaseRadio from './BaseRadio';
+import { getClassName, getDefaultValue } from './utils';
+import Radio from './Radio';
 
 const Edit = (props: Props) => {
-    const [value, setValue] = useState<string | undefined>(
-        getDefaultValue(props.attributes.options)
-    );
-    useFieldEdit(props);
+	const [value, setValue] = useState<string | undefined>(
+		getDefaultValue(props.attributes.options)
+	);
+	useFieldEdit(props);
 
-    const blockProps = useBlockPropsWithId(props, {
-        className: getClassName(props),
-    });
+	const blockProps = useBlockPropsWithId(props, {
+		className: getClassName(props),
+	});
 
-    return (
-        <>
-            <Controls {...props} />
-            <StylePortalClientId
-                clientId={props.clientId}
-                attributes={props.attributes.style}
-            />
-            <StylePortalClientId
-                clientId={props.clientId}
-                attributes={props.attributes.labelStyle}
-                selector={'.mrblx-field-label'}
-            />
-            <StylePortalClientId
-                clientId={props.clientId}
-                attributes={props.attributes.labelStyleError}
-                selector={'.is-error .mrblx-field-label'}
-            />
-            <StylePortalClientId
-                clientId={props.clientId}
-                attributes={props.attributes.labelStyleRequiredIndicator}
-                selector={'.mrblx-field-label .mrblx-required-indicator'}
-            />
-            <StylePortalClientId
-                clientId={props.clientId}
-                attributes={props.attributes.inputStyle}
-                selector={'input'}
-            />
-            <StylePortalClientId
-                clientId={props.clientId}
-                attributes={props.attributes.inputStyleError}
-                selector={'input.is-error'}
-            />
-            <StylePortalClientId
-                clientId={props.clientId}
-                attributes={props.attributes.fieldErrorStyle}
-                selector={'.field-help'}
-            />
-            <StylePortalClientId
-                clientId={props.clientId}
-                attributes={props.attributes.fieldErrorStyle}
-                selector={'.field-error'}
-            />
-            <div {...blockProps}>
-                <BaseRadio
-                    attributes={props.attributes}
-                    value={value}
-                    onChange={setValue}
-                />
-            </div>
-        </>
-    );
+	return (
+		<EditorStyles
+			{...props}
+			metadata={metadata}
+			keys={[
+				'style',
+				'labelStyle',
+				'labelStyleRequiredIndicator',
+				'labelStyleError',
+				'inputStyle',
+				'inputStyleError',
+				'optionContentStyle',
+				'optionContentErrorStyle',
+				'helpStyle',
+				'fieldErrorStyle',
+			]}
+		>
+			<Controls {...props} />
+			<div {...blockProps}>
+				<Radio attributes={props.attributes} />
+			</div>
+		</EditorStyles>
+	);
 };
 
 export default Edit;

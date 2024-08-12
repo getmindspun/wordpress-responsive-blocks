@@ -49,6 +49,10 @@
             "type": "string",
             "default": "Please select this option."
         },
+        "style": {
+            "type": "object",
+            "default": {}
+        },
         "labelStyle": {
             "type": "object",
             "default": {},
@@ -79,33 +83,30 @@
             "default": {},
             "selector": "input.is-error"
         },
-        "checkboxContentStyle": {
+        "optionContentStyle": {
             "type": "object",
             "default": {},
-            "selector": ".mrblx-checkbox-content"
+            "selector": ".mrblx-option-content"
         },
-        "checkboxContentErrorStyle": {
+        "optionContentErrorStyle": {
             "type": "object",
             "default": {},
-            "selector": ".is-error .mrblx-checkbox-content"
+            "selector": ".is-error .mrblx-option-content"
         },
         "helpStyle": {
             "type": "object",
             "default": {},
-            "selector": "small.field-help"
+            "selector": ".mrblx-field-help"
         },
         "fieldErrorStyle": {
             "type": "object",
             "default": {},
-            "selector": ".field-error"
-        },
-        "style": {
-            "type": "object",
-            "default": {}
+            "selector": ".mrblx-field-error"
         }
     },
     "textdomain": "mrblx",
     "editorScript": "file:./index.js",
+    "editorStyle": "file:./editor.css",
     "style": "file:./style.css",
     "viewScript": "file:./view.js",
     "supports": {

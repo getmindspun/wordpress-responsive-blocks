@@ -2,10 +2,10 @@ import { __ } from '@wordpress/i18n';
 import {
 	RadioControl,
 	__experimentalNumberControl as NumberControl,
-	TextControl,
 } from '@wordpress/components';
 
 import RequiredControl from '~shared/controls/form/RequiredControl';
+import CustomValidationControl from '~shared/controls/form/CustomValidationControl';
 
 import type { InputType } from '../types';
 import { Validation } from '~shared/types';
@@ -37,44 +37,6 @@ const SimpleValidationControl = (props: {
 					}}
 				/>
 			)}
-		</>
-	);
-};
-
-const CustomValidationControl = (props: {
-	validation: Validation;
-	setValidation: (attributes: Partial<Validation>) => void;
-}) => {
-	return (
-		<>
-			<RequiredControl
-				required={!!props.validation.required}
-				setRequired={(required) => {
-					props.setValidation({ required });
-				}}
-			/>
-			<TextControl
-				label={__('Pattern')}
-				value={props.validation.pattern ? props.validation.pattern : ''}
-				onChange={(pattern) =>
-					props.setValidation({
-						pattern: pattern ? pattern : undefined,
-					})
-				}
-			/>
-			<TextControl
-				label={__('Message')}
-				value={
-					props.validation.message
-						? props.validation.message
-						: 'Invalid'
-				}
-				onChange={(message) =>
-					props.setValidation({
-						message: message ? message : undefined,
-					})
-				}
-			/>
 		</>
 	);
 };
