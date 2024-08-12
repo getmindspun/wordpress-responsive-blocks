@@ -1,57 +1,62 @@
 import React from 'react';
 
-import { useEffect, useState } from '@wordpress/element';
+import {useEffect, useState} from '@wordpress/element';
 
-import { BlockCSSProperties } from '../../types';
-import { useGetPreviewDeviceType } from '../../hooks';
-import { buildCSS } from '../../functions';
+import {BlockCSSProperties} from '../../types';
+import {useGetPreviewDeviceType} from '../../hooks';
+import {buildCSS} from '../../functions';
 import Portal from '../Portal/Portal';
 
 const StylePortalClientId = (props: {
-	clientId: string;
-	selector?: string;
-	attributes: BlockCSSProperties;
+    clientId: string;
+    selector?: string;
+    attributes: BlockCSSProperties;
 }) => {
-	/* Keep data state so that portal doesn't internally recreate the element. */
-	const [data, setData] = useState({ 'client-id': props.clientId });
+    /* Keep data state so that portal doesn't internally recreate the element. */
+    const [data, setData] = useState({'client-id': props.clientId});
 
-	const deviceType = useGetPreviewDeviceType();
-	const iframe = document.querySelector('iframe[name="editor-canvas"]');
+    const deviceType = useGetPreviewDeviceType();
+    const iframe = document.querySelector('iframe[name="editor-canvas"]');
 
-	const id = `block-${props.clientId}`;
-	const css = buildCSS(id, props.attributes, {
-		selector: props.selector,
-	});
+    const id = `block-${props.clientId}`;
 
-	if (data['client-id'] !== props.clientId) {
-		setData({ 'client-id': props.clientId });
-	}
+    if (!props.attributes) {
+        console.error(props);
+    }
 
-	useEffect(() => {
-		if (iframe && css) {
-			const doc = (iframe as HTMLIFrameElement).contentDocument;
-			if (doc) {
-				const el = doc.createElement('style') as HTMLStyleElement;
-				el.setAttribute('data-client-id', props.clientId);
-				el.innerHTML = css;
-				doc.head.appendChild(el);
+    const css = buildCSS(id, props.attributes, {
+        selector: props.selector,
+    });
 
-				return () => {
-					doc.head.removeChild(el);
-				};
-			}
-		}
-	}, [deviceType, iframe, props.clientId, props.attributes, css]);
+    if (data['client-id'] !== props.clientId) {
+        setData({'client-id': props.clientId});
+    }
 
-	if (!css) {
-		return null;
-	}
+    useEffect(() => {
+        if (iframe && css) {
+            const doc = (iframe as HTMLIFrameElement).contentDocument;
+            if (doc) {
+                const el = doc.createElement('style') as HTMLStyleElement;
+                el.setAttribute('data-client-id', props.clientId);
+                el.innerHTML = css;
+                doc.head.appendChild(el);
 
-	return (
-		<Portal selector={'head'} tagName={'style'} data={data}>
-			{css}
-		</Portal>
-	);
+                return () => {
+                    doc.head.removeChild(el);
+                };
+            }
+        }
+    }, [deviceType, iframe, props.clientId, props.attributes, css]);
+
+    if (!css) {
+        return null;
+    }
+
+    return (
+        <Portal selector={'head'} tagName={'style'} data={data}>
+            {css}
+        </Portal>
+    );
 };
 
 export default StylePortalClientId;

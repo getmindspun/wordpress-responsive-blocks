@@ -32,6 +32,11 @@
             "default": {},
             "selector": ".mrblx-field-label"
         },
+        "labelStyleRequiredIndicator": {
+            "type": "object",
+            "default": {},
+            "selector": ".mrblx-field-label .mrblx-required-indicator"
+        },
         "labelStyleError": {
             "type": "object",
             "default": {},
@@ -82,10 +87,25 @@
             "default": {},
             "selector": ".is-error textarea"
         },
+        "checkboxContentStyle": {
+            "type": "object",
+            "default": {},
+            "selector": ".mrblx-checkbox-content"
+        },
+        "checkboxContentErrorStyle": {
+            "type": "object",
+            "default": {},
+            "selector": ".is-error .mrblx-checkbox-content"
+        },
+        "helpStyle": {
+            "type": "object",
+            "default": {},
+            "selector": ".mrblx-field-help"
+        },
         "fieldErrorStyle": {
             "type": "object",
             "default": {},
-            "selector": ".field-error"
+            "selector": ".mrblx-field-error"
         },
         "style": {
             "type": "object",

@@ -86,12 +86,12 @@
         "helpStyle": {
             "type": "object",
             "default": {},
-            "selector": ".field-help"
+            "selector": ".mrblx-field-help"
         },
         "fieldErrorStyle": {
             "type": "object",
             "default": {},
-            "selector": ".field-error"
+            "selector": ".mrblx-field-error"
         },
         "style": {
             "type": "object",

@@ -12,8 +12,8 @@ export interface Attributes
         | 'inputStyle'
         | 'inputStyleError'
         | 'inputStyleFocus'
-        | 'optionContentStyle'
-        | 'optionContentErrorStyle'
+        | 'checkboxContentStyle'
+        | 'checkboxContentErrorStyle'
         | 'helpStyle'
         | 'fieldErrorStyle'
         | 'style'
@@ -22,7 +22,7 @@ export interface Attributes
     name: string | undefined;
     value: string | undefined;
     help: string | undefined;
-    optionContent: string | undefined;
+    checkboxContent: string | undefined;
     required: boolean;
     checked: boolean;
     autoFocus: boolean | undefined;

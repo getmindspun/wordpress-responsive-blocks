@@ -1,5 +1,5 @@
 import {Props} from '../types';
-import {InspectorControls} from '@wordpress/block-editor';
+import {InspectorAdvancedControls, InspectorControls} from '@wordpress/block-editor';
 import {layout, category} from '@wordpress/icons';
 
 import {TabbedControl, TabbedContainer} from '@mindspun/mrblx';
@@ -8,20 +8,29 @@ import GeneralControls from './GeneralControls';
 
 import {__} from '@wordpress/i18n';
 import ElementsControls from './ElementsControls';
+import {Button} from '@wordpress/components';
 
 const Controls = (
     props: Props & {
-        onMouseEnter?: () => void;
-        onMouseLeave?: () => void;
+        form: HTMLFormElement | null;
     }
 ) => {
+    function onSubmit() {
+        if (props.form) {
+            const customEvent = new CustomEvent('mrblx.submit', {detail: props.form});
+            dispatchEvent(customEvent);
+        }
+    }
+
+    function onReset() {
+        props.form?.reset();
+    }
+
     return (
         <>
             <InspectorControls>
                 <div
                     className={'wp-block-mindspun-form--controls'}
-                    onMouseEnter={props.onMouseEnter}
-                    onMouseLeave={props.onMouseLeave}
                 >
                     <TabbedControl>
                         <TabbedContainer key={__('General')} icon={layout}>
@@ -33,6 +42,12 @@ const Controls = (
                     </TabbedControl>
                 </div>
             </InspectorControls>
+            <InspectorAdvancedControls>
+                <div className={'wp-block-mindspun-form--controls-adv'}>
+                    <Button variant={'primary'} onClick={onSubmit}>{__('Submit')}</Button>
+                    <Button variant={'secondary'} onClick={onReset}>{__('Reset')}</Button>
+                </div>
+            </InspectorAdvancedControls>
         </>
     );
 };

@@ -45,7 +45,7 @@
             "type": "string",
             "default": "You must select this option."
         },
-        "optionContent": {
+        "checkboxContent": {
             "type": "string",
             "default": "Please select this option."
         },
@@ -79,15 +79,15 @@
             "default": {},
             "selector": "input.is-error"
         },
-        "optionContentStyle": {
+        "checkboxContentStyle": {
             "type": "object",
             "default": {},
-            "selector": ".mrblx-checkbox-label"
+            "selector": ".mrblx-checkbox-content"
         },
-        "optionContentStyleError": {
+        "checkboxContentErrorStyle": {
             "type": "object",
             "default": {},
-            "selector": ".mrblx-checkbox-label"
+            "selector": ".is-error .mrblx-checkbox-content"
         },
         "helpStyle": {
             "type": "object",
