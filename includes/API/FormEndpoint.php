@@ -64,8 +64,8 @@ class FormEndpoint {
             if ( ! empty( $lines ) ) {
                 $lines[] = '';
             }
-            $lines[] = $key;
-            $lines[] = $value;
+            $lines[] = "<dt style=\"text-transform:uppercase\"><strong>$key</strong></dt>";
+            $lines[] = "<dd style=\"margin-bottom:1em\">$value</dd>";
         }
 
         $to = $this->get_to();
@@ -74,10 +74,13 @@ class FormEndpoint {
         $subject = __( 'Form submission', 'mrblx' );
         $subject = apply_filters( 'mrblx_form_email_subject', $subject, $params );
 
-        $message = join( "\n", $lines );
+        $message = ! empty( $lines ) ? '<dl>' . join( "\n", $lines ) . '</dl>' : 'Empty form submission: no field data found.';
         $message = apply_filters( 'mrblx_form_email_message', $message, $params );
 
-        error_log( 'SUBMITTED -> ' . $to );
-        Globals::wp_mail( $to, $subject, $message );
+        $headers = array( 'Content-Type: text/html; charset=UTF-8' );
+        $headers = apply_filters( 'mrblx_form_email_headers', $headers, $params );
+
+        error_log( "SUBMITTED [$to] -> $message" );
+        Globals::wp_mail( $to, $subject, $message, $headers );
     }
 }
