@@ -28,19 +28,25 @@ $red: #DF1B41;
     }
 
     &.mrblx-label-top {
-        label {
+        & > label {
             flex-direction: column;
         }
     }
 
     &.mrblx-label-inline {
-        label {
+        .mrblx-field-label {
             flex-direction: row;
             align-items: center;
 
             & > span {
                 margin-right: .25em;
             }
+        }
+    }
+
+    &.mrblx-label-inline, &.mrblx-label-none {
+        .mrblx-field-help, .mrblx-field-error {
+            margin-left: .5em;
         }
     }
 

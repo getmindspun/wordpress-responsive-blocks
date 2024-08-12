@@ -48,7 +48,6 @@ export type Props = {
 	attributes: Attributes;
 	setAttributes: (attributes: Partial<Attributes>) => void;
 	context: {
-		['mindspun/formBlockId']: string | undefined;
 		['mindspun/labelPosition']: LabelPosition | undefined;
 		['mindspun/labelRequiredIndicator']: string | undefined;
 	};

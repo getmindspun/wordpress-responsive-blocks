@@ -104,7 +104,6 @@
         "className": true
     },
     "usesContext": [
-        "mindspun/formBlockId",
         "mindspun/labelPosition",
         "mindspun/labelRequiredIndicator"
     ]

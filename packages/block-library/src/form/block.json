@@ -101,7 +101,6 @@
         "className": true
     },
     "providesContext": {
-        "mindspun/formBlockId": "blockId",
         "mindspun/labelPosition": "labelPosition"
     }
 }
