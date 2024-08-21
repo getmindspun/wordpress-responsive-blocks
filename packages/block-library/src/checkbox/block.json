@@ -42,10 +42,9 @@
             "default": false
         },
         "help": {
-            "type": "string",
-            "default": "You must select this option."
+            "type": "string"
         },
-        "checkboxContent": {
+        "content": {
             "type": "string",
             "default": "Please select this option."
         },
