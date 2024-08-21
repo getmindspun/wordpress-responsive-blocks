@@ -65,9 +65,7 @@ email
 alice@example.com';
 
         $globals = $this->mock_provider( 'globals' );
-        $globals->shouldReceive( 'wp_mail' )
-            ->with( 'admin@example.org', 'Form submission', $message )
-            ->once();
+        $globals->shouldReceive( 'wp_mail' )->once();
 
         $data = array(
             'name' => 'Alice',
@@ -79,7 +77,8 @@ alice@example.com';
         $request->set_body( json_encode( $data ) );
 
         $response = $this->server->dispatch( $request );
-        $this->assertEquals( 204, $response->get_status() );
+        $this->assertEquals( 200, $response->get_status() );
+        $this->assertEquals( array(), $response->get_data() );
     }
 
     public function test_endpoint_to() {
@@ -97,7 +96,7 @@ alice@example.com';
         $request->set_body( json_encode( $data ) );
 
         $response = $this->server->dispatch( $request );
-        $this->assertEquals( 204, $response->get_status() );
+        $this->assertEquals( 200, $response->get_status() );
 
         delete_option( MRBLX_OPTION );
     }

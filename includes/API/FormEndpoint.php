@@ -80,7 +80,6 @@ class FormEndpoint {
         $headers = array( 'Content-Type: text/html; charset=UTF-8' );
         $headers = apply_filters( 'mrblx_form_email_headers', $headers, $params );
 
-        error_log( "SUBMITTED [$to] -> $message" );
         Globals::wp_mail( $to, $subject, $message, $headers );
     }
 }
