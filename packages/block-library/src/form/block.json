@@ -53,17 +53,17 @@
         "inputStyle": {
             "type": "object",
             "default": {},
-            "selector": "input"
+            "selector": "input:not('submit'):not('reset')"
         },
         "inputStyleFocus": {
             "type": "object",
             "default": {},
-            "selector": "input:focus-visible"
+            "selector": "input:focus-visible:not('submit'):not('reset')"
         },
         "inputStyleError": {
             "type": "object",
             "default": {},
-            "selector": ".is-error input"
+            "selector": ".is-error input:not('submit'):not('reset')"
         },
         "selectStyle": {
             "type": "object",
@@ -83,12 +83,12 @@
         "textAreaStyle": {
             "type": "object",
             "default": {},
-            "selector": "input"
+            "selector": "textarea"
         },
         "textAreaStyleFocus": {
             "type": "object",
             "default": {},
-            "selector": "input:focus-visible"
+            "selector": "textarea:focus-visible"
         },
         "textAreaStyleError": {
             "type": "object",
