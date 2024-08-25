@@ -1,10 +1,11 @@
 import React from 'react';
-import { forwardRef } from '@wordpress/element';
+import { forwardRef, RawHTML } from '@wordpress/element';
 
 import RequiredIndicator from '~shared/components/field/RequiredIndicator';
 import FieldText from '~shared/components/field/FieldText';
 
 import type { Props } from './types';
+import { RichText } from '@wordpress/block-editor';
 
 const CheckboxInput = forwardRef(
 	(props: {
@@ -46,7 +47,18 @@ const CheckboxInput = forwardRef(
 						checked={props.checked}
 						disabled={props.disabled}
 					/>
-					{props.children ? props.children : props.attributes.content}
+					{props.children ? (
+						props.children
+					) : (
+						<RichText.Content
+							tagName={'span'}
+							value={
+								props.attributes.content
+									? props.attributes.content
+									: ''
+							}
+						/>
+					)}
 				</label>
 				<FieldText {...props} />
 			</div>

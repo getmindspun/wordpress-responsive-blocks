@@ -18,13 +18,13 @@ const ElementsControls = (props: {
 			blockId={props.attributes.blockId}
 			label={__('Element')}
 		>
-			<SelectedContainer key={__('Labels')}>
+			<SelectedContainer key={__('Field Label')}>
 				<LabelControls {...props} />
 			</SelectedContainer>
-			<SelectedContainer key={__('Inputs')}>
+			<SelectedContainer key={__('Input')}>
 				<InputControls {...props} />
 			</SelectedContainer>
-			<SelectedContainer key={__('Description')}>
+			<SelectedContainer key={__('Field Help')}>
 				<HelpControls {...props} />
 			</SelectedContainer>
 			<SelectedContainer key={__('Field Errors')}>

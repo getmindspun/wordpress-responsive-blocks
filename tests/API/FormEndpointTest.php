@@ -58,12 +58,6 @@ class FormEndpointTest extends TestCase {
     }
 
     public function test_endpoint() {
-        $message = 'name
-Alice
-
-email
-alice@example.com';
-
         $globals = $this->mock_provider( 'globals' );
         $globals->shouldReceive( 'wp_mail' )->once();
 
@@ -105,5 +99,46 @@ alice@example.com';
         // Coverage misses the construct despite it clearly being called.
         $endpoint = new FormEndpoint();
         self::assertNotEmpty( $endpoint );
+    }
+
+    public function test_form_submit_error() {
+        $this->mock_provider( 'globals' )
+            ->shouldReceive( 'wp_mail' )
+            ->with(
+                \Mockery::capture( $to ),
+                \Mockery::capture( $from ),
+                \Mockery::capture( $messge ),
+                \Mockery::capture( $headers ),
+            );
+
+        $endpoint = new FormEndpoint();
+        $endpoint->form_submit(
+            array(
+                'error' => 'Invalid argument',
+            )
+        );
+
+        self::assertTrue( str_contains( $messge, 'Errors' ) );
+    }
+
+    public function test_form_submit_errors() {
+        $this->mock_provider( 'globals' )
+             ->shouldReceive( 'wp_mail' )
+            ->with(
+                \Mockery::capture( $to ),
+                \Mockery::capture( $from ),
+                \Mockery::capture( $messge ),
+                \Mockery::capture( $headers ),
+            );
+
+        $endpoint = new FormEndpoint();
+        $endpoint->form_submit(
+            array(
+                'foo' => 'baz',
+                'errors' => array( 'Invalid argument' ),
+            )
+        );
+
+        self::assertTrue( str_contains( $messge, 'Errors' ) );
     }
 }

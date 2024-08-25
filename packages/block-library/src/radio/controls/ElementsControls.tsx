@@ -26,7 +26,7 @@ const ElementsControls = (props: {
 			<SelectedContainer key={'Field Label'}>
 				<LabelControls {...props} />
 			</SelectedContainer>
-			<SelectedContainer key={'Inputs'}>
+			<SelectedContainer key={'Input'}>
 				<InputControls {...props}>
 					<ContainerContents>
 						<DisplayControl

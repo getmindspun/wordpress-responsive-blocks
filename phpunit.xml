@@ -17,11 +17,7 @@
     <coverage>
         <include>
             <directory suffix=".php">includes</directory>
-            <file>licensing.php</file>
         </include>
-        <exclude>
-            <file>includes/Providers/AssetsProvider.php</file>
-        </exclude>
         <report>
             <html outputDirectory="build/coverage" highLowerBound="100"/>
         </report>
