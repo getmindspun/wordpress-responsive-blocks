@@ -36,7 +36,7 @@ const TabbedControl = (props: {
 		: [props.children];
 	const [blockState, setBlockState] = useBlockState(name);
 
-	const activeIndex = findActiveIndex(blockState, children);
+	const activeIndex = blockState ? findActiveIndex(blockState, children) : 0;
 	return (
 		<div className={'mrblx--tabbed-control'}>
 			<div className={'mrblx--tabbed-header'}>

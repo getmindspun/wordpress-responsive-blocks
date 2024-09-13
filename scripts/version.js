@@ -15,7 +15,7 @@ function git_branch() {
 
 
 function git_short_hash() {
-    return shell('git rev-parse --short HEAD');
+    return shell('git rev-parse --short HEAD').trim();
 }
 
 
@@ -23,8 +23,7 @@ function git_dirty() {
     const cmd = 'git diff --quiet'
     try {
         childProcess.execSync(cmd);
-    }
-    catch (error) {
+    } catch (error) {
         return true;
     }
 
@@ -39,11 +38,6 @@ function plugin_version() {
     const match = text.match(/Version:\s+v?(\d+\.\d+\.\d+)/);
     assert(match);
     return match[1];
-}
-
-
-function commit_from_tag(tag) {
-    return shell('git rev-list -n 1 ' + tag);
 }
 
 

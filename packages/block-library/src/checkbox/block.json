@@ -1,0 +1,118 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "mindspun/checkbox",
+    "version": "0.17.1",
+    "title": "Checkbox",
+    "category": "mindspun-responsive-blocks",
+    "description": "Fully-responsive element that selects one or more options from a set.",
+    "example": {},
+    "attributes": {
+        "blockId": {
+            "type": "string"
+        },
+        "label": {
+            "type": "string",
+            "default": "Untitled"
+        },
+        "labelPosition": {
+            "type": "string",
+            "default": "top"
+        },
+        "labelRequiredIndicator": {
+            "type": "string",
+            "default": "*"
+        },
+        "name": {
+            "type": "string"
+        },
+        "value": {
+            "type": "string"
+        },
+        "autoFocus": {
+            "type": "boolean",
+            "default": false
+        },
+        "required": {
+            "type": "boolean",
+            "default": false
+        },
+        "checked": {
+            "type": "boolean",
+            "default": false
+        },
+        "help": {
+            "type": "string"
+        },
+        "content": {
+            "type": "string",
+            "default": "Please select this option."
+        },
+        "style": {
+            "type": "object",
+            "default": {}
+        },
+        "labelStyle": {
+            "type": "object",
+            "default": {},
+            "selector": ".mrblx-field-label"
+        },
+        "labelStyleError": {
+            "type": "object",
+            "default": {},
+            "selector": ".is-error .mrblx-field-label"
+        },
+        "labelStyleRequiredIndicator": {
+            "type": "object",
+            "default": {},
+            "selector": ".mrblx-field-label.mrblx-required-indicator"
+        },
+        "inputStyle": {
+            "type": "object",
+            "default": {},
+            "selector": "input"
+        },
+        "inputStyleFocus": {
+            "type": "object",
+            "default": {},
+            "selector": "input:focus-visible"
+        },
+        "inputStyleError": {
+            "type": "object",
+            "default": {},
+            "selector": "input.is-error"
+        },
+        "optionContentStyle": {
+            "type": "object",
+            "default": {},
+            "selector": ".mrblx-option-content"
+        },
+        "optionContentErrorStyle": {
+            "type": "object",
+            "default": {},
+            "selector": ".is-error .mrblx-option-content"
+        },
+        "helpStyle": {
+            "type": "object",
+            "default": {},
+            "selector": ".mrblx-field-help"
+        },
+        "fieldErrorStyle": {
+            "type": "object",
+            "default": {},
+            "selector": ".mrblx-field-error"
+        }
+    },
+    "textdomain": "mrblx",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./editor.css",
+    "style": "file:./style.css",
+    "viewScript": "file:./view.js",
+    "supports": {
+        "className": true
+    },
+    "usesContext": [
+        "mindspun/labelPosition",
+        "mindspun/labelRequiredIndicator"
+    ]
+}

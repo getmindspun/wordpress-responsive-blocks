@@ -1,0 +1,15 @@
+@import "~shared/scss/_editor.scss";
+
+.wp-block-mindspun-form--controls {
+    @include tabbed-controls;
+}
+
+.wp-block-mindspun-form--controls-adv {
+    display: grid;
+    grid-gap: 8px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    .components-button {
+        display: inline-block;
+    }
+}

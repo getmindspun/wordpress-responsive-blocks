@@ -16,6 +16,7 @@ use MRBLX\Admin\SettingsPage;
 use MRBLX\API\FormEndpoint;
 use MRBLX\Vendor\Mindspun\Framework\Autoloader;
 use MRBLX\CSSBuilder;
+use MRBLX\Vendor\Mindspun\Framework\Providers\GlobalsProvider;
 
 if ( ! defined( 'ABSPATH' ) ) {
     exit;
@@ -33,6 +34,9 @@ if ( ! defined( 'MRBLX_OPTION' ) ) {
 if ( ! defined( 'MRBLX_REST_NAMESPACE' ) ) {
     define( 'MRBLX_REST_NAMESPACE', 'mindspun/blocks/v1' );
 }
+
+/* Providers */
+GlobalsProvider::provide();
 
 /**
  * Helper function to build CSS from the block attributes using the given selector.
@@ -253,5 +257,18 @@ add_action(
                 )
             );
         }
+    }
+);
+
+
+/* Make the REST URL available to the form block. */
+add_action(
+    'enqueue_block_editor_assets',
+    function () {
+        wp_add_inline_script(
+            'mindspun-form-editor-script',
+            'window.mrblxData = window.mrblxData || {}; window.mrblxData.rest_url = "' . esc_url_raw( rest_url( MRBLX_REST_NAMESPACE ) ) . '";',
+            'before'
+        );
     }
 );

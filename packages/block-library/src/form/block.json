@@ -1,0 +1,131 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "mindspun/form",
+    "version": "0.17.1",
+    "title": "Form",
+    "category": "mindspun-responsive-blocks",
+    "description": "General form element meant to contain fields.",
+    "example": {},
+    "attributes": {
+        "blockId": {
+            "type": "string"
+        },
+        "method": {
+            "type": "string",
+            "default": "get"
+        },
+        "action": {
+            "type": "string",
+            "default": null
+        },
+        "encType": {
+            "type": "string",
+            "default": null
+        },
+        "labelPosition": {
+            "type": "string",
+            "default": "top"
+        },
+        "labelRequiredIndicator": {
+            "type": "string",
+            "default": "*"
+        },
+        "style": {
+            "type": "object",
+            "default": {}
+        },
+        "labelStyle": {
+            "type": "object",
+            "default": {},
+            "selector": ".mrblx-field-label"
+        },
+        "labelStyleRequiredIndicator": {
+            "type": "object",
+            "default": {},
+            "selector": ".mrblx-field-label .mrblx-required-indicator"
+        },
+        "labelStyleError": {
+            "type": "object",
+            "default": {},
+            "selector": ".is-error .mrblx-field-label"
+        },
+        "inputStyle": {
+            "type": "object",
+            "default": {},
+            "selector": "input:not('submit'):not('reset')"
+        },
+        "inputStyleFocus": {
+            "type": "object",
+            "default": {},
+            "selector": "input:focus-visible:not('submit'):not('reset')"
+        },
+        "inputStyleError": {
+            "type": "object",
+            "default": {},
+            "selector": ".is-error input:not('submit'):not('reset')"
+        },
+        "selectStyle": {
+            "type": "object",
+            "default": {},
+            "selector": "select"
+        },
+        "selectStyleFocus": {
+            "type": "object",
+            "default": {},
+            "selector": "select:focus-visible"
+        },
+        "selectStyleError": {
+            "type": "object",
+            "default": {},
+            "selector": ".is-error select"
+        },
+        "textAreaStyle": {
+            "type": "object",
+            "default": {},
+            "selector": "textarea"
+        },
+        "textAreaStyleFocus": {
+            "type": "object",
+            "default": {},
+            "selector": "textarea:focus-visible"
+        },
+        "textAreaStyleError": {
+            "type": "object",
+            "default": {},
+            "selector": ".is-error textarea"
+        },
+        "optionContentStyle": {
+            "type": "object",
+            "default": {},
+            "selector": ".mrblx-option-content"
+        },
+        "optionContentErrorStyle": {
+            "type": "object",
+            "default": {},
+            "selector": ".is-error .mrblx-option-content"
+        },
+        "helpStyle": {
+            "type": "object",
+            "default": {},
+            "selector": ".mrblx-field-help"
+        },
+        "fieldErrorStyle": {
+            "type": "object",
+            "default": {},
+            "selector": ".mrblx-field-error"
+        }
+    },
+    "textdomain": "mrblx",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./editor.css",
+    "style": "file:./style.css",
+    "viewScript": "file:./view.js",
+    "supports": {
+        "className": true
+    },
+    "providesContext": {
+        "mindspun/labelPosition": "labelPosition",
+        "mindspun/labelRequiredIndicator": "labelRequiredIndicator"
+    }
+}

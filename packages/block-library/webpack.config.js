@@ -15,6 +15,14 @@ const plugins = defaultConfig.plugins.filter((plugin) => {
 	);
 });
 
+const resolve = {
+	...defaultConfig.resolve,
+	alias: {
+		...defaultConfig.resolve.alias,
+		'~shared': path.resolve(__dirname, 'src', '_shared'),
+	},
+};
+
 module.exports = {
 	...defaultConfig,
 	output: {
@@ -48,4 +56,5 @@ module.exports = {
 			},
 		}),
 	],
+	resolve,
 };

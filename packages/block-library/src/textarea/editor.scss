@@ -1,0 +1,5 @@
+@import "~shared/scss/_editor.scss";
+
+.wp-block-mindspun-textarea--controls {
+    @include tabbed-controls;
+}

@@ -1,0 +1,14 @@
+@import "~shared/scss/_fields.scss";
+
+// Keep .mrblx-label for extra specificity
+.wp-block-mindspun-select {
+    @include field-styles;
+
+    textarea:focus-visible {
+        outline: none;
+    }
+
+    select {
+        width: 100%;
+    }
+}

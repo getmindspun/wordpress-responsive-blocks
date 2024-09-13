@@ -1,6 +1,5 @@
 import { __ } from '@wordpress/i18n';
 
-import { ControlHeader } from '@mindspun/mrblx';
 import { Props } from '../types';
 import { TextControl } from '@wordpress/components';
 
@@ -20,7 +19,7 @@ const CustomEventControl = (props: {
 				onChange={(type) => {
 					const customEvent = {
 						...props.attributes.customEvent,
-						type: type ? type : undefined,
+						type: type ? type : 'UNKNOWN',
 					};
 					props.setAttributes({ customEvent });
 				}}

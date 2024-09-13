@@ -1,0 +1,19 @@
+@import "~shared/scss/_fields.scss";
+
+// Keep .mrblx-label for extra specificity
+.wp-block-mindspun-checkbox {
+    @include field-styles;
+
+    .mrblx-option-content {
+        display: flex;
+        align-items: center;
+    }
+
+    input[type="checkbox"] {
+        margin-right: .5em;
+    }
+
+    input:focus-visible {
+        outline: none;
+    }
+}

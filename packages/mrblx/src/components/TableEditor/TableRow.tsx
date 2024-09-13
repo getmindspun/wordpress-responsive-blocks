@@ -11,19 +11,37 @@ const SelectColumn = (props: {
 	selected: boolean;
 	onClick: () => void;
 }) => {
+	const tdStyle = { width: '24px' };
+	const linkStyle = {
+		width: '24px',
+		cursor: 'pointer',
+		display: 'inline-block',
+	};
+
 	if (!props.hasSelect) {
 		return null;
 	}
 	if (props.selected) {
 		return (
-			<td width={'24px'} onClick={props.onClick}>
-				{check}
+			<td style={tdStyle} className={'mrblx--selectable-column'}>
+				<Button
+					style={linkStyle}
+					onClick={props.onClick}
+					onKeyDown={props.onClick}
+					icon={check}
+				/>
 			</td>
 		);
 	}
 	return (
-		<td width={'24px'} onClick={props.onClick}>
-			&nbsp;
+		<td style={tdStyle} className={'mrblx--selectable-column'}>
+			<button
+				style={linkStyle}
+				onClick={props.onClick}
+				onKeyDown={props.onClick}
+			>
+				&nbsp;
+			</button>
 		</td>
 	);
 };

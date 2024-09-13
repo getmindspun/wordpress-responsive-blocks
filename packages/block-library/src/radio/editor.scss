@@ -1,0 +1,9 @@
+@import "~shared/scss/_editor.scss";
+
+.wp-block-mindspun-radio--controls {
+    @include tabbed-controls;
+
+    .mrblx-button--edit-options {
+        justify-content: center;
+    }
+}

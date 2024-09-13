@@ -1,0 +1,110 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "mindspun/textarea",
+    "version": "0.17.1",
+    "title": "Text Area",
+    "category": "mindspun-responsive-blocks",
+    "description": "Multi-line editing control for free-form text.",
+    "example": {},
+    "attributes": {
+        "blockId": {
+            "type": "string"
+        },
+        "rows": {
+            "type": "integer"
+        },
+        "cols": {
+            "type": "integer"
+        },
+        "label": {
+            "type": "string",
+            "default": "Untitled"
+        },
+        "labelPosition": {
+            "type": "string",
+            "default": "top"
+        },
+        "labelRequiredIndicator": {
+            "type": "string",
+            "default": "*"
+        },
+        "name": {
+            "type": "string"
+        },
+        "autoCorrect": {
+            "type": "string"
+        },
+        "autoFocus": {
+            "type": "boolean",
+            "default": false
+        },
+        "spellCheck": {
+            "type": "boolean",
+            "default": false
+        },
+        "help": {
+            "type": "string"
+        },
+        "validation": {
+            "type": "object",
+            "default": {}
+        },
+        "style": {
+            "type": "object",
+            "default": {}
+        },
+        "labelStyle": {
+            "type": "object",
+            "default": {},
+            "selector": "label"
+        },
+        "labelStyleError": {
+            "type": "object",
+            "default": {},
+            "selector": "label.is-error"
+        },
+        "labelStyleRequiredIndicator": {
+            "type": "object",
+            "default": {},
+            "selector": "label .mrblx-required-indicator"
+        },
+        "textAreaStyle": {
+            "type": "object",
+            "default": {},
+            "selector": "textarea"
+        },
+        "textAreaStyleFocus": {
+            "type": "object",
+            "default": {},
+            "selector": "textarea:focus-visible"
+        },
+        "textAreaStyleError": {
+            "type": "object",
+            "default": {},
+            "selector": "textarea.is-error"
+        },
+        "helpStyle": {
+            "type": "object",
+            "default": {},
+            "selector": ".mrblx-field-help"
+        },
+        "fieldErrorStyle": {
+            "type": "object",
+            "default": {},
+            "selector": ".field-error"
+        }
+    },
+    "textdomain": "mrblx",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./editor.css",
+    "style": "file:./style.css",
+    "viewScript": "file:./view.js",
+    "supports": {
+        "className": true
+    },
+    "usesContext": [
+        "mindspun/labelPosition",
+        "mindspun/labelRequiredIndicator"
+    ]
+}

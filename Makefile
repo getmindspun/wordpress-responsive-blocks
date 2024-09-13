@@ -53,7 +53,7 @@ release: bundle
 .PHONY: release
 
 version:
-	@echo $(VERSION)
+	@echo "$(VERSION)"
 .PHONY: version
 
 clean:

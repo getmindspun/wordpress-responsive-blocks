@@ -43,3 +43,24 @@ export const WithSelect: Story = {
 		);
 	},
 };
+
+export const WithSelectAndLabels: Story = {
+	render: () => {
+		const [selected, setSelected] = useState<number | undefined>(0);
+		const [data, setData] = useState([
+			['Apple', 'alice'],
+			['Banana', 'bob'],
+			['Coconut', 'charlie'],
+		]);
+		return (
+			<TableEditor
+				id={'myTable'}
+				data={data}
+				setData={setData}
+				selected={selected}
+				setSelected={setSelected}
+				columns={['Column A', 'Column B']}
+			/>
+		);
+	},
+};

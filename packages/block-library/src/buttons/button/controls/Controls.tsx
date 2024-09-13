@@ -1,3 +1,4 @@
+import React from 'react';
 import {
 	InspectorAdvancedControls,
 	InspectorControls,
@@ -16,10 +17,10 @@ import {
 } from '@mindspun/mrblx';
 
 import { Props } from '../types';
-import StyleControls from './StyleControls';
+
+import StyleControls from '~shared/controls/button/StyleControls';
 import ButtonVariantControl from './ButtonVariantControl';
 import CustomEventControl from './CustomEventControl';
-import React from 'react';
 
 const Controls = (props: Props) => {
 	return (

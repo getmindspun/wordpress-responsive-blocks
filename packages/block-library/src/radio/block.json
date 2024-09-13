@@ -1,0 +1,129 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "mindspun/radio",
+    "version": "0.17.1",
+    "title": "Radio Buttons",
+    "category": "mindspun-responsive-blocks",
+    "description": "Fully-responsive radio buttons.",
+    "example": {},
+    "attributes": {
+        "blockId": {
+            "type": "string"
+        },
+        "label": {
+            "type": "string",
+            "default": "Untitled"
+        },
+        "labelPosition": {
+            "type": "string",
+            "default": "top"
+        },
+        "labelRequiredIndicator": {
+            "type": "string",
+            "default": "*"
+        },
+        "name": {
+            "type": "string"
+        },
+        "autoComplete": {
+            "type": "string"
+        },
+        "autoFocus": {
+            "type": "boolean",
+            "default": false
+        },
+        "options": {
+            "type": "array",
+            "default": [
+                {
+                    "label": "First Choice",
+                    "value": "1st",
+                    "selected": true
+                },
+                {
+                    "label": "Second Choice",
+                    "value": "2nd"
+                },
+                {
+                    "label": "Third Choice",
+                    "value": "3rd"
+                }
+            ]
+        },
+        "required": {
+            "type": "boolean",
+            "default": false
+        },
+        "help": {
+            "type": "string"
+        },
+        "labelStyle": {
+            "type": "object",
+            "default": {},
+            "selector": ".mrblx-field-label"
+        },
+        "labelStyleError": {
+            "type": "object",
+            "default": {},
+            "selector": ".is-error .mrblx-field-label"
+        },
+        "labelStyleRequiredIndicator": {
+            "type": "object",
+            "default": {},
+            "selector": ".mrblx-field-label.mrblx-required-indicator"
+        },
+        "inputStyle": {
+            "type": "object",
+            "default": {},
+            "selector": "input"
+        },
+        "inputStyleFocus": {
+            "type": "object",
+            "default": {},
+            "selector": "input:focus-visible"
+        },
+        "inputStyleError": {
+            "type": "object",
+            "default": {},
+            "selector": ".is-error input"
+        },
+        "optionContentStyle": {
+            "type": "object",
+            "default": {},
+            "selector": ".mrblx-option-content"
+        },
+        "optionContentErrorStyle": {
+            "type": "object",
+            "default": {},
+            "selector": ".is-error .mrblx-option-content"
+        },
+        "helpStyle": {
+            "type": "object",
+            "default": {},
+            "selector": ".mrblx-field-help"
+        },
+        "fieldErrorStyle": {
+            "type": "object",
+            "default": {},
+            "selector": ".mrblx-field-error"
+        },
+        "style": {
+            "type": "object",
+            "default": {}
+        }
+    },
+    "textdomain": "mrblx",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./editor.css",
+    "style": "file:./style.css",
+    "viewScript": "file:./view.js",
+    "supports": {
+        "className": true
+    },
+    "usesContext": [
+        "mindspun/formBlockId",
+        "mindspun/labelPosition",
+        "mindspun/labelRequiredIndicator"
+    ]
+}

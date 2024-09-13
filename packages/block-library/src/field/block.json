@@ -1,0 +1,113 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "mindspun/field",
+    "version": "0.17.1",
+    "title": "Field",
+    "category": "mindspun-responsive-blocks",
+    "description": "Fully-responsive fields consisting of inputs and optional labels.",
+    "example": {},
+    "attributes": {
+        "blockId": {
+            "type": "string"
+        },
+        "inputSize": {
+            "type": "integer"
+        },
+        "label": {
+            "type": "string"
+        },
+        "labelPosition": {
+            "type": "string",
+            "default": "top"
+        },
+        "labelRequiredIndicator": {
+            "type": "string",
+            "default": "*"
+        },
+        "name": {
+            "type": "string"
+        },
+        "type": {
+            "type": "string",
+            "default": "text"
+        },
+        "autoComplete": {
+            "type": "string"
+        },
+        "autoFocus": {
+            "type": "boolean",
+            "default": false
+        },
+        "spellCheck": {
+            "type": "boolean",
+            "default": false
+        },
+        "autoCapitalize": {
+            "type": "string"
+        },
+        "help": {
+            "type": "string"
+        },
+        "validation": {
+            "type": "object",
+            "default": {}
+        },
+        "style": {
+            "type": "object",
+            "default": {}
+        },
+        "labelStyle": {
+            "type": "object",
+            "default": {},
+            "selector": ".mrblx-field-label"
+        },
+        "labelStyleError": {
+            "type": "object",
+            "default": {},
+            "selector": ".is-error .mrblx-field-label"
+        },
+        "labelStyleRequiredIndicator": {
+            "type": "object",
+            "default": {},
+            "selector": ".mrblx-field-label .mrblx-required-indicator"
+        },
+        "inputStyle": {
+            "type": "object",
+            "default": {},
+            "selector": "input"
+        },
+        "inputStyleFocus": {
+            "type": "object",
+            "default": {},
+            "selector": "input:focus-visible"
+        },
+        "inputStyleError": {
+            "type": "object",
+            "default": {},
+            "selector": ".is-error label"
+        },
+        "helpStyle": {
+            "type": "object",
+            "default": {},
+            "selector": ".mrblx-field-help"
+        },
+        "fieldErrorStyle": {
+            "type": "object",
+            "default": {},
+            "selector": ".mrblx-field-error"
+        }
+    },
+    "textdomain": "mrblx",
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./editor.css",
+    "style": "file:./style.css",
+    "viewScript": "file:./view.js",
+    "supports": {
+        "className": true
+    },
+    "usesContext": [
+        "mindspun/labelPosition",
+        "mindspun/labelRequiredIndicator"
+    ]
+}

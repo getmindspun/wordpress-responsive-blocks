@@ -1,0 +1,17 @@
+@import "~shared/scss/_fields.scss";
+
+.wp-block-mindspun-radio {
+    @include field-styles;
+
+    .mrblx-option-content {
+        display: block;
+    }
+
+    input[type="radio"] {
+        margin-right: .5em;
+    }
+
+    input:focus-visible {
+        outline: none;
+    }
+}

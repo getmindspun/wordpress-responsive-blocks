@@ -1,0 +1,56 @@
+@import "~shared/scss/_fields.scss";
+
+// Keep .mrblx-label for extra specificity
+.wp-block-mindspun-field {
+    &, &.wp-block {
+        margin-bottom: 1em;
+    }
+
+    label {
+        display: flex !important;
+    }
+
+    .mrblx-field-label {
+        font-weight: bold;
+
+        .mrblx-required-indicator {
+            color: $red;
+        }
+    }
+
+    & .is-error .mrblx-field-label {
+        color: $red;
+    }
+
+    .mrblx-field-error {
+        color: $red;
+        font-size: smaller;
+    }
+
+    &.mrblx-label-top {
+        & > label {
+            flex-direction: column;
+        }
+    }
+
+    &.mrblx-label-inline {
+        .mrblx-field-label {
+            flex-direction: row;
+            align-items: center;
+
+            & > span {
+                margin-right: .25em;
+            }
+        }
+    }
+
+    &.mrblx-label-inline, &.mrblx-label-none {
+        .mrblx-field-help, .mrblx-field-error {
+            margin-left: .5em;
+        }
+    }
+
+    input:focus-visible {
+        outline: none;
+    }
+}

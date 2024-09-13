@@ -1,0 +1,11 @@
+@import "~shared/scss/_editor.scss";
+
+.wp-block-mindspun-field--controls {
+    @include tabbed-controls;
+
+    .components-radio-control {
+        .components-v-stack {
+            margin: 8px 0;
+        }
+    }
+}

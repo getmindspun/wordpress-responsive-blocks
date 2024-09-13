@@ -11,6 +11,10 @@
     hr {
         margin: 0 0 1em 0;
     }
+
+    .components-base-control:last-child {
+        margin-bottom: 0;
+    }
 }
 
 .mrblx--container-contents + .mrblx--container-contents {

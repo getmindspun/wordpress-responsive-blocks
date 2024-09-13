@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace MRBLX\API;
 
-use MRBLX\Vendor\Mindspun\Framework\Facades\Globals;
+use MRBLX\Facades\Globals;
 use WP_REST_Request;
 use WP_REST_Response;
 
@@ -32,10 +32,10 @@ class FormEndpoint {
 
         $params = apply_filters( 'mrblx_form_params', $request->get_params() );
         if ( null !== $params ) {
-            do_action( 'mrblx_form_submit', $params );
+            do_action_ref_array( 'mrblx_form_submit', array( &$params ) );
         }
 
-        return apply_filters( 'mrblx_form_rest_response', new WP_REST_Response( null, 204 ) );
+        return apply_filters( 'mrblx_form_rest_response', new WP_REST_Response( array(), 200 ) );
     }
 
     /**
@@ -61,11 +61,30 @@ class FormEndpoint {
         $lines = array();
 
         foreach ( $params as $key => $value ) {
+            if ( 'errors' !== $key && 'error' !== $key ) {
+                if ( ! empty( $lines ) ) {
+                    $lines[] = '';
+                }
+                $lines[] = "<dt style=\"text-transform:uppercase\"><strong>$key</strong></dt>";
+                $lines[] = "<dd style=\"margin-bottom:1em\">$value</dd>";
+            }
+        }
+
+        $errors = array();
+        if ( array_key_exists( 'error', $params ) ) {
+            $errors = array( $params['error'] );
+        } else if ( array_key_exists( 'errors', $params ) ) {
+            $errors = $params['errors'];
+        }
+
+        if ( ! empty( $errors ) ) {
             if ( ! empty( $lines ) ) {
                 $lines[] = '';
             }
-            $lines[] = $key;
-            $lines[] = $value;
+            $lines[] = '<dt style="text-transform:uppercase"><strong>Errors</strong></dt>';
+            foreach ( $errors as $error ) {
+                $lines[] = "<dd style=\"margin-bottom:1em;color:red\">$error</dd>";
+            }
         }
 
         $to = $this->get_to();
@@ -74,10 +93,12 @@ class FormEndpoint {
         $subject = __( 'Form submission', 'mrblx' );
         $subject = apply_filters( 'mrblx_form_email_subject', $subject, $params );
 
-        $message = join( "\n", $lines );
+        $message = ! empty( $lines ) ? '<dl>' . join( "\n", $lines ) . '</dl>' : 'Empty form submission: no field data found.';
         $message = apply_filters( 'mrblx_form_email_message', $message, $params );
 
-        /* @noinspection PhpUndefinedMethodInspection */
-        Globals::wp_mail( $to, $subject, $message );
+        $headers = array( 'Content-Type: text/html; charset=UTF-8' );
+        $headers = apply_filters( 'mrblx_form_email_headers', $headers, $params );
+
+        Globals::wp_mail( $to, $subject, $message, $headers );
     }
 }

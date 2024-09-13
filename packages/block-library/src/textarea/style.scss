@@ -1,0 +1,13 @@
+@import "~shared/scss/_fields.scss";
+
+.wp-block-mindspun-textarea {
+    @include field-styles;
+
+    textarea {
+        width: 100%;
+    }
+
+    textarea:focus-visible {
+        outline: none;
+    }
+}

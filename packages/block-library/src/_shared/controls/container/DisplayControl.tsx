@@ -9,6 +9,7 @@ import {
 	useGetPreviewDeviceType,
 } from '@mindspun/mrblx';
 import { CSSProperties } from 'react';
+import { Option } from '~shared/types';
 
 type DisplayProperties = Pick<
 	BlockCSSProperties,
@@ -45,8 +46,10 @@ function displayValue(display: string): CSSProperties['display'] {
 const DisplayControl = (props: {
 	attributes: DisplayProperties;
 	setAttributes: (attributes: Partial<DisplayProperties>) => void;
+	options?: Option[];
 }) => {
 	const deviceType = useGetPreviewDeviceType();
+	const options = props.options ? props.options : OPTIONS;
 
 	function onClear() {
 		switch (deviceType) {
@@ -80,7 +83,7 @@ const DisplayControl = (props: {
 							? props.attributes.display
 							: 'default'
 					}
-					options={OPTIONS}
+					options={options}
 					onChange={(display) =>
 						props.setAttributes({ display: displayValue(display) })
 					}
@@ -94,7 +97,7 @@ const DisplayControl = (props: {
 							? props.attributes.tabletDisplay
 							: 'default'
 					}
-					options={OPTIONS}
+					options={options}
 					onChange={(tabletDisplay) =>
 						props.setAttributes({
 							tabletDisplay: displayValue(tabletDisplay),
@@ -110,7 +113,7 @@ const DisplayControl = (props: {
 							? props.attributes.mobileDisplay
 							: 'default'
 					}
-					options={OPTIONS}
+					options={options}
 					onChange={(mobileDisplay) =>
 						props.setAttributes({
 							mobileDisplay: displayValue(mobileDisplay),

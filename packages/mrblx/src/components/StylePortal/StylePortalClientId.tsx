@@ -19,6 +19,7 @@ const StylePortalClientId = (props: {
 	const iframe = document.querySelector('iframe[name="editor-canvas"]');
 
 	const id = `block-${props.clientId}`;
+
 	const css = buildCSS(id, props.attributes, {
 		selector: props.selector,
 	});
