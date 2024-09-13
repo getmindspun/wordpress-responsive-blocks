@@ -69,9 +69,6 @@ const PROPERTIES = array(
  * Creates minimized CSS rulesets
  */
 class CSSBuilder {
-
-
-
     /**
      * List of declarations indexed by media type.
      *

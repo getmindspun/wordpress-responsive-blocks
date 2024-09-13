@@ -14,6 +14,8 @@
 
 use MRBLX\Admin\SettingsPage;
 use MRBLX\API\FormEndpoint;
+use MRBLX\Facades\Styles;
+use MRBLX\Providers\StylesProvider;
 use MRBLX\Vendor\Mindspun\Framework\Autoloader;
 use MRBLX\CSSBuilder;
 use MRBLX\Vendor\Mindspun\Framework\Providers\GlobalsProvider;
@@ -37,6 +39,7 @@ if ( ! defined( 'MRBLX_REST_NAMESPACE' ) ) {
 
 /* Providers */
 GlobalsProvider::provide();
+StylesProvider::provide();
 
 /**
  * Helper function to build CSS from the block attributes using the given selector.
@@ -102,40 +105,8 @@ function mrblx_style_block( array $block ): void {
     if ( $block_id ) {
         $css = mrblx_block_css( $block );
         if ( $css ) {
-            wp_add_inline_style( 'style-mrblx', $css );
+            Styles::add( $css );
         }
-    } else {
-        // synced patterns/reusable blocks.
-        $name = $block['blockName'] ?? null;
-        $ref = $attrs['ref'] ?? false;
-        if ( $ref && 'core/block' === $name ) {
-            $post_id = intval( $ref );
-            mrblx_style_post( get_post( $post_id ) );
-        }
-    }
-
-    foreach ( $block['innerBlocks'] ?? array() as $inner_block ) {
-        mrblx_style_block( $inner_block );
-    }
-}
-
-/**
- * Handle a post or pattern.
- *
- * @param WP_Post|null $post
- * @return void
- */
-function mrblx_style_post( ?WP_Post $post ) {
-    // Keep track of the posts we've already seen in case the same pattern
-    // is used multiple times on the same page.
-    static $posts = array();
-
-    if ( $post && $post->post_content && ! isset( $posts[ $post->ID ] ) ) {
-        $blocks = parse_blocks( $post->post_content );
-        foreach ( $blocks as $block ) {
-            mrblx_style_block( $block );
-        }
-        $posts[ $post->ID ] = true;
     }
 }
 
@@ -205,31 +176,27 @@ function mrblx_enqueue_style() {
         array(),
         $plugin_data['Version']
     );
+
+    $styles = Styles::get_clean();
+    if ( $styles ) {
+        wp_add_inline_style( 'style-mrblx', $styles );
+    }
 }
 
 /* Global stylesheet for blocks that need it. This style is used in both the front-end and the editor. */
 add_action( 'wp_enqueue_scripts', 'mrblx_enqueue_style' );
 add_action( 'admin_enqueue_scripts', 'mrblx_enqueue_style' );
 
-if ( ! is_admin() ) {
-    /* The wp_enqueue_scripts hook is the first hook where $post is defined. */
-    add_action(
-        'wp_enqueue_scripts',
-        function () {
-            /* Post content */
-            mrblx_style_post( get_post() );
-
-            /* If we have a block theme, look for blocks in the template. */
-            global $_wp_current_template_content;
-            if ( current_theme_supports( 'block-templates' ) && $_wp_current_template_content ) {
-                $blocks = parse_blocks( $_wp_current_template_content );
-                foreach ( $blocks as $block ) {
-                    mrblx_style_block( $block );
-                }
-            }
-        }
-    );
-}//end if
+/* Build the styles */
+add_filter(
+    'render_block',
+    function ( $block_content, $block ) {
+        mrblx_style_block( $block );
+        return $block_content;
+    },
+    10,
+    2,
+);
 
 /* Admin / Settings page */
 add_action(
