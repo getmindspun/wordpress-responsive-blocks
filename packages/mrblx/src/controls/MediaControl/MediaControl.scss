@@ -1,36 +1,31 @@
 .mrblx--media-control {
-	small {
-		margin-top: 4px;
-	}
+    small {
+        margin-top: 4px;
+    }
 
-	.block-editor-media-placeholder {
-		margin-bottom: 1em;
-	}
+    .block-editor-media-placeholder {
+        margin-bottom: 1em;
+    }
 
-	.mrblx--filename {
-		font-family: monospace;
-		margin-bottom: 1em;
-	}
+    .mrblx--filename {
+        font-family: monospace;
+        margin-bottom: 1em;
+    }
 
-	.components-placeholder__fieldset {
-		position: relative;
+    .components-placeholder__fieldset {
+        position: relative;
 
-		/* Upload button container */
-		.components-form-file-upload {
-			width: fit-content;
-			position: absolute;
-			right: 0;
-			top: 0;
+        /* Upload button container */
+        .components-form-file-upload {
+            .components-button {
+                margin-bottom: 0;
+            }
+        }
 
-			.components-button {
-				margin-bottom: 0;
-			}
-		}
-
-		/* Media library button */
-		.components-button.is-tertiary {
-			width: fit-content;
-			margin-right: 0;
-		}
-	}
+        /* Media library button */
+        .components-button.is-tertiary {
+            width: fit-content;
+            margin-right: 0;
+        }
+    }
 }
