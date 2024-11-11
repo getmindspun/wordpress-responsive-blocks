@@ -72,7 +72,7 @@ Mindspun provides customer support to address any issues or queries. Users can a
 
 
 == Changelog ==
-= 0.18.0
+= 0.18.0 =
 * Fix the media control css which changed in 6.6.
 * Implement a simpler mechanism for rendering styles that works for with template-parts.
 * Forms and form element blocks.
