@@ -3,8 +3,8 @@ Contributors: mindspun, mattlaue
 Donate link: https://www.mindspun.com/about
 Tags: gutenberg, blocks, responsive
 Requires at least: 6.2
-Tested up to: 6.5
-Stable tag: 0.17.1
+Tested up to: 6.6
+Stable tag: 0.18.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -72,6 +72,13 @@ Mindspun provides customer support to address any issues or queries. Users can a
 
 
 == Changelog ==
+= 0.18.0
+* Fix the media control css which changed in 6.6.
+* Implement a simpler mechanism for rendering styles that works for with template-parts.
+* Forms and form element blocks.
+* Add a basic settings page and a forms REST API endpoint.
+* Add the TableEditor component.
+
 = 0.17.1 =
 * Update build for most recent webpack.
 = 0.17.0 =
