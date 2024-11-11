@@ -4,7 +4,7 @@ Donate link: https://www.mindspun.com/about
 Tags: gutenberg, blocks, responsive
 Requires at least: 6.2
 Tested up to: 6.6
-Stable tag: 0.18.0
+Stable tag: 0.18.1
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -72,7 +72,12 @@ Mindspun provides customer support to address any issues or queries. Users can a
 
 
 == Changelog ==
+= 0.18.1 =
+* Check for reusable blocks when generating a blockId.
+* Make generate styles run in a later hook (wp-footer).
+
 = 0.18.0 =
+Release Date: Nov 11th, 2024
 * Fix the media control css which changed in 6.6.
 * Implement a simpler mechanism for rendering styles that works for with template-parts.
 * Forms and form element blocks.
@@ -81,6 +86,7 @@ Mindspun provides customer support to address any issues or queries. Users can a
 
 = 0.17.1 =
 * Update build for most recent webpack.
+
 = 0.17.0 =
 Release Date: Jun 26th, 2024
 * Add a whitespace control to the container block.
