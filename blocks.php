@@ -184,7 +184,7 @@ function mrblx_enqueue_style() {
 }
 
 /* Global stylesheet for blocks that need it. This style is used in both the front-end and the editor. */
-add_action( 'wp_enqueue_scripts', 'mrblx_enqueue_style' );
+add_action( 'wp_footer', 'mrblx_enqueue_style' );
 add_action( 'admin_enqueue_scripts', 'mrblx_enqueue_style' );
 
 /* Build the styles */
